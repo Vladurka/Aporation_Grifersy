@@ -3863,7 +3863,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
+    m_Font: {fileID: 12800000, guid: aa54080562c054442af9718d50de84c7, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -5182,6 +5182,7 @@ GameObject:
   - component: {fileID: 891146403}
   - component: {fileID: 891146402}
   - component: {fileID: 891146401}
+  - component: {fileID: 891146404}
   m_Layer: 5
   m_Name: ButtonBuy
   m_TagString: Untagged
@@ -5291,6 +5292,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891146399}
   m_CullTransparentMesh: 1
+--- !u!114 &891146404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891146399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: com.aporation.GetAkSkin
+  buttonType: 0
+  consumePurchase: 1
+  onTransactionsRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1386474584}
+        m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
+        m_MethodName: BuyNewAkSkin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1771402632}
+          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &895807630
 GameObject:
   m_ObjectHideFlags: 0
@@ -10071,6 +10111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771402631}
+  - component: {fileID: 1771402632}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -10097,6 +10138,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1771402632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771402630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: AIM_ON
+  Number: 0
+  BuyButton: {fileID: 891146399}
+  UseButton: {fileID: 1573811804}
 --- !u!1 &1837114971
 GameObject:
   m_ObjectHideFlags: 0
@@ -11702,7 +11759,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
+    m_Font: {fileID: 12800000, guid: aa54080562c054442af9718d50de84c7, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -11939,7 +11996,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
+    m_Font: {fileID: 12800000, guid: aa54080562c054442af9718d50de84c7, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -12139,7 +12196,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
+    m_Font: {fileID: 12800000, guid: aa54080562c054442af9718d50de84c7, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
