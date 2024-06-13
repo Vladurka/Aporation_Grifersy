@@ -1420,8 +1420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: BLAST_SET
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 902885113}
+  UseButton: {fileID: 94318205}
 --- !u!1 &201953631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,8 +1875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FOREST
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 952595522}
+  UseButton: {fileID: 785222531}
 --- !u!1 &240285196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,8 +2490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: LIGHT_ROUGH
   Number: 4
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 292972395}
+  UseButton: {fileID: 1240819270}
 --- !u!1 &322308724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,8 +3853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FADE
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 313247391}
+  UseButton: {fileID: 1908871591}
 --- !u!1 &568688373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,8 +3905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DUMMY_COLOR
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 179204575}
+  UseButton: {fileID: 1745026528}
 --- !u!1 &573527063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4758,8 +4758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: LGBT_ON
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1768698811}
+  UseButton: {fileID: 732600514}
 --- !u!1 &701746643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4810,8 +4810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GREY
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1389344980}
+  UseButton: {fileID: 895807630}
 --- !u!1 &732600514
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,8 +5143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GOLD
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 405939548}
+  UseButton: {fileID: 2050294284}
 --- !u!1 &785222531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5814,8 +5814,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: SHALL_CASING
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 535481}
+  UseButton: {fileID: 794952001}
 --- !u!1 &858858524
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,8 +6506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GOLD
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 405939548}
+  UseButton: {fileID: 2050294284}
 --- !u!1 &912698603
 GameObject:
   m_ObjectHideFlags: 0
@@ -7226,8 +7226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: SHALL_CASING
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 535481}
+  UseButton: {fileID: 794952001}
 --- !u!1 &1073635152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7278,8 +7278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: LGBT_ON
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1768698811}
+  UseButton: {fileID: 732600514}
 --- !u!1 &1098057240
 GameObject:
   m_ObjectHideFlags: 0
@@ -7409,8 +7409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GREY
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1389344980}
+  UseButton: {fileID: 895807630}
 --- !u!1 &1160719127
 GameObject:
   m_ObjectHideFlags: 0
@@ -7444,7 +7444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 110}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160719129
@@ -7461,8 +7461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: AIM_ON
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 891146399}
+  UseButton: {fileID: 1573811804}
 --- !u!1 &1184555517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7513,8 +7513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FIREAXE
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 361029595}
+  UseButton: {fileID: 121760169}
 --- !u!1 &1187499827
 GameObject:
   m_ObjectHideFlags: 0
@@ -8354,8 +8354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GYPSY_GOLD
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 613281907}
+  UseButton: {fileID: 1431202186}
 --- !u!1 &1317192035
 GameObject:
   m_ObjectHideFlags: 0
@@ -9303,8 +9303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FADE
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 313247391}
+  UseButton: {fileID: 1908871591}
 --- !u!1 &1495374749
 GameObject:
   m_ObjectHideFlags: 0
@@ -9991,8 +9991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FIREAXE
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 361029595}
+  UseButton: {fileID: 121760169}
 --- !u!1 &1626340268
 GameObject:
   m_ObjectHideFlags: 0
@@ -10615,8 +10615,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FOREST
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 952595522}
+  UseButton: {fileID: 785222531}
 --- !u!1 &1727569091
 GameObject:
   m_ObjectHideFlags: 0
@@ -10909,8 +10909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GYPSY_GOLD
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 613281907}
+  UseButton: {fileID: 1431202186}
 --- !u!1 &1736420150
 GameObject:
   m_ObjectHideFlags: 0
@@ -11522,8 +11522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DESERT
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1928806772}
+  UseButton: {fileID: 2138505068}
 --- !u!1 &1837114971
 GameObject:
   m_ObjectHideFlags: 0
@@ -11728,7 +11728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 110}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849391925
@@ -11745,8 +11745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: AIM_ON
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 891146399}
+  UseButton: {fileID: 1573811804}
 --- !u!1 &1852629036
 GameObject:
   m_ObjectHideFlags: 0
@@ -12076,8 +12076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: LIGHT_ROUGH
   Number: 4
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 292972395}
+  UseButton: {fileID: 1240819270}
 --- !u!1 &1871607331
 GameObject:
   m_ObjectHideFlags: 0
@@ -12205,8 +12205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: BLAST_SET
   Number: 2
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 902885113}
+  UseButton: {fileID: 94318205}
 --- !u!1 &1897185929
 GameObject:
   m_ObjectHideFlags: 0
@@ -12512,8 +12512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: COUPE
   Number: 3
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1198201832}
+  UseButton: {fileID: 487747307}
 --- !u!1 &1928806772
 GameObject:
   m_ObjectHideFlags: 0
@@ -13717,8 +13717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DESERT
   Number: 0
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1928806772}
+  UseButton: {fileID: 2138505068}
 --- !u!1 &2073076664
 GameObject:
   m_ObjectHideFlags: 0
@@ -13848,8 +13848,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: COUPE
   Number: 3
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 1198201832}
+  UseButton: {fileID: 487747307}
 --- !u!1 &2081485220
 GameObject:
   m_ObjectHideFlags: 0
@@ -14346,8 +14346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DUMMY_COLOR
   Number: 1
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  BuyButton: {fileID: 179204575}
+  UseButton: {fileID: 1745026528}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
