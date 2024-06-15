@@ -490,7 +490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &344733347
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 23bdd555b416a6c459b5bad0bda4b4ed, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: dc0e4c686b8746940a4bfc95ab5d128f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &525955104
 GameObject:
@@ -4819,7 +4819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &368613760736735645
 Transform:
   m_ObjectHideFlags: 0
@@ -16600,7 +16600,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559100668097392543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e485169f7984d96438523075b1d3dba4, type: 3}
   m_Name: 
