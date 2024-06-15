@@ -9,7 +9,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     private bool PauseGame;
 
-    private void Start()
+    public void Init()
     {
         gamePanel.SetActive(true);
         settingsPanel.SetActive(false);

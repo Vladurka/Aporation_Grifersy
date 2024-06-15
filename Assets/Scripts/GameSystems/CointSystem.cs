@@ -11,18 +11,21 @@ public class CoinSystem : IService
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
+        _eventBus.Invoke(new UpdateMoney(Money));
         _eventBus.Subscribe<MoneyAdd>(AddMoney, 1);
     }
 
     private void AddMoney(MoneyAdd money)
     {
         Money += money.Amount;
-        Debug.Log(Money);
+        _eventBus.Invoke(new UpdateMoney(Money));
     }
 
     public void SpendMoney(int amount)
     {
         Money -= amount;
+        _eventBus.Invoke(new UpdateMoney(Money));
+
         if (Money < 0)
             Debug.LogError("There is no money");
     }

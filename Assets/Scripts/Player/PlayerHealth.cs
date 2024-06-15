@@ -1,10 +1,20 @@
 using UnityEngine;
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 
 namespace Game.Player
 {
     public class PlayerHealth : MonoBehaviour, IPlayerHealth, IService
     {
         public float Health { get; set; } = 10f;
+
+        private EventBus _eventBus;
+
+        public void Init()
+        {
+            _eventBus = ServiceLocator.Current.Get<EventBus>();
+            _eventBus.Invoke(new UpdateHealth(Health));
+        }
 
         public void Die()
         {
@@ -16,9 +26,12 @@ namespace Game.Player
             Health -= damage;
 
             if (Health <= 0)
+            {
                 Die();
+                Health = 0;
+            }
 
-            Debug.Log(Health);
+            _eventBus.Invoke(new UpdateHealth(Health));
         }
     }
 }

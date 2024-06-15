@@ -23,21 +23,24 @@ public class GrenadeThrower : MonoBehaviour, IService
     {
         _grenadeModel.SetActive(true);
         _canThrow = true;
+        _eventBus.Invoke(new UpdateTotalBullets(Grenades));
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _canThrow == true /*&& Grenades > 0*/)
+        if (Input.GetMouseButtonDown(0) && _canThrow == true && Grenades > 0)
         {
             _eventBus.Invoke(new Throw1());
         }
 
-        if (Input.GetMouseButtonUp(0) && _canThrow == true /*&& Grenades > 0*/)
+        if (Input.GetMouseButtonUp(0) && _canThrow == true && Grenades > 0)
         {
             _eventBus.Invoke(new Throw2());
             Instantiate(_grenade, _throwPoint.position, _throwPoint.rotation).Throw(_throwPoint.forward * _throwForce);
             _grenadeModel.SetActive(false);
+            Grenades--;
             _canThrow = false;
+            _eventBus.Invoke(new UpdateTotalBullets(Grenades));
         }
     }
 }

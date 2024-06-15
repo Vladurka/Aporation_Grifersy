@@ -9,12 +9,13 @@ namespace Game.Weapon
     [RequireComponent(typeof(AudioSource))]
     public class RPG : AbstractWeapon, IService
     {
-        [Header("Require to fill")]
         [SerializeField] private GameObject _staticBullet;
         [SerializeField] private GameObject _bullet;
         [SerializeField] private Transform _spawnBullet;
 
         [SerializeField] private float _shootForce = 1f;
+
+        [SerializeField] private AudioClip _noBulletsSound;
 
         private AudioSource _audioSource;
 
@@ -35,8 +36,13 @@ namespace Game.Weapon
 
         private void OnEnable()
         {
-            _mainCamera.enabled = true;
-            Realod();
+            if (TotalBullets > 0)
+            {
+                _mainCamera.enabled = true;
+                Realod();
+            }
+
+            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
         }
 
         void Update()
@@ -54,7 +60,7 @@ namespace Game.Weapon
 
         protected override IEnumerator Shoot(Camera cam)
         {
-            if (Bullets > 0)
+            if (TotalBullets > 0)
             {
                 _audioSource.Play();
                 _eventBus.Invoke(new RpgShootAnim());
@@ -79,17 +85,23 @@ namespace Game.Weapon
                 currentBullet.transform.forward = dirWidthSpread.normalized;
                 currentBullet.GetComponent<Rigidbody>().AddForce(dirWidthSpread.normalized * _shootForce, ForceMode.Impulse);
                 _staticBullet.SetActive(false);
-                Bullets--;
+                TotalBullets--;
 
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
-
-                yield return null;
+                _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
+                
             }
+
+            if (TotalBullets <= 0)
+            {
+                _audioSource.PlayOneShot(_noBulletsSound);
+            }
+
+            yield return null;
         }
 
         private void Realod()
         {
-            Bullets = 1;
             _staticBullet.SetActive(true);
         }
 

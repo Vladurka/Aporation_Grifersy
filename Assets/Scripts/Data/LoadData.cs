@@ -63,7 +63,7 @@ namespace Game.Data
             _weaponAk.Bullets = data.AKBulletsData;
             _weaponAk.TotalBullets = data.AKTotalBulletsData;
 
-            _rpg.TotalBullets = data.AKTotalBulletsData;
+            _rpg.TotalBullets = data.RPGTotalBulletsData;
 
             _grenadeThrower.Grenades = data.GrenadesData;
 

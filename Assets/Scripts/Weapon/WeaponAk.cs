@@ -43,6 +43,9 @@ namespace Game.Weapon
         private void OnEnable()
         {
             _mainCamera.enabled = true;
+            _eventBus.Invoke(new SetCurrentBullets(true));
+            _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
+            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
         }
 
         private void Update()
@@ -95,6 +98,7 @@ namespace Game.Weapon
                 Instantiate(_shootingEffect, _spawnPosition.position, _spawnPosition.transform.rotation);
                 Bullets--;
 
+                _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
 
                 yield return new WaitForSeconds(0.15f);
@@ -112,17 +116,36 @@ namespace Game.Weapon
         private void AddBullets(BuyAkBullets bullets)
         {
             TotalBullets += bullets.Amount;
+            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
         }
 
         private void Reaload()
         {
-            Bullets = _maxBullets;
+            if (TotalBullets >= _maxBullets)
+            {
+                TotalBullets -= _maxBullets;
+                Bullets = _maxBullets;
+            }
+
+            if (TotalBullets < _maxBullets)
+            {
+                Bullets = TotalBullets;
+                TotalBullets = 0;
+            }
+
             _canShoot = true;
+            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
+            _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
         }
 
         private void GetCamera(SetAimCamera AimCamera)
         {
             _aimCamera = AimCamera.AimCamera;
+        }
+
+        private void OnDisable()
+        {
+            _eventBus.Invoke(new SetCurrentBullets(false));
         }
 
         private void OnDestroy()

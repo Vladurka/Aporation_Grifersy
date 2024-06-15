@@ -37,6 +37,10 @@ namespace Game
         [SerializeField] private GrenadeAnim _grenadeAnim;
         [SerializeField] private KnifeAnim _knifeAnim;
 
+        [Header("UI")]
+        [SerializeField] private GameUI _gameUI;
+        [SerializeField] private GamePanel _gamePanel;
+
         [Header("Else")]
         [SerializeField] private Raycasts _raycasts;
         [SerializeField] private BaseStates _baseStates;
@@ -64,6 +68,8 @@ namespace Game
             _loadData.LoadInfo();
             _saveData.Init();
 
+            _gamePanel.Init();
+            _playerHealth.Init();
             _helicopterStatesController.Init();
             _carStatesController.Init();
             _movement.Init();
@@ -90,7 +96,7 @@ namespace Game
             _grenadeAnim.Init();
             _knifeAnim.Init();
 
-
+            _gameUI.Init();
 
             Debug.Log("Initializated");
         }
