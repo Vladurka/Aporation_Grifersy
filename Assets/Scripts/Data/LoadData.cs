@@ -18,6 +18,7 @@ namespace Game.Data
         private BaseStates _baseStates;
         private HelicopterStatesController _helicopterStatesController;
         private GrenadeThrower _grenadeThrower;
+        private SetMine _setMine;
         
         public void Init()
         {
@@ -33,6 +34,7 @@ namespace Game.Data
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _baseStates = ServiceLocator.Current.Get<BaseStates>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
+            _setMine = ServiceLocator.Current.Get<SetMine>();
         }
 
         public void LoadInfo()
@@ -66,6 +68,8 @@ namespace Game.Data
             _rpg.TotalBullets = data.RPGTotalBulletsData;
 
             _grenadeThrower.Grenades = data.GrenadesData;
+
+            _setMine.TotalBullets = data.MinesData;
 
             _scopeLevels.ScopeLevel = data.ScopeLevelData; 
 

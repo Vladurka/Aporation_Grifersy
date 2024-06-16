@@ -30,6 +30,7 @@ namespace Game
         [SerializeField] private ChangeAkSkin _changeAkSkin;
         [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
         [SerializeField] private GrenadeThrower _grenadeThrower;
+        [SerializeField] private SetMine _mines;
 
         [Header("Animations")]
         [SerializeField] private AKAnim _akAnim;
@@ -78,6 +79,7 @@ namespace Game
             _weaponAk.Init();
             _rpg.Init();
             _knife.Init();
+            _mines.Init();
             _enemyListController.Init();
             _raycasts.Init();
             _baseStates.Init();
@@ -122,6 +124,7 @@ namespace Game
             ServiceLocator.Current.Register<Shop>(_shop);
             ServiceLocator.Current.Register<SaveData>(_saveData);
             ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
+            ServiceLocator.Current.Register<SetMine>(_mines);
             Debug.Log("Registreted");
         }
     }
