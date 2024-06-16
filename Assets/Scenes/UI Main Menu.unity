@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &535482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -271,8 +271,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 846603763}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -804,7 +804,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1585109045}
-  - {fileID: 1895991380}
   m_Father: {fileID: 1029909264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -861,8 +860,8 @@ MonoBehaviour:
         m_MethodName: BuyNewCarSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 191526023}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -994,8 +993,8 @@ MonoBehaviour:
         m_MethodName: BuyNewRpgSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1184555519}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1379,8 +1378,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2143283250}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: a975f354e22612e49a4d65e02b4d2209, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1408,7 +1407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &191526022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1440,10 +1439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: DESERT
-  Number: 0
-  BuyButton: {fileID: 902885113}
-  UseButton: {fileID: 94318205}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &201953631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &201953632
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1804,7 +1802,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 662423842}
   m_HandleRect: {fileID: 662423841}
   m_Direction: 2
-  m_Value: -0.00000017681099
+  m_Value: 1
   m_Size: 0.5360215
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1864,7 +1862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &222205047
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1896,10 +1894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: FOREST
-  Number: 1
-  BuyButton: {fileID: 952595522}
-  UseButton: {fileID: 785222531}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &240285196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &292972396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2208,8 +2205,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 322221332}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2319,7 +2316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &313247392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2448,8 +2445,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1485560623}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2477,7 +2474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &322221331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2509,10 +2506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: LIGHT_ROUGH
-  Number: 4
-  BuyButton: {fileID: 292972395}
-  UseButton: {fileID: 1240819270}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &322308724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &361029596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2815,8 +2811,8 @@ MonoBehaviour:
         m_MethodName: BuyNewRpgSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1184555519}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2922,7 +2918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &405939549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3051,8 +3047,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 762926336}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3416,7 +3412,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 573527064}
-  - {fileID: 2075957415}
   m_Father: {fileID: 524054783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3473,8 +3468,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1921497465}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3535,7 +3530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &488670324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3615,7 +3610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &516274721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3744,8 +3739,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 758584167}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3774,7 +3769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &524054783
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3835,110 +3830,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524054782}
   m_CullTransparentMesh: 1
---- !u!1 &545692737
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 545692738}
-  - component: {fileID: 545692739}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &545692738
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545692737}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1908871592}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1050, y: 1285}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &545692739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545692737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: FADE
-  Number: 2
-  BuyButton: {fileID: 313247391}
-  UseButton: {fileID: 1908871591}
---- !u!1 &568688373
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 568688374}
-  - component: {fileID: 568688375}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &568688374
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568688373}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1745026529}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 110}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &568688375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568688373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: DUMMY_COLOR
-  Number: 1
-  BuyButton: {fileID: 179204575}
-  UseButton: {fileID: 1745026528}
 --- !u!1 &573527063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,7 +4140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &613281908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4378,8 +4269,8 @@ MonoBehaviour:
         m_MethodName: BuyNewRpgSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1734918502}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4568,7 +4459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &644387846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4740,58 +4631,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &698807285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 698807286}
-  - component: {fileID: 698807287}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &698807286
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698807285}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 732600515}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: 436}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &698807287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698807285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: LGBT_ON
-  Number: 1
-  BuyButton: {fileID: 1768698811}
-  UseButton: {fileID: 732600514}
 --- !u!1 &732600514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4824,7 +4663,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1213782201}
-  - {fileID: 698807286}
   m_Father: {fileID: 1736420151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4881,8 +4719,8 @@ MonoBehaviour:
         m_MethodName: BuyNewRpgSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1073635154}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5049,7 +4887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &758584166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5081,10 +4919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: LAVA_PATTERN
-  Number: 3
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &762926334
 GameObject:
   m_ObjectHideFlags: 0
@@ -5101,7 +4938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &762926335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5133,10 +4970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: COUPE
-  Number: 3
-  BuyButton: {fileID: 405939548}
-  UseButton: {fileID: 2050294284}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &785222531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,7 +5005,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1098057241}
-  - {fileID: 1710384807}
   m_Father: {fileID: 1641936517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5226,8 +5061,8 @@ MonoBehaviour:
         m_MethodName: BuyNewCarSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 222205048}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5407,7 +5242,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1737152219}
-  - {fileID: 1069681572}
   m_Father: {fileID: 822415717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5464,8 +5298,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 846603763}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5562,7 +5396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &822415717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5797,7 +5631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &846603762
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5829,10 +5663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: SHALL_CASING
-  Number: 2
-  BuyButton: {fileID: 535481}
-  UseButton: {fileID: 794952001}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &858858524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5850,7 +5683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &858858525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6005,7 +5838,7 @@ GameObject:
   - component: {fileID: 891146401}
   - component: {fileID: 891146404}
   m_Layer: 5
-  m_Name: ButtonBuy
+  m_Name: AkButtonBuy0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6139,8 +5972,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1849391925}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: 57feeee041ebd4145ab086669411264c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6240,8 +6073,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1147744640}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6340,7 +6173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &902885114
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6469,8 +6302,8 @@ MonoBehaviour:
         m_MethodName: BuyNewCarSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 191526023}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6482,58 +6315,6 @@ MonoBehaviour:
   titleText: {fileID: 0}
   descriptionText: {fileID: 0}
   priceText: {fileID: 0}
---- !u!1 &909449755
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 909449756}
-  - component: {fileID: 909449757}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &909449756
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909449755}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2050294285}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1285}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &909449757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909449755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: GOLD
-  Number: 1
-  BuyButton: {fileID: 405939548}
-  UseButton: {fileID: 2050294284}
 --- !u!1 &912698603
 GameObject:
   m_ObjectHideFlags: 0
@@ -6824,7 +6605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &952595523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6953,8 +6734,8 @@ MonoBehaviour:
         m_MethodName: BuyNewCarSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 222205048}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6983,7 +6764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &978490655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7142,7 +6923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1029909264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7203,58 +6984,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029909263}
   m_CullTransparentMesh: 1
---- !u!1 &1069681571
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1069681572}
-  - component: {fileID: 1069681573}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1069681572
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069681571}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 794952002}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 110}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1069681573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069681571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: SHALL_CASING
-  Number: 2
-  BuyButton: {fileID: 535481}
-  UseButton: {fileID: 794952001}
 --- !u!1 &1073635152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7271,7 +7000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1073635153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7303,10 +7032,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: LGBT_ON
-  Number: 1
-  BuyButton: {fileID: 1768698811}
-  UseButton: {fileID: 732600514}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1098057240
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,7 +7130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147744639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7434,62 +7162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: GREY
-  Number: 0
-  BuyButton: {fileID: 1389344980}
-  UseButton: {fileID: 895807630}
---- !u!1 &1160719127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1160719128}
-  - component: {fileID: 1160719129}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1160719128
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160719127}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1573811805}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 110}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1160719129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160719127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: AIM_ON
-  Number: 0
-  BuyButton: {fileID: 891146399}
-  UseButton: {fileID: 1573811804}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1184555517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,7 +7181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1184555518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7538,10 +7213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: GYPSY_GOLD
-  Number: 2
-  BuyButton: {fileID: 361029595}
-  UseButton: {fileID: 121760169}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1187499827
 GameObject:
   m_ObjectHideFlags: 0
@@ -7559,7 +7233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1187499828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7721,7 +7395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1198201833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7850,8 +7524,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1921497465}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7974,7 +7648,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 240285197}
-  - {fileID: 1858199112}
   m_Father: {fileID: 201953632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8031,8 +7704,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 322221332}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8343,110 +8016,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265510631}
   m_CullTransparentMesh: 1
---- !u!1 &1275312694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1275312695}
-  - component: {fileID: 1275312696}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1275312695
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275312694}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1431202187}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1050, y: 436}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1275312696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275312694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: GYPSY_GOLD
-  Number: 2
-  BuyButton: {fileID: 613281907}
-  UseButton: {fileID: 1431202186}
---- !u!1 &1317192035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1317192036}
-  - component: {fileID: 1317192037}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1317192036
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317192035}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2132031769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 110}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1317192037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317192035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: LAVA_PATTERN
-  Number: 3
-  BuyButton: {fileID: 516274720}
-  UseButton: {fileID: 2132031768}
 --- !u!1 &1355589620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8616,7 +8185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1389344981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8745,8 +8314,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1147744640}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9019,7 +8588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1412806076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9202,7 +8771,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1987549576}
-  - {fileID: 1275312695}
   m_Father: {fileID: 1853681349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9259,8 +8827,8 @@ MonoBehaviour:
         m_MethodName: BuyNewRpgSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1734918502}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9320,7 +8888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1485560622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9352,10 +8920,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: GOLD
-  Number: 1
-  BuyButton: {fileID: 313247391}
-  UseButton: {fileID: 1908871591}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1495374749
 GameObject:
   m_ObjectHideFlags: 0
@@ -9729,7 +9296,7 @@ GameObject:
   - component: {fileID: 1573811807}
   - component: {fileID: 1573811806}
   m_Layer: 5
-  m_Name: ButtonUse
+  m_Name: AkButtonUse0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9748,7 +9315,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2073076665}
-  - {fileID: 1160719128}
   m_Father: {fileID: 1265510632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9805,8 +9371,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1849391925}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: 57feeee041ebd4145ab086669411264c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10196,7 +9762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1641936517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10353,7 +9919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1678858402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10578,58 +10144,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706871616}
   m_CullTransparentMesh: 1
---- !u!1 &1710384806
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1710384807}
-  - component: {fileID: 1710384808}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1710384807
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710384806}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 785222532}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: 822.00006}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1710384808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710384806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: FOREST
-  Number: 1
-  BuyButton: {fileID: 952595522}
-  UseButton: {fileID: 785222531}
 --- !u!1 &1727569091
 GameObject:
   m_ObjectHideFlags: 0
@@ -10888,7 +10402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1734918501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10920,10 +10434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: FIREAXE
-  Number: 0
-  BuyButton: {fileID: 613281907}
-  UseButton: {fileID: 1431202186}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1736420150
 GameObject:
   m_ObjectHideFlags: 0
@@ -10941,7 +10454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1736420151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11234,7 +10747,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1848381903}
-  - {fileID: 568688374}
   m_Father: {fileID: 67285798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11291,8 +10803,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2143283250}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: a975f354e22612e49a4d65e02b4d2209, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11355,7 +10867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1768698812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11484,8 +10996,8 @@ MonoBehaviour:
         m_MethodName: BuyNewRpgSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1073635154}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11513,7 +11025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1787293580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11545,10 +11057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: BLAST_SET
-  Number: 2
-  BuyButton: {fileID: 1928806772}
-  UseButton: {fileID: 2138505068}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1837114971
 GameObject:
   m_ObjectHideFlags: 0
@@ -11768,10 +11279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: AIM_ON
-  Number: 0
-  BuyButton: {fileID: 891146399}
-  UseButton: {fileID: 1573811804}
+  _skinData: {fileID: 11400000, guid: 57feeee041ebd4145ab086669411264c, type: 2}
+  _buyButton: {fileID: 891146399}
+  _useButton: {fileID: 1573811804}
 --- !u!1 &1852629036
 GameObject:
   m_ObjectHideFlags: 0
@@ -11870,7 +11380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1853681349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12052,58 +11562,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857815290}
   m_CullTransparentMesh: 1
---- !u!1 &1858199111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1858199112}
-  - component: {fileID: 1858199113}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1858199112
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858199111}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1240819271}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 110}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1858199113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858199111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: LIGHT_ROUGH
-  Number: 4
-  BuyButton: {fileID: 292972395}
-  UseButton: {fileID: 1240819270}
 --- !u!1 &1871607331
 GameObject:
   m_ObjectHideFlags: 0
@@ -12121,7 +11579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871607332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12182,58 +11640,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871607331}
   m_CullTransparentMesh: 1
---- !u!1 &1895991379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1895991380}
-  - component: {fileID: 1895991381}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1895991380
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895991379}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 94318206}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1050, y: 822.00006}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1895991381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895991379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: BLAST_SET
-  Number: 2
-  BuyButton: {fileID: 902885113}
-  UseButton: {fileID: 94318205}
 --- !u!1 &1897185929
 GameObject:
   m_ObjectHideFlags: 0
@@ -12399,7 +11805,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 299315397}
-  - {fileID: 545692738}
   m_Father: {fileID: 978490655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12456,8 +11861,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1485560623}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12517,7 +11922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1921497464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12549,10 +11954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: FADE
-  Number: 2
-  BuyButton: {fileID: 1198201832}
-  UseButton: {fileID: 487747307}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1928806772
 GameObject:
   m_ObjectHideFlags: 0
@@ -12572,7 +11976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1928806773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12701,8 +12105,8 @@ MonoBehaviour:
         m_MethodName: BuyNewCarSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1787293581}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13327,7 +12731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2019907923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13501,7 +12905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 690.4002}
+  m_AnchoredPosition: {x: 0, y: 0.000022797938}
   m_SizeDelta: {x: 0, y: 1488}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2044960369
@@ -13615,7 +13019,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1943138779}
-  - {fileID: 909449756}
   m_Father: {fileID: 1678858402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -13672,8 +13075,8 @@ MonoBehaviour:
         m_MethodName: BuyNewKnifeSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 762926336}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13717,58 +13120,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050294284}
   m_CullTransparentMesh: 1
---- !u!1 &2072595905
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2072595906}
-  - component: {fileID: 2072595907}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2072595906
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072595905}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2138505069}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 818.00006}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2072595907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072595905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: DESERT
-  Number: 0
-  BuyButton: {fileID: 1928806772}
-  UseButton: {fileID: 2138505068}
 --- !u!1 &2073076664
 GameObject:
   m_ObjectHideFlags: 0
@@ -13848,58 +13199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073076664}
   m_CullTransparentMesh: 1
---- !u!1 &2075957414
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2075957415}
-  - component: {fileID: 2075957416}
-  m_Layer: 5
-  m_Name: Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2075957415
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075957414}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 487747308}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 1285}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2075957416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075957414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: COUPE
-  Number: 3
-  BuyButton: {fileID: 1198201832}
-  UseButton: {fileID: 487747307}
 --- !u!1 &2081485220
 GameObject:
   m_ObjectHideFlags: 0
@@ -14134,7 +13433,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1706871617}
-  - {fileID: 1317192036}
   m_Father: {fileID: 488670324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14191,8 +13489,8 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 758584167}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14268,7 +13566,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 596572336}
-  - {fileID: 2072595906}
   m_Father: {fileID: 644387846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14325,8 +13622,8 @@ MonoBehaviour:
         m_MethodName: BuyNewCarSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1787293581}
-          m_ObjectArgumentAssemblyTypeName: SkinInfo, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14418,10 +13715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: DUMMY_COLOR
-  Number: 1
-  BuyButton: {fileID: 179204575}
-  UseButton: {fileID: 1745026528}
+  _skinData: {fileID: 11400000, guid: a975f354e22612e49a4d65e02b4d2209, type: 2}
+  _buyButton: {fileID: 179204575}
+  _useButton: {fileID: 1745026528}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

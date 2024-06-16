@@ -2,44 +2,37 @@ using UnityEngine;
 
 public class SkinInfo : MonoBehaviour
 {
-    [SerializeField] private string _key;
+    [SerializeField] private SkinData _skinData;
 
-    private int _saveCondition;
-
-    public int Number;
-
-    public GameObject BuyButton;
-    public GameObject UseButton;
-
-    private void Start()
+    [SerializeField] private GameObject _buyButton;
+    [SerializeField] private GameObject _useButton;
+    public void Start()
     {
-        _saveCondition = PlayerPrefs.GetInt(_key);
+        _skinData.BuyButton = _buyButton;
+        _skinData.UseButton = _useButton;
 
-        if (_saveCondition == 1)
+        _skinData.SaveCondition = PlayerPrefs.GetInt(_skinData.Key);
+
+        if (_skinData.SaveCondition == 1)
             CanUse();
 
-        if (!PlayerPrefs.HasKey(_key))
+        if (!PlayerPrefs.HasKey(_skinData.Key) || _skinData.SaveCondition == 0)
             CantUse();
     }
 
-    public void Use()
+    public void CanUse()
     {
-        Invoke("CanUse", 0.1f);
-    }
-
-    private void CanUse()
-    {
-        BuyButton.SetActive(false);
-        UseButton.SetActive(true);
-        PlayerPrefs.SetInt(_key, 1);
+        _skinData.UseButton.SetActive(true);
+        _skinData.BuyButton.SetActive(false);
+        PlayerPrefs.SetInt(_skinData.Key, 1);
         PlayerPrefs.Save();
     }
 
     private void CantUse()
     {
-        BuyButton.SetActive(true);
-        UseButton.SetActive(false);
-        PlayerPrefs.SetInt(_key, 0);
+        _skinData.BuyButton.SetActive(true);
+        _skinData.UseButton.SetActive(false);
+        PlayerPrefs.SetInt(_skinData.Key, 0);
         PlayerPrefs.Save();
     }
 }

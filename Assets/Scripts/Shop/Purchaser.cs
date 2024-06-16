@@ -3,10 +3,6 @@ using UnityEngine.Purchasing;
 
 public class Purchaser : MonoBehaviour
 {
-    private int AkSkinIndex;
-    private int KnifeSkinIndex;
-    private int CarSkinIndex;
-    private int RpgSkinIndex;
     public void OnPurchaseComplete(Product product)
     {
         switch (product.definition.id)
@@ -24,35 +20,31 @@ public class Purchaser : MonoBehaviour
                 break;
         }
     }
-    public void BuyNewAkSkin(SkinInfo info)
+    public void BuyNewAkSkin(SkinData info)
     {
-        AkSkinIndex = info.Number;
-        PlayerPrefs.SetInt(ConstSystem.AK_SKIN_INDEX, AkSkinIndex);
+        PlayerPrefs.SetInt(ConstSystem.AK_SKIN_INDEX, info.Number);
         PlayerPrefs.Save();
-        info.Use();
+        info.UseButton.SetActive(true);
     }
 
-    public void BuyNewKnifeSkin(SkinInfo info)
+    public void BuyNewKnifeSkin(SkinData info)
     {
-        KnifeSkinIndex = info.Number;
-        PlayerPrefs.SetInt(ConstSystem.KNIFE_SKIN_INDEX, KnifeSkinIndex);
+        PlayerPrefs.SetInt(ConstSystem.KNIFE_SKIN_INDEX, info.Number);
         PlayerPrefs.Save();
-        info.Use();
+        info.UseButton.SetActive(true);
     }
 
-    public void BuyNewCarSkin(SkinInfo info)
+    public void BuyNewCarSkin(SkinData info)
     {
-        CarSkinIndex = info.Number;
-        PlayerPrefs.SetInt(ConstSystem.CAR_SKIN_INDEX, CarSkinIndex);
+        PlayerPrefs.SetInt(ConstSystem.CAR_SKIN_INDEX, info.Number);
         PlayerPrefs.Save();
-        info.Use();
+        info.UseButton.SetActive(true);
     }
 
-    public void BuyNewRpgSkin(SkinInfo info)
+    public void BuyNewRpgSkin(SkinData info)
     {
-        RpgSkinIndex = info.Number;
-        PlayerPrefs.SetInt(ConstSystem.RPG_SKIN_INDEX, RpgSkinIndex);
+        PlayerPrefs.SetInt(ConstSystem.RPG_SKIN_INDEX, info.Number);
         PlayerPrefs.Save();
-        info.Use();
+        info.UseButton.SetActive(true);
     }
 }
