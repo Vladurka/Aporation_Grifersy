@@ -33,7 +33,7 @@ public static class ConstSystem
     public const string RPG_SKIN1 = "LGBT_ON";
     public const string RPG_SKIN2 = "GYPSY_GOLD";
 
-    public const string GLOVES_SKIN0 = "";
-    public const string GLOVES_SKIN1 = "";
-    public const string GLOVES_SKIN2 = "";
+    public const string GLOVES_SKIN0 = "RAINBOW";
+    public const string GLOVES_SKIN1 = "LAVA";
+    public const string GLOVES_SKIN2 = "WEAKEND";
 }
