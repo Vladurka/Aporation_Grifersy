@@ -11,13 +11,13 @@ public class SkinInfo : MonoBehaviour
         _skinData.BuyButton = _buyButton;
         _skinData.UseButton = _useButton;
 
-        _skinData.SaveCondition = PlayerPrefs.GetInt(_skinData.Key);
+        //_skinData.SaveCondition = PlayerPrefs.GetInt(_skinData.Key);
 
-        if (_skinData.SaveCondition == 1)
-            CanUse();
+        //if (_skinData.SaveCondition == 1)
+        //    CanUse();
 
-        if (!PlayerPrefs.HasKey(_skinData.Key) || _skinData.SaveCondition == 0)
-            CantUse();
+        //if (!PlayerPrefs.HasKey(_skinData.Key) || _skinData.SaveCondition == 0)
+        CantUse();
     }
 
     public void CanUse()
