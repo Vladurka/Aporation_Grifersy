@@ -17,6 +17,7 @@ public class Knife : AbstractWeapon
     {
         _mainCamera.enabled = true;
         _eventBus.Invoke(new SetTotalBullets(false));
+        _weapomImage.enabled = true;
     }
 
     private void Update()
@@ -43,5 +44,6 @@ public class Knife : AbstractWeapon
     private void OnDisable()
     {
         _eventBus.Invoke(new SetTotalBullets(true));
+        _weapomImage.enabled = false;
     }
 }

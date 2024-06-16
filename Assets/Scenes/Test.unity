@@ -487,7 +487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &86845094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 660, y: -389}
+  m_AnchoredPosition: {x: -705, y: -389}
   m_SizeDelta: {x: 280, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86845095
@@ -658,7 +658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 607, y: -389}
+  m_AnchoredPosition: {x: -758, y: -389}
   m_SizeDelta: {x: 280, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &109030725
@@ -1099,7 +1099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.82043755, y: 0.047296297}
   m_AnchorMax: {x: 0.8762709, y: 0.09944445}
-  m_AnchoredPosition: {x: 24.5, y: -21.139729}
+  m_AnchoredPosition: {x: -1340.5, y: -21.13971}
   m_SizeDelta: {x: 50.76648, y: 31.720543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223310599
@@ -2101,7 +2101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7444376, y: 0.034333333}
   m_AnchorMax: {x: 0.7876458, y: 0.09944445}
-  m_AnchoredPosition: {x: 43, y: -21.13979}
+  m_AnchoredPosition: {x: -1322, y: -21.13977}
   m_SizeDelta: {x: 76.2746, y: 31.72042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &434329058
@@ -2283,7 +2283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &456768484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2300,8 +2300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 660, y: -448}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -674, y: -407}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456768485
 MonoBehaviour:
@@ -3364,7 +3364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &681223236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3381,7 +3381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 660, y: -389}
+  m_AnchoredPosition: {x: -705, y: -389}
   m_SizeDelta: {x: 150, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681223237
@@ -5330,6 +5330,11 @@ MonoBehaviour:
   _healthText: {fileID: 139279884}
   _healthBar: {fileID: 1395561078}
   _moneyText: {fileID: 1577375069}
+  _images:
+  - {fileID: 109030725}
+  - {fileID: 86845095}
+  - {fileID: 681223237}
+  - {fileID: 456768485}
 --- !u!1 &1335434802
 GameObject:
   m_ObjectHideFlags: 0
@@ -11043,6 +11048,7 @@ MonoBehaviour:
   _callRange: 100
   _range: 0
   _damage: 4
+  _weapomImage: {fileID: 109030725}
   TotalBullets: 120
   Bullets: 30
   _spawnPosition: {fileID: 3566762281343851272}
@@ -14737,6 +14743,7 @@ MonoBehaviour:
   _callRange: 0
   _range: 1.5
   _damage: 10
+  _weapomImage: {fileID: 456768485}
   TotalBullets: 0
   Bullets: 0
 --- !u!4 &3742482662913462951
@@ -19373,6 +19380,7 @@ MonoBehaviour:
   _callRange: 100
   _range: 0
   _damage: 0
+  _weapomImage: {fileID: 86845095}
   TotalBullets: 10
   Bullets: 0
   _staticBullet: {fileID: 4278367793679366682}
@@ -20544,6 +20552,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca7fab4a17454742b298e294e2b2cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _callRange: 0
+  _range: 0
+  _damage: 0
+  _weapomImage: {fileID: 681223237}
+  TotalBullets: 0
+  Bullets: 0
   _grenade: {fileID: 3948532066557269511, guid: 704e2c85fe3e01a4e837405fadda8f65, type: 3}
   _throwPoint: {fileID: 8296148156223210673}
   _throwForce: 100
@@ -23200,6 +23214,7 @@ MonoBehaviour:
   _callRange: 0
   _range: 3
   _damage: 0
+  _weapomImage: {fileID: 0}
   TotalBullets: 10
   Bullets: 0
   _minePrefab: {fileID: 1221016696030413730, guid: 02c27cbced2fbc24fa0319ae0d947beb, type: 3}
