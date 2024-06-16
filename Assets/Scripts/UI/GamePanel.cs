@@ -16,6 +16,9 @@ public class GamePanel : MonoBehaviour
     [Header("Money")]
     [SerializeField] private Text _moneyText;
 
+    [Header("Icons")]
+    [SerializeField] private Image[] _images;
+
     private EventBus _eventBus;
     public void Init()
     {
@@ -26,6 +29,13 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<UpdateTotalBullets>(UpdateTotalBulletsText, 1);
         _eventBus.Subscribe<UpdateHealth>(UpdateHealthText, 1);
         _eventBus.Subscribe<UpdateMoney>(UpdateMoneyText, 1);
+        
+        foreach(Image image in _images)
+        {
+            image.enabled = false;
+        }
+
+        _images[0].enabled = true;
     }
 
     private void UpdateCurrentBulletsText(UpdateCurrentBullets currentBullets)

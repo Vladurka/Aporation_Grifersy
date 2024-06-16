@@ -43,6 +43,7 @@ namespace Game.Weapon
             }
 
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
+            _weapomImage.enabled = true;
         }
 
         void Update()
@@ -113,6 +114,11 @@ namespace Game.Weapon
         private void GetCamera(SetAimCamera AimCamera)
         {
             _aimCamera = AimCamera.AimCamera;
+        }
+
+        private void OnDisable()
+        {
+            _weapomImage.enabled = false;
         }
 
         private void OnDestroy()
