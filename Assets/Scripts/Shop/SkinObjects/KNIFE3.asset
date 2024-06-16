@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuyButton: {fileID: 0}
   UseButton: {fileID: 0}
-  Key: SHALL_CASING
+  Key: COUPE
   SaveCondition: 0
-  Number: 2
+  Number: 3
