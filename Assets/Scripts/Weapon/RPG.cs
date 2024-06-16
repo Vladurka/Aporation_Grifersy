@@ -17,6 +17,8 @@ namespace Game.Weapon
 
         [SerializeField] private AudioClip _noBulletsSound;
 
+        private bool _canShoot = true;
+
         private AudioSource _audioSource;
 
         private EventBus _eventBus;
@@ -60,7 +62,7 @@ namespace Game.Weapon
 
         protected override IEnumerator Shoot(Camera cam)
         {
-            if (TotalBullets > 0)
+            if (TotalBullets > 0 && _canShoot == true)
             {
                 _audioSource.Play();
                 _eventBus.Invoke(new RpgShootAnim());
@@ -85,6 +87,7 @@ namespace Game.Weapon
                 currentBullet.transform.forward = dirWidthSpread.normalized;
                 currentBullet.GetComponent<Rigidbody>().AddForce(dirWidthSpread.normalized * _shootForce, ForceMode.Impulse);
                 _staticBullet.SetActive(false);
+                _canShoot = false;
                 TotalBullets--;
 
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
@@ -103,6 +106,7 @@ namespace Game.Weapon
         private void Realod()
         {
             _staticBullet.SetActive(true);
+            _canShoot = true;
         }
 
         private void AddBullets(BuyRpgBullets bullets)

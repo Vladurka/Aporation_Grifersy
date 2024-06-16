@@ -68,7 +68,7 @@ namespace Game.Weapon
                 StopAllCoroutines();
             }
 
-            if (Input.GetKeyDown(KeyCode.R) && Bullets < _maxBullets)
+            if (Input.GetKeyDown(KeyCode.R) && Bullets < _maxBullets && TotalBullets > 0)
             {
                 _eventBus.Invoke(new AkReloadAnim());
                 _canShoot = false;
