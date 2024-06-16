@@ -6,11 +6,13 @@ public static class ConstSystem
     public const string BUY_KNIFE_SKIN_ID = "com.aporation.GetKnifeSkin";
     public const string BUY_CAR_SKIN_ID = "com.aporation.GetCarSkin";
     public const string BUY_RPG_SKIN_ID = "com.aporation.GetRpgSkin";
+    public const string BUY_GLOVES_SKIN_ID = "com.aporation.GetGlovesSkin";
 
     public const string AK_SKIN_INDEX = "AkSkinIndex";
     public const string KNIFE_SKIN_INDEX = "KnifeSkinIndex";
     public const string CAR_SKIN_INDEX = "CarSkinIndex";
     public const string RPG_SKIN_INDEX = "RpgSkinIndex";
+    public const string GLOVES_SKIN_INDEX = "GlovesSkinIndex";
 
     public const string AK_SKIN0 = "AIM_ON";
     public const string AK_SKIN1 = "DUMMY_COLOR";
@@ -30,4 +32,8 @@ public static class ConstSystem
     public const string RPG_SKIN0 = "FIREAXE";
     public const string RPG_SKIN1 = "LGBT_ON";
     public const string RPG_SKIN2 = "GYPSY_GOLD";
+
+    public const string GLOVES_SKIN0 = "";
+    public const string GLOVES_SKIN1 = "";
+    public const string GLOVES_SKIN2 = "";
 }

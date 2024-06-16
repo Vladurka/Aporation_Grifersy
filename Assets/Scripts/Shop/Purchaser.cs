@@ -18,6 +18,9 @@ public class Purchaser : MonoBehaviour
 
             case ConstSystem.BUY_RPG_SKIN_ID:
                 break;
+
+            case ConstSystem.BUY_GLOVES_SKIN_ID:
+                break;
         }
     }
     public void BuyNewAkSkin(SkinData info)
@@ -44,6 +47,13 @@ public class Purchaser : MonoBehaviour
     public void BuyNewRpgSkin(SkinData info)
     {
         PlayerPrefs.SetInt(ConstSystem.RPG_SKIN_INDEX, info.Number);
+        PlayerPrefs.Save();
+        info.UseButton.SetActive(true);
+    }
+
+    public void BuyNewGlovesSkin(SkinData info)
+    {
+        PlayerPrefs.SetInt(ConstSystem.GLOVES_SKIN_INDEX, info.Number);
         PlayerPrefs.Save();
         info.UseButton.SetActive(true);
     }

@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &535482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 5d3bdd4507c4c784bb68d4d79e3d7042, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5298,7 +5298,7 @@ MonoBehaviour:
         m_MethodName: BuyNewAkSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 5d3bdd4507c4c784bb68d4d79e3d7042, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5396,7 +5396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &822415717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5631,7 +5631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &846603762
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5663,9 +5663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skinData: {fileID: 0}
-  _buyButton: {fileID: 0}
-  _useButton: {fileID: 0}
+  _skinData: {fileID: 11400000, guid: 5d3bdd4507c4c784bb68d4d79e3d7042, type: 2}
+  _buyButton: {fileID: 535481}
+  _useButton: {fileID: 794952001}
 --- !u!1 &858858524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5838,7 +5838,7 @@ GameObject:
   - component: {fileID: 891146401}
   - component: {fileID: 891146404}
   m_Layer: 5
-  m_Name: AkButtonBuy0
+  m_Name: Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9296,7 +9296,7 @@ GameObject:
   - component: {fileID: 1573811807}
   - component: {fileID: 1573811806}
   m_Layer: 5
-  m_Name: AkButtonUse0
+  m_Name: Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

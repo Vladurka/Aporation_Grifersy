@@ -3612,6 +3612,7 @@ MonoBehaviour:
   _scopeLevels: {fileID: 1839125130}
   _changeRpgSkin: {fileID: 9149405084149002362}
   _changeAkSkin: {fileID: 8361704793019078977}
+  _changheGlovesSkin: {fileID: 8901339919212676800}
   _changeKnifeSkin: {fileID: 3468495103800417231}
   _grenadeThrower: {fileID: 7348784662926082523}
   _mines: {fileID: 8768038085707069760}
@@ -23425,6 +23426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83104854380601323}
   - component: {fileID: 2746843687949954774}
+  - component: {fileID: 8901339919212676800}
   m_Layer: 0
   m_Name: Ch15
   m_TagString: Untagged
@@ -23432,6 +23434,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8901339919212676800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901339919212676799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5857c1196864946b8007b55ae6a23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: 3a8214d498761064d94b819b281be6f8, type: 2}
+  - {fileID: 2100000, guid: 4a941a1f0bf428d478248daebc9578fb, type: 2}
+  - {fileID: 2100000, guid: 9dccf2dcc78efe741b7931e3bb85beaf, type: 2}
+  _materialIndex: 2
 --- !u!4 &8909311972948605979
 Transform:
   m_ObjectHideFlags: 0
