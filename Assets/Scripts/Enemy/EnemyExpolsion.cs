@@ -5,7 +5,7 @@ namespace Game.Enemy
 {
     public class EnemyExpolsion : MonoBehaviour
     {
-        [SerializeField] private float _damage = 4f;
+        [SerializeField] private float _damage = 40f;
         [SerializeField] private float _explosionRadius = 2f;
 
         [SerializeField] private GameObject _mainCharacter;

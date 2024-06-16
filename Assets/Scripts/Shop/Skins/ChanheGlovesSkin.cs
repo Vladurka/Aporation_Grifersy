@@ -8,7 +8,7 @@ public class ChanheGlovesSkin : MonoBehaviour
 
     [SerializeField] private int _materialIndex;
 
-    public void Init()
+    private void Start()
     {
         _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         //_materialIndex = PlayerPrefs.GetInt(ConstSystem.GLOVES_SKIN_INDEX);

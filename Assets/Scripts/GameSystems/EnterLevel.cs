@@ -28,7 +28,6 @@ namespace Game
         [SerializeField] private ScopeLevels _scopeLevels;
         [SerializeField] private ChangeRpgSkin _changeRpgSkin;
         [SerializeField] private ChangeAkSkin _changeAkSkin;
-        [SerializeField] private ChanheGlovesSkin _changheGlovesSkin;
         [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
         [SerializeField] private GrenadeThrower _grenadeThrower;
         [SerializeField] private SetMine _mines;
@@ -78,7 +77,6 @@ namespace Game
             //_helicopter.Init();
             //_car.Init();
             _weaponAk.Init();
-            _changheGlovesSkin.Init();
             _rpg.Init();
             _knife.Init();
             _mines.Init();

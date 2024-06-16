@@ -51,7 +51,7 @@ public class GamePanel : MonoBehaviour
     private void UpdateHealthText(UpdateHealth health)
     {
         _healthText.text = health.Amount.ToString();
-        _healthBar.value = health.Amount * 10;
+        _healthBar.value = health.Amount;
     }
 
     private void UpdateMoneyText(UpdateMoney updateMoney)

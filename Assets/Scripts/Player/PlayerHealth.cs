@@ -6,7 +6,7 @@ namespace Game.Player
 {
     public class PlayerHealth : MonoBehaviour, IPlayerHealth, IService
     {
-        public float Health { get; set; } = 10f;
+        public float Health { get; set; } = 100f;
 
         private EventBus _eventBus;
 
