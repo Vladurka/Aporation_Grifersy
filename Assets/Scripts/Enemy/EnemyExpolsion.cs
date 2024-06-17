@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Player;
+using Unity.VisualScripting;
 
 namespace Game.Enemy
 {
@@ -7,12 +8,16 @@ namespace Game.Enemy
     {
         [SerializeField] private float _damage = 40f;
         [SerializeField] private float _explosionRadius = 2f;
-
-        [SerializeField] private GameObject _mainCharacter;
-
         [SerializeField] private ParticleSystem _explosionEffect;
 
+        private GameObject _mainCharacter;
+
         private bool _isExploded = false;
+
+        private void Start()
+        {
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        }
 
         private void Update()
         {

@@ -44,9 +44,10 @@ namespace Game.Weapon
         {
             _mainCamera.enabled = true;
             _eventBus.Invoke(new SetCurrentBullets(true));
+            _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
-            _weapomImage.enabled = true;
+            _weaponImage.enabled = true;
         }
 
         private void Update()
@@ -147,7 +148,8 @@ namespace Game.Weapon
         private void OnDisable()
         {
             _eventBus.Invoke(new SetCurrentBullets(false));
-            _weapomImage.enabled = false;
+            _eventBus.Invoke(new SetTotalBullets(false));
+            _weaponImage.enabled = false;
         }
 
         private void OnDestroy()

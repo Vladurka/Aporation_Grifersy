@@ -7,11 +7,10 @@ namespace Game.Enemy
     [RequireComponent(typeof(NavMeshAgent))]
     public class EnemyMove : MonoBehaviour, IEnemyMove
     {
-        [SerializeField] private GameObject[] _points;
-
         [SerializeField] private float _damageObstacle = 1f;
         [SerializeField] private float _obstacleDetectionRange = 1f;
 
+        private GameObject[] _points;
         private GameObject _mainCharacter;
 
         public bool IsDetected { get; set;} = false;
@@ -19,9 +18,11 @@ namespace Game.Enemy
         private int _index = 0;
         private NavMeshAgent _agent;
 
-        private void Awake()
+        private void Start()
         {
             _agent = GetComponent<NavMeshAgent>();
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+            _points = GameObject.FindGameObjectsWithTag("Point");
         }
 
         private void Update()

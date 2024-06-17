@@ -1,4 +1,6 @@
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
+using Game.SeniorEventBus;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Helicopter : AbstractTransport, IService
@@ -14,24 +16,22 @@ public class Helicopter : AbstractTransport, IService
     private bool _isStopping = false;
     private bool _canMove = true;
 
+    private EventBus _eventBus;
+
     private Rigidbody _rb;
 
     private Animator _animator;
 
     public override void Init()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+
         _camera.enabled = false;
 
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
 
         this.enabled = false;
-    }
-
-    private void OnEnable()
-    {
-        _animator.SetBool("Fly", true);
-        _rb.useGravity = false;
     }
 
     void Update()
@@ -100,6 +100,10 @@ public class Helicopter : AbstractTransport, IService
         this.enabled = true;
         _camera.enabled = true;
         _mainCharacter.SetActive(false);
+        _animator.SetBool("Fly", true);
+        _rb.useGravity = false;
+        _eventBus.Invoke(new SetCurrentBullets(false));
+        _eventBus.Invoke(new SetTotalBullets(false));
     }
 
     public override void Exit()
