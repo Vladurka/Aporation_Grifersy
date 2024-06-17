@@ -74,8 +74,8 @@ namespace Game
             _helicopterStatesController.Init();
             _carStatesController.Init();
             _movement.Init();
-            //_helicopter.Init();
-            //_car.Init();
+            _helicopter.Init();
+            _car.Init();
             _weaponAk.Init();
             _rpg.Init();
             _knife.Init();

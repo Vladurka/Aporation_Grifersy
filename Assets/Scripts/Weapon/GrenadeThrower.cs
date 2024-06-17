@@ -26,7 +26,8 @@ public class GrenadeThrower : AbstractWeapon, IService
         _grenadeModel.SetActive(true);
         _canThrow = true;
         _eventBus.Invoke(new UpdateTotalBullets(Grenades));
-        _weapomImage.enabled = true;
+        _eventBus.Invoke(new SetTotalBullets(true));
+        _weaponImage.enabled = true;
     }
 
     private void Update()
@@ -55,6 +56,7 @@ public class GrenadeThrower : AbstractWeapon, IService
 
     private void OnDisable()
     {
-        _weapomImage.enabled = false;
+        _weaponImage.enabled = false;
+        _eventBus.Invoke(new SetTotalBullets(false));
     }
 }

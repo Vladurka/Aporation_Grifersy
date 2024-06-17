@@ -44,8 +44,9 @@ namespace Game.Weapon
                 Realod();
             }
 
+            _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
-            _weapomImage.enabled = true;
+            _weaponImage.enabled = true;
         }
 
         void Update()
@@ -122,7 +123,8 @@ namespace Game.Weapon
 
         private void OnDisable()
         {
-            _weapomImage.enabled = false;
+            _weaponImage.enabled = false;
+            _eventBus.Invoke(new SetTotalBullets(false));
         }
 
         private void OnDestroy()

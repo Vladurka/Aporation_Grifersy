@@ -3,14 +3,9 @@ using UnityEngine;
 public class ChangeWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject[] _items;
-    [SerializeField] private GameObject _throwPoint;
-
-    [Header("Cameras")]
-    private Camera _mainCamera;
 
     private void Start()
     {
-        _mainCamera = Camera.main;
         Deactivate();
         _items[0].SetActive(true);
     }
@@ -33,7 +28,6 @@ public class ChangeWeapon : MonoBehaviour
         {
             Deactivate();
             _items[2].SetActive(true);
-            _throwPoint.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && !_items[3].activeSelf)
@@ -55,8 +49,6 @@ public class ChangeWeapon : MonoBehaviour
         {
             item.SetActive(false);
         }
-
-        _throwPoint.SetActive(false);
     }
 }
 

@@ -1,3 +1,5 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
 public class Car : AbstractTransport, IService
@@ -17,8 +19,11 @@ public class Car : AbstractTransport, IService
 
     [SerializeField] private Canvas _carCanvas;
 
+    private EventBus _eventBus;
+
     public override void Init()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
         _carCanvas.enabled = false;
         _camera.enabled = false;
         this.enabled = false;
@@ -97,6 +102,8 @@ public class Car : AbstractTransport, IService
         _camera.enabled = true;
         _carCanvas.enabled = true;
         _mainCharacter.SetActive(false);
+        _eventBus.Invoke(new SetCurrentBullets(false));
+        _eventBus.Invoke(new SetTotalBullets(false));
     }
 
     public override void TransportReset()
