@@ -147,8 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageObstacle: 1
   _obstacleDetectionRange: 1
-  _points: []
-  _index: 0
 --- !u!114 &3077319596766114996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 4
+  _damage: 40
   _explosionRadius: 1
   _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
