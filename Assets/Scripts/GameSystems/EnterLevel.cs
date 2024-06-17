@@ -8,6 +8,7 @@ namespace Game
     public class EnterLevel : MonoBehaviour
     {
         [Header("Player")]
+        [SerializeField] private GameObject _mainCharacter;
         [SerializeField] private PlayerHealth _playerHealth;
         [SerializeField] private Movement _movement;
         [SerializeField] private CameraController _cameraController;
@@ -41,6 +42,7 @@ namespace Game
         [Header("UI")]
         [SerializeField] private GameUI _gameUI;
         [SerializeField] private GamePanel _gamePanel;
+        [SerializeField] private VolumeController _volume;
 
         [Header("Else")]
         [SerializeField] private Raycasts _raycasts;
@@ -65,6 +67,8 @@ namespace Game
 
         private void Init()
         {
+            _mainCharacter.SetActive(true);
+
             _loadData.Init();
             _loadData.LoadInfo();
             _saveData.Init();
@@ -125,6 +129,7 @@ namespace Game
             ServiceLocator.Current.Register<SaveData>(_saveData);
             ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
             ServiceLocator.Current.Register<SetMine>(_mines);
+            ServiceLocator.Current.Register<VolumeController>(_volume);
             Debug.Log("Registreted");
         }
     }

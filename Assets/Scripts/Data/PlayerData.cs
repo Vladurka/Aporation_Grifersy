@@ -1,4 +1,3 @@
-using UnityEngine;
 using Game.Player;
 using Game.Weapon;
 
@@ -18,12 +17,13 @@ namespace Game.Data
         public int GrenadesData;
         public int MinesData;
         public int MoneyData;
+        public float VolumeData;
         public float HpData;
         public int ScopeLevelData;
         public int MissionsData;
         public int BaseLevelData;
 
-        public PlayerData(PlayerHealth playerHP, Movement playerMove, SetMine setMine, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, CarStatesController carStatesController, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
+        public PlayerData(PlayerHealth playerHP, Movement playerMove, VolumeController volume,SetMine setMine, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, CarStatesController carStatesController, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
         {
             HelicopterConditionData = helicopterStatesController.HelicopterState;
 
@@ -61,6 +61,8 @@ namespace Game.Data
             MoneyData = coins.Money;
 
             BaseLevelData = baseStates.BaseLevel;
+
+            VolumeData = volume._volumeSlider.value;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Game.Data
         private BaseStates _baseStates;
         private GrenadeThrower _grenadeThrower;
         private SetMine _setMine;
+        private VolumeController _volume;
         public void Init()
         {
             _player = ServiceLocator.Current.Get<PlayerHealth>();
@@ -34,6 +35,7 @@ namespace Game.Data
             _baseStates = ServiceLocator.Current.Get<BaseStates>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _setMine = ServiceLocator.Current.Get<SetMine>();
+            _volume = ServiceLocator.Current.Get<VolumeController>();
         }
 
         private void Update()
@@ -44,7 +46,7 @@ namespace Game.Data
 
         public void SaveInfo()
         {
-            SaveSystem.SavePlayerData(_player, _playerMove, _setMine, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _carStatesController, _weaponAk, _rpg, _coinSystem, _coinSystem, _baseStates); 
+            SaveSystem.SavePlayerData(_player, _playerMove, _volume, _setMine, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _carStatesController, _weaponAk, _rpg, _coinSystem, _coinSystem, _baseStates); 
         }
     }
 }

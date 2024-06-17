@@ -1,6 +1,7 @@
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Car : AbstractTransport, IService
 {
@@ -17,14 +18,14 @@ public class Car : AbstractTransport, IService
 
     [SerializeField] private float _maxAngle;
 
-    [SerializeField] private Canvas _carCanvas;
+    [SerializeField] private GameObject _speedometr;
 
     private EventBus _eventBus;
 
     public override void Init()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _carCanvas.enabled = false;
+        _speedometr.SetActive(false);
         _camera.enabled = false;
         this.enabled = false;
     }
@@ -92,7 +93,7 @@ public class Car : AbstractTransport, IService
         _camera.enabled = false;
         _mainCharacter.transform.position = _spawnCharacter.position;
         _mainCharacter.SetActive(true);
-        _carCanvas.enabled = false;
+        _speedometr.SetActive(false);
         this.enabled = false;
     }
 
@@ -100,7 +101,7 @@ public class Car : AbstractTransport, IService
     {
         this.enabled = true;
         _camera.enabled = true;
-        _carCanvas.enabled = true;
+        _speedometr.SetActive(true);
         _mainCharacter.SetActive(false);
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));

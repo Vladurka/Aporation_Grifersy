@@ -1,15 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VolumeController : MonoBehaviour
+public class VolumeController : MonoBehaviour, IService
 {
-    [SerializeField] private Slider _volumeSlider;
     [SerializeField] private AudioSource[] _audioSource;
-
-    private void Start()
-    {
-        _volumeSlider.value = 0.1f;
-    }
+    public Slider _volumeSlider;
 
     private void Update()
     {

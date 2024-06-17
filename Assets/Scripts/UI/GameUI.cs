@@ -7,17 +7,11 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private Camera _uiCamera;
     private bool PauseGame;
-    private GameObject _mainCharacter;
-    private AudioListener _audioListener;
 
     public void Init()
     {
-        _audioListener = _uiCamera.GetComponent<AudioListener>();
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-        _uiCamera.enabled = false;
-        _audioListener.enabled = false;
+        Time.timeScale = 1.0f;
         gamePanel.SetActive(true);
         settingsPanel.SetActive(false);
         pausePanel.SetActive(false);
@@ -40,27 +34,21 @@ public class GameUI : MonoBehaviour
 
     public void Pause()
     {
+        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         gamePanel.SetActive(false);
         settingsPanel.SetActive(false);
         pausePanel.SetActive(true);
-        Time.timeScale = 0f;
         PauseGame = true;
-        _uiCamera.enabled = true;
-        _audioListener.enabled = true;
-        _mainCharacter.SetActive(false);
     }
 
     public void Continue()
     {
-        _mainCharacter.SetActive(true);
-        _uiCamera.enabled = false;
-        _audioListener.enabled = false;
+        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         gamePanel.SetActive(true);
         settingsPanel.SetActive(false);
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;
         PauseGame = false;
     }
 

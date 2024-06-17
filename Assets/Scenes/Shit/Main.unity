@@ -171,10 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: BLAST_SET
-  Number: 2
-  BuyButton: {fileID: 639851523}
-  UseButton: {fileID: 1181433924}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &222200639
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,10 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: SHALL_CASING
-  Number: 2
-  BuyButton: {fileID: 1224537494}
-  UseButton: {fileID: 1092264748}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &633185597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,10 +2062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: FIREAXE
-  Number: 0
-  BuyButton: {fileID: 764125561}
-  UseButton: {fileID: 1273070629}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1778803400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,10 +2113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c04d4f72c20042b1144edf35976b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: COUPE
-  Number: 3
-  BuyButton: {fileID: 1904696470}
-  UseButton: {fileID: 1802953628}
+  _skinData: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _useButton: {fileID: 0}
 --- !u!1 &1802953628
 GameObject:
   m_ObjectHideFlags: 0

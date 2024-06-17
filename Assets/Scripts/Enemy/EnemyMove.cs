@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,11 +17,11 @@ namespace Game.Enemy
         private int _index = 0;
         private NavMeshAgent _agent;
 
-        private void Start()
+        private void Awake()
         {
+            _points = GameObject.FindGameObjectsWithTag("Point");
             _agent = GetComponent<NavMeshAgent>();
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-            _points = GameObject.FindGameObjectsWithTag("Point");
         }
 
         private void Update()
@@ -38,10 +37,17 @@ namespace Game.Enemy
         public void Walk()
         {
             _agent.SetDestination(_points[_index].transform.position);
-            if (_agent.remainingDistance <= 1f)
+
+            if (_agent.remainingDistance <= 0.01f && _index < _points.Length - 1)
             {
                 _index++;
-                _agent.SetDestination(_points[_index].transform.position);
+                return;
+            }
+
+            else if(_index >= _points.Length - 1)
+            {
+                _index = 0;
+                return;
             }
         }
 
@@ -50,35 +56,7 @@ namespace Game.Enemy
             if (_mainCharacter != null)
             {
                 _agent.SetDestination(_mainCharacter.transform.position);
-                CheckForObstacles();
             }
-        }
-
-        private void CheckForObstacles()
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, _obstacleDetectionRange))
-            {
-                if (hit.collider.TryGetComponent(out IObstacleHealth obstacle))
-                {
-                    StartCoroutine(DestroyObstacle(obstacle));
-                }
-            }
-        }
-
-        private IEnumerator DestroyObstacle(IObstacleHealth obstacle)
-        {
-            _agent.isStopped = true;
-
-            obstacle.GetDamage(_damageObstacle);
-
-            if (obstacle != null)
-            {
-                StopAllCoroutines();
-                _agent.isStopped = false;
-            }
-
-            yield return new WaitForSeconds(1f);
         }
     }
 }
