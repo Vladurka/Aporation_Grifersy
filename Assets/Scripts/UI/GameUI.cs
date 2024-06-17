@@ -33,6 +33,7 @@ public class GameUI : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.lockState = CursorLockMode.None;
         gamePanel.SetActive(false);
         settingsPanel.SetActive(false);
         pausePanel.SetActive(true);
@@ -42,6 +43,7 @@ public class GameUI : MonoBehaviour
 
     public void Continue()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         gamePanel.SetActive(true);
         settingsPanel.SetActive(false);
         pausePanel.SetActive(false);
@@ -61,6 +63,13 @@ public class GameUI : MonoBehaviour
         settingsPanel.SetActive(true);
     }
 
+    public void BackToPause()
+    {
+        gamePanel.SetActive(false);
+        pausePanel.SetActive(true);
+        settingsPanel.SetActive(false);
+    }
+
     public void SetLowSettings()
     {
         QualitySettings.SetQualityLevel(0, true);
@@ -75,4 +84,17 @@ public class GameUI : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(5, true);
     }
+
+    public void FullScreen()
+    {
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        Screen.fullScreen = true;
+    }
+
+    public void WindowMode()
+    {
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+        Screen.fullScreen = false;
+    }
+
 }

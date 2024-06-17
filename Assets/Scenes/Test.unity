@@ -420,7 +420,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 700725186}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: SetHighSettings
         m_Mode: 1
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 700725186}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1
@@ -2158,7 +2158,6 @@ GameObject:
   - component: {fileID: 452125193}
   - component: {fileID: 452125192}
   - component: {fileID: 452125191}
-  - component: {fileID: 452125190}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2166,21 +2165,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &452125190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452125189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7603145cd8106974a96a44711dbd0e49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamePanel: {fileID: 1330276158}
-  pausePanel: {fileID: 140302428}
-  settingsPanel: {fileID: 481026369}
 --- !u!114 &452125191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2259,6 +2243,7 @@ RectTransform:
   - {fileID: 1330276161}
   - {fileID: 140302431}
   - {fileID: 481026372}
+  - {fileID: 700725187}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3054,7 +3039,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 700725186}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: Continue
         m_Mode: 1
@@ -3187,7 +3172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 700725186}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: SetLowSettings
         m_Mode: 1
@@ -3459,6 +3444,57 @@ RectTransform:
   m_AnchoredPosition: {x: -77.82666, y: 0.30993652}
   m_SizeDelta: {x: 150.34668, y: 74.619995}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &700725185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700725187}
+  - component: {fileID: 700725186}
+  m_Layer: 5
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &700725186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700725185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7603145cd8106974a96a44711dbd0e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePanel: {fileID: 1330276158}
+  pausePanel: {fileID: 140302428}
+  settingsPanel: {fileID: 481026369}
+--- !u!224 &700725187
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700725185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 452125194}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &703751485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2510165534106891539, guid: 00e9996e4de6c774ebcce36d00a9b2e3, type: 3}
@@ -3619,7 +3655,7 @@ MonoBehaviour:
   _rpgAnim: {fileID: 743375294157688382}
   _grenadeAnim: {fileID: 8402574606916241002}
   _knifeAnim: {fileID: 8060264967634835514}
-  _gameUI: {fileID: 452125190}
+  _gameUI: {fileID: 0}
   _gamePanel: {fileID: 1330276162}
   _raycasts: {fileID: 3304520848455797790}
   _baseStates: {fileID: 398521756}
@@ -3810,7 +3846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCharacter: {fileID: 2509822740301775183}
   _points:
   - {fileID: 645270268}
   - {fileID: 1340046438}
@@ -4278,7 +4313,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 958291968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 700725186}
+        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
+        m_MethodName: WindowMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &958291968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5802,7 +5849,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 700725186}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -6411,7 +6458,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 700725186}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: SetMediumSettings
         m_Mode: 1
@@ -7688,7 +7735,7 @@ GameObject:
   - component: {fileID: 2002053995}
   - component: {fileID: 2002053994}
   m_Layer: 5
-  m_Name: ButtonBackToSettings
+  m_Name: ButtonBackToPause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7757,7 +7804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2002053995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 700725186}
+        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
+        m_MethodName: BackToPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2002053995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7878,7 +7937,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2006138410}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 700725186}
+        m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
+        m_MethodName: FullScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2006138410
 MonoBehaviour:
   m_ObjectHideFlags: 0
