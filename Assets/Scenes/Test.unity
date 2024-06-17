@@ -3017,6 +3017,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958291965}
   m_CullTransparentMesh: 1
+--- !u!1 &963106705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963106706}
+  m_Layer: 0
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &963106706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963106705}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.739, y: 1.427, z: 1.237}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8956465326636837874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025786163
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,7 +5732,7 @@ MonoBehaviour:
   TotalBullets: 0
   Bullets: 0
   _grenade: {fileID: 3948532066557269511, guid: 704e2c85fe3e01a4e837405fadda8f65, type: 3}
-  _throwPoint: {fileID: 0}
+  _throwPoint: {fileID: 963106706}
   _throwForce: 100
   _grenadeModel: {fileID: 2234245074339023294}
   Grenades: 10
@@ -19099,7 +19130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7085485109811144689
 Transform:
   m_ObjectHideFlags: 0
@@ -23387,6 +23418,7 @@ Transform:
   - {fileID: 2956658883029700356}
   - {fileID: 1997956379294252790}
   - {fileID: 7116828099901272636}
+  - {fileID: 963106706}
   m_Father: {fileID: 7025445140082846266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8960089439549740012
