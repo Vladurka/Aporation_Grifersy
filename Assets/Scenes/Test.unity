@@ -1343,7 +1343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &229527802
 Transform:
   m_ObjectHideFlags: 0
@@ -1822,7 +1822,7 @@ GameObject:
   - component: {fileID: 375718382}
   m_Layer: 0
   m_Name: Point4
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3248,7 +3248,7 @@ GameObject:
   - component: {fileID: 645270269}
   m_Layer: 0
   m_Name: Point1
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3784,7 +3784,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 4
   _explosionRadius: 1
-  _mainCharacter: {fileID: 2509822740301775183}
   _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &811202928
 MonoBehaviour:
@@ -3810,12 +3809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCharacter: {fileID: 2509822740301775183}
-  _points:
-  - {fileID: 645270268}
-  - {fileID: 1340046438}
-  - {fileID: 1731405339}
-  - {fileID: 375718381}
   _damageObstacle: 1
   _obstacleDetectionRange: 1
 --- !u!195 &811202930
@@ -5424,7 +5417,7 @@ GameObject:
   - component: {fileID: 1340046439}
   m_Layer: 0
   m_Name: Point2
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6046,12 +6039,12 @@ GameObject:
   - component: {fileID: 1471322075}
   - component: {fileID: 1471322077}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: CarCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1471322075
 Transform:
   m_ObjectHideFlags: 0
@@ -6926,7 +6919,7 @@ GameObject:
   - component: {fileID: 1731405340}
   m_Layer: 0
   m_Name: Point3
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8756,7 +8749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &299489896383418780
 GameObject:
   m_ObjectHideFlags: 0
@@ -11049,7 +11042,7 @@ MonoBehaviour:
   _callRange: 100
   _range: 0
   _damage: 4
-  _weapomImage: {fileID: 109030725}
+  _weaponImage: {fileID: 109030725}
   TotalBullets: 120
   Bullets: 30
   _spawnPosition: {fileID: 3566762281343851272}
@@ -12261,7 +12254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2451753056171138723
 GameObject:
   m_ObjectHideFlags: 0
@@ -14744,7 +14737,7 @@ MonoBehaviour:
   _callRange: 0
   _range: 1.5
   _damage: 10
-  _weapomImage: {fileID: 456768485}
+  _weaponImage: {fileID: 456768485}
   TotalBullets: 0
   Bullets: 0
 --- !u!4 &3742482662913462951
@@ -19060,7 +19053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6302547844395926097
 Transform:
   m_ObjectHideFlags: 0
@@ -19399,7 +19392,7 @@ MonoBehaviour:
   _callRange: 100
   _range: 0
   _damage: 0
-  _weapomImage: {fileID: 86845095}
+  _weaponImage: {fileID: 86845095}
   TotalBullets: 10
   Bullets: 0
   _staticBullet: {fileID: 4278367793679366682}
@@ -19720,7 +19713,6 @@ MonoBehaviour:
   - {fileID: 7348784662926082522}
   - {fileID: 6474666575481200345}
   - {fileID: 3350351825720541578}
-  _throwPoint: {fileID: 3108720371338002770}
 --- !u!1 &6725524931355181334
 GameObject:
   m_ObjectHideFlags: 0
@@ -20592,7 +20584,7 @@ MonoBehaviour:
   _callRange: 0
   _range: 0
   _damage: 0
-  _weapomImage: {fileID: 681223237}
+  _weaponImage: {fileID: 681223237}
   TotalBullets: 0
   Bullets: 0
   _grenade: {fileID: 3948532066557269511, guid: 704e2c85fe3e01a4e837405fadda8f65, type: 3}
@@ -20754,7 +20746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3853890751451119189}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e475080acf970e842b5859d0bd9cb2f9, type: 3}
   m_Name: 
@@ -20762,7 +20754,7 @@ MonoBehaviour:
   _forwardSpeed: 7
   _spawnCharacter: {fileID: 4785490233083888019}
   _mainCharacter: {fileID: 2509822740301775183}
-  _camera: {fileID: 4122861205156720352}
+  _camera: {fileID: 1080658840810195425}
   _rotationSpeed: 20
   _liftForce: 100
   _stopDuration: 1.5
@@ -23066,7 +23058,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676483108407756244}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e7cb977c6271d439b4d2b2c4f5044b, type: 3}
   m_Name: 
@@ -23074,7 +23066,7 @@ MonoBehaviour:
   _forwardSpeed: 4000
   _spawnCharacter: {fileID: 229527802}
   _mainCharacter: {fileID: 2509822740301775183}
-  _camera: {fileID: 4122861205156720352}
+  _camera: {fileID: 1471322077}
   _transformFL: {fileID: 696762184134371184}
   _transformFR: {fileID: 2545585216355096707}
   _transformBL: {fileID: 8912242578966783973}
@@ -23287,7 +23279,7 @@ MonoBehaviour:
   _callRange: 0
   _range: 3
   _damage: 0
-  _weapomImage: {fileID: 0}
+  _weaponImage: {fileID: 0}
   TotalBullets: 10
   Bullets: 0
   _minePrefab: {fileID: 1221016696030413730, guid: 02c27cbced2fbc24fa0319ae0d947beb, type: 3}
@@ -24227,7 +24219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9196966092164213561
 RectTransform:
   m_ObjectHideFlags: 0
