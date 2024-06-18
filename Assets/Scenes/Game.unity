@@ -11600,7 +11600,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 571342d16a3843a428c8b896daf4f851, type: 2}
+  - {fileID: 2100000, guid: 42e26e838cb21e944aa7de2aae4edefc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16410,14 +16410,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1479052216}
     m_Modifications:
+    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _mainCharacter
+      value: 
+      objectReference: {fileID: 2509822740301775183}
+    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _points.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _points.Array.data[0]
+      value: 
+      objectReference: {fileID: 645270268}
+    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _points.Array.data[1]
+      value: 
+      objectReference: {fileID: 1340046438}
+    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _points.Array.data[2]
+      value: 
+      objectReference: {fileID: 1731405339}
+    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _points.Array.data[3]
+      value: 
+      objectReference: {fileID: 375718381}
     - target: {fileID: 4142611512532335592, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: _mainCharacter
       value: 
       objectReference: {fileID: 2509822740301775183}
-    - target: {fileID: 7363463722712079640, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: m_Name
-      value: Enemy 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4266550118618821251, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60.629196
@@ -16458,30 +16478,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: _mainCharacter
-      value: 
-      objectReference: {fileID: 2509822740301775183}
-    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: _points.Array.size
-      value: 0
+    - target: {fileID: 7363463722712079640, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: m_Name
+      value: Enemy 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: _points.Array.data[0]
-      value: 
-      objectReference: {fileID: 645270268}
-    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: _points.Array.data[1]
-      value: 
-      objectReference: {fileID: 1340046438}
-    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: _points.Array.data[2]
-      value: 
-      objectReference: {fileID: 1731405339}
-    - target: {fileID: 1530013473041001460, guid: 770df7a3022d81642895627440c68384, type: 3}
-      propertyPath: _points.Array.data[3]
-      value: 
-      objectReference: {fileID: 375718381}
     - target: {fileID: 9067653113468750757, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: m_Enabled
       value: 1
