@@ -319,9 +319,9 @@ RectTransform:
   m_Father: {fileID: 1265067677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -27, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7667244
 MonoBehaviour:
@@ -391,7 +391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &39348678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 610, y: -169.29272}
+  m_AnchoredPosition: {x: 610, y: -169.29279}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67285799
@@ -1479,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1660, y: -169.29272}
+  m_AnchoredPosition: {x: 1660, y: -169.29279}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201953633
@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 662423841}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.4926919
+  m_Size: 0.43713793
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.aporation.GetCarSkin0
+  productId: com.aporation.GetGlovesSkin0
   buttonType: 0
   consumePurchase: 1
   onTransactionsRestored:
@@ -1952,10 +1952,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1386474584}
         m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
-        m_MethodName: BuyNewCarSkin
+        m_MethodName: BuyNewGlovesSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: af8aa6991ede85849b917f18db7e3c04, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 4bf3a37c17ca1e84294c84c7de64673f, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2958,10 +2958,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1386474584}
         m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
-        m_MethodName: BuyNewCarSkin
+        m_MethodName: BuyNewGlovesSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c0f6694dbd4629e479507aa8334e196a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 1d68e890f70df6c4db66e7b561808821, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3748,7 +3748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.aporation.GetCarSkin1
+  productId: com.aporation.GetGlovesSkin1
   buttonType: 0
   consumePurchase: 1
   onTransactionsRestored:
@@ -3759,10 +3759,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1386474584}
         m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
-        m_MethodName: BuyNewCarSkin
+        m_MethodName: BuyNewGlovesSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: c0f6694dbd4629e479507aa8334e196a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 1d68e890f70df6c4db66e7b561808821, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4128,7 +4128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1310, y: -169.29272}
+  m_AnchoredPosition: {x: 1310, y: -169.29279}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488670325
@@ -5284,8 +5284,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 937394425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.56286204}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6112,7 +6112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -169.29272}
+  m_AnchoredPosition: {x: 960, y: -169.29279}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822415718
@@ -6396,7 +6396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: 447.14478}
+  m_AnchoredPosition: {x: 8.5, y: 615.4426}
   m_SizeDelta: {x: 211.2853, y: 105.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &858858526
@@ -7767,10 +7767,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1386474584}
         m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
-        m_MethodName: BuyNewCarSkin
+        m_MethodName: BuyNewGlovesSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 832d53e720442ec47a087715e606a16d, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: ab4896943f8f5f045b265ad8db69626c, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -8180,7 +8180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: -189.85522}
+  m_AnchoredPosition: {x: 8.5, y: -21.557312}
   m_SizeDelta: {x: 211.2853, y: 105.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187499829
@@ -8905,7 +8905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 260, y: -169.29272}
+  m_AnchoredPosition: {x: 260, y: -169.29279}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265510633
@@ -9011,10 +9011,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1386474584}
         m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
-        m_MethodName: BuyNewCarSkin
+        m_MethodName: BuyNewGlovesSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: af8aa6991ede85849b917f18db7e3c04, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 4bf3a37c17ca1e84294c84c7de64673f, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -10086,7 +10086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.aporation.GetCarSkin2
+  productId: com.aporation.GetGlovesSkin2
   buttonType: 0
   consumePurchase: 1
   onTransactionsRestored:
@@ -10097,10 +10097,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1386474584}
         m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
-        m_MethodName: BuyNewCarSkin
+        m_MethodName: BuyNewGlovesSkin
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 832d53e720442ec47a087715e606a16d, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: ab4896943f8f5f045b265ad8db69626c, type: 2}
           m_ObjectArgumentAssemblyTypeName: SkinData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -10599,7 +10599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: -678.8552}
+  m_AnchoredPosition: {x: 8.5, y: -510.55737}
   m_SizeDelta: {x: 211.2853, y: 105.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1573340321
@@ -11123,29 +11123,29 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2008634895}
-  - {fileID: 1265510632}
-  - {fileID: 67285798}
-  - {fileID: 822415717}
-  - {fileID: 488670324}
-  - {fileID: 201953632}
-  - {fileID: 858858525}
-  - {fileID: 1853681349}
-  - {fileID: 1736420151}
-  - {fileID: 1871607332}
-  - {fileID: 2019907923}
-  - {fileID: 1029909264}
-  - {fileID: 1641936517}
-  - {fileID: 644387846}
-  - {fileID: 1187499828}
-  - {fileID: 1412806076}
-  - {fileID: 978490655}
-  - {fileID: 524054783}
-  - {fileID: 1678858402}
-  - {fileID: 1573340320}
-  - {fileID: 2122087634}
-  - {fileID: 2049593210}
   - {fileID: 403412015}
+  - {fileID: 2049593210}
+  - {fileID: 2122087634}
+  - {fileID: 1573340320}
+  - {fileID: 1678858402}
+  - {fileID: 524054783}
+  - {fileID: 978490655}
+  - {fileID: 1412806076}
+  - {fileID: 1187499828}
+  - {fileID: 644387846}
+  - {fileID: 1641936517}
+  - {fileID: 1029909264}
+  - {fileID: 2019907923}
+  - {fileID: 1871607332}
+  - {fileID: 1736420151}
+  - {fileID: 1853681349}
+  - {fileID: 858858525}
+  - {fileID: 201953632}
+  - {fileID: 488670324}
+  - {fileID: 822415717}
+  - {fileID: 67285798}
+  - {fileID: 1265510632}
+  - {fileID: 2008634895}
   m_Father: {fileID: 2042567413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14283,7 +14283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: 750.1448}
+  m_AnchoredPosition: {x: 8.5, y: 918.4426}
   m_SizeDelta: {x: 211.2853, y: 105.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008634896
@@ -14362,7 +14362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: 153.14478}
+  m_AnchoredPosition: {x: 8.5, y: 321.4426}
   m_SizeDelta: {x: 211.2853, y: 105.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019907924
@@ -14520,7 +14520,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000022797938}
-  m_SizeDelta: {x: 0, y: 1618.8616}
+  m_SizeDelta: {x: 0, y: 1824.5957}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2044960369
 GameObject:
