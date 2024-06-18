@@ -27,11 +27,17 @@ namespace Game.Weapon
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
             _audioSource = _mainCharacter.GetComponent<AudioSource>();
             StartCoroutine(Effect());
+            Invoke("SetFalse", 7f);
         }
-        private void Update()
+
+        private IEnumerator Effect()
         {
-            Destroy(gameObject, 7f);
+            Instantiate(_flyEffect, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.05f);
+
+            StartCoroutine(Effect());
         }
+
         private void OnCollisionEnter(Collision collision)
         {
             Kill();
@@ -49,20 +55,17 @@ namespace Game.Weapon
             BulletDestroy();
         }
 
-        private IEnumerator Effect()
-        {
-            Instantiate(_flyEffect, transform.position, transform.rotation);
-            yield return new WaitForSeconds(0.05f);
-
-            StartCoroutine(Effect());
-        }
-
         private void BulletDestroy()
         {
             _audioSource.PlayOneShot(_explosion);
             StopAllCoroutines();
             Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+
+        private void SetFalse()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
