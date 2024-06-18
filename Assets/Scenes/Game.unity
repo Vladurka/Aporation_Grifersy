@@ -1099,7 +1099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.82043755, y: 0.047296297}
   m_AnchorMax: {x: 0.8762709, y: 0.09944445}
-  m_AnchoredPosition: {x: -1340.5, y: -21.13971}
+  m_AnchoredPosition: {x: -1340.5, y: -21.139648}
   m_SizeDelta: {x: 50.76648, y: 31.720543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223310599
@@ -3554,6 +3554,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739165746}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &746876278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746876279}
+  m_Layer: 0
+  m_Name: Pools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746876279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746876278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.254932, y: 52.231873, z: 333.11224}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1572295962}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750329760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,6 +3640,7 @@ MonoBehaviour:
   _gameUI: {fileID: 1550379045}
   _gamePanel: {fileID: 1330276162}
   _volume: {fileID: 1550379047}
+  _rpgPool: {fileID: 1572295961}
   _raycasts: {fileID: 3304520848455797790}
   _baseStates: {fileID: 398521756}
   _saveData: {fileID: 367267740}
@@ -6462,6 +6495,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570900900}
   m_CullTransparentMesh: 1
+--- !u!1 &1572295960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572295962}
+  - component: {fileID: 1572295961}
+  m_Layer: 0
+  m_Name: RpgBulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1572295961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572295960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f027f141c679af4aab6c45da0242502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolAmount: 10
+  _autoExpand: 1
+  _rocketLife: {fileID: 5636048530193780438, guid: f1e664449cd3c7647b7be52a374ccc6c, type: 3}
+  _spawnPosition: {fileID: 3136492841263422177}
+--- !u!4 &1572295962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572295960}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.296398, y: -50.943245, z: -310.91785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 746876279}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577375067
 GameObject:
   m_ObjectHideFlags: 0
@@ -24276,3 +24357,4 @@ SceneRoots:
   - {fileID: 1954475856}
   - {fileID: 452125194}
   - {fileID: 1550379046}
+  - {fileID: 746876279}

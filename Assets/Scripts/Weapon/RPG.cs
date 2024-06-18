@@ -80,14 +80,12 @@ namespace Game.Weapon
 
                 Vector3 dirWithoutSpread = targetPoint - _spawnBullet.position;
 
-                float x = 0;
-                float y = 0;
-
-                Vector3 dirWidthSpread = dirWithoutSpread + new Vector3(x, y, 0);
                 GameObject currentBullet = Instantiate(_bullet, _spawnBullet.position, _spawnBullet.rotation);
+                currentBullet.transform.forward = dirWithoutSpread.normalized;
+                currentBullet.GetComponent<Rigidbody>().AddForce(dirWithoutSpread.normalized * _shootForce, ForceMode.Impulse);
 
-                currentBullet.transform.forward = dirWidthSpread.normalized;
-                currentBullet.GetComponent<Rigidbody>().AddForce(dirWidthSpread.normalized * _shootForce, ForceMode.Impulse);
+                //_eventBus.Invoke(new InstantRocket(dirWithoutSpread, _shootForce));
+
                 _staticBullet.SetActive(false);
                 _canShoot = false;
                 TotalBullets--;

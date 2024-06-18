@@ -26,7 +26,7 @@ public class ObjectPool<T> where T: MonoBehaviour
         }
     }
 
-    private T CreateObject (bool isDefault = false)
+    private T CreateObject(bool isDefault = false)
     {
         var createdObj = Object.Instantiate(Prefab, Container);
         createdObj.gameObject.SetActive(isDefault);
@@ -38,7 +38,7 @@ public class ObjectPool<T> where T: MonoBehaviour
     {
         foreach (var mono in _pool)
         {
-            if(!mono.gameObject.activeInHierarchy)
+            if(!mono.gameObject.activeSelf)
             {
                 element = mono;
                 mono.gameObject.SetActive(true);
@@ -50,14 +50,18 @@ public class ObjectPool<T> where T: MonoBehaviour
         return false;
     }
 
-    public T GetFreeElement()
+    public T GetFreeElement(Vector3 position, Quaternion rotation)
     {
-        if(HasFreeElement(out var element))
+        if (HasFreeElement(out var element))
+        {
+            element.transform.position = position;
+            element.transform.rotation = rotation;
             return element;
+        }
 
         if(AutoExpand)
             return CreateObject(true);
 
-        throw new Exception("Pool is empty");
+        throw new NullReferenceException("Pool is empty");
     }
 }
