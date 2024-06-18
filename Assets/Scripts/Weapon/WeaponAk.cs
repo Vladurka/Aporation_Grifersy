@@ -127,15 +127,16 @@ namespace Game.Weapon
             {
                 TotalBullets -= _maxBullets;
                 Bullets = _maxBullets;
+                _canShoot = true;
             }
 
-            if (TotalBullets < _maxBullets)
+            else if (TotalBullets < _maxBullets)
             {
                 Bullets = TotalBullets;
                 TotalBullets = 0;
+                _canShoot = true;
             }
 
-            _canShoot = true;
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
         }
