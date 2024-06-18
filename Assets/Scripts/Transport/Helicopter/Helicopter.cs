@@ -34,7 +34,7 @@ public class Helicopter : AbstractTransport, IService
         this.enabled = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
 

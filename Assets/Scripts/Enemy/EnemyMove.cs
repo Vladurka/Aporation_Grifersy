@@ -21,7 +21,7 @@ namespace Game.Enemy
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (IsDetected == false)
                 Walk();

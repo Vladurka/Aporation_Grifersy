@@ -16517,6 +16517,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 375718381}
     - target: {fileID: 4142611512532335592, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _damage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142611512532335592, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: _mainCharacter
       value: 
       objectReference: {fileID: 2509822740301775183}
@@ -16562,7 +16566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363463722712079640, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: m_Name
-      value: Enemy 1
+      value: 'Enemy '
       objectReference: {fileID: 0}
     - target: {fileID: 9067653113468750757, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: m_Enabled
@@ -23626,6 +23630,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1479052216}
     m_Modifications:
+    - target: {fileID: 4142611512532335592, guid: 770df7a3022d81642895627440c68384, type: 3}
+      propertyPath: _damage
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4266550118618821251, guid: 770df7a3022d81642895627440c68384, type: 3}
       propertyPath: m_LocalPosition.x
       value: 70.46919
