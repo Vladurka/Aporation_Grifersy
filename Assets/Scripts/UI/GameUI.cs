@@ -3,17 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
-    [SerializeField] private GameObject gamePanel;
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject _gamePanel;
+    [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private GameObject _settingsPanel;
+    [SerializeField] private GameObject _mainCharacter;
+    [SerializeField] private GameObject _pauseCamera;
     private bool PauseGame;
 
     public void Init()
     {
+        _pauseCamera.SetActive(false);
         Time.timeScale = 1.0f;
-        gamePanel.SetActive(true);
-        settingsPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        _gamePanel.SetActive(true);
+        _settingsPanel.SetActive(false);
+        _pausePanel.SetActive(false);
     }
 
     private void Update()
@@ -35,20 +38,24 @@ public class GameUI : MonoBehaviour
     {
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
-        gamePanel.SetActive(false);
-        settingsPanel.SetActive(false);
-        pausePanel.SetActive(true);
+        _gamePanel.SetActive(false);
+        _settingsPanel.SetActive(false);
+        _pausePanel.SetActive(true);
         PauseGame = true;
+        _mainCharacter.SetActive(false);
+        _pauseCamera.SetActive(true);
     }
 
     public void Continue()
     {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
-        gamePanel.SetActive(true);
-        settingsPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        _gamePanel.SetActive(true);
+        _settingsPanel.SetActive(false);
+        _pausePanel.SetActive(false);
         PauseGame = false;
+        _mainCharacter.SetActive(true);
+        _pauseCamera.SetActive(false);
     }
 
     public void BackToMainMenu()
@@ -58,16 +65,16 @@ public class GameUI : MonoBehaviour
 
     public void Settings()
     {
-        gamePanel.SetActive(false);
-        pausePanel.SetActive(false);
-        settingsPanel.SetActive(true);
+        _gamePanel.SetActive(false);
+        _pausePanel.SetActive(false);
+        _settingsPanel.SetActive(true);
     }
 
     public void BackToPause()
     {
-        gamePanel.SetActive(false);
-        pausePanel.SetActive(true);
-        settingsPanel.SetActive(false);
+        _gamePanel.SetActive(false);
+        _pausePanel.SetActive(true);
+        _settingsPanel.SetActive(false);
     }
 
     public void SetLowSettings()

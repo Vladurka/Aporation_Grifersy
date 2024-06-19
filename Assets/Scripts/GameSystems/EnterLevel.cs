@@ -73,7 +73,7 @@ namespace Game
             _mainCharacter.SetActive(true);
 
             _loadData.Init();
-            _loadData.LoadInfo();
+            //_loadData.LoadInfo();
             _saveData.Init();
 
             _gamePanel.Init();

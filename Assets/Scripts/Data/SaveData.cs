@@ -40,7 +40,7 @@ namespace Game.Data
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.C))
+            if(Input.GetKeyDown(KeyCode.Escape))
                 SaveInfo();
         }
 
