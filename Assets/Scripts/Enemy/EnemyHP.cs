@@ -11,8 +11,16 @@ namespace Game.Enemy
 
         private EventBus _eventBus;
 
+        private Animator _animator;
+
+        private EnemyMove _enemyMove;
+
         private void Start () 
         {
+            _enemyMove = GetComponent<EnemyMove>();
+
+            _animator = GetComponent<Animator>();
+
             _eventBus = ServiceLocator.Current.Get<EventBus>();
 
             _eventBus.Invoke(new AddObj(gameObject));
@@ -20,7 +28,9 @@ namespace Game.Enemy
 
         public void Die()
         {
-            Destroy(gameObject);
+            _enemyMove.IsDead = true;
+            _animator.SetTrigger("Die");
+            Destroy(gameObject, 5f);
         }
 
         public void GetDamage(float damage)
