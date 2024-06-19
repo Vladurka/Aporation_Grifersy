@@ -15,7 +15,7 @@ namespace Game.Enemy
         private NavMeshAgent _agent;
 
         public bool IsDetected { get; set; } = false;
-        public bool IsDead = false;
+        public bool IsDead { get; set; } = false;
 
 
         private void Start()

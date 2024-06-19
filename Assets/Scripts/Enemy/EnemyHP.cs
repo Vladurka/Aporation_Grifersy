@@ -6,6 +6,7 @@ namespace Game.Enemy
 {
     public class EnemyHP : MonoBehaviour, IEnemyHealth
     {
+        public bool IsDead { get; set; } = false;
         public int KillCost { get; set; } = 100;
         public float Health { get; set; } = 10f;
 
@@ -13,12 +14,8 @@ namespace Game.Enemy
 
         private Animator _animator;
 
-        private EnemyMove _enemyMove;
-
         private void Start () 
         {
-            _enemyMove = GetComponent<EnemyMove>();
-
             _animator = GetComponent<Animator>();
 
             _eventBus = ServiceLocator.Current.Get<EventBus>();
@@ -28,16 +25,20 @@ namespace Game.Enemy
 
         public void Die()
         {
-            _enemyMove.IsDead = true;
-            _animator.SetTrigger("Die");
-            Destroy(gameObject, 5f);
+            if (gameObject.TryGetComponent(out IEnemyMove enemyMove))
+            {
+                IsDead = true;
+                enemyMove.IsDead = true;
+                _animator.SetTrigger("Die");
+                Destroy(gameObject, 5f);
+            }
         }
 
         public void GetDamage(float damage)
         {
             Health -= damage;
 
-            if (Health <= 0)
+            if (Health <= 0 && IsDead != true)
             {
                 _eventBus.Invoke(new MoneyAdd(KillCost));
                 Die();

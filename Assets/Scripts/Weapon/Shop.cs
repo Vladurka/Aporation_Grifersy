@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour, IService
 {
-    private int _akBulletsAmount = 30;
-    private int _rpgBulletsAmount = 5;
+    [Header("Bullets-")]
+    [SerializeField] private int _akBulletsAmount = 30;
+    [SerializeField] private int _rpgBulletsAmount = 5;
+    [SerializeField] private int _grenadesAmount = 1;
+    [SerializeField] private int _minesAmount = 1;
 
-    private int _basePrice = 30;
-    private int _baseUpgradeAmount = 0;
-    private int _maxBaseUpgradeAmount = 0;
+    [Header("Base")]
+    [SerializeField] private int _baseUpgradeAmount = 0;
+    [SerializeField] private int _maxBaseUpgradeAmount = 4;
 
+    [SerializeField] private GameObject _shopPanel;
     private EventBus _eventBus;
     private CoinSystem _coinSystem;
     public void Init()
@@ -32,13 +36,12 @@ public class Shop : MonoBehaviour, IService
             _eventBus.Invoke(new GetScope(scope.Level));
     }
 
-    public void BuyBase()
+    public void BuyBase(int price)
     {
-        if (_coinSystem.Money >= _basePrice && _baseUpgradeAmount < _maxBaseUpgradeAmount)
+        if (_coinSystem.Money >= price && _baseUpgradeAmount <= _maxBaseUpgradeAmount)
         {
             _eventBus.Invoke(new BuyBase());
-            _coinSystem.SpendMoney(_basePrice);
-            _basePrice += 25;
+            _coinSystem.SpendMoney(price);
             _baseUpgradeAmount++;
         }
     }
@@ -61,13 +64,20 @@ public class Shop : MonoBehaviour, IService
         }
     }
 
-    //public void BuyGrenade(int amount)
-    //{
-    //    _eventBus.Invoke(new BuyGrenades(amount));
-    //}
+    public void BuyGrenade(int price)
+    {
+        if (_coinSystem.Money >= price)
+            _eventBus.Invoke(new BuyGrenades(_grenadesAmount));
+    }
 
-    //public void BuyMine(int amount)
-    //{
-    //    _eventBus.Invoke(new BuyMine(amount));
-    //}
+    public void BuyMine(int price)
+    {
+        if (_coinSystem.Money >= price)
+            _eventBus.Invoke(new BuyMine(_minesAmount));
+    }
+
+    public void SetPanel(bool state)
+    {
+        _shopPanel.SetActive(state);
+    }
 }

@@ -37,6 +37,9 @@ public class Raycasts : MonoBehaviour, IService
                         transport.Enter();
                     }
                 }
+
+                if(hit.collider.TryGetComponent(out IShop shop))
+                    shop.SetPanel(true);
             }
         }
 
