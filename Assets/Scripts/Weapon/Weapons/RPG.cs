@@ -46,7 +46,7 @@ namespace Game.Weapon
 
             _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
-            _weaponImage.enabled = true;
+            _eventBus.Invoke(new SetImage(1));
         }
 
         void Update()
@@ -112,6 +112,7 @@ namespace Game.Weapon
         private void AddBullets(BuyRpgBullets bullets)
         {
             TotalBullets += bullets.Amount;
+            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
         }
 
         private void GetCamera(SetAimCamera AimCamera)
@@ -121,7 +122,6 @@ namespace Game.Weapon
 
         private void OnDisable()
         {
-            _weaponImage.enabled = false;
             _eventBus.Invoke(new SetTotalBullets(false));
         }
 

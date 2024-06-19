@@ -7,7 +7,6 @@ public abstract class AbstractWeapon : MonoBehaviour
     [SerializeField] protected float _callRange;
     [SerializeField] protected float _range;
     [SerializeField] protected float _damage;
-    [SerializeField] protected Image _weaponImage;
 
     protected Camera _mainCamera;
     protected Camera _aimCamera;

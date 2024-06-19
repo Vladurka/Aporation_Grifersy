@@ -67,7 +67,10 @@ public class Shop : MonoBehaviour, IService
     public void BuyGrenade(int price)
     {
         if (_coinSystem.Money >= price)
+        {
             _eventBus.Invoke(new BuyGrenades(_grenadesAmount));
+        }
+
     }
 
     public void BuyMine(int price)

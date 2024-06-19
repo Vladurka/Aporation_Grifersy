@@ -25,10 +25,10 @@ public class GrenadeThrower : AbstractWeapon, IService
     {
         _grenadeModel.SetActive(true);
         _canThrow = true;
-        _eventBus.Subscribe<BuyGrenades>(GetGrenades, 1);
+        _eventBus.Subscribe<BuyGrenades>(AddGrenades, 1);
         _eventBus.Invoke(new UpdateTotalBullets(Grenades));
         _eventBus.Invoke(new SetTotalBullets(true));
-        _weaponImage.enabled = true;
+        _eventBus.Invoke(new SetImage(2));
     }
 
     private void Update()
@@ -55,19 +55,19 @@ public class GrenadeThrower : AbstractWeapon, IService
         yield return null;
     }
 
-    private void GetGrenades(BuyGrenades grenades)
+    private void AddGrenades(BuyGrenades grenades)
     {
         Grenades += grenades.Amount;
+        _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
     }
 
     private void OnDisable()
     {
-        _weaponImage.enabled = false;
         _eventBus.Invoke(new SetTotalBullets(false));
     }
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<BuyGrenades>(GetGrenades);
+        _eventBus.Unsubscribe<BuyGrenades>(AddGrenades);
     }
 }

@@ -29,8 +29,9 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<UpdateTotalBullets>(UpdateTotalBulletsText, 1);
         _eventBus.Subscribe<UpdateHealth>(UpdateHealthText, 1);
         _eventBus.Subscribe<UpdateMoney>(UpdateMoneyText, 1);
-        
-        foreach(Image image in _images)
+        _eventBus.Subscribe<SetImage>(SetImage, 1);
+
+        foreach (Image image in _images)
         {
             image.enabled = false;
         }
@@ -69,6 +70,16 @@ public class GamePanel : MonoBehaviour
         _totalBulletsText.enabled = state.State;
     }
 
+    private void SetImage(SetImage images)
+    {
+        foreach (Image image in _images)
+        {
+            image.enabled = false;
+        }
+
+        _images[images.Index].enabled = true;
+    }
+
     private void OnDestroy()
     {
         _eventBus.Unsubscribe<SetCurrentBullets>(SetCurrentBulletsText);
@@ -77,5 +88,6 @@ public class GamePanel : MonoBehaviour
         _eventBus.Unsubscribe<UpdateTotalBullets>(UpdateTotalBulletsText);
         _eventBus.Unsubscribe<UpdateHealth>(UpdateHealthText);
         _eventBus.Unsubscribe<UpdateMoney>(UpdateMoneyText);
+        _eventBus.Unsubscribe<SetImage>(SetImage);
     }
 }
