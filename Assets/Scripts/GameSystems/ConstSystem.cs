@@ -36,4 +36,8 @@ public static class ConstSystem
     public const string GLOVES_SKIN0 = "RAINBOW";
     public const string GLOVES_SKIN1 = "LAVA";
     public const string GLOVES_SKIN2 = "WEAKEND";
+
+    public const string SCOPE_KEY0 = "SCOPE0";
+    public const string SCOPE_KEY1 = "SCOPE1";
+    public const string SCOPE_KEY2 = "SCOPE2";
 }

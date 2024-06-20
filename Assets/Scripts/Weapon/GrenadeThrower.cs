@@ -28,7 +28,7 @@ public class GrenadeThrower : AbstractWeapon, IService
         _eventBus.Subscribe<BuyGrenades>(AddGrenades, 1);
         _eventBus.Invoke(new UpdateTotalBullets(Grenades));
         _eventBus.Invoke(new SetTotalBullets(true));
-        _eventBus.Invoke(new SetImage(2));
+        _eventBus.Invoke(new SetImage(2, true));
     }
 
     private void Update()
@@ -69,5 +69,6 @@ public class GrenadeThrower : AbstractWeapon, IService
     private void OnDestroy()
     {
         _eventBus.Unsubscribe<BuyGrenades>(AddGrenades);
+        _eventBus.Invoke(new SetImage(3, false));
     }
 }

@@ -19,6 +19,8 @@ public class GamePanel : MonoBehaviour
     [Header("Icons")]
     [SerializeField] private Image[] _images;
 
+    [SerializeField] private GameObject _speedometr;
+
     private EventBus _eventBus;
     public void Init()
     {
@@ -30,13 +32,12 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<UpdateHealth>(UpdateHealthText, 1);
         _eventBus.Subscribe<UpdateMoney>(UpdateMoneyText, 1);
         _eventBus.Subscribe<SetImage>(SetImage, 1);
+        _eventBus.Subscribe<SetSpeedometer>(SetSpeedometer, 1);
 
         foreach (Image image in _images)
         {
             image.enabled = false;
         }
-
-        _images[0].enabled = true;
     }
 
     private void UpdateCurrentBulletsText(UpdateCurrentBullets currentBullets)
@@ -77,7 +78,15 @@ public class GamePanel : MonoBehaviour
             image.enabled = false;
         }
 
-        _images[images.Index].enabled = true;
+        if(images.Active == true)
+        {
+            _images[images.Index].enabled = true;
+        }
+    }
+
+    private void SetSpeedometer(SetSpeedometer speedometer)
+    {
+        _speedometr.SetActive(speedometer.State);
     }
 
     private void OnDestroy()
@@ -89,5 +98,6 @@ public class GamePanel : MonoBehaviour
         _eventBus.Unsubscribe<UpdateHealth>(UpdateHealthText);
         _eventBus.Unsubscribe<UpdateMoney>(UpdateMoneyText);
         _eventBus.Unsubscribe<SetImage>(SetImage);
+        _eventBus.Unsubscribe<SetSpeedometer>(SetSpeedometer);
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebbdf8e5fe608244bb9fe9a141a2831, type: 3}
   m_Name: Scope1
   m_EditorClassIdentifier: 
+  Key: SCOPE1
   Level: 1
   Price: 700
-  IsBought: 0
+  Condition: 0

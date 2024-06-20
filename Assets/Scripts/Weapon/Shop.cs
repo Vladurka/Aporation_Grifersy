@@ -27,15 +27,19 @@ public class Shop : MonoBehaviour, IService, IShop
 
     public void BuySkope(ScopesParametrs scope)
     {
-        if (scope.IsBought == false && _coinSystem.Money >= scope.Price)
+        if (scope.Condition == 0 && _coinSystem.Money >= scope.Price)
         {
             _coinSystem.SpendMoney(scope.Price);
             _eventBus.Invoke(new GetScope(scope.Level));
-            scope.IsBought = true;
+            scope.Condition = 1;
+            _eventBus.Invoke(new SetScopeCondition());
         }
 
-        if(scope.IsBought == true)
+        if (scope.Condition == 1)
+        {
             _eventBus.Invoke(new GetScope(scope.Level));
+            _eventBus.Invoke(new SetScopeCondition());
+        }
     }
 
     public void BuyBase(int price)
@@ -97,10 +101,10 @@ public class Shop : MonoBehaviour, IService, IShop
 
     public void Close()
     {
+        _shopPanel.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         _mainCharacter.SetActive(true);
         _cameraUI.SetActive(false);
-        _shopPanel.SetActive(false);
     }
 }

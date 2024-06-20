@@ -8,10 +8,14 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private GameObject _pauseCamera;
+    [SerializeField] private GameObject _shopPanel;
+    [SerializeField] private GameObject _speedometerPanel;
     private bool PauseGame;
 
     public void Init()
     {
+        _speedometerPanel.SetActive(false);
+        _shopPanel.SetActive(false);
         _pauseCamera.SetActive(false);
         Time.timeScale = 1.0f;
         _gamePanel.SetActive(true);
@@ -44,6 +48,8 @@ public class GameUI : MonoBehaviour
         PauseGame = true;
         _mainCharacter.SetActive(false);
         _pauseCamera.SetActive(true);
+        _speedometerPanel.SetActive(false);
+        _shopPanel.SetActive(false);
     }
 
     public void Continue()
