@@ -2,7 +2,7 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
-public class Shop : MonoBehaviour, IService
+public class Shop : MonoBehaviour, IService, IShop
 {
     [Header("Bullets-")]
     [SerializeField] private int _akBulletsAmount = 30;
@@ -15,6 +15,8 @@ public class Shop : MonoBehaviour, IService
     [SerializeField] private int _maxBaseUpgradeAmount = 4;
 
     [SerializeField] private GameObject _shopPanel;
+    [SerializeField] private GameObject _mainCharacter;
+    [SerializeField] private GameObject _cameraUI;
     private EventBus _eventBus;
     private CoinSystem _coinSystem;
     public void Init()
@@ -82,5 +84,23 @@ public class Shop : MonoBehaviour, IService
     public void SetPanel(bool state)
     {
         _shopPanel.SetActive(state);
+    }
+
+    public void Open()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        _mainCharacter.SetActive(false);
+        _cameraUI.SetActive(true);
+        _shopPanel.SetActive(true);
+    }
+
+    public void Close()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        _mainCharacter.SetActive(true);
+        _cameraUI.SetActive(false);
+        _shopPanel.SetActive(false);
     }
 }

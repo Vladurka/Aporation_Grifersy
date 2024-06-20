@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+public class ChangePanels : MonoBehaviour
 {
     public void ChangePanel(GameObject panel)
     {
