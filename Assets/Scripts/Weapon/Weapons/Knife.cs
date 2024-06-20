@@ -17,7 +17,7 @@ public class Knife : AbstractWeapon
     {
         _mainCamera.enabled = true;
         _eventBus.Invoke(new SetTotalBullets(false));
-        _eventBus.Invoke(new SetImage(3));
+        _eventBus.Invoke(new SetImage(3, true));
     }
 
     private void Update()
@@ -39,5 +39,10 @@ public class Knife : AbstractWeapon
             if (enemies.TryGetComponent(out IEnemyHealth _health))
                 _health.GetDamage(_damage);
         }
+    }
+
+    private void OnDisable()
+    {
+        _eventBus.Invoke(new SetImage(3, false));
     }
 }

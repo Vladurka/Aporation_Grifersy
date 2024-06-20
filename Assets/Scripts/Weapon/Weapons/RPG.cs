@@ -46,7 +46,7 @@ namespace Game.Weapon
 
             _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
-            _eventBus.Invoke(new SetImage(1));
+            _eventBus.Invoke(new SetImage(1, true));
         }
 
         void Update()
@@ -123,6 +123,7 @@ namespace Game.Weapon
         private void OnDisable()
         {
             _eventBus.Invoke(new SetTotalBullets(false));
+            _eventBus.Invoke(new SetImage(1, false));
         }
 
         private void OnDestroy()
