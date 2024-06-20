@@ -17,6 +17,7 @@ public class Shop : MonoBehaviour, IService, IShop
     [SerializeField] private GameObject _shopPanel;
     [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private GameObject _cameraUI;
+
     private EventBus _eventBus;
     private CoinSystem _coinSystem;
     public void Init()
