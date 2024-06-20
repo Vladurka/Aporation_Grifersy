@@ -78,7 +78,7 @@ public class GamePanel : MonoBehaviour
             image.enabled = false;
         }
 
-        if(images.Active == true)
+        if(images.Active)
         {
             _images[images.Index].enabled = true;
         }
