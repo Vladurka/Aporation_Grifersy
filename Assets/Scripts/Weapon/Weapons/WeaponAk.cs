@@ -118,6 +118,7 @@ namespace Game.Weapon
         private void AddBullets(BuyAkBullets bullets)
         {
             TotalBullets += bullets.Amount;
+            Debug.Log(TotalBullets);
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
         }
 

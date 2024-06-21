@@ -423,21 +423,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: BackToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Game.Data.SaveData, Assembly-CSharp
-        m_MethodName: SaveInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3380,7 +3368,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: SetLowSettings
         m_Mode: 1
@@ -4967,7 +4955,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: SetHighSettings
         m_Mode: 1
@@ -5255,7 +5243,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: BackToPause
         m_Mode: 1
@@ -5459,6 +5447,7 @@ MonoBehaviour:
   _playerHealth: {fileID: 2101394124}
   _movement: {fileID: 2101394123}
   _cameraController: {fileID: 2101394122}
+  _raycasts: {fileID: 2101394130}
   _weaponAk: {fileID: 2101394121}
   _rpg: {fileID: 2101394120}
   _knife: {fileID: 2101394119}
@@ -7174,7 +7163,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: Continue
         m_Mode: 1
@@ -7585,7 +7574,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: FullScreen
         m_Mode: 1
@@ -8842,7 +8831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: SetMediumSettings
         m_Mode: 1
@@ -9276,7 +9265,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: WindowMode
         m_Mode: 1
@@ -9718,6 +9707,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7631578281681045903, guid: 3ecd5738ec7f3cc4f886f829b93f7b17, type: 3}
   m_PrefabInstance: {fileID: 2101394116}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101394130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7847607864083798988, guid: 3ecd5738ec7f3cc4f886f829b93f7b17, type: 3}
+  m_PrefabInstance: {fileID: 2101394116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101394125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfa2e13384851641b81c9eee157d587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2106361188
 GameObject:
   m_ObjectHideFlags: 0
@@ -9880,7 +9880,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 314478431}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1

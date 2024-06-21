@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxWithBullets : MonoBehaviour, IBox
 {
-    public bool IsOpen { get; set; } = false;
+    private bool _isOpen = false;
 
     private EventBus _eventBus;
 
@@ -15,11 +15,11 @@ public class BoxWithBullets : MonoBehaviour, IBox
 
     public void Open()
     {
-       if (!IsOpen)
+       if (!_isOpen)
        {
             _eventBus.Invoke(new BuyAkBullets(100));
             _eventBus.Invoke(new BuyRpgBullets(5));
-            IsOpen = true;
+            _isOpen = true;
        }
     }
 }

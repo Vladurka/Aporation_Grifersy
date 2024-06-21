@@ -11,6 +11,7 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Movement _movement;
     [SerializeField] private CameraController _cameraController;
+    [SerializeField] private Raycasts _raycasts;
 
     [Header("Weapon")]
     [SerializeField] private WeaponAk _weaponAk;
@@ -67,6 +68,7 @@ public class EnterMission : MonoBehaviour
         _coinSystem.Init();
         _scopeLevels.Init();
         _grenadeThrower.Init();
+        _raycasts.Init();
 
         _akAnim.Init();
         _rpgAnim.Init();
