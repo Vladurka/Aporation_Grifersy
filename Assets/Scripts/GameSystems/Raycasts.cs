@@ -40,6 +40,9 @@ public class Raycasts : MonoBehaviour, IService
 
                 if(hit.collider.TryGetComponent(out IShop shop))
                     shop.Open();
+
+                if(hit.collider.TryGetComponent(out IBox box))
+                    box.Open();
             }
         }
 

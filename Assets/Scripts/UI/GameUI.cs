@@ -14,8 +14,12 @@ public class GameUI : MonoBehaviour
 
     public void Init()
     {
-        _speedometerPanel.SetActive(false);
-        _shopPanel.SetActive(false);
+        if (_shopPanel != null && _speedometerPanel != null)
+        {
+            _speedometerPanel.SetActive(false);
+            _shopPanel.SetActive(false);
+        }
+
         _pauseCamera.SetActive(false);
         Time.timeScale = 1.0f;
         _gamePanel.SetActive(true);
@@ -48,8 +52,12 @@ public class GameUI : MonoBehaviour
         PauseGame = true;
         _mainCharacter.SetActive(false);
         _pauseCamera.SetActive(true);
-        _speedometerPanel.SetActive(false);
-        _shopPanel.SetActive(false);
+
+        if (_shopPanel != null && _speedometerPanel != null)
+        {
+            _speedometerPanel.SetActive(false);
+            _shopPanel.SetActive(false);
+        }
     }
 
     public void Continue()
