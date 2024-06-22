@@ -40,4 +40,10 @@ public static class ConstSystem
     public const string SCOPE_KEY0 = "SCOPE0";
     public const string SCOPE_KEY1 = "SCOPE1";
     public const string SCOPE_KEY2 = "SCOPE2";
+
+    public const string MISSION1_KEY = "MISSION1";
+    public const string MISSION2_KEY = "MISSION2";
+    public const string MISSION3_KEY = "MISSION3";
+    public const string MISSION4_KEY = "MISSION4";
+    public const string MISSION5_KEY = "MISSION5";
 }

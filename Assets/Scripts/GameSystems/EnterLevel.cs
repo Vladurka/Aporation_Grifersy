@@ -53,6 +53,7 @@ namespace Game
         [SerializeField] private SaveData _saveData;
         [SerializeField] private LoadData _loadData;
         [SerializeField] private Shop _shop;
+        [SerializeField] private MissionsController _missionsController;
 
         private EnemyListController _enemyListController;
         private EventBus _eventBus;
@@ -99,6 +100,7 @@ namespace Game
             _grenadeThrower.Init();
             _changeSkinCar.Init();
             _changeRpgSkin.Init();
+            _missionsController.Init();
 
             _akAnim.Init();
             _rpgAnim.Init();

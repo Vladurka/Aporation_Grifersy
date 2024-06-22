@@ -1,3 +1,5 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,10 +13,15 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _shopPanel;
     [SerializeField] private GameObject _speedometerPanel;
     [SerializeField] private GameObject _completedPanel;
-    private bool PauseGame;
+    private bool _pauseGame;
+    private bool _canPause = true;
 
+    private EventBus _eventBus;
     public void Init()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Subscribe<EnablePause>(PauseState, 1);
+
         if (_shopPanel != null && _speedometerPanel != null)
         {
             _speedometerPanel.SetActive(false);
@@ -35,15 +42,23 @@ public class GameUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PauseGame)
+            if (_canPause)
             {
-                Continue();
-            }
-            else
-            {
-                Pause();
+                if (_pauseGame)
+                {
+                    Continue();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
+    }
+
+    private void PauseState(EnablePause pause)
+    {
+        _canPause = pause.State;
     }
 
     public void Pause()
@@ -53,7 +68,7 @@ public class GameUI : MonoBehaviour
         _gamePanel.SetActive(false);
         _settingsPanel.SetActive(false);
         _pausePanel.SetActive(true);
-        PauseGame = true;
+        _pauseGame = true;
         _mainCharacter.SetActive(false);
         _pauseCamera.SetActive(true);
 
@@ -71,7 +86,7 @@ public class GameUI : MonoBehaviour
         _gamePanel.SetActive(true);
         _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
-        PauseGame = false;
+        _pauseGame = false;
         _mainCharacter.SetActive(true);
         _pauseCamera.SetActive(false);
     }
@@ -127,4 +142,8 @@ public class GameUI : MonoBehaviour
         Screen.fullScreen = false;
     }
 
+    private void OnDestroy()
+    {
+        _eventBus.Unsubscribe<EnablePause>(PauseState);
+    }
 }

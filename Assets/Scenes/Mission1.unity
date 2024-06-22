@@ -1430,6 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1258409907882e46a73012a6aeec1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _key: MISSION1
   _endPanel: {fileID: 756094578}
   _mainCharacter: {fileID: 2101394125}
   _uiCamera: {fileID: 1560889387}

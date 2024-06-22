@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EndMission : MonoBehaviour
 {
+    [SerializeField] private string _key;
+
     [SerializeField] private GameObject _endPanel;
     [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private GameObject _uiCamera;
@@ -29,10 +31,12 @@ public class EndMission : MonoBehaviour
 
     private void EndGame()
     {
+        PlayerPrefs.SetInt(_key, 1);
         Cursor.lockState = CursorLockMode.None;
-        _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true); 
         _endPanel.SetActive(true);
+        _eventBus.Invoke(new EnablePause(false));
+        _mainCharacter.SetActive(false);
     }
 
     private void OnDestroy()

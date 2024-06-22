@@ -3029,7 +3029,7 @@ GameObject:
   - component: {fileID: 750329762}
   - component: {fileID: 750329761}
   m_Layer: 0
-  m_Name: EnteryPointLevel
+  m_Name: EntryPointLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3078,6 +3078,7 @@ MonoBehaviour:
   _saveData: {fileID: 367267740}
   _loadData: {fileID: 367267739}
   _shop: {fileID: 1359769407}
+  _missionsController: {fileID: 1550379050}
 --- !u!4 &750329762
 Transform:
   m_ObjectHideFlags: 0
@@ -5585,6 +5586,7 @@ GameObject:
   - component: {fileID: 1550379048}
   - component: {fileID: 1550379047}
   - component: {fileID: 1550379049}
+  - component: {fileID: 1550379050}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -5611,6 +5613,7 @@ MonoBehaviour:
   _pauseCamera: {fileID: 318568235}
   _shopPanel: {fileID: 387052297}
   _speedometerPanel: {fileID: 1722617187967375043}
+  _completedPanel: {fileID: 0}
 --- !u!224 &1550379046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5755,6 +5758,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e55130ec85f6004a94a02252de2bdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1550379050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550379044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997fca1147b60de4f8d108349da2f37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _missionsButtons: []
 --- !u!1 &1570900900
 GameObject:
   m_ObjectHideFlags: 0
