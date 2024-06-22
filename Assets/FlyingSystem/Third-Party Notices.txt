@@ -1,0 +1,46 @@
+The following assets are under CC0 license(public domain) or no copyright:
+
+-Duck 3D model(Idle.fbx and Fly.fbx, location: Assets\FlyingSystem\CreatureFlyingSystem\Demo\Mesh\Duck): CC0 license(https://opengameart.org/content/rigged-duck)
+
+-Eagle 3D model(Idle.fbx, Fly.fbx and Glide.fbx, location: Assets\FlyingSystem\CreatureFlyingSystem\Demo\Mesh\Eagle): CC0 license(https://opengameart.org/content/animated-animales-low-poly)
+
+-Dragon 3D model(Idle.fbx, Fly.fbx and Glide.fbx, location: Assets\FlyingSystem\CreatureFlyingSystem\Demo\Mesh\Dragon): CC0 license(https://opengameart.org/content/low-poly-ice-dragon)
+
+-Snow texture(Snow.png, location: Assets\FlyingSystem\Demo_Main\Mesh\Environment\Mountain\Textures): https://www.goodtextures.com/image/15636/seamless-and-tileable-snow-ice-texture-15636("May I use your textures to make a (commercial) computer game? Yes. You may use the textures from Goodtextures to make computer games.": https://www.goodtextures.com/faq)
+
+-White cloth texture(WhiteCloth.png, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Mesh\Glider\Textures): CC0 license(https://www.publicdomainpictures.net/en/view-image.php?image=115236&picture=white-texture-background)
+
+-Wood texture(Base.png and Wood.png, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Mesh\ViteAerea\Textures): CC0 license(https://www.publicdomainpictures.net/en/view-image.php?image=209094&picture=natural-wood-grain-background)
+
+-Duck sound effect(DuckSound.wav, location: Assets\FlyingSystem\CreatureFlyingSystem\Demo\Audio): No copyright(https://www.youtube.com/watch?v=6fhe2BRc6F4)
+
+-Eagle sound effect(EagleSound.wav, location: Assets\FlyingSystem\CreatureFlyingSystem\Demo\Audio): No copyright(https://www.youtube.com/watch?v=myp0ju9A_Kg)
+
+-Airplane sound effect(Airplane.wav, location: Assets\FlyingSystem\AircraftFlyingSystem\Demo\Audio): No copyright("This sound is not copyright protected and can be very well used for commercial as well as non-commercial use. ": https://www.youtube.com/watch?v=cK8KKjkaVvI)
+
+-Helicopter sound effect(Helicopter.wav, location: Assets\FlyingSystem\HelicopterFlyingSystem\Demo\Audio): No copyright(https://www.youtube.com/watch?v=97PBsUhiW9g)
+
+-Wooden wheel sound effect(WoodenWheel.wav, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Audio): No copyright("All sound effects are royalty-free, so you can use them in any project.": https://www.youtube.com/watch?v=xB3S4EmvHr0)
+
+
+The remaining assets are the original creation by the maker(Woody's Games Inc.) of this package Flying System, such as:
+
+-Airliner 3D model(Airliner.fbx, location: Assets\FlyingSystem\AircraftFlyingSystem\Demo\Mesh\Airliner)
+
+-Jet 3D model(Jet.fbx, location: Assets\FlyingSystem\AircraftFlyingSystem\Demo\Mesh\Jet)
+
+-Helicopter 3D model(Helicopter.fbx, location: Assets\FlyingSystem\HelicopterFlyingSystem\Demo\Mesh\Helicopter)
+
+-Drone 3D model(Drone.fbx, location: Assets\FlyingSystem\HelicopterFlyingSystem\Demo\Mesh\Drone)
+
+-Flying Car 3D model(FlyingCar.fbx, location: Assets\FlyingSystem\FlyingVehicleFlyingSystem\Demo\Mesh\FlyingCar)
+
+-Jet pack Car 3D model(HumanoidAircraft.fbx, location: Assets\FlyingSystem\HumanoidAircraftFlyingSystem\Demo\Mesh\HumanoidAircraft)
+
+-Parachute 3D model(HumanoidAircraft.fbx, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Mesh\Parachute)
+
+-Glider 3D model(Glider.fbx, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Mesh\Glider)
+
+-Vite Aerea 3D model(ViteAerea.fbx, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Mesh\ViteAerea)
+
+-Paper air plane 3D model(PaperAirPlane.fbx, location: Assets\FlyingSystem\GliderFlyingSystem\Demo\Mesh\PaperAirPlane)

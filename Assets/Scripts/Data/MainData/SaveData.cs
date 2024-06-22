@@ -11,7 +11,6 @@ namespace Game.Data
         private Helicopter _helicopter;
         private HelicopterStatesController _helicopterStatesController;
         private Car _car;
-        private CarStatesController _carStatesController;
         private WeaponAk _weaponAk;
         private RPG _rpg;
         private ScopeLevels _scopeLevels;
@@ -27,7 +26,6 @@ namespace Game.Data
             _helicopter = ServiceLocator.Current.Get<Helicopter>();
             _helicopterStatesController = ServiceLocator.Current.Get<HelicopterStatesController>();
             _car = ServiceLocator.Current.Get<Car>();
-            _carStatesController = ServiceLocator.Current.Get<CarStatesController>();
             _weaponAk = ServiceLocator.Current.Get<WeaponAk>();
             _rpg = ServiceLocator.Current.Get<RPG>();
             _scopeLevels = ServiceLocator.Current.Get<ScopeLevels>();
@@ -46,7 +44,7 @@ namespace Game.Data
 
         public void SaveInfo()
         {
-            SaveSystem.SavePlayerData(_player, _playerMove, _volume, _setMine, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _carStatesController, _weaponAk, _rpg, _coinSystem, _coinSystem, _baseStates); 
+            SaveSystem.SavePlayerData(_player, _playerMove, _volume, _setMine, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _weaponAk, _rpg, _coinSystem, _baseStates); 
         }
     }
 }

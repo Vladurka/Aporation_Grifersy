@@ -9,10 +9,6 @@ public class Raycasts : MonoBehaviour, IService
     public bool CanEnterHelicopter = false;
     public bool CanFixHelicopter = true;
 
-    [Header("Car")]
-    public bool CanEnterCar = false;
-    public bool CanFixCar = true;
-
     public void Init()
     {
         _cam = Camera.main;
@@ -32,10 +28,7 @@ public class Raycasts : MonoBehaviour, IService
                         transport.Enter();
                     }
 
-                    if (CanEnterCar == true && hit.collider.CompareTag("Car"))
-                    {
-                        transport.Enter();
-                    }
+                    transport.Enter();
                 }
 
                 if(hit.collider.TryGetComponent(out IShop shop))
@@ -53,9 +46,6 @@ public class Raycasts : MonoBehaviour, IService
             {
                 if (hit.collider.TryGetComponent(out IStatesConntroller statesController))
                 {
-                    if (CanFixCar == true && hit.collider.CompareTag("Car"))
-                        statesController.SetFixedState();
-
                     if (CanFixHelicopter == true && hit.collider.CompareTag("Helicopter"))
                         statesController.SetFixedState();
                 }

@@ -1,0 +1,10 @@
+In this project, the main model is the C-130 aircraft. 
+I also created a script that moves the aircraft from a random point to the center of the map,
+ rotates the blades on the aircraft and demonstrates jumping with the "Player" from the aircraft. 
+Run the "Demo" scene for a visual example. Thanks for the download!
+
+
+В данном проекте основной моделью является самолет С- 130. 
+Так же я создал скрипт который движет самолет с рандомной точки к центру карты, 
+крутит на самолете лопасти и демонстрирует прыжек "Плеером" из самолета. 
+Запустите "Демо" сцену для наглядного примера. Спасибо за скачанный актив!

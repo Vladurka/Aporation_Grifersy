@@ -10,7 +10,6 @@ namespace Game.Data
         private Movement _playerMove;    
         private Helicopter _helicopter;
         private Car _car;
-        private CarStatesController _carStatesController;
         private WeaponAk _weaponAk;
         private RPG _rpg;
         private ScopeLevels _scopeLevels;
@@ -28,7 +27,6 @@ namespace Game.Data
             _helicopter = ServiceLocator.Current.Get<Helicopter>();
             _helicopterStatesController = ServiceLocator.Current.Get<HelicopterStatesController>();
             _car = ServiceLocator.Current.Get<Car>();
-            _carStatesController = ServiceLocator.Current.Get<CarStatesController>();
             _weaponAk = ServiceLocator.Current.Get<WeaponAk>();
             _rpg = ServiceLocator.Current.Get<RPG>();
             _scopeLevels = ServiceLocator.Current.Get<ScopeLevels>();
@@ -62,7 +60,6 @@ namespace Game.Data
             _carPosition.y = data.CarPositionData[1];
             _carPosition.z = data.CarPositionData[2];
             _car.transform.position = _carPosition;
-            _carStatesController.CarState = data.CarConditionData;
 
             _weaponAk.Bullets = data.AKBulletsData;
             _weaponAk.TotalBullets = data.AKTotalBulletsData;

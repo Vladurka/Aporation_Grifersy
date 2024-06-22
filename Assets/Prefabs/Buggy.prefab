@@ -417,7 +417,6 @@ GameObject:
   - component: {fileID: 7410585347752099528}
   - component: {fileID: 4663620972377230928}
   - component: {fileID: 1916089429170516107}
-  - component: {fileID: 1386647899811379474}
   - component: {fileID: 2950507625420222512}
   m_Layer: 0
   m_Name: Buggy
@@ -569,19 +568,6 @@ MonoBehaviour:
   _colliderBL: {fileID: 6118725284341235136}
   _colliderBR: {fileID: 1072273302692244422}
   _maxAngle: 30
---- !u!114 &1386647899811379474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3183923909303283207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662c7a29e3d06164ea65d8a1c9c2199b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CarState: Destroyed
 --- !u!114 &2950507625420222512
 MonoBehaviour:
   m_ObjectHideFlags: 0

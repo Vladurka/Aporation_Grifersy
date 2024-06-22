@@ -19,7 +19,6 @@ namespace Game
 
         [Header("Car")]
         [SerializeField] private Car _car;
-        [SerializeField] private CarStatesController _carStatesController;
         [SerializeField] private ChangeSkinCar _changeSkinCar;
 
         [Header("Weapon")]
@@ -80,7 +79,6 @@ namespace Game
             _gamePanel.Init();
             _playerHealth.Init();
             _helicopterStatesController.Init();
-            _carStatesController.Init();
             _movement.Init();
             _helicopter.Init();
             _car.Init();
@@ -129,7 +127,6 @@ namespace Game
             ServiceLocator.Current.Register<CoinSystem>(_coinSystem);
             ServiceLocator.Current.Register<BaseStates>(_baseStates);
             ServiceLocator.Current.Register<HelicopterStatesController>(_helicopterStatesController);
-            ServiceLocator.Current.Register<CarStatesController>(_carStatesController);
             ServiceLocator.Current.Register<CameraController>(_cameraController);
             ServiceLocator.Current.Register<ScopeLevels>(_scopeLevels);
             ServiceLocator.Current.Register<Shop>(_shop);

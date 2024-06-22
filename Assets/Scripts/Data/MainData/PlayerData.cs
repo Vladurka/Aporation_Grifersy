@@ -9,7 +9,6 @@ namespace Game.Data
         public float[] HelicopterPositionData;
         public string HelicopterConditionData;
         public float[] CarPositionData;
-        public string CarConditionData;
         public float[] PLayerPositionData;
         public int AKBulletsData;
         public int AKTotalBulletsData;
@@ -23,7 +22,7 @@ namespace Game.Data
         public int MissionsData;
         public int BaseLevelData;
 
-        public PlayerData(PlayerHealth playerHP, Movement playerMove, VolumeController volume,SetMine setMine, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, CarStatesController carStatesController, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
+        public PlayerData(PlayerHealth playerHP, Movement playerMove, VolumeController volume,SetMine setMine, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
         {
             HelicopterConditionData = helicopterStatesController.HelicopterState;
 
@@ -31,8 +30,6 @@ namespace Game.Data
             HelicopterPositionData[0] = helicopter.transform.position.x;
             HelicopterPositionData[1] = helicopter.transform.position.y;
             HelicopterPositionData[2] = helicopter.transform.position.z;
-
-            CarConditionData = carStatesController.CarState;
 
             CarPositionData = new float[3];
             CarPositionData[0] = car.transform.position.x;
