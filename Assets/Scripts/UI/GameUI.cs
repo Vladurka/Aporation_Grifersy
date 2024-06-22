@@ -10,6 +10,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _pauseCamera;
     [SerializeField] private GameObject _shopPanel;
     [SerializeField] private GameObject _speedometerPanel;
+    [SerializeField] private GameObject _completedPanel;
     private bool PauseGame;
 
     public void Init()
@@ -19,6 +20,9 @@ public class GameUI : MonoBehaviour
             _speedometerPanel.SetActive(false);
             _shopPanel.SetActive(false);
         }
+
+        if(_completedPanel != null)
+            _completedPanel.SetActive(false);
 
         _pauseCamera.SetActive(false);
         Time.timeScale = 1.0f;
@@ -75,6 +79,11 @@ public class GameUI : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void BackGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 
     public void Settings()

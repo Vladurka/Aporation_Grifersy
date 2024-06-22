@@ -19,6 +19,7 @@ public class BoxWithBullets : MonoBehaviour, IBox
        {
             _eventBus.Invoke(new BuyAkBullets(100));
             _eventBus.Invoke(new BuyRpgBullets(5));
+            _eventBus.Invoke(new EndSignal());
             _isOpen = true;
        }
     }

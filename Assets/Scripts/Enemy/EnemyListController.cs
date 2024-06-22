@@ -18,14 +18,6 @@ public class EnemyListController : IService
         _eventBus.Subscribe<RemoveObj>(RemoveObject, 1);
     }
 
-
-    private void OnDestroy()
-    {
-        _eventBus.Unsubscribe<AddObj>(AddObject);
-        _eventBus.Unsubscribe<CheckList>(CheckDistance);
-        _eventBus.Unsubscribe<RemoveObj>(RemoveObject);
-    }
-
     private void AddObject(AddObj obj)
     {
         _enemies.Add(obj.Enemy);
@@ -34,6 +26,9 @@ public class EnemyListController : IService
     private void RemoveObject(RemoveObj obj)
     {
         _enemies.Remove(obj.Enemy);
+
+        if(_enemies.Count <= 0)
+            _eventBus.Invoke(new EndSignal());
     }
 
     private void CheckDistance(CheckList check)

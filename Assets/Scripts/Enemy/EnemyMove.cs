@@ -11,7 +11,7 @@ namespace Game.Enemy
         private GameObject[] _points;
         private GameObject _mainCharacter;
 
-        private int _index = 0;
+        private int _index;
         private NavMeshAgent _agent;
 
         public bool IsDetected { get; set; } = false;
@@ -24,6 +24,7 @@ namespace Game.Enemy
             _agent = GetComponent<NavMeshAgent>();
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
             _animator = GetComponent<Animator>();
+            _index = Random.Range(0, _points.Length);
         }
 
         private void FixedUpdate()
@@ -51,7 +52,7 @@ namespace Game.Enemy
                 return;
             }
 
-            else if(_index >= _points.Length - 1)
+            if(_index >= _points.Length - 1)
             {
                 _index = 0;
                 return;
