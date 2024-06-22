@@ -141,6 +141,10 @@ public class GameUI : MonoBehaviour
         Screen.fullScreenMode = FullScreenMode.Windowed;
         Screen.fullScreen = false;
     }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+    }
 
     private void OnDestroy()
     {

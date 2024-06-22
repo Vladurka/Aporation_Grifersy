@@ -8,6 +8,9 @@ namespace Game.Player
     {
         public float Health { get; set; } = 100f;
 
+        [SerializeField] private GameObject _uiCamera;
+        [SerializeField] private GameObject _diePanel;
+
         private EventBus _eventBus;
 
         public void Init()
@@ -18,6 +21,8 @@ namespace Game.Player
 
         public void Die()
         {
+            _uiCamera.SetActive(true);
+            _diePanel.SetActive(true);
             Destroy(gameObject);
         }
 
