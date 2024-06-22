@@ -21,6 +21,7 @@ namespace Game.Player
 
         public void Die()
         {
+            Cursor.lockState = CursorLockMode.None;
             _uiCamera.SetActive(true);
             _diePanel.SetActive(true);
             Destroy(gameObject);
