@@ -21,9 +21,12 @@ namespace Game.Enemy
 
         private void Update()
         {
-            if(Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _explosionRadius && _mainCharacter.activeSelf)
+            if (_mainCharacter != null)
             {
-                Explode();
+                if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _explosionRadius && _mainCharacter.activeSelf)
+                {
+                    Explode();
+                }
             }
         }
 

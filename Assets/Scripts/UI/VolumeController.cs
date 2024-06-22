@@ -15,7 +15,8 @@ public class VolumeController : MonoBehaviour, IService
     {
         foreach (AudioSource audioSource in _audioSource)
         {
-            audioSource.volume = _volumeSlider.value;
+            if (audioSource != null)
+                audioSource.volume = _volumeSlider.value;
         }
     }
 
