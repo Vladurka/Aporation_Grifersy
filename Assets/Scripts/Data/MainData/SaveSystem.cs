@@ -8,13 +8,13 @@ namespace Game.Data
 {
     public static class SaveSystem
     {
-        public static void SavePlayerData(PlayerHealth player, Movement playerMove, VolumeController volume, SetMine setMine, GrenadeThrower grenadeThrower,ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
+        public static void SavePlayerData(PlayerHealth player, Movement playerMove, VolumeController volume, GrenadeThrower grenadeThrower,ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath + ConstSystem.DATA_PATH;
             FileStream stream = new FileStream(path, FileMode.Create);
 
-            PlayerData data = new PlayerData(player, playerMove, volume, setMine, grenadeThrower, scopeLevels, helicopter, helicopterStatesController, car, ak, rpg, coins, baseStates);
+            PlayerData data = new PlayerData(player, playerMove, volume, grenadeThrower, scopeLevels, helicopter, helicopterStatesController, car, ak, rpg, coins, baseStates);
 
             formatter.Serialize(stream, data);
             stream.Close();

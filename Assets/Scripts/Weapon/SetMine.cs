@@ -3,7 +3,7 @@ using Game.SeniorEventBus.Signals;
 using System.Collections;
 using UnityEngine;
 
-public class SetMine : AbstractWeapon, IService
+public class SetMine : AbstractWeapon
 {
     [SerializeField] private GameObject _minePrefab;
 

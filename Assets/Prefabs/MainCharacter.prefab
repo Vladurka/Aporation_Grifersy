@@ -11187,7 +11187,6 @@ GameObject:
   - component: {fileID: 4304944573554714560}
   - component: {fileID: 7847607864083798988}
   - component: {fileID: 7624743598946826874}
-  - component: {fileID: 8647011429994293091}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Player
@@ -11440,8 +11439,6 @@ MonoBehaviour:
   _range: 2
   CanEnterHelicopter: 0
   CanFixHelicopter: 1
-  CanEnterCar: 0
-  CanFixCar: 1
 --- !u!114 &7624743598946826874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11454,24 +11451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce7c19d7027501489e6ba116cdc35d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8647011429994293091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7631578281681045903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 806fd9a09622d6b44b22fb87e5d5bd6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _callRange: 0
-  _range: 3
-  _damage: 0
-  TotalBullets: 10
-  Bullets: 0
-  _minePrefab: {fileID: 1221016696030413730, guid: 02c27cbced2fbc24fa0319ae0d947beb, type: 3}
+  _uiCamera: {fileID: 0}
+  _diePanel: {fileID: 0}
 --- !u!1 &7645950239771943473
 GameObject:
   m_ObjectHideFlags: 0

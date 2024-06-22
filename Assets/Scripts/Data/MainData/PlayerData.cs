@@ -14,7 +14,6 @@ namespace Game.Data
         public int AKTotalBulletsData;
         public int RPGTotalBulletsData;
         public int GrenadesData;
-        public int MinesData;
         public int MoneyData;
         public float VolumeData;
         public float HpData;
@@ -22,7 +21,7 @@ namespace Game.Data
         public int MissionsData;
         public int BaseLevelData;
 
-        public PlayerData(PlayerHealth playerHP, Movement playerMove, VolumeController volume,SetMine setMine, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
+        public PlayerData(PlayerHealth playerHP, Movement playerMove, VolumeController volume, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
         {
             HelicopterConditionData = helicopterStatesController.HelicopterState;
 
@@ -48,8 +47,6 @@ namespace Game.Data
             AKTotalBulletsData = ak.TotalBullets;
 
             RPGTotalBulletsData = rpg.TotalBullets;
-
-            MinesData = setMine.TotalBullets;
 
             GrenadesData = grenade.Grenades;
 
