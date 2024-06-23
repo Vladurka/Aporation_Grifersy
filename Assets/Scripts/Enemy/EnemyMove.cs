@@ -46,7 +46,7 @@ namespace Game.Enemy
             _animator.SetBool("Run", false);
             _agent.SetDestination(_points[_index].transform.position);
 
-            if (_agent.remainingDistance <= 0.01f && _index < _points.Length - 1)
+            if (Vector3.Distance(transform.position, _points[_index].transform.position) <= 0.01f && _index < _points.Length - 1)
             {
                 _index++;
                 return;
