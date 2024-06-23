@@ -9,10 +9,12 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _mainCharacter;
-    [SerializeField] private GameObject _pauseCamera;
+    [SerializeField] private GameObject _uiCamera;
     [SerializeField] private GameObject _shopPanel;
     [SerializeField] private GameObject _speedometerPanel;
     [SerializeField] private GameObject _completedPanel;
+    [SerializeField] private GameObject _diePanel;
+
     private bool _pauseGame;
     private bool _canPause = true;
 
@@ -21,6 +23,7 @@ public class GameUI : MonoBehaviour
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<EnablePause>(PauseState, 1);
+        _eventBus.Subscribe<SetDie>(SetDie, 1);
 
         if (_shopPanel != null && _speedometerPanel != null)
         {
@@ -31,7 +34,7 @@ public class GameUI : MonoBehaviour
         if(_completedPanel != null)
             _completedPanel.SetActive(false);
 
-        _pauseCamera.SetActive(false);
+        _uiCamera.SetActive(false);
         Time.timeScale = 1.0f;
         _gamePanel.SetActive(true);
         _settingsPanel.SetActive(false);
@@ -70,7 +73,7 @@ public class GameUI : MonoBehaviour
         _pausePanel.SetActive(true);
         _pauseGame = true;
         _mainCharacter.SetActive(false);
-        _pauseCamera.SetActive(true);
+        _uiCamera.SetActive(true);
 
         if (_shopPanel != null && _speedometerPanel != null)
         {
@@ -88,7 +91,7 @@ public class GameUI : MonoBehaviour
         _pausePanel.SetActive(false);
         _pauseGame = false;
         _mainCharacter.SetActive(true);
-        _pauseCamera.SetActive(false);
+        _uiCamera.SetActive(false);
     }
 
     public void BackToMainMenu()
@@ -146,8 +149,16 @@ public class GameUI : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
     }
 
+    private void SetDie(SetDie set)
+    {
+        _uiCamera.SetActive(true);
+        _diePanel.SetActive(true);
+        _speedometerPanel.SetActive(false);
+    }
+
     private void OnDestroy()
     {
         _eventBus.Unsubscribe<EnablePause>(PauseState);
+        _eventBus.Unsubscribe<SetDie>(SetDie);
     }
 }

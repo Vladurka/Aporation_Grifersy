@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -413,10 +413,11 @@ MonoBehaviour:
   _pausePanel: {fileID: 1165700605}
   _settingsPanel: {fileID: 1494904907}
   _mainCharacter: {fileID: 2101394125}
-  _pauseCamera: {fileID: 1560889387}
+  _uiCamera: {fileID: 1560889387}
   _shopPanel: {fileID: 0}
   _speedometerPanel: {fileID: 0}
   _completedPanel: {fileID: 756094578}
+  _diePanel: {fileID: 939337789}
 --- !u!224 &314478432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2011,6 +2012,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 314478431}
+    - target: {fileID: 8829608562665157986, guid: 35550d2389251cd4fa688bd1025a16a6, type: 3}
+      propertyPath: _mainCharacter
+      value: 
+      objectReference: {fileID: 2101394125}
     - target: {fileID: 9105865306195503698, guid: 35550d2389251cd4fa688bd1025a16a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

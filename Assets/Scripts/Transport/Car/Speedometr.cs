@@ -1,33 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Speedometr : MonoBehaviour
 {
-    public Rigidbody target;
+    [SerializeField] private Rigidbody _target;
 
-    public float maxSpeed = 260f; // The maximum speed of the target ** IN KM/H **
+    [SerializeField] private float _maxSpeed = 260f;
 
-    public float minSpeedArrowAngle;
-    public float maxSpeedArrowAngle;
+    [SerializeField] private float _minSpeedArrowAngle;
+    [SerializeField] private float _maxSpeedArrowAngle;
 
     [Header("UI")]
-    public Text speedLabel; // The label that displays the speed;
-    public RectTransform arrow; // The arrow in the speedometer
+    [SerializeField] private Text _speedLabel;
+    [SerializeField] private RectTransform _arrow; 
 
     private float speed = 0.0f;
     private void Update()
     {
-        // 3.6f to convert in kilometers
-        // ** The speed must be clamped by the car controller **
-        speed = target.velocity.magnitude * 3.6f;
+        if(_target != null)
+            speed = _target.velocity.magnitude * 3.6f;
 
-        if (speedLabel != null)
-            speedLabel.text = ((int)speed) + " km/h";
-        if (arrow != null)
-            arrow.localEulerAngles =
-                new Vector3(0, 0, Mathf.Lerp(minSpeedArrowAngle, maxSpeedArrowAngle, speed / maxSpeed));
+        if (_speedLabel != null)
+            _speedLabel.text = ((int)speed) + " km/h";
+        if (_arrow != null)
+            _arrow.localEulerAngles =
+                new Vector3(0, 0, Mathf.Lerp(_minSpeedArrowAngle, _maxSpeedArrowAngle, speed / _maxSpeed));
     }
 }
