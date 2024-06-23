@@ -153,7 +153,8 @@ public class GameUI : MonoBehaviour
     {
         _uiCamera.SetActive(true);
         _diePanel.SetActive(true);
-        _speedometerPanel.SetActive(false);
+        if(_speedometerPanel != null)
+            _speedometerPanel.SetActive(false);
     }
 
     private void OnDestroy()

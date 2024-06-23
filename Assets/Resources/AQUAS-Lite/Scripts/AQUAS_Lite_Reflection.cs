@@ -4,7 +4,7 @@ using System.Collections;
 namespace AQUAS_Lite
 {
     [AddComponentMenu("AQUAS Lite/Reflection")]
-    [ExecuteInEditMode] // Make mirror live-update even when not in play mode
+    [ExecuteInEditMode] 
     public class AQUAS_Lite_Reflection : MonoBehaviour
     {
         #region Variables

@@ -7,11 +7,12 @@ public class SetMine : AbstractWeapon
 {
     [SerializeField] private GameObject _minePrefab;
 
-    private EventBus _eventBus;
     public override void Init()
     {
-        _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<BuyMine>(AddMines, 1);
+    }
+
+    private void Start()
+    {
         _mainCamera = Camera.main;
     }
 
@@ -30,23 +31,11 @@ public class SetMine : AbstractWeapon
             RaycastHit hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, _range))
             {
-                if (hit.collider.CompareTag("Ground"))
-                {
-                    Instantiate(_minePrefab, hit.point, transform.rotation);
-                    TotalBullets--;
-                }
+                Instantiate(_minePrefab, hit.point, transform.rotation);
+                TotalBullets--;
             }
         }
-            yield return null;
-    }
 
-    private void AddMines(BuyMine buyMine)
-    {
-        TotalBullets += buyMine.Amount;
-    }
-
-    private void OnDestroy()
-    {
-        _eventBus.Unsubscribe<BuyMine>(AddMines);
+        yield return null;
     }
 }

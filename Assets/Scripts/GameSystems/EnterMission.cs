@@ -19,6 +19,9 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private Knife _knife;
     [SerializeField] private GrenadeThrower _grenadeThrower;
     [SerializeField] private ScopeLevels _scopeLevels;
+    [SerializeField] private ChangeRpgSkin _changeRpgSkin;
+    [SerializeField] private ChangeAkSkin _changeAkSkin;
+    [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
 
     [Header("UI")]
     [SerializeField] private GameUI _gameUI;
@@ -74,6 +77,10 @@ public class EnterMission : MonoBehaviour
         _rpgAnim.Init();
         _grenadeAnim.Init();
         _knifeAnim.Init();
+
+        _changeAkSkin.Init();
+        _changeKnifeSkin.Init();
+        _changeRpgSkin.Init();
 
         _gameUI.Init();
 
