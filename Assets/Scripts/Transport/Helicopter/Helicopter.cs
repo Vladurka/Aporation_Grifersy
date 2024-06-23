@@ -34,14 +34,17 @@ public class Helicopter : AbstractTransport, IService
         this.enabled = false;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        Move();
-
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Exit();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     protected override void Move()
