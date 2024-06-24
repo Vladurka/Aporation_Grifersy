@@ -29,15 +29,17 @@ namespace Game.Enemy
 
         private void FixedUpdate()
         {
-            if (IsDetected == false)
+            if (!IsDetected)
                 Walk();
 
-            if (IsDetected == true)
+            if (IsDetected)
                 EnemyDetected();
 
-            if (IsDead == true)
+            if (IsDead)
                 _agent.speed = 0f;
-                
+
+            if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 0.01f)
+                IsDetected = true;
         }
 
         public void Walk()

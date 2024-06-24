@@ -7,6 +7,8 @@ public class SetMine : AbstractWeapon
 {
     [SerializeField] private GameObject _minePrefab;
 
+    private EventBus _eventBus;
+
     public override void Init()
     {
     }
@@ -21,6 +23,11 @@ public class SetMine : AbstractWeapon
         if(Input.GetKeyDown(KeyCode.G))
         {
             StartCoroutine(Shoot(_mainCamera));
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            _eventBus.Invoke(new ExplodeMine());
         }
     }
 
