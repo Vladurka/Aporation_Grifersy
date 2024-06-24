@@ -9,6 +9,7 @@ TagManager:
   - Car
   - Point
   - Hat
+  - Tank
   layers:
   - Default
   - TransparentFX
