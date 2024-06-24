@@ -286,12 +286,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8955223328867753233, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
+      propertyPath: _range
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955223328867753233, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: _minePrefab
       value: 
       objectReference: {fileID: 9118711819884996512, guid: c5ae0dc85017dd343bae0c7a275d568b, type: 3}
     - target: {fileID: 8955223328867753233, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: TotalBullets
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
