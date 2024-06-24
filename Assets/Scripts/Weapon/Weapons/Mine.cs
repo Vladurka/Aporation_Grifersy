@@ -15,10 +15,11 @@ public class Mine : MonoBehaviour
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<ExplodeMine>(Explode, 1);
+        //_eventBus.Subscribe<ExplodeMine>(Explode, 1);
+        SetMine.explode += Explode;
     }
 
-    private void Explode(ExplodeMine mine)
+    private void Explode(/*ExplodeMine mine*/)
     {
         _eventBus.Invoke(new CheckList(transform.position, _callRange));
         Collider[] hits = Physics.OverlapSphere(transform.position, _range);
@@ -45,7 +46,8 @@ public class Mine : MonoBehaviour
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<ExplodeMine>(Explode);
+        //_eventBus.Unsubscribe<ExplodeMine>(Explode);
+        SetMine.explode -= Explode;
     }
 
 }
