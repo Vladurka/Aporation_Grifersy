@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EndMission : MonoBehaviour
 {
-    [SerializeField] private string _key;
-
     [SerializeField] private GameObject _endPanel;
     [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private GameObject _uiCamera;
     [SerializeField] private int _signalsNeeded = 2;
+    [SerializeField] private int _index = 0;
 
     [SerializeField]  private int _signals = 0;
 
@@ -31,7 +30,7 @@ public class EndMission : MonoBehaviour
 
     private void EndGame()
     {
-        PlayerPrefs.SetInt(_key, 1);
+        PlayerPrefs.SetInt(ConstSystem.MISSION_KEY, _index);
         Cursor.lockState = CursorLockMode.None;
         _uiCamera.SetActive(true); 
         _endPanel.SetActive(true);

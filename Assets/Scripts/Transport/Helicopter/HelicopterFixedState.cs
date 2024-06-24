@@ -8,13 +8,13 @@ public class HelicopterFixedState : IStates
     public void Enter()
     {
         _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
-        if (_coinSystem.Money >= _fixPrice)
-        {
+        //if (_coinSystem.Money >= _fixPrice)
+        //{
             _raycasts = ServiceLocator.Current.Get<Raycasts>();
             _raycasts.CanEnterHelicopter = true;
             _raycasts.CanFixHelicopter = false;
-            _coinSystem.SpendMoney(_fixPrice);
-        }
+            //_coinSystem.SpendMoney(_fixPrice);
+        //}
     }
 
     public void Exit()
