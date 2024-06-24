@@ -32,6 +32,7 @@ namespace Game.Weapon
             _eventBus.Subscribe<SetAimCamera>(GetCamera, 1);
 
             _mainCamera = Camera.main;
+
             _aimCamera = GetComponentInChildren<Camera>();
 
             _audioSource = GetComponent<AudioSource>();

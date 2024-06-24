@@ -11,7 +11,7 @@ public class EndMission : MonoBehaviour
     [SerializeField] private GameObject _uiCamera;
     [SerializeField] private int _signalsNeeded = 2;
 
-    private int _signals = 0;
+    [SerializeField]  private int _signals = 0;
 
     private EventBus _eventBus;
 
