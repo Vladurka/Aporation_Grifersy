@@ -261,8 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b55d338fb82e041bac7c7e9eb088fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyDamage: 10
-  _playerDamage: 7
+  _enemyDamage: 100
+  _playerDamage: 100
   _range: 20
   _callRange: 100
   _effect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}

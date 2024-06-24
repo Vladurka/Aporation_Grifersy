@@ -1,13 +1,16 @@
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class SetMine : AbstractWeapon
 {
     [SerializeField] private GameObject _minePrefab;
-
+   
     private EventBus _eventBus;
+
+    public static Action explode;
 
     public override void Init()
     {
@@ -27,7 +30,8 @@ public class SetMine : AbstractWeapon
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            _eventBus.Invoke(new ExplodeMine());
+            explode?.Invoke();
+            //_eventBus.Invoke(new ExplodeMine());
         }
     }
 

@@ -285,6 +285,18 @@ PrefabInstance:
       propertyPath: _signalsNeeded
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6144112464340777474, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
+      propertyPath: m_TagString
+      value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242143007216424621, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
+      propertyPath: m_TagString
+      value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955223328867753233, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
+      propertyPath: _range
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8955223328867753233, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: _range
       value: 3
