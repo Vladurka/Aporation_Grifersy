@@ -6245,7 +6245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8945398922888537220, guid: 961b5e2e5800f324db882698f61ae8cd, type: 3}
       propertyPath: m_TreeBillboardDistance
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

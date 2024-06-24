@@ -107,6 +107,7 @@ public class Helicopter : AbstractTransport, IService
         _rb.useGravity = false;
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
+        ConstSystem.InTransport = true;
     }
 
     public override void Exit()
@@ -116,6 +117,7 @@ public class Helicopter : AbstractTransport, IService
         _mainCharacter.SetActive(true);
         Invoke("UseGravity", 2f);
         this.enabled = false;
+        ConstSystem.InTransport = false;
     }
 
     public override void TransportReset()

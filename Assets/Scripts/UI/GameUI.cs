@@ -90,8 +90,9 @@ public class GameUI : MonoBehaviour
         _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
         _pauseGame = false;
-        _mainCharacter.SetActive(true);
         _uiCamera.SetActive(false);
+        if (!ConstSystem.InTransport)
+            _mainCharacter.SetActive(true);
     }
 
     public void BackToMainMenu()

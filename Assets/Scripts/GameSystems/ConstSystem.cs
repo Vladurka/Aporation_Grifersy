@@ -46,4 +46,6 @@ public static class ConstSystem
     public const string MISSION3_KEY = "MISSION3";
     public const string MISSION4_KEY = "MISSION4";
     public const string MISSION5_KEY = "MISSION5";
+    
+    public static bool InTransport = false;
 }

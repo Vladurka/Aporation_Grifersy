@@ -92,6 +92,7 @@ public class Car : AbstractTransport, IService
         _mainCharacter.SetActive(true);
         _eventBus.Invoke(new SetSpeedometer(false));
         this.enabled = false;
+        ConstSystem.InTransport = false;
     }
 
     public override void Enter()
@@ -102,6 +103,7 @@ public class Car : AbstractTransport, IService
         _mainCharacter.SetActive(false);
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
+        ConstSystem.InTransport = true;
     }
 
     public override void TransportReset()

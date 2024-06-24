@@ -5,7 +5,6 @@ public class Raycasts : MonoBehaviour, IService
     [SerializeField] private float _range = 2f;
     private Camera _cam;
 
-    [Header("Helicopter")]
     public bool CanEnterHelicopter = false;
     public bool CanFixHelicopter = true;
 
@@ -23,12 +22,13 @@ public class Raycasts : MonoBehaviour, IService
             {
                 if (hit.collider.TryGetComponent(out AbstractTransport transport))
                 {
-                    if (CanEnterHelicopter == true && hit.collider.CompareTag("Helicopter"))
+                    if (CanEnterHelicopter && hit.collider.CompareTag("Helicopter"))
                     {
                         transport.Enter();
                     }
 
-                    transport.Enter();
+                    if(hit.collider.CompareTag("Car"))
+                        transport.Enter();
                 }
 
                 if(hit.collider.TryGetComponent(out IShop shop))
@@ -46,7 +46,7 @@ public class Raycasts : MonoBehaviour, IService
             {
                 if (hit.collider.TryGetComponent(out IStatesConntroller statesController))
                 {
-                    if (CanFixHelicopter == true && hit.collider.CompareTag("Helicopter"))
+                    if (CanFixHelicopter && hit.collider.CompareTag("Helicopter"))
                         statesController.SetFixedState();
                 }
             }

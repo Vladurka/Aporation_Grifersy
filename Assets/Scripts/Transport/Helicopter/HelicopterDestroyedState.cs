@@ -1,7 +1,6 @@
 public class HelicopterDestroyedState : IStates
 {
     private Raycasts _raycasts;
-
     public void Enter()
     {
         _raycasts = ServiceLocator.Current.Get<Raycasts>();
@@ -11,8 +10,7 @@ public class HelicopterDestroyedState : IStates
 
     public void Exit()
     {
-        _raycasts.CanEnterHelicopter = true;
-        _raycasts.CanFixHelicopter = false;
+
     }
 
     public void UpdateState()
