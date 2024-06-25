@@ -1755,11 +1755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3823289722477305548, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3823289722477305548, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4023790742413936051, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: _key
@@ -1859,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6515353045801195157, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7166666116502385163, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: m_Color.b
@@ -1875,7 +1875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7748835615711717337, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8242143007216424621, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
       propertyPath: m_TagString
