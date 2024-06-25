@@ -38,7 +38,7 @@ namespace Game.Enemy
             if (IsDead)
                 _agent.speed = 0f;
 
-            if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 0.01f)
+            if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 20f)
                 IsDetected = true;
         }
 
