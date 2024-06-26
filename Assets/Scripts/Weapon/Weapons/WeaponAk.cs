@@ -47,7 +47,7 @@ namespace Game.Weapon
             _eventBus.Invoke(new SetCurrentBullets(true));
             _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
-            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
+            //_eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             _eventBus.Invoke(new SetImage(0, true));
         }
 

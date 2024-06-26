@@ -51,6 +51,9 @@ namespace Game.Weapon
             {
                 if (hit.transform.TryGetComponent(out IEnemyHealth enemy))
                     enemy.GetDamage(_damage);
+
+                if (hit.transform.TryGetComponent(out ITankHealth tank))
+                    tank.Destroy();
             }
             BulletDestroy();
         }
