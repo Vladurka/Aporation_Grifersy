@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TankShoot : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem _effect;
     [SerializeField] private GameObject _gun;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnBullet;
@@ -42,6 +43,7 @@ public class TankShoot : MonoBehaviour
 
         if (Physics.Raycast(_gun.transform.position, transform.forward, out hit))
         {
+            //Instantiate(_effect, _spawnBullet.position, Quaternion.identity);
             targetPoint = hit.point;
             Vector3 dirWithoutSpread = targetPoint - _spawnBullet.position;
             GameObject currentBullet = Instantiate(_bullet, _spawnBullet.position, _spawnBullet.rotation);
