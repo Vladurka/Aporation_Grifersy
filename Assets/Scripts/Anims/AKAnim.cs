@@ -19,7 +19,7 @@ public class AKAnim : MonoBehaviour
     private void OnEnable()
     {
         ResetTriggers();
-        _animator.SetTrigger("TakeAK");
+        _animator.Play("Take_AK");
     }
 
     private void Reload(AkReloadAnim anim)
