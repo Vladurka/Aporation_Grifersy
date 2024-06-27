@@ -20,7 +20,7 @@ public class TankShoot : MonoBehaviour
         _eventBus  = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<DestroyTank>(DestroyTank, 1);
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(Shoot());
+        //StartCoroutine(Shoot());
     }
 
     private void Update()
