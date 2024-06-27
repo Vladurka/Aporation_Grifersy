@@ -2,10 +2,10 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class TankShoot : MonoBehaviour
 {
+    [SerializeField] private GameObject _gun;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnBullet;
 
@@ -20,7 +20,7 @@ public class TankShoot : MonoBehaviour
         _eventBus  = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<DestroyTank>(DestroyTank, 1);
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-        //StartCoroutine(Shoot());
+        StartCoroutine(Shoot());
     }
 
     private void Update()
@@ -40,7 +40,7 @@ public class TankShoot : MonoBehaviour
         RaycastHit hit;
         Vector3 targetPoint;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(_gun.transform.position, transform.forward, out hit))
         {
             targetPoint = hit.point;
             Vector3 dirWithoutSpread = targetPoint - _spawnBullet.position;
