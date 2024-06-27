@@ -626,7 +626,7 @@ Transform:
   - {fileID: 1836369225}
   - {fileID: 1312276956}
   - {fileID: 797983716}
-  m_Father: {fileID: 1128965057}
+  m_Father: {fileID: 3033242230204145249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660583323
 GameObject:
@@ -1079,23 +1079,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1002737095843469254, guid: 76a09ff00bce25a418adf39d1ecf80a9, type: 3}
   m_PrefabInstance: {fileID: 1115849438}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1128965054 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 559907162827114228, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
-  m_PrefabInstance: {fileID: 3347916979468677412}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1128965057 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 319207458066313029, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
-  m_PrefabInstance: {fileID: 3347916979468677412}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1128965058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128965054}
+  m_GameObject: {fileID: 3004745754900920272}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
@@ -1118,7 +1108,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a994217fc1147534fb8beb353c1856ac, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5fa544d181078b74cb68438482e2966b, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1143523457
 GameObject:
@@ -1200,7 +1190,7 @@ Transform:
   - {fileID: 1453096339}
   - {fileID: 1198596493}
   - {fileID: 1694475694}
-  m_Father: {fileID: 1128965057}
+  m_Father: {fileID: 3033242230204145249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198596492
 GameObject:
@@ -2300,6 +2290,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1190243948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3004745754900920272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 559907162827114228, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
+  m_PrefabInstance: {fileID: 3347916979468677412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3033242230204145249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 319207458066313029, guid: 633d609d573339f42b77bad6cde3eac4, type: 3}
+  m_PrefabInstance: {fileID: 3347916979468677412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3347916979468677412
 PrefabInstance:
   m_ObjectHideFlags: 0
