@@ -25,7 +25,7 @@ namespace Game.Enemy
 
         public void Die()
         {
-            if (gameObject.TryGetComponent(out IEnemyMove enemyMove))
+            if (gameObject.TryGetComponent(out AbstractEnemy enemyMove))
             {
                 IsDead = true;
                 enemyMove.IsDead = true;

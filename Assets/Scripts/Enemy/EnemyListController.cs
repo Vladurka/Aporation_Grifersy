@@ -39,7 +39,7 @@ public class EnemyListController : IService
             {
                 if (Vector3.Distance(check.Position, obj.transform.position) <= check.Range)
                 {
-                    if (obj.TryGetComponent(out IEnemyMove enemy))
+                    if (obj.TryGetComponent(out AbstractEnemy enemy))
                         enemy.IsDetected = true;
                 }
             }

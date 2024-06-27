@@ -4,20 +4,9 @@ using UnityEngine.AI;
 namespace Game.Enemy
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EnemyMove : MonoBehaviour, IEnemyMove
+    public class ActiveEnemyMove : AbstractEnemy
     {
-        private Animator _animator;
-
-        private GameObject[] _points;
-        private GameObject _mainCharacter;
-
         private int _index;
-        private NavMeshAgent _agent;
-
-        public bool IsDetected { get; set; } = false;
-        public bool IsDead { get; set; } = false;
-
-
         private void Start()
         {
             _points = GameObject.FindGameObjectsWithTag("Point");
@@ -30,7 +19,7 @@ namespace Game.Enemy
         private void FixedUpdate()
         {
             if (!IsDetected)
-                Walk();
+                Chill();
 
             if (IsDetected)
                 EnemyDetected();
@@ -38,11 +27,11 @@ namespace Game.Enemy
             if (IsDead)
                 _agent.speed = 0f;
 
-            if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 20f)
+            if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 20f)
                 IsDetected = true;
         }
 
-        public void Walk()
+        public override void Chill()
         {
             _agent.speed = 1;
             _animator.SetBool("Run", false);
@@ -61,7 +50,7 @@ namespace Game.Enemy
             }
         }
 
-        public void EnemyDetected()
+        public override void EnemyDetected()
         {
             _agent.speed = 2.5f;
             _animator.SetBool("Run", true);
