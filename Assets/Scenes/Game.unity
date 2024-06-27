@@ -8461,6 +8461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b80616dd1d91947949f1d26a788c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _effect: {fileID: 19800008, guid: 8c895bfa0e04954488d29a670da58455, type: 3}
+  _pos: {fileID: 1367547114}
 --- !u!23 &1367547119
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8531,8 +8533,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.420694, y: 1.1663198, z: 4.351202}
-  m_Center: {x: -0.020260211, y: 0.6969018, z: -0.17468119}
+  m_Size: {x: 3.420694, y: 1.181057, z: 4.351202}
+  m_Center: {x: -0.020260211, y: 0.68953323, z: -0.17468119}
 --- !u!1 &1379138359
 GameObject:
   m_ObjectHideFlags: 0
