@@ -2,12 +2,15 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TankShoot : MonoBehaviour
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnBullet;
+
     [SerializeField] private float _shootForce = 100;
+    [SerializeField] private float _rotationSpeed = 2f;
 
     private GameObject _mainCharacter;
 
@@ -22,8 +25,14 @@ public class TankShoot : MonoBehaviour
 
     private void Update()
     {
-        if(_mainCharacter != null)
-            transform.LookAt(_mainCharacter.transform.position);
+        if (_mainCharacter != null)
+        {
+            Vector3 direction = _mainCharacter.transform.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            rotation.x = 0;
+            rotation.z = 0;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
+        }
     }
 
     private IEnumerator Shoot()
