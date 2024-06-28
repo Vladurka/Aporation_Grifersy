@@ -6,18 +6,19 @@ using UnityEngine;
 public class TankShoot : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _effect;
-    [SerializeField] private GameObject _gun;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnBullet;
 
     [SerializeField] private float _shootForce = 100;
     [SerializeField] private float _rotationSpeed = 2f;
 
+    private AudioSource _audioSource;
     private GameObject _mainCharacter;
 
     private EventBus _eventBus;
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _eventBus  = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<DestroyTank>(DestroyTank, 1);
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
@@ -38,20 +39,21 @@ public class TankShoot : MonoBehaviour
 
     private IEnumerator Shoot()
     {
+        yield return new WaitForSeconds(5f);
+
         RaycastHit hit;
         Vector3 targetPoint;
 
-        if (Physics.Raycast(_gun.transform.position, transform.forward, out hit))
+        if (Physics.Raycast(_spawnBullet.position, transform.forward, out hit))
         {
-            //Instantiate(_effect, _spawnBullet.position, Quaternion.identity);
+            Instantiate(_effect, _spawnBullet.position, Quaternion.identity);
+            _audioSource.Play();
             targetPoint = hit.point;
-            Vector3 dirWithoutSpread = targetPoint - _spawnBullet.position;
+            Vector3 dir = targetPoint - _spawnBullet.position;
             GameObject currentBullet = Instantiate(_bullet, _spawnBullet.position, _spawnBullet.rotation);
-            currentBullet.transform.forward = dirWithoutSpread.normalized;
-            currentBullet.GetComponent<Rigidbody>().AddForce(dirWithoutSpread.normalized * _shootForce, ForceMode.Impulse);
+            currentBullet.transform.forward = dir.normalized;
+            currentBullet.GetComponent<Rigidbody>().AddForce(dir.normalized * _shootForce, ForceMode.Impulse);
         }
-
-        yield return new WaitForSeconds(5f);
         StartCoroutine(Shoot());
     }
 
