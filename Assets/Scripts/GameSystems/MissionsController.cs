@@ -20,22 +20,22 @@ public class MissionsController : MonoBehaviour
 
         if (_missionCondition == 1)
         {
+            _missionsButtons[0].SetActive(false);
+            _missionsButtons[1].SetActive(true);
+        }
+
+        if (_missionCondition == 2)
+        {
             _missionsButtons[1].SetActive(false);
             _missionsButtons[2].SetActive(true);
         }
-
-        if (_missionCondition == 1)
-        {
-            _missionsButtons[2].SetActive(false);
-            _missionsButtons[3].SetActive(true);
-        }
-        if (_missionCondition == 1)
+        if (_missionCondition == 3)
         {
             _missionsButtons[3].SetActive(false);
             _missionsButtons[4].SetActive(true);
         }
 
-        if (_missionCondition == 1)
+        if (_missionCondition == 5)
             _missionsButtons[4].SetActive(false);
 
     }

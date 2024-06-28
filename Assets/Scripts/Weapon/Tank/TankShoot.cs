@@ -46,13 +46,16 @@ public class TankShoot : MonoBehaviour
 
         if (Physics.Raycast(_spawnBullet.position, transform.forward, out hit))
         {
-            Instantiate(_effect, _spawnBullet.position, Quaternion.identity);
-            _audioSource.Play();
-            targetPoint = hit.point;
-            Vector3 dir = targetPoint - _spawnBullet.position;
-            GameObject currentBullet = Instantiate(_bullet, _spawnBullet.position, _spawnBullet.rotation);
-            currentBullet.transform.forward = dir.normalized;
-            currentBullet.GetComponent<Rigidbody>().AddForce(dir.normalized * _shootForce, ForceMode.Impulse);
+            if (transform.CompareTag("Player"))
+            {
+                Instantiate(_effect, _spawnBullet.position, Quaternion.identity);
+                _audioSource.Play();
+                targetPoint = hit.point;
+                Vector3 dir = targetPoint - _spawnBullet.position;
+                GameObject currentBullet = Instantiate(_bullet, _spawnBullet.position, _spawnBullet.rotation);
+                currentBullet.transform.forward = dir.normalized;
+                currentBullet.GetComponent<Rigidbody>().AddForce(dir.normalized * _shootForce, ForceMode.Impulse);
+            }
         }
         StartCoroutine(Shoot());
     }
