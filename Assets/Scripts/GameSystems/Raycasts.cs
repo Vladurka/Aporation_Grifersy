@@ -36,6 +36,9 @@ public class Raycasts : MonoBehaviour, IService
 
                 if(hit.collider.TryGetComponent(out IBox box))
                     box.Open();
+
+                if (hit.collider.TryGetComponent(out IDoor door))
+                    door.Open();
             }
         }
 
