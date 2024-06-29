@@ -17,8 +17,11 @@ public class HelicopterHealth : MonoBehaviour, IHelicopterHealth
     {
         Cursor.lockState = CursorLockMode.None;
         _eventBus.Invoke(new SetDie());
-        ConstSystem.CanSave = false;
-        Destroy(gameObject);
+        if (ConstSystem.InTransport)
+        {
+            ConstSystem.CanSave = false;
+            Destroy(gameObject);
+        }
     }
 
     public void GetDamage(float damage)
