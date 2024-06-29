@@ -38,6 +38,12 @@ public class MissionsController : MonoBehaviour
         }
         if (_missionCondition == 3)
         {
+            _missionsButtons[2].SetActive(false);
+            _missionsButtons[3].SetActive(true);
+        }
+
+        if (_missionCondition == 4)
+        {
             _missionsButtons[3].SetActive(false);
             _missionsButtons[4].SetActive(true);
         }

@@ -24,7 +24,6 @@ public class BaseStates : MonoBehaviour, IService
         {
             for (int i = 0; i <= BaseLevel; i++)
             {
-                Debug.Log($"Activating state {i}");
                 _states[i].SetActive(true);
             }
         }
