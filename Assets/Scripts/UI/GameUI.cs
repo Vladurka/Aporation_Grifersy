@@ -39,6 +39,7 @@ public class GameUI : MonoBehaviour
         _gamePanel.SetActive(true);
         _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
+        ConstSystem.InTransport = false;
     }
 
     private void Update()
