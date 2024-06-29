@@ -86,7 +86,7 @@ namespace Game.Weapon
                 _eventBus.Invoke(new AkShootAnim());
 
                 RaycastHit hit;
-                if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit))
+                if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
                 {
                     if (hit.collider.TryGetComponent(out IEnemyHealth enemy))
                     {

@@ -1203,7 +1203,7 @@ GameObject:
   - component: {fileID: 2754512684711551804}
   m_Layer: 0
   m_Name: WarriorAxe
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,6 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDetected: 0
   IsDead: 0
 --- !u!114 &1874551947635102147
 MonoBehaviour:
