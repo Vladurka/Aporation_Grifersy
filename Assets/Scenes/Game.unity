@@ -251,6 +251,11 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &227478240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1079733567460225034, guid: bebe2025bffddbb4ab994c6cd02bfeec, type: 3}
+  m_PrefabInstance: {fileID: 8401203006382515442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!208 &235788170
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1847,6 +1852,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4184806179888929394, guid: bebe2025bffddbb4ab994c6cd02bfeec, type: 3}
+      propertyPath: _mission3Enemies
+      value: 
+      objectReference: {fileID: 227478240}
     - target: {fileID: 4222688910703066061, guid: bebe2025bffddbb4ab994c6cd02bfeec, type: 3}
       propertyPath: m_IsActive
       value: 1

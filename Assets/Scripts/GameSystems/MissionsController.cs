@@ -8,6 +8,7 @@ public class MissionsController : MonoBehaviour
 
     [SerializeField] private GameObject _car;
     [SerializeField] private GameObject _helicopter;
+    [SerializeField] private GameObject _mission3Enemies;
 
     public void Init()
     {
@@ -44,8 +45,11 @@ public class MissionsController : MonoBehaviour
         if (_missionCondition == 5)
             _missionsButtons[4].SetActive(false);
 
-        if(_missionCondition >= 3)
+        if (_missionCondition >= 3)
+        {
             _car.SetActive(true);
+            _mission3Enemies.SetActive(false);
+        }
 
 
         if (_missionCondition >= 4)
