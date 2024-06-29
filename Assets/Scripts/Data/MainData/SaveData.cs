@@ -18,8 +18,6 @@ namespace Game.Data
         private BaseStates _baseStates;
         private GrenadeThrower _grenadeThrower;
         private VolumeController _volume;
-
-        private bool _canSave = true;
         public void Init()
         {
             _player = ServiceLocator.Current.Get<PlayerHealth>();
@@ -34,7 +32,7 @@ namespace Game.Data
             _baseStates = ServiceLocator.Current.Get<BaseStates>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _volume = ServiceLocator.Current.Get<VolumeController>();
-            _canSave = true;
+            ConstSystem.CanSave = true;
         }
 
         private void Update()
@@ -45,13 +43,13 @@ namespace Game.Data
 
         public void SaveInfo()
         {
-            if(_canSave)
+            if(ConstSystem.CanSave)
                 SaveSystem.SavePlayerData(_player, _playerMove, _volume, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _weaponAk, _rpg, _coinSystem, _baseStates); 
         }
 
         public void CanSave(bool state)
         {
-            _canSave = state;
+            ConstSystem.CanSave = state;
         }
     }
 }

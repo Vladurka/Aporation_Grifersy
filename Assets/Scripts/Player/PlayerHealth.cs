@@ -1,7 +1,6 @@
 using UnityEngine;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
-using Game.Data;
 
 namespace Game.Player
 {
@@ -10,11 +9,9 @@ namespace Game.Player
         public float Health { get; set; } = 100f;
 
         private EventBus _eventBus;
-        private SaveData _saveData;
 
         public void Init()
         {
-            _saveData = ServiceLocator.Current.Get<SaveData>();
             _eventBus = ServiceLocator.Current.Get<EventBus>();
             _eventBus.Invoke(new UpdateHealth(Health));
         }
@@ -25,7 +22,7 @@ namespace Game.Player
             _eventBus.Invoke(new SetDie());
             Destroy(gameObject);
 
-            _saveData.CanSave(false);
+            ConstSystem.CanSave = false;
         }
 
         public void GetDamage(float damage)

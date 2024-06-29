@@ -43,6 +43,6 @@ public static class ConstSystem
 
     public const string MISSION_KEY = "MISSION";
 
-    
+    public static bool CanSave;
     public static bool InTransport = false;
 }

@@ -17,6 +17,7 @@ public class CarHealth : MonoBehaviour, ICarHealth
     {
         Cursor.lockState = CursorLockMode.None;
         _eventBus.Invoke(new SetDie());
+        ConstSystem.CanSave = false;
         Destroy(gameObject);
     }
 
