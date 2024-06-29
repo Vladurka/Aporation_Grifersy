@@ -14,6 +14,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _speedometerPanel;
     [SerializeField] private GameObject _completedPanel;
     [SerializeField] private GameObject _diePanel;
+    [SerializeField] private GameObject _levelsPanel;
 
     private bool _pauseGame;
     private bool _canPause = true;
@@ -52,10 +53,11 @@ public class GameUI : MonoBehaviour
                 {
                     Continue();
                 }
-                else
-                {
-                    Pause();
-                }
+            }
+
+            if (!_diePanel.activeSelf && !_completedPanel.activeSelf)
+            {
+                Pause();
             }
         }
     }
@@ -93,6 +95,13 @@ public class GameUI : MonoBehaviour
         _pausePanel.SetActive(false);
         _pauseGame = false;
         _uiCamera.SetActive(false);
+
+        if(_shopPanel != null && _levelsPanel != null)
+        {
+            _shopPanel.SetActive(false);
+            _levelsPanel.SetActive(false);
+        }
+
         if (!ConstSystem.InTransport)
             _mainCharacter.SetActive(true);
     }

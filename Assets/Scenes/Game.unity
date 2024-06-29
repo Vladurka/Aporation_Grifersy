@@ -154,6 +154,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1486278602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5527427575301897575, guid: 8ff12526ff61da6458aee92b264edde1, type: 3}
+  m_PrefabInstance: {fileID: 8401203006382515442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8401203006382515442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 4080723714095246408, guid: 8ff12526ff61da6458aee92b264edde1, type: 3}
+      propertyPath: _levelsPanel
+      value: 
+      objectReference: {fileID: 1486278602}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
