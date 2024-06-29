@@ -48,7 +48,7 @@ public class GameUI : MonoBehaviour
         {
             if (_canPause)
             {
-                if (_pauseGame)
+                if (_pauseGame && !_diePanel.activeSelf && !_completedPanel.activeSelf)
                 {
                     Continue();
                 }
@@ -89,6 +89,7 @@ public class GameUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _gamePanel.SetActive(true);
         _settingsPanel.SetActive(false);
+
         _pausePanel.SetActive(false);
         _pauseGame = false;
         _uiCamera.SetActive(false);
