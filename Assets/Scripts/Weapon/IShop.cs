@@ -1,7 +1,7 @@
 public interface IShop 
 {
     public void BuySkope(ScopesParametrs scope);
-    public void BuyBase(int price);
+    public void BuyBase();
     public void BuyAkBullets(int price);
     public void BuyRpgBullets(int price);
     public void BuyGrenade(int price);

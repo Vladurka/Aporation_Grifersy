@@ -13,6 +13,7 @@ public class Shop : MonoBehaviour, IService, IShop
     [Header("Base")]
     [SerializeField] private int _baseUpgradeAmount = 0;
     [SerializeField] private int _maxBaseUpgradeAmount = 4;
+    [SerializeField] private int _basePrice = 500;
 
     [SerializeField] private GameObject _shopPanel;
     [SerializeField] private GameObject _mainCharacter;
@@ -43,13 +44,14 @@ public class Shop : MonoBehaviour, IService, IShop
         }
     }
 
-    public void BuyBase(int price)
+    public void BuyBase()
     {
-        if (_coinSystem.Money >= price && _baseUpgradeAmount <= _maxBaseUpgradeAmount)
+        if (_coinSystem.Money >= _basePrice && _baseUpgradeAmount <= _maxBaseUpgradeAmount)
         {
             _eventBus.Invoke(new BuyBase());
-            _coinSystem.SpendMoney(price);
+            _coinSystem.SpendMoney(_basePrice);
             _baseUpgradeAmount++;
+            _basePrice += 500;
         }
     }
 
@@ -108,4 +110,5 @@ public class Shop : MonoBehaviour, IService, IShop
         _mainCharacter.SetActive(true);
         _cameraUI.SetActive(false);
     }
+
 }

@@ -11934,6 +11934,7 @@ MonoBehaviour:
   _minesAmount: 1
   _baseUpgradeAmount: 0
   _maxBaseUpgradeAmount: 4
+  _basePrice: 500
   _shopPanel: {fileID: 8258730975162472997}
   _mainCharacter: {fileID: 4904210246373563556}
   _cameraUI: {fileID: 5720563309152735463}
@@ -40012,9 +40013,9 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!114 &2917024681208601927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106155,9 +106156,9 @@ RectTransform:
   - {fileID: 5880931361430135300}
   m_Father: {fileID: 7957479063535555988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 120}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208, y: -120}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -258, y: -120}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &7609433972001781301
@@ -110621,10 +110622,10 @@ RectTransform:
   - {fileID: 5673034529921821669}
   m_Father: {fileID: 7159993321316358628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.2637499, y: 0.082555555}
+  m_AnchorMax: {x: 0.735, y: 0.92170376}
+  m_AnchoredPosition: {x: 2, y: -2}
+  m_SizeDelta: {x: -806, y: -806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &7958031708742795971
 Transform:
@@ -114747,7 +114748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &8259496398600168138
 GameObject:
   m_ObjectHideFlags: 0
