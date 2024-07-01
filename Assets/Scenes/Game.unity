@@ -11934,7 +11934,7 @@ MonoBehaviour:
   _minesAmount: 1
   _baseUpgradeAmount: 0
   _maxBaseUpgradeAmount: 4
-  _basePrice: 500
+  _basePrice: 0
   _shopPanel: {fileID: 8258730975162472997}
   _mainCharacter: {fileID: 4904210246373563556}
   _cameraUI: {fileID: 5720563309152735463}
@@ -37550,7 +37550,7 @@ MonoBehaviour:
       - m_Target: {fileID: 900847918041253853}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: BuyBase
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
