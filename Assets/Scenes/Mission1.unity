@@ -73742,6 +73742,7 @@ MonoBehaviour:
   _speedometerPanel: {fileID: 0}
   _completedPanel: {fileID: 2085190386763746480}
   _diePanel: {fileID: 7973258602512824766}
+  _levelsPanel: {fileID: 0}
 --- !u!1 &5121256439290753623
 GameObject:
   m_ObjectHideFlags: 0
@@ -128495,7 +128496,7 @@ Transform:
   m_GameObject: {fileID: 8817853457646909524}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.3, y: 19.49, z: 52.20806}
+  m_LocalPosition: {x: 55, y: 19, z: 54.999996}
   m_LocalScale: {x: 200, y: 1, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children:
