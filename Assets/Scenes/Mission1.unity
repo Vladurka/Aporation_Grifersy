@@ -73742,6 +73742,7 @@ MonoBehaviour:
   _speedometerPanel: {fileID: 0}
   _completedPanel: {fileID: 2085190386763746480}
   _diePanel: {fileID: 7973258602512824766}
+  _levelsPanel: {fileID: 0}
 --- !u!1 &5121256439290753623
 GameObject:
   m_ObjectHideFlags: 0
@@ -76181,7 +76182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _callRange: 100
-  _range: 0
+  _range: 100
   _damage: 4
   TotalBullets: 120
   Bullets: 30
