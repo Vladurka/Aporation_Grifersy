@@ -13572,6 +13572,7 @@ MonoBehaviour:
   _speedometerPanel: {fileID: 0}
   _completedPanel: {fileID: 6596260253728087117}
   _diePanel: {fileID: 8658693304794356060}
+  _levelsPanel: {fileID: 0}
 --- !u!33 &5740379112300270669
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16682,8 +16683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -705, y: -389}
-  m_SizeDelta: {x: 150, y: 130}
+  m_AnchoredPosition: {x: -740, y: -380}
+  m_SizeDelta: {x: 150, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &7434489299466157106
 MeshFilter:
