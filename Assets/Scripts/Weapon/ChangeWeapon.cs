@@ -1,11 +1,18 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject[] _items;
 
+    private EventBus _eventBus;
+
     private void Start()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Subscribe<UseBuilder>(UseBuilder, 1);
+
         Deactivate();
         _items[0].SetActive(true);
     }
@@ -49,6 +56,17 @@ public class ChangeWeapon : MonoBehaviour
         {
             item.SetActive(false);
         }
+    }
+
+    private void UseBuilder(UseBuilder builder)
+    {
+        Deactivate();
+        _items[5].SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        _eventBus.Unsubscribe<UseBuilder>(UseBuilder);
     }
 }
 
