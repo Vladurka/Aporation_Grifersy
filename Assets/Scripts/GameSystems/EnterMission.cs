@@ -34,6 +34,10 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private GrenadeAnim _grenadeAnim;
     [SerializeField] private KnifeAnim _knifeAnim;
 
+    [Header("Data")]
+    [SerializeField] private SaveMissionData _saveMissionData;
+    [SerializeField] private LoadMissionData _loadMissionData;
+
     private EventBus _eventBus;
     private EnemyListController _enemyListController;
     private CoinSystem _coinSystem;
@@ -51,6 +55,10 @@ public class EnterMission : MonoBehaviour
     private void Init()
     {
         _mainCharacter.SetActive(true);
+
+        _loadMissionData.Init();
+        _loadMissionData.LoadInfo();
+        _saveMissionData.Init();
 
         _gamePanel.Init();
         _playerHealth.Init();

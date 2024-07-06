@@ -9,7 +9,7 @@ namespace Game.Data
         public float[] HelicopterPositionData;
         public string HelicopterConditionData;
         public float[] CarPositionData;
-        public float[] PLayerPositionData;
+        public float[] PlayerPositionData;
         public int AKBulletsData;
         public int AKTotalBulletsData;
         public int RPGTotalBulletsData;
@@ -37,13 +37,12 @@ namespace Game.Data
 
             HpData = playerHP.Health;
 
-            PLayerPositionData = new float[3];
-            PLayerPositionData[0] = playerMove.transform.position.x;
-            PLayerPositionData[1] = playerMove.transform.position.y;
-            PLayerPositionData[2] = playerMove.transform.position.z;
+            PlayerPositionData = new float[3];
+            PlayerPositionData[0] = playerMove.transform.position.x;
+            PlayerPositionData[1] = playerMove.transform.position.y;
+            PlayerPositionData[2] = playerMove.transform.position.z;
 
             AKBulletsData = ak.Bullets;
-
             AKTotalBulletsData = ak.TotalBullets;
 
             RPGTotalBulletsData = rpg.TotalBullets;
@@ -55,6 +54,25 @@ namespace Game.Data
             MoneyData = coins.Money;
 
             BaseLevelData = baseStates.BaseLevel;
+
+            VolumeData = volume._volumeSlider.value;
+        }
+
+        public PlayerData(PlayerHealth playerHP, VolumeController volume, GrenadeThrower grenade, ScopeLevels scopeLevels, WeaponAk ak, RPG rpg, CoinSystem coins)
+        {
+
+            HpData = playerHP.Health;
+
+            AKBulletsData = ak.Bullets;
+            AKTotalBulletsData = ak.TotalBullets;
+
+            RPGTotalBulletsData = rpg.TotalBullets;
+
+            GrenadesData = grenade.Grenades;
+
+            ScopeLevelData = scopeLevels.ScopeLevel;
+
+            MoneyData = coins.Money;
 
             VolumeData = volume._volumeSlider.value;
         }

@@ -274,6 +274,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7e0b0537d43b74280f8da8894072f1, type: 3}
+--- !u!1 &1095247338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1095247339}
+  - component: {fileID: 1095247341}
+  - component: {fileID: 1095247340}
+  m_Layer: 0
+  m_Name: Data
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1095247339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095247338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5730492993695029050}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095247340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095247338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73253fa0b9719fc4ab7e6021bff579df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1095247341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095247338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2a2329b11ef2a4787a1d662fc3f4ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1201929630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4012727082828120, guid: 1d7e0b0537d43b74280f8da8894072f1, type: 3}
@@ -47230,12 +47287,12 @@ MonoBehaviour:
   _gameUI: {fileID: 5119230107630897452}
   _gamePanel: {fileID: 4842934812383957086}
   _volume: {fileID: 4133561831176431221}
-  _saveData: {fileID: 1378001122609002766}
-  _loadData: {fileID: 8860932822808421046}
   _akAnim: {fileID: 458338091288068180}
   _rpgAnim: {fileID: 329692854626367697}
   _grenadeAnim: {fileID: 916331649464131670}
   _knifeAnim: {fileID: 2797172291662586316}
+  _saveMissionData: {fileID: 1095247341}
+  _loadMissionData: {fileID: 1095247340}
 --- !u!33 &3276907763818456888
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83356,6 +83413,7 @@ Transform:
   - {fileID: 5134762073102898390}
   - {fileID: 5844227425576642534}
   - {fileID: 8766496789527451434}
+  - {fileID: 1095247339}
   m_Father: {fileID: 557558598590858990}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5731589608307010685
