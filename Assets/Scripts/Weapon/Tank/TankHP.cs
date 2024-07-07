@@ -23,9 +23,15 @@ public class TankHP : MonoBehaviour, ITankHealth
         if (!_isDead)
         {
             Instantiate(_effect, _pos.position, Quaternion.identity);
-            Vector3 dir = new Vector3(1, 2, 3);
+
+            float x = Random.Range(0f, 6f);
+            float y = Random.Range(0f, 6f);
+            float z = Random.Range(0f, 6f);
+
+            Vector3 dir = new Vector3(x, y, z);
             _rb.AddForce(dir * 2f, ForceMode.Impulse);
             _eventBus.Invoke(new DestroyTank());
+            _eventBus.Invoke(new EndSignal());
             _isDead = true;
         }
     }

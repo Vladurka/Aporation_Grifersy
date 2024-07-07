@@ -9,17 +9,17 @@ public class Movement : MonoBehaviour, IService
     [SerializeField] private float _jumpForce = 5.0f;
     [SerializeField] private float _gravity = 9.8f;
     [SerializeField] private float _slopeRayLength = 1.5f;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private Animator _animator;
 
     private float _minPitch = 0.9f;
     private float _maxPitch = 1.1f;
-    [SerializeField] private AudioSource _audioSource;
 
     private CharacterController _controller;
     private Vector3 _moveDirection = Vector3.zero;
 
     public void Init()
     {
-        _audioSource = GetComponent<AudioSource>();
         _controller = GetComponent<CharacterController>();
     }
 
@@ -45,30 +45,6 @@ public class Movement : MonoBehaviour, IService
 
     private void SetMoveDirection()
     {
-        if (Input.GetKey(KeyCode.W) && !_audioSource.isPlaying)
-        {
-            _audioSource.Play();
-            ChangePitchRandomly();
-        }
-        if (Input.GetKey(KeyCode.S) && !_audioSource.isPlaying)
-        {
-            _audioSource.Play();
-            ChangePitchRandomly();
-        }
-        if (Input.GetKey(KeyCode.A) && !_audioSource.isPlaying)
-        {
-            _audioSource.Play();
-            ChangePitchRandomly();
-        }
-        if (Input.GetKey(KeyCode.D) && !_audioSource.isPlaying)
-        {
-            _audioSource.Play();
-            ChangePitchRandomly();
-        }
-        else if (_moveDirection.magnitude <= 0.01f && _audioSource.isPlaying)
-        {
-            _audioSource.Stop();
-        }
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -76,6 +52,25 @@ public class Movement : MonoBehaviour, IService
         Vector3 Direction = new Vector3(horizontal, 0.0f, vertical);
         Direction = transform.TransformDirection(Direction);
         _moveDirection = Direction * _moveSpeed;
+
+        if (vertical != 0.0f || horizontal != 0.0f)
+        {
+            if (!_audioSource.isPlaying &&  _controller.isGrounded)
+                _audioSource.Play();
+
+            if(!_controller.isGrounded)
+                _audioSource.Stop();
+
+            _animator.SetBool("Walking", true);
+        }
+
+        else
+        {
+            _animator.SetBool("Walking", false);
+
+            if (_audioSource.isPlaying)
+                _audioSource.Stop();
+        }
     }
 
     private void Jump()

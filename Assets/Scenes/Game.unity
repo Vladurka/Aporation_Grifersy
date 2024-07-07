@@ -31594,7 +31594,8 @@ MonoBehaviour:
   _jumpForce: 4
   _gravity: 9.8
   _slopeRayLength: 1.5
-  _audioSource: {fileID: 7333205128109634255}
+  _audioSource: {fileID: 4583949830404125829}
+  _animator: {fileID: 4583949830404125828}
 --- !u!224 &2312163494220764537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61284,9 +61285,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2297347d09698b848ad3da652b4e9944, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -100214,7 +100215,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 18f1ff003e8fbdb44aba8266f6e1d168, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
