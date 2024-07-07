@@ -45,7 +45,7 @@ public class TankShoot : MonoBehaviour
         RaycastHit hit;
         Vector3 targetPoint;
 
-        if (Physics.Raycast(_spawnBullet.position, -_spawnBullet.forward, out hit, 200f))
+        if (Physics.Raycast(_spawnBullet.position, -_spawnBullet.forward, out hit, 100f))
         {
             if (hit.collider.CompareTag("Player"))
             {
