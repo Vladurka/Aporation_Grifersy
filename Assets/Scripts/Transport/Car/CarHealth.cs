@@ -31,7 +31,7 @@ public class CarHealth : MonoBehaviour, ICarHealth
 
         if (Health <= 0)
         {
-            Die();
+            Invoke("Die", 0.5f);
             Health = 0;
         }
     }

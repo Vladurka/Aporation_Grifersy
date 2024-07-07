@@ -31,7 +31,7 @@ namespace Game.Player
 
             if (Health <= 0)
             {
-                Invoke("Die", 0.2f);
+                Invoke("Die", 0.5f);
                 Health = 0;
             }
 

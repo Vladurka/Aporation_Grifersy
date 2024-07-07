@@ -30,7 +30,7 @@ public class HelicopterHealth : MonoBehaviour, IHelicopterHealth
 
         if (Health <= 0)
         {
-            Die();
+            Invoke("Die", 0.5f);
             Health = 0;
         }
     }
