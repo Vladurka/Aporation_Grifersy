@@ -24,7 +24,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
+        if(_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 3f)
         {
             if(!_started)
             {
@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        else
+        else if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) > 3f)
         {
             if (_started)
             {
@@ -43,8 +43,6 @@ public class EnemyAttack : MonoBehaviour
                 _started = false;
             }
         }
-
-        
     }
 
     private IEnumerator Attack()
@@ -56,6 +54,6 @@ public class EnemyAttack : MonoBehaviour
             if (hits.transform.TryGetComponent(out IPlayerHealth health))
                 health.GetDamage(_damage);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
     }
 }
