@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     public void Seek(Transform _target)
     {
-        target = _target;   
+        target = _target;
     }
 
     private void Update()
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = _force * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;

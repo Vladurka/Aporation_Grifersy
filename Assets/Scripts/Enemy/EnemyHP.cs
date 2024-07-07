@@ -45,6 +45,14 @@ namespace Game.Enemy
             }
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "Bullet")
+            {
+                GetDamage(100f);
+            }
+        }
+
         private void OnDestroy()
         {
             _eventBus.Invoke(new RemoveObj(gameObject));
