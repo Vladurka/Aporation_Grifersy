@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour, IService
             {
                 Jump();
             }
+
         }
         _moveDirection.y -= _gravity * Time.deltaTime;
         _controller.Move(_moveDirection * Time.deltaTime);
