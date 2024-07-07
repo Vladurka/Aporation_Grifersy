@@ -13,10 +13,13 @@ public class EnemyAttack : MonoBehaviour
 
     private Animator _animator;
     private GameObject _mainCharacter;
+
     private ActiveEnemyMove _move;
+    private IEnemyHealth _health;
 
     private void Start()
     {
+        _health = GetComponent<IEnemyHealth>();
         _move = GetComponent<ActiveEnemyMove>();
         _animator = GetComponent<Animator>();
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
@@ -48,12 +51,23 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator Attack()
     {
         _animator.SetTrigger("Attack");
-        Collider[] hit = Physics.OverlapSphere(transform.position, _attackRange);
-        foreach(Collider hits in hit) 
-        {
-            if (hits.transform.TryGetComponent(out IPlayerHealth health))
-                health.GetDamage(_damage);
-        }
+
+        Invoke("SendDamage", 0.5f);
+
         yield return new WaitForSeconds(1f);
+    }
+
+    private void SendDamage()
+    {
+        if (!_health.IsDead)
+        {
+            Collider[] hit = Physics.OverlapSphere(transform.position, _attackRange);
+
+            foreach (Collider hits in hit)
+            {
+                if (hits.transform.TryGetComponent(out IPlayerHealth health))
+                    health.GetDamage(_damage);
+            }
+        }
     }
 }
