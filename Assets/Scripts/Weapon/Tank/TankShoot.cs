@@ -11,6 +11,7 @@ public class TankShoot : MonoBehaviour
 
     [SerializeField] private float _shootForce = 100;
     [SerializeField] private float _rotationSpeed = 2f;
+    private float _spread = 1f;
 
     private AudioSource _audioSource;
     private GameObject _mainCharacter;
@@ -34,7 +35,7 @@ public class TankShoot : MonoBehaviour
             rotation.x = 0;
             rotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
-        }
+        };
     }
 
     private IEnumerator Shoot()
@@ -44,17 +45,21 @@ public class TankShoot : MonoBehaviour
         RaycastHit hit;
         Vector3 targetPoint;
 
-        if (Physics.Raycast(_spawnBullet.position, transform.forward, out hit))
+        if (Physics.Raycast(_spawnBullet.position, -_spawnBullet.forward, out hit, 200f))
         {
-            if (transform.CompareTag("Player"))
+            if (hit.collider.CompareTag("Player"))
             {
                 Instantiate(_effect, _spawnBullet.position, Quaternion.identity);
                 _audioSource.Play();
                 targetPoint = hit.point;
                 Vector3 dir = targetPoint - _spawnBullet.position;
+                float x = Random.Range(-_spread, _spread);
+                float y = Random.Range(-_spread, _spread);
+
+                Vector3 dirWidthSpread = dir + new Vector3(x, y, 0);
                 GameObject currentBullet = Instantiate(_bullet, _spawnBullet.position, _spawnBullet.rotation);
-                currentBullet.transform.forward = dir.normalized;
-                currentBullet.GetComponent<Rigidbody>().AddForce(dir.normalized * _shootForce, ForceMode.Impulse);
+                currentBullet.transform.forward = dirWidthSpread.normalized;
+                currentBullet.GetComponent<Rigidbody>().AddForce(dirWidthSpread.normalized * _shootForce, ForceMode.Impulse);
             }
         }
         StartCoroutine(Shoot());
