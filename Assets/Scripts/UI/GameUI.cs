@@ -71,12 +71,12 @@ public class GameUI : MonoBehaviour
     {
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+        _pauseGame = true;
         _gamePanel.SetActive(false);
         _settingsPanel.SetActive(false);
-        _pausePanel.SetActive(true);
-        _pauseGame = true;
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);
+        _pausePanel.SetActive(true);
 
         if (_shopPanel != null && _speedometerPanel != null)
         {
@@ -90,8 +90,8 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         _gamePanel.SetActive(true);
-        _settingsPanel.SetActive(false);
 
+        _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
         _pauseGame = false;
         _uiCamera.SetActive(false);

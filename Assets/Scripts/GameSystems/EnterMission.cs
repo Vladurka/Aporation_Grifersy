@@ -28,15 +28,15 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private GamePanel _gamePanel;
     [SerializeField] private VolumeController _volume;
 
-    [Header("Data")]
-    [SerializeField] private SaveDataMission _saveData;
-    [SerializeField] private LoadDataMission _loadData;
-
     [Header("Animations")]
     [SerializeField] private AKAnim _akAnim;
     [SerializeField] private RPGAnim _rpgAnim;
     [SerializeField] private GrenadeAnim _grenadeAnim;
     [SerializeField] private KnifeAnim _knifeAnim;
+
+    [Header("Data")]
+    [SerializeField] private SaveMissionData _saveMissionData;
+    [SerializeField] private LoadMissionData _loadMissionData;
 
     private EventBus _eventBus;
     private EnemyListController _enemyListController;
@@ -56,9 +56,9 @@ public class EnterMission : MonoBehaviour
     {
         _mainCharacter.SetActive(true);
 
-        _loadData.Init();
-        _loadData.LoadInfo();
-        _saveData.Init();
+        _loadMissionData.Init();
+        _loadMissionData.LoadInfo();
+        _saveMissionData.Init();
 
         _gamePanel.Init();
         _playerHealth.Init();

@@ -6,7 +6,7 @@ namespace Game.Data
 {
     public class LoadData : MonoBehaviour, IService
     {
-        private PlayerHealth _playerHP;
+        private PlayerHealth _playerHealth;
         private Movement _playerMove;    
         private Helicopter _helicopter;
         private Car _car;
@@ -21,7 +21,7 @@ namespace Game.Data
         
         public void Init()
         {
-            _playerHP = ServiceLocator.Current.Get<PlayerHealth>();
+            _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
             _playerMove = ServiceLocator.Current.Get<Movement>();
             _helicopter = ServiceLocator.Current.Get<Helicopter>();
             _helicopterStatesController = ServiceLocator.Current.Get<HelicopterStatesController>();
@@ -39,25 +39,34 @@ namespace Game.Data
         {
             PlayerData data = SaveSystem.LoadPlayerData();
 
-            Vector3 _playerPosition;
-            _playerPosition.x = data.PLayerPositionData[0];
-            _playerPosition.y = data.PLayerPositionData[1];
-            _playerPosition.z = data.PLayerPositionData[2];
-            _playerMove.transform.position = _playerPosition;
-            _playerHP.Health = data.HpData;
+            if (_playerMove != null)
+            {
+                Vector3 _playerPosition;
+                _playerPosition.x = data.PlayerPositionData[0];
+                _playerPosition.y = data.PlayerPositionData[1];
+                _playerPosition.z = data.PlayerPositionData[2];
+                _playerMove.transform.position = _playerPosition;
+            }
+            _playerHealth.Health = data.HpData;
 
-            Vector3 _helicopterPosition;
-            _helicopterPosition.x = data.HelicopterPositionData[0];
-            _helicopterPosition.y = data.HelicopterPositionData[1];
-            _helicopterPosition.z = data.HelicopterPositionData[2];
-            _helicopter.transform.position = _helicopterPosition;
-            _helicopterStatesController.HelicopterState = data.HelicopterConditionData;
+            if (_helicopter != null && _helicopterStatesController != null)
+            {
+                Vector3 _helicopterPosition;
+                _helicopterPosition.x = data.HelicopterPositionData[0];
+                _helicopterPosition.y = data.HelicopterPositionData[1];
+                _helicopterPosition.z = data.HelicopterPositionData[2];
+                _helicopter.transform.position = _helicopterPosition;
+                _helicopterStatesController.HelicopterState = data.HelicopterConditionData;
+            }
 
-            Vector3 _carPosition;
-            _carPosition.x = data.CarPositionData[0];
-            _carPosition.y = data.CarPositionData[1];
-            _carPosition.z = data.CarPositionData[2];
-            _car.transform.position = _carPosition;
+            if (_car != null)
+            {
+                Vector3 _carPosition;
+                _carPosition.x = data.CarPositionData[0];
+                _carPosition.y = data.CarPositionData[1];
+                _carPosition.z = data.CarPositionData[2];
+                _car.transform.position = _carPosition;
+            }
 
             _weaponAk.Bullets = data.AKBulletsData;
             _weaponAk.TotalBullets = data.AKTotalBulletsData;
@@ -70,7 +79,8 @@ namespace Game.Data
 
             _coinSystem.Money = data.MoneyData;
 
-            _baseStates.BaseLevel = data.BaseLevelData;
+            if(_baseStates != null)
+                _baseStates.BaseLevel = data.BaseLevelData;
 
             _volume._volumeSlider.value = data.VolumeData;
         }

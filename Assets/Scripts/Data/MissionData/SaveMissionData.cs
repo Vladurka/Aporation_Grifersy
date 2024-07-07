@@ -1,22 +1,22 @@
 using Game.Player;
 using Game.Weapon;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 namespace Game.Data
 {
-    public class SaveDataMission : MonoBehaviour
+    public class SaveMissionData : MonoBehaviour, IService
     {
-        private PlayerHealth _playerHP;
+        private PlayerHealth _playerHealth;
         private WeaponAk _weaponAk;
         private RPG _rpg;
         private ScopeLevels _scopeLevels;
         private CoinSystem _coinSystem;
         private GrenadeThrower _grenadeThrower;
         private VolumeController _volume;
-
         public void Init()
         {
-            _playerHP = ServiceLocator.Current.Get<PlayerHealth>();
+            _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
             _weaponAk = ServiceLocator.Current.Get<WeaponAk>();
             _rpg = ServiceLocator.Current.Get<RPG>();
             _scopeLevels = ServiceLocator.Current.Get<ScopeLevels>();
@@ -25,15 +25,15 @@ namespace Game.Data
             _volume = ServiceLocator.Current.Get<VolumeController>();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                SaveInfo();
-        }
+        //private void Update()
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Escape))
+        //        SaveInfo();
+        //}
 
         public void SaveInfo()
         {
-            SaveSystemMission.SavePlayerData(_playerHP, _volume, _grenadeThrower, _scopeLevels, _weaponAk, _rpg, _coinSystem);
+            SaveSystem.SaveMissionPlayerData(_playerHealth, _volume, _grenadeThrower, _scopeLevels, _weaponAk, _rpg, _coinSystem);
         }
     }
 }

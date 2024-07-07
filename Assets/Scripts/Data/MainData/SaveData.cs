@@ -6,7 +6,7 @@ namespace Game.Data
 {
     public class SaveData : MonoBehaviour, IService
     {
-        private PlayerHealth _player;
+        private PlayerHealth _playerHealth;
         private Movement _playerMove;
         private Helicopter _helicopter;
         private HelicopterStatesController _helicopterStatesController;
@@ -20,7 +20,7 @@ namespace Game.Data
         private VolumeController _volume;
         public void Init()
         {
-            _player = ServiceLocator.Current.Get<PlayerHealth>();
+            _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
             _playerMove = ServiceLocator.Current.Get<Movement>();
             _helicopter = ServiceLocator.Current.Get<Helicopter>();
             _helicopterStatesController = ServiceLocator.Current.Get<HelicopterStatesController>();
@@ -44,7 +44,7 @@ namespace Game.Data
         public void SaveInfo()
         {
             if(ConstSystem.CanSave)
-                SaveSystem.SavePlayerData(_player, _playerMove, _volume, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _weaponAk, _rpg, _coinSystem, _baseStates); 
+                SaveSystem.SavePlayerData(_playerHealth, _playerMove, _volume, _grenadeThrower, _scopeLevels, _helicopter, _helicopterStatesController, _car, _weaponAk, _rpg, _coinSystem, _baseStates); 
         }
 
         public void CanSave(bool state)
