@@ -41,8 +41,7 @@ public class Builder : MonoBehaviour
     {
         if (Physics.Raycast(_rayPoint.position, _rayPoint.forward, out _hit, _checkDistance))
         {
-            if (_hit.collider.CompareTag("Ground"))
-                Instantiate(_obstacle, position, Quaternion.identity); 
+            Instantiate(_obstacle, position, Quaternion.identity); 
         }
     }
 
