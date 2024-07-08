@@ -11,6 +11,7 @@ public class TankShoot : MonoBehaviour
 
     [SerializeField] private float _shootForce = 100;
     [SerializeField] private float _rotationSpeed = 2f;
+    [SerializeField] private float _range = 250f;
     private float _spread = 1f;
 
     private AudioSource _audioSource;
@@ -45,7 +46,7 @@ public class TankShoot : MonoBehaviour
         RaycastHit hit;
         Vector3 targetPoint;
 
-        if (Physics.Raycast(_spawnBullet.position, -_spawnBullet.forward, out hit, 100f))
+        if (Physics.Raycast(_spawnBullet.position, -_spawnBullet.forward, out hit, _range))
         {
             if (hit.collider.CompareTag("Player"))
             {
