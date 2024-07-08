@@ -482,6 +482,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4578797268025778311, guid: bd886aae393578b4886aa2ebe590061c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -729.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5367572597467528568, guid: bd886aae393578b4886aa2ebe590061c, type: 3}
       propertyPath: m_Name
       value: ImageButtonBullets
