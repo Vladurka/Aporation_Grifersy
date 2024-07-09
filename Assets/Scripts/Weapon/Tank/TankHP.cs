@@ -17,11 +17,15 @@ public class TankHP : MonoBehaviour, ITankHealth
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
         _rb = GetComponent<Rigidbody>();
+
+        _rb.useGravity = false;
     }
     public void Destroy()
     {
         if (!_isDead)
         {
+            _rb.useGravity = true; 
+
             Instantiate(_effect, _pos.position, Quaternion.identity);
 
             float x = Random.Range(0f, 6f);
