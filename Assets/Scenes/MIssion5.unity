@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031405292, g: 0.0061706104, b: 0.014241753, a: 1}
+  m_IndirectSpecularColor: {r: 0.003140541, g: 0.006170615, b: 0.014241756, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1701067562}
   - component: {fileID: 1701067561}
   - component: {fileID: 1701067560}
+  - component: {fileID: 1701067563}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -404,6 +405,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 435.621, z: 0}
+--- !u!114 &1701067563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701067559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NVColor: {r: 0, g: 1, b: 0.1724138, a: 0}
+  m_TargetBleachColor: {r: 1, g: 1, b: 1, a: 0}
+  m_baseLightingContribution: 0.025
+  m_LightSensitivityMultiplier: 100
+  useVignetting: 1
 --- !u!1 &1726606712
 GameObject:
   m_ObjectHideFlags: 0
