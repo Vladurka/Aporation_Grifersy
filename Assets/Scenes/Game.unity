@@ -22881,6 +22881,7 @@ GameObject:
   - component: {fileID: 1974878720047138569}
   - component: {fileID: 3613841184684196430}
   - component: {fileID: 777021991857051759}
+  - component: {fileID: 3613841184684196431}
   m_Layer: 0
   m_Name: tank_001
   m_TagString: Untagged
@@ -49091,6 +49092,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723895003824205308}
   m_Mesh: {fileID: 7788291588132379583, guid: 3f75075f4d837bc40b69d489f65cea19, type: 3}
+--- !u!114 &3613841184684196431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723895003824205308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e54dcb7c8b9f047b487c944a3286c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3614064678503175453
 Animator:
   serializedVersion: 5
