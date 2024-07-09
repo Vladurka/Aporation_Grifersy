@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003140541, g: 0.006170615, b: 0.014241756, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031405292, g: 0.0061706104, b: 0.014241753, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NVColor: {r: 0, g: 1, b: 0.1724138, a: 0}
-  m_TargetBleachColor: {r: 1, g: 1, b: 1, a: 0}
+  m_NVColor: {r: 0.13056087, g: 1, b: 0, a: 0}
+  m_TargetBleachColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 0}
   m_baseLightingContribution: 0.025
   m_LightSensitivityMultiplier: 100
   useVignetting: 1
