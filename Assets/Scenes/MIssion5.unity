@@ -1929,6 +1929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 239871699}
   - component: {fileID: 239871700}
+  - component: {fileID: 239871701}
   m_Layer: 0
   m_Name: Camera0
   m_TagString: Untagged
@@ -2002,6 +2003,23 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &239871701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239871698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NVColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetBleachColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0}
+  m_baseLightingContribution: 0.025
+  m_LightSensitivityMultiplier: 100
+  useVignetting: 1
 --- !u!1 &249162341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3644,7 @@ GameObject:
   - component: {fileID: 489930057}
   - component: {fileID: 489930056}
   - component: {fileID: 489930054}
+  - component: {fileID: 489930058}
   m_Layer: 0
   m_Name: rocket_launcher_prefab
   m_TagString: Untagged
@@ -3759,7 +3778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d65303e6ecceb843a136450f859b7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _callRange: 100
+  _callRange: 500
   _range: 0
   _damage: 0
   TotalBullets: 10
@@ -3782,6 +3801,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 254337641}
+--- !u!114 &489930058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489930052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e485169f7984d96438523075b1d3dba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AimCamera: {fileID: 0}
 --- !u!1 &492785225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6802,6 +6834,7 @@ GameObject:
   - component: {fileID: 948402480}
   - component: {fileID: 948402479}
   - component: {fileID: 948402478}
+  - component: {fileID: 948402481}
   m_Layer: 0
   m_Name: Assault57_prefab
   m_TagString: Untagged
@@ -6947,7 +6980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e616b6cf0210c342a2167ea080531e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _callRange: 100
+  _callRange: 500
   _range: 120
   _damage: 4
   TotalBullets: 120
@@ -6958,6 +6991,19 @@ MonoBehaviour:
   _shootSound: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
   _noBulletsSound: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
   _maxBullets: 30
+--- !u!114 &948402481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948402475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e485169f7984d96438523075b1d3dba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AimCamera: {fileID: 0}
 --- !u!1 &950229331
 GameObject:
   m_ObjectHideFlags: 0
@@ -8674,6 +8720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1214128261}
   - component: {fileID: 1214128262}
+  - component: {fileID: 1214128263}
   m_Layer: 0
   m_Name: Camera2
   m_TagString: Untagged
@@ -8747,6 +8794,23 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1214128263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214128260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NVColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetBleachColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0}
+  m_baseLightingContribution: 0.025
+  m_LightSensitivityMultiplier: 100
+  useVignetting: 1
 --- !u!1 &1221412041
 GameObject:
   m_ObjectHideFlags: 0
@@ -11483,6 +11547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615695105}
   - component: {fileID: 1615695106}
+  - component: {fileID: 1615695107}
   m_Layer: 0
   m_Name: RPG_skope
   m_TagString: Untagged
@@ -11556,6 +11621,23 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1615695107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615695104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NVColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetBleachColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0}
+  m_baseLightingContribution: 0.025
+  m_LightSensitivityMultiplier: 100
+  useVignetting: 1
 --- !u!1 &1616468029
 GameObject:
   m_ObjectHideFlags: 0
@@ -14322,6 +14404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979850075}
   - component: {fileID: 1979850076}
+  - component: {fileID: 1979850077}
   m_Layer: 0
   m_Name: Camera1
   m_TagString: Untagged
@@ -14395,6 +14478,23 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1979850077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979850074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NVColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetBleachColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0}
+  m_baseLightingContribution: 0.025
+  m_LightSensitivityMultiplier: 100
+  useVignetting: 1
 --- !u!1 &1991503602
 GameObject:
   m_ObjectHideFlags: 0
@@ -23810,8 +23910,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 196}
-  m_SizeDelta: {x: 1679.1041, y: 305.9597}
+  m_AnchoredPosition: {x: 0, y: 274}
+  m_SizeDelta: {x: 1842.3119, y: 613.9111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &665120803269235242
 Transform:
@@ -27007,10 +27107,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 50dbb72753e8d9646a3834c18f94cb3f, type: 3}
-    m_FontSize: 200
+    m_FontSize: 175
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -27018,7 +27118,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You are dead!
+  m_Text: "\rYou have been\n discovered!"
 --- !u!4 &905724438177494893
 Transform:
   m_ObjectHideFlags: 0
@@ -28686,7 +28786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1017432209360134300
 GameObject:
   m_ObjectHideFlags: 0
@@ -77862,7 +77962,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
