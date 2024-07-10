@@ -18,11 +18,8 @@ namespace Game.Player
 
         public void Die()
         {
-            Cursor.lockState = CursorLockMode.None;
             _eventBus.Invoke(new SetDie());
             Destroy(gameObject);
-
-            ConstSystem.CanSave = false;
         }
 
         public void GetDamage(float damage)

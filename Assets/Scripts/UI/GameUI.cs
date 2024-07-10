@@ -16,8 +16,6 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _diePanel;
     [SerializeField] private GameObject _levelsPanel;
 
-    [SerializeField] private AudioSource _audioSource;
-
     private bool _pauseGame;
     private bool _canPause = true;
 
@@ -167,7 +165,13 @@ public class GameUI : MonoBehaviour
     {
         _uiCamera.SetActive(true);
         _diePanel.SetActive(true);
-        if(_speedometerPanel != null)
+        Cursor.lockState = CursorLockMode.None;
+        ConstSystem.CanSave = false;
+
+        if (_mainCharacter != null)
+            _mainCharacter.SetActive(false);
+
+        if (_speedometerPanel != null)
             _speedometerPanel.SetActive(false);
     }
 
