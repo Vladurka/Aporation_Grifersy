@@ -45,4 +45,7 @@ public static class ConstSystem
 
     public static bool CanSave;
     public static bool InTransport = false;
+
+    public static bool CanEnterHelicopter = false;
+    public static bool CanFixHelicopter = true;
 }
