@@ -1,20 +1,13 @@
+using UnityEngine;
 public class HelicopterFixedState : IStates
 {
-    private Raycasts _raycasts;
-    private CoinSystem _coinSystem;
-
-    private int _fixPrice = 1500;
-
     public void Enter()
     {
-        _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
-        //if (_coinSystem.Money >= _fixPrice)
-        //{
-            _raycasts = ServiceLocator.Current.Get<Raycasts>();
-            _raycasts.CanEnterHelicopter = true;
-            _raycasts.CanFixHelicopter = false;
-            //_coinSystem.SpendMoney(_fixPrice);
-        //}
+        if (MissionsController.MissionCondition >= 4)
+        {
+            ConstSystem.CanEnterHelicopter = true;
+            ConstSystem.CanFixHelicopter = false;
+        }
     }
 
     public void Exit()
@@ -25,5 +18,10 @@ public class HelicopterFixedState : IStates
     public void UpdateState()
     {
         
+    }
+
+    private void CanFixHelicopter()
+    {
+
     }
 }
