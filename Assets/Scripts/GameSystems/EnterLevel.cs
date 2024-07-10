@@ -69,7 +69,7 @@ namespace Game
 
         private void Init()
         {
-            //_mainCharacter.SetActive(true);
+            _mainCharacter.SetActive(true);
 
             _loadData.Init();
             //_loadData.LoadInfo();
