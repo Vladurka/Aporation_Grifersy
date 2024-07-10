@@ -3096,6 +3096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -9904,6 +9906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -12179,6 +12183,7 @@ MonoBehaviour:
   _completedPanel: {fileID: 3065494661083468160}
   _diePanel: {fileID: 7212233046618006945}
   _levelsPanel: {fileID: 3298528177311338455}
+  _audioSource: {fileID: 0}
 --- !u!23 &777021991857051759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15616,6 +15621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -17259,7 +17266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385777342208765908}
   m_Layer: 0
-  m_Name: Shit
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26769,6 +26776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -34401,6 +34410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -39718,6 +39729,7 @@ MonoBehaviour:
   _uiCamera: {fileID: 893665469234404743}
   _signalsNeeded: 6
   _index: 3
+  _time: 1
   _signals: 0
 --- !u!1 &2831133623606717540
 GameObject:
@@ -58249,6 +58261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -62864,6 +62878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -70447,6 +70463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -72861,6 +72879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -85824,6 +85844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -87819,6 +87841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -88827,6 +88851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -90119,6 +90145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -93929,7 +93957,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2769605557419944031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6290300686986760279}
+        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mission5
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &6615173186772179518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -95147,6 +95187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -96215,6 +96257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -103396,6 +103440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -115365,6 +115411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -120397,6 +120445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
