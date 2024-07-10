@@ -25,7 +25,8 @@ public class EnemyListController : IService
 
     private void RemoveObject(RemoveObj obj)
     {
-        _enemies.Remove(obj.Enemy);
+        if(_enemies.Count > 0)
+            _enemies.Remove(obj.Enemy);
 
         if(_enemies.Count <= 0)
             _eventBus.Invoke(new EndSignal());
