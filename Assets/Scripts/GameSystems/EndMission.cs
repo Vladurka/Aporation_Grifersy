@@ -9,8 +9,8 @@ public class EndMission : MonoBehaviour
     [SerializeField] private GameObject _uiCamera;
     [SerializeField] private int _signalsNeeded = 2;
     [SerializeField] private int _index = 0;
-
-    [SerializeField]  private int _signals = 0;
+    [SerializeField] private float _time = 1f;
+    [SerializeField] private int _signals = 0;
 
     private EventBus _eventBus;
 
@@ -24,8 +24,8 @@ public class EndMission : MonoBehaviour
     private void AddSignal(EndSignal signal)
     {
         _signals++;
-        if (_signals == _signalsNeeded)
-            Invoke("EndGame", 1f);
+        if (_signals >= _signalsNeeded)
+            Invoke("EndGame", _time);
     }
 
     private void EndGame()

@@ -12,6 +12,7 @@ TagManager:
   - Tank
   - Enemy
   - Bullet
+  - Map
   layers:
   - Default
   - TransparentFX

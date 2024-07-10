@@ -2240,7 +2240,6 @@ GameObject:
   - component: {fileID: 46353839}
   - component: {fileID: 46353838}
   - component: {fileID: 46353837}
-  - component: {fileID: 46353836}
   - component: {fileID: 46353835}
   m_Layer: 0
   m_Name: WarriorAxe (20)
@@ -2289,21 +2288,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &46353836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46353833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &46353837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2328,6 +2312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -5442,9 +5428,8 @@ GameObject:
   - component: {fileID: 106718017}
   - component: {fileID: 106718016}
   - component: {fileID: 106718015}
-  - component: {fileID: 106718014}
   - component: {fileID: 106718013}
-  - component: {fileID: 106718012}
+  - component: {fileID: 106718018}
   m_Layer: 0
   m_Name: WarriorAxe (13)
   m_TagString: Untagged
@@ -5469,21 +5454,6 @@ Transform:
   - {fileID: 1860953303}
   m_Father: {fileID: 22458468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &106718012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106718010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61519d36319a3543b15fc314ce1e69e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  IsDetected: 0
-  IsDead: 0
 --- !u!136 &106718013
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5507,21 +5477,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &106718014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106718010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &106718015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5577,6 +5532,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &106718018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106718010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
+  Agent: {fileID: 0}
+  IsDetected: 0
+  IsDead: 0
 --- !u!1 &106979729
 GameObject:
   m_ObjectHideFlags: 0
@@ -7437,7 +7409,6 @@ GameObject:
   - component: {fileID: 142719635}
   - component: {fileID: 142719634}
   - component: {fileID: 142719633}
-  - component: {fileID: 142719632}
   - component: {fileID: 142719631}
   m_Layer: 0
   m_Name: WarriorAxe (22)
@@ -7486,21 +7457,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &142719632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142719629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &142719633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7525,6 +7481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -15752,6 +15710,8 @@ GameObject:
   - component: {fileID: 304184854}
   - component: {fileID: 304184853}
   - component: {fileID: 304184852}
+  - component: {fileID: 304184857}
+  - component: {fileID: 304184856}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -15793,8 +15753,9 @@ MonoBehaviour:
   _endPanel: {fileID: 1849518578}
   _mainCharacter: {fileID: 462545061}
   _uiCamera: {fileID: 1120634196}
-  _signalsNeeded: 3
-  _index: 1
+  _signalsNeeded: 1
+  _index: 5
+  _time: 1
   _signals: 0
 --- !u!114 &304184853
 MonoBehaviour:
@@ -15848,6 +15809,116 @@ MonoBehaviour:
   _completedPanel: {fileID: 1849518578}
   _diePanel: {fileID: 233999055}
   _levelsPanel: {fileID: 0}
+  _audioSource: {fileID: 0}
+--- !u!82 &304184856
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304184850}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e114c2c8def440049b8a20a0e8992d73, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &304184857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304184850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6170fd987b03c6440b1fc0aa97b854e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
 --- !u!1 &307579923
 GameObject:
   m_ObjectHideFlags: 0
@@ -20742,7 +20813,6 @@ GameObject:
   - component: {fileID: 399868995}
   - component: {fileID: 399868994}
   - component: {fileID: 399868993}
-  - component: {fileID: 399868992}
   - component: {fileID: 399868991}
   m_Layer: 0
   m_Name: WarriorAxe
@@ -20791,21 +20861,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &399868992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399868989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &399868993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20830,6 +20885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -23596,7 +23653,6 @@ GameObject:
   - component: {fileID: 458469271}
   - component: {fileID: 458469270}
   - component: {fileID: 458469269}
-  - component: {fileID: 458469268}
   - component: {fileID: 458469267}
   m_Layer: 0
   m_Name: WarriorAxe (7)
@@ -23645,21 +23701,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &458469268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458469265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &458469269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23684,6 +23725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -23839,7 +23882,6 @@ GameObject:
   - component: {fileID: 462450102}
   - component: {fileID: 462450101}
   - component: {fileID: 462450100}
-  - component: {fileID: 462450099}
   - component: {fileID: 462450098}
   m_Layer: 0
   m_Name: WarriorAxe (14)
@@ -23888,21 +23930,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &462450099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462450096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &462450100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23927,6 +23954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -24442,7 +24471,6 @@ GameObject:
   - component: {fileID: 467090699}
   - component: {fileID: 467090698}
   - component: {fileID: 467090697}
-  - component: {fileID: 467090696}
   - component: {fileID: 467090695}
   m_Layer: 0
   m_Name: WarriorAxe (12)
@@ -24491,21 +24519,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &467090696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467090693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &467090697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24530,6 +24543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -24805,7 +24820,6 @@ GameObject:
   - component: {fileID: 473499964}
   - component: {fileID: 473499963}
   - component: {fileID: 473499962}
-  - component: {fileID: 473499961}
   - component: {fileID: 473499960}
   m_Layer: 0
   m_Name: WarriorAxe (5)
@@ -24854,21 +24868,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &473499961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473499958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &473499962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24893,6 +24892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -27317,9 +27318,8 @@ GameObject:
   - component: {fileID: 506207664}
   - component: {fileID: 506207663}
   - component: {fileID: 506207662}
-  - component: {fileID: 506207661}
   - component: {fileID: 506207660}
-  - component: {fileID: 506207659}
+  - component: {fileID: 506207665}
   m_Layer: 0
   m_Name: WarriorAxe (3)
   m_TagString: Untagged
@@ -27344,21 +27344,6 @@ Transform:
   - {fileID: 843215713}
   m_Father: {fileID: 22458468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &506207659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506207657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61519d36319a3543b15fc314ce1e69e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  IsDetected: 0
-  IsDead: 0
 --- !u!136 &506207660
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27382,21 +27367,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &506207661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506207657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &506207662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27452,6 +27422,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &506207665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506207657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
+  Agent: {fileID: 0}
+  IsDetected: 0
+  IsDead: 0
 --- !u!1 &506671649
 GameObject:
   m_ObjectHideFlags: 0
@@ -30995,7 +30982,6 @@ GameObject:
   - component: {fileID: 571845212}
   - component: {fileID: 571845211}
   - component: {fileID: 571845210}
-  - component: {fileID: 571845209}
   - component: {fileID: 571845208}
   m_Layer: 0
   m_Name: WarriorAxe (10)
@@ -31044,21 +31030,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &571845209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571845206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &571845210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31083,6 +31054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -32129,9 +32102,8 @@ GameObject:
   - component: {fileID: 595121940}
   - component: {fileID: 595121939}
   - component: {fileID: 595121938}
-  - component: {fileID: 595121937}
   - component: {fileID: 595121936}
-  - component: {fileID: 595121935}
+  - component: {fileID: 595121941}
   m_Layer: 0
   m_Name: WarriorAxe (15)
   m_TagString: Untagged
@@ -32156,21 +32128,6 @@ Transform:
   - {fileID: 2063263922}
   m_Father: {fileID: 22458468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &595121935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595121933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61519d36319a3543b15fc314ce1e69e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  IsDetected: 0
-  IsDead: 0
 --- !u!136 &595121936
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32194,21 +32151,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &595121937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595121933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &595121938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32264,6 +32206,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &595121941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595121933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
+  Agent: {fileID: 0}
+  IsDetected: 0
+  IsDead: 0
 --- !u!1 &595601163
 GameObject:
   m_ObjectHideFlags: 0
@@ -48159,6 +48118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: table_001
       objectReference: {fileID: 0}
+    - target: {fileID: 1614713359576770118, guid: 885b27966bc894849b24e915dbbd00fd, type: 3}
+      propertyPath: m_TagString
+      value: Map
+      objectReference: {fileID: 0}
     - target: {fileID: 2099607141971590396, guid: 885b27966bc894849b24e915dbbd00fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -90.56109
@@ -48202,7 +48165,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1614713359576770118, guid: 885b27966bc894849b24e915dbbd00fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1387022232}
   m_SourcePrefab: {fileID: 100100000, guid: 885b27966bc894849b24e915dbbd00fd, type: 3}
 --- !u!4 &872387732 stripped
 Transform:
@@ -56651,7 +56617,6 @@ GameObject:
   - component: {fileID: 1006800283}
   - component: {fileID: 1006800282}
   - component: {fileID: 1006800281}
-  - component: {fileID: 1006800280}
   - component: {fileID: 1006800279}
   m_Layer: 0
   m_Name: WarriorAxe (19)
@@ -56700,21 +56665,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1006800280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006800277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1006800281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56739,6 +56689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -59618,7 +59570,6 @@ GameObject:
   - component: {fileID: 1056730696}
   - component: {fileID: 1056730695}
   - component: {fileID: 1056730694}
-  - component: {fileID: 1056730693}
   - component: {fileID: 1056730692}
   m_Layer: 0
   m_Name: WarriorAxe (9)
@@ -59667,21 +59618,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1056730693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056730690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1056730694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59706,6 +59642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -60722,7 +60660,6 @@ GameObject:
   - component: {fileID: 1089715141}
   - component: {fileID: 1089715140}
   - component: {fileID: 1089715139}
-  - component: {fileID: 1089715138}
   - component: {fileID: 1089715137}
   m_Layer: 0
   m_Name: WarriorAxe (21)
@@ -60771,21 +60708,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1089715138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089715135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1089715139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60810,6 +60732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -63913,7 +63837,6 @@ GameObject:
   - component: {fileID: 1144630598}
   - component: {fileID: 1144630597}
   - component: {fileID: 1144630596}
-  - component: {fileID: 1144630595}
   - component: {fileID: 1144630594}
   m_Layer: 0
   m_Name: WarriorAxe (18)
@@ -63962,21 +63885,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1144630595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144630592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1144630596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64001,6 +63909,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -67484,7 +67394,6 @@ GameObject:
   - component: {fileID: 1207959387}
   - component: {fileID: 1207959386}
   - component: {fileID: 1207959385}
-  - component: {fileID: 1207959384}
   - component: {fileID: 1207959383}
   m_Layer: 0
   m_Name: WarriorAxe (17)
@@ -67533,21 +67442,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1207959384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207959381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1207959385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67572,6 +67466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -70799,7 +70695,6 @@ GameObject:
   - component: {fileID: 1265399469}
   - component: {fileID: 1265399468}
   - component: {fileID: 1265399467}
-  - component: {fileID: 1265399466}
   - component: {fileID: 1265399465}
   m_Layer: 0
   m_Name: WarriorAxe (8)
@@ -70848,21 +70743,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1265399466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265399463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1265399467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70887,6 +70767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -73106,7 +72988,6 @@ GameObject:
   - component: {fileID: 1304763281}
   - component: {fileID: 1304763280}
   - component: {fileID: 1304763279}
-  - component: {fileID: 1304763278}
   - component: {fileID: 1304763277}
   m_Layer: 0
   m_Name: WarriorAxe (4)
@@ -73155,21 +73036,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1304763278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304763275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1304763279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73194,6 +73060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -73445,9 +73313,8 @@ GameObject:
   - component: {fileID: 1310602151}
   - component: {fileID: 1310602150}
   - component: {fileID: 1310602149}
-  - component: {fileID: 1310602148}
   - component: {fileID: 1310602147}
-  - component: {fileID: 1310602146}
+  - component: {fileID: 1310602152}
   m_Layer: 0
   m_Name: WarriorAxe (1)
   m_TagString: Untagged
@@ -73472,21 +73339,6 @@ Transform:
   - {fileID: 1764170621}
   m_Father: {fileID: 22458468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1310602146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310602144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61519d36319a3543b15fc314ce1e69e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  IsDetected: 0
-  IsDead: 0
 --- !u!136 &1310602147
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -73510,21 +73362,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1310602148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310602144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1310602149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73580,6 +73417,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1310602152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310602144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
+  Agent: {fileID: 0}
+  IsDetected: 0
+  IsDead: 0
 --- !u!1 &1310967744
 GameObject:
   m_ObjectHideFlags: 0
@@ -75095,7 +74949,6 @@ GameObject:
   - component: {fileID: 1332652610}
   - component: {fileID: 1332652609}
   - component: {fileID: 1332652608}
-  - component: {fileID: 1332652607}
   - component: {fileID: 1332652606}
   m_Layer: 0
   m_Name: WarriorAxe (2)
@@ -75144,21 +74997,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1332652607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332652604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1332652608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75183,6 +75021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -77615,6 +77455,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1944418204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1387022229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1614713359576770118, guid: 885b27966bc894849b24e915dbbd00fd, type: 3}
+  m_PrefabInstance: {fileID: 872387731}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1387022232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387022229}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0686755, y: 0.9298884, z: 1.3185853}
+  m_Center: {x: 0.000016570091, y: 0.4649442, z: -0.0000102221975}
 --- !u!1 &1387660403
 GameObject:
   m_ObjectHideFlags: 0
@@ -83620,7 +83486,6 @@ GameObject:
   - component: {fileID: 1502286966}
   - component: {fileID: 1502286965}
   - component: {fileID: 1502286964}
-  - component: {fileID: 1502286963}
   - component: {fileID: 1502286962}
   m_Layer: 0
   m_Name: WarriorAxe (6)
@@ -83669,21 +83534,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1502286963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502286960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1502286964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83708,6 +83558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -94812,12 +94664,12 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize: 0
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -97545,7 +97397,6 @@ GameObject:
   - component: {fileID: 1789262946}
   - component: {fileID: 1789262945}
   - component: {fileID: 1789262944}
-  - component: {fileID: 1789262943}
   - component: {fileID: 1789262942}
   m_Layer: 0
   m_Name: WarriorAxe (11)
@@ -97594,21 +97445,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1789262943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1789262940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1789262944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97633,6 +97469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -107605,7 +107443,6 @@ GameObject:
   - component: {fileID: 1964749312}
   - component: {fileID: 1964749311}
   - component: {fileID: 1964749310}
-  - component: {fileID: 1964749309}
   - component: {fileID: 1964749308}
   m_Layer: 0
   m_Name: WarriorAxe (16)
@@ -107654,21 +107491,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1964749309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964749306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1964749310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107693,6 +107515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0
@@ -108412,7 +108236,6 @@ GameObject:
   - component: {fileID: 1977577694}
   - component: {fileID: 1977577693}
   - component: {fileID: 1977577692}
-  - component: {fileID: 1977577691}
   - component: {fileID: 1977577690}
   m_Layer: 0
   m_Name: WarriorAxe (23)
@@ -108461,21 +108284,6 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
---- !u!114 &1977577691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977577688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46a56b486c5c3d43a15899555b5d051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
-  _explosionRadius: 2
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
 --- !u!114 &1977577692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108500,6 +108308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 1
+  _range: 10
   Agent: {fileID: 0}
   IsDetected: 0
   IsDead: 0

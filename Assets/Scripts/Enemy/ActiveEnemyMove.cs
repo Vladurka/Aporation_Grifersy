@@ -1,3 +1,5 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,7 +8,12 @@ namespace Game.Enemy
     [RequireComponent(typeof(NavMeshAgent))]
     public class ActiveEnemyMove : AbstractEnemy
     {
+        private bool _isCalled = false;
+
         private int _index;
+
+        private EventBus _eventBus;
+
         private void Start()
         {
             _points = GameObject.FindGameObjectsWithTag("Point");
@@ -14,15 +21,28 @@ namespace Game.Enemy
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
             _animator = GetComponent<Animator>();
             _index = Random.Range(0, _points.Length);
+            _eventBus = ServiceLocator.Current.Get<EventBus>();
         }
 
         private void FixedUpdate()
         {
-            if (!IsDetected)
-                Chill();
+           if (!IsDetected)
+               Chill();
 
-            if (IsDetected)
-                EnemyDetected();
+            if (!_isMission5)
+            {
+                if (IsDetected)
+                    EnemyDetected();
+            }
+
+            if (_isMission5)
+            {
+                if (IsDetected)
+                {
+                    SetSiren();
+                    EnemyDetected();
+                }
+            }
 
             if (IsDead)
                 Agent.speed = 0f;
@@ -50,6 +70,15 @@ namespace Game.Enemy
             _animator.SetBool("Run", true);
             if (_mainCharacter != null)
                 Agent.SetDestination(_mainCharacter.transform.position);
+        }
+
+        private void SetSiren()
+        {
+            if (!_isCalled)
+            {
+                _eventBus.Invoke(new SetSiren());
+                _isCalled = true;
+            }
         }
     }
 }
