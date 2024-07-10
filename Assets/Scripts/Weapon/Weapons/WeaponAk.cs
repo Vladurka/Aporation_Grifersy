@@ -41,15 +41,15 @@ namespace Game.Weapon
             _aimCamera.enabled = false;
         }
 
-        //private void OnEnable()
-        //{
-        //    _mainCamera.enabled = true;
-        //    _eventBus.Invoke(new SetCurrentBullets(true));
-        //    _eventBus.Invoke(new SetTotalBullets(true));
-        //    _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
-        //    _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
-        //    _eventBus.Invoke(new SetImage(0, true));
-        //}
+        private void OnEnable()
+        {
+            _mainCamera.enabled = true;
+            _eventBus.Invoke(new SetCurrentBullets(true));
+            _eventBus.Invoke(new SetTotalBullets(true));
+            _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
+            _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
+            _eventBus.Invoke(new SetImage(0, true));
+        }
 
         private void Update()
         {
