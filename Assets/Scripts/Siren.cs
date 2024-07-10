@@ -15,7 +15,9 @@ public class Siren : MonoBehaviour
 
     private void SetSiren(SetSiren setSiren)
     {
-        _audioSource.Play();
+        if(!_audioSource.isPlaying)
+            _audioSource.Play();
+
         Invoke("SetDie", 5f);
     }
 
