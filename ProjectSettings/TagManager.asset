@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - Bullet
   - Map
+  - Point1
   layers:
   - Default
   - TransparentFX
