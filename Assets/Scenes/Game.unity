@@ -680,12 +680,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739928443}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.8814835, z: 0, w: 0.47221488}
-  m_LocalPosition: {x: 2.94, y: 0.8140001, z: 3.31}
+  m_LocalRotation: {x: -0, y: -0.28939664, z: -0, w: 0.95720935}
+  m_LocalPosition: {x: 1884, y: 11.85, z: 964.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1514199193251497723}
+  m_Father: {fileID: 1506671023}
   m_LocalEulerAnglesHint: {x: 0, y: 359, z: 0}
 --- !u!1001 &798912247
 PrefabInstance:
@@ -1478,6 +1478,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012771108642, guid: 9d1bb44d500a3ad489d3cb3a6900199f, type: 3}
   m_PrefabInstance: {fileID: 1467868588}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1506671022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506671023}
+  m_Layer: 0
+  m_Name: CutScenes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1506671023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506671022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1866.7521, y: 11.032597, z: 983.7459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1655298313}
+  - {fileID: 739928447}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1509651607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1688,7 +1721,7 @@ GameObject:
   - component: {fileID: 1655298313}
   - component: {fileID: 1655298312}
   m_Layer: 0
-  m_Name: CutScene
+  m_Name: CutSceneGoOnMission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1704,7 +1737,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: f268807f086ef3b4db64402d9b6a73b5, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -1726,11 +1759,11 @@ Transform:
   m_GameObject: {fileID: 1655298311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1335.41, y: 11.036, z: 617.44}
+  m_LocalPosition: {x: -531.34204, y: 0.0034036636, z: -366.3059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1506671023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1674232860
 GameObject:
@@ -21813,7 +21846,6 @@ Transform:
   - {fileID: 4110625727971837063}
   - {fileID: 8425395333019172455}
   - {fileID: 4694760276705314418}
-  - {fileID: 739928447}
   m_Father: {fileID: 7175670686303916632}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &1515804125259598684
@@ -41713,7 +41745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2951439384462656404
 GameObject:
   m_ObjectHideFlags: 0
@@ -46785,7 +46817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3318103949202221964
 Transform:
   m_ObjectHideFlags: 0
@@ -61989,18 +62021,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4065347087699801607}
-        m_TargetAssemblyTypeName: ChangePanels, Assembly-CSharp
-        m_MethodName: ChangePanel
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1878160927694475095}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6290300686986760279}
         m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
         m_MethodName: ChangeScene
@@ -62011,6 +62031,19 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Mission4
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8471201381537821173}
+        m_TargetAssemblyTypeName: PlayCutScene, Assembly-CSharp
+        m_MethodName: PlayScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableDirector,
+            UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &4298412276031611905
@@ -64211,7 +64244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4459453782462888517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92958,6 +92991,7 @@ GameObject:
   - component: {fileID: 6290300686986760279}
   - component: {fileID: 2830631853156954328}
   - component: {fileID: 2079425828725283376}
+  - component: {fileID: 8471201381537821173}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -103717,7 +103751,7 @@ RectTransform:
   m_Father: {fileID: 3061042915609376658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -118515,6 +118549,22 @@ MonoBehaviour:
   - {fileID: 8853911733617119329}
   - {fileID: 7602554797532563679}
   _volumeSlider: {fileID: 2327277693195535946}
+--- !u!114 &8471201381537821173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549809707064046013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd07b57699bccad4ab34bf55536ac292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 8707981691277235219}
+  _cutCamera: {fileID: 739928446}
+  _cameraUI: {fileID: 8090863481253607745}
+  _canvas: {fileID: 5990626056583786137}
 --- !u!4 &8472820982316371862
 Transform:
   m_ObjectHideFlags: 0
@@ -128582,6 +128632,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1321477220056962993}
   - {fileID: 7175670686303916632}
-  - {fileID: 1655298313}
   - {fileID: 912581236}
   - {fileID: 1329758865}
+  - {fileID: 1506671023}

@@ -1,16 +1,13 @@
 using UnityEngine;
-using Game.SeniorEventBus;
 
 public class MissionsController : MonoBehaviour
 {
-    public static int MissionCondition = 0;
+    public static int MissionCondition = 3;
 
     [SerializeField] private GameObject[] _missionsButtons;
 
     [SerializeField] private GameObject _car;
     [SerializeField] private GameObject _mission3Enemies;
-
-    private EventBus _eventBus;
 
     public void Init()
     {
@@ -21,7 +18,7 @@ public class MissionsController : MonoBehaviour
             button.SetActive(false);
         }
 
-        MissionCondition = PlayerPrefs.GetInt(ConstSystem.MISSION_KEY);
+        //MissionCondition = PlayerPrefs.GetInt(ConstSystem.MISSION_KEY);
 
         if (MissionCondition == 1)
         {
