@@ -20,12 +20,13 @@ public class MapFinder : MonoBehaviour
         RaycastHit hit;
         if (!_isCompleted)
         {
-            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, 5f))
+            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, 3f))
             {
                 if(hit.collider.CompareTag("Map"))
                 {
                     _eventBus.Invoke(new EndSignal());
                     _isCompleted = true;
+                    Debug.Log("Map");
                 }
             }
         }

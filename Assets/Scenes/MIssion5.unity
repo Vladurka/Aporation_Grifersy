@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1150506693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8801514035224683413, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
+  m_PrefabInstance: {fileID: 3573096648958722335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1150506703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150506693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e442da2cdfc1fb48ba1888da5a3ce3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3573096648958722335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,6 +164,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 871700715997166506, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 951004848257454406, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -154,6 +175,18 @@ PrefabInstance:
     - target: {fileID: 1352420115262641630, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485329129187322031, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
+      propertyPath: _time
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485329129187322031, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
+      propertyPath: _index
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485329129187322031, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
+      propertyPath: _signalsNeeded
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1949547437916567990, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -322,7 +355,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8801514035224683413, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1150506703}
   m_SourcePrefab: {fileID: 100100000, guid: 86063f774e033d547834150fdd0a15c0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
