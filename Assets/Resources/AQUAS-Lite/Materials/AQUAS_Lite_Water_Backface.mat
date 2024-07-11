@@ -2,19 +2,28 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: AQUAS_Lite_Water_Backface
-  m_Shader: {fileID: 4800000, guid: 6c5f1c7411ec6004fb354db7ff23d494, type: 3}
-  m_ShaderKeywords: _ENABLEPROBERELFECTIONS_ON _ENABLEREALTIMEREFLECTIONS_ON _ENABLEREFLECTIONS_ON
-  m_LightmapFlags: 5
+  m_Shader: {fileID: 4800000, guid: d54a881b830cae544a72985daaece999, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _EMISSION
+  - _ENABLEPROBERELFECTIONS_ON
+  - _ENABLEREALTIMEREFLECTIONS_ON
+  - _ENABLEREFLECTIONS_ON
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -38,6 +47,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmmisTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _FoamTexture:
         m_Texture: {fileID: 2800000, guid: 6cb123095ca4b4e4680773312ba1c076, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -47,6 +60,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -66,6 +83,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -89,27 +107,41 @@ Material:
     - _FoamVisibility: 1
     - _FogDistance: 1000
     - _FogFade: 1
+    - _FresnelBrightness: 0
+    - _FresnelPower: 0
+    - _FresnelShadowDropoff: 0
     - _FullTransparency: 0
     - _Gloss: 0.7
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HighIntensity: 1.5
+    - _LightScalar: 1
     - _LightWrapping: 2
+    - _LowIntensity: 1
     - _MediumTilingDistance: 100
     - _Metallic: 0
     - _Mode: 0
     - _NormalStrength: 1
     - _NormalTiling: 0.25
     - _OcclusionStrength: 1
+    - _OutlineSize: 10
     - _Parallax: 0.02
     - _ProbeReflectionIntensity: 0.578
+    - _RampLevels: 2
     - _RealtimeReflectionIntensity: 1
     - _ReflectionIntensity: 0.385
     - _Refraction: 0.4
     - _RefractionDistance: 10
     - _RefractionFalloff: 1
+    - _RimAlpha: 0
+    - _RimDropOff: 0
+    - _RimPower: 0
     - _ShoreFade: 0.56
     - _ShoreTransparency: 0.5
+    - _SmoothnessTextureChannel: 0
     - _Specular: 1
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TransparencyFade: 1
     - _UVSec: 0
@@ -125,5 +157,11 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _FogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LowColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0.4745098, g: 1, b: 0.80784315, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.9716981, g: 0.9139198, b: 0.7104397, a: 1}
+  m_BuildTextureStacks: []
