@@ -1,10 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class VideoPlay : MonoBehaviour
 {
     [SerializeField] private VideoPlayer _videoPlayer;
+
+    private void Start()
+    {
+        
+    }
 
     private void OnEnable()
     {
