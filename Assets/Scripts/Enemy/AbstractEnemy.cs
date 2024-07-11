@@ -12,9 +12,8 @@ namespace Game.Enemy
 
         protected GameObject[] _points;
         protected GameObject _mainCharacter;
+        protected NavMeshAgent _agent;
 
-
-        [HideInInspector] public NavMeshAgent Agent;
         [HideInInspector] public bool IsDetected = false;
         [HideInInspector] public bool IsDead = false;
 

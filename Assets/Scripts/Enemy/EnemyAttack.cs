@@ -1,4 +1,3 @@
-using Game.Enemy;
 using Game.Player;
 using System.Collections;
 using UnityEngine;
@@ -14,13 +13,11 @@ public class EnemyAttack : MonoBehaviour
     private Animator _animator;
     private GameObject _mainCharacter;
 
-    private ActiveEnemyMove _move;
     private IEnemyHealth _health;
 
     private void Start()
     {
         _health = GetComponent<IEnemyHealth>();
-        _move = GetComponent<ActiveEnemyMove>();
         _animator = GetComponent<Animator>();
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
     }
@@ -32,7 +29,6 @@ public class EnemyAttack : MonoBehaviour
             if(!_started)
             {
                 StartCoroutine(Attack());
-                _move.Agent.Stop();
                 _started = true;
             }
         }
@@ -42,7 +38,6 @@ public class EnemyAttack : MonoBehaviour
             if (_started)
             {
                 StopAllCoroutines();
-                _move.Agent.Resume();
                 _started = false;
             }
         }
