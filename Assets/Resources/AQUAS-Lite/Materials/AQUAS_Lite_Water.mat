@@ -27,6 +27,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlbedoTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BackTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Bump:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -43,6 +63,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DownTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -51,8 +75,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FalloffTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _FoamTexture:
         m_Texture: {fileID: 2800000, guid: 6cb123095ca4b4e4680773312ba1c076, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FrontTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LeftTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -60,6 +96,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MirrorReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap2:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -79,12 +127,42 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ReflectionCube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RightTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ToonShade:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UpTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - PixelSnap: 0
+    - _Albedo2Flow: 1
+    - _Albedo2Tiling: 1
+    - _AlbedoContrast: 1
+    - _AlbedoIntensity: 1
+    - _BumpAmt: 10
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _Density: 0.24
@@ -94,14 +172,22 @@ Material:
     - _Distortion: 0.119
     - _DstBlend: 0
     - _EnableCustomFog: 0
+    - _EnableExternalAlpha: 0
     - _EnableProbeRelfections: 1
     - _EnableRealtimeReflections: 1
     - _EnableReflections: 1
+    - _Exposure: 1
     - _Fade: 2
     - _FarTilingDistance: 1000
+    - _FoamAmplitude: 15
     - _FoamBlend: 0.2
     - _FoamContrast: 0.276
+    - _FoamFlow: 10
+    - _FoamFrequency: 4
+    - _FoamGain: 0.6
     - _FoamIntensity: 1.92
+    - _FoamLacunarity: 5
+    - _FoamScale: 0.1
     - _FoamSpeed: 0.1
     - _FoamTiling: 1
     - _FoamVisibility: 1
@@ -121,25 +207,56 @@ Material:
     - _LowIntensity: 1
     - _MediumTilingDistance: 100
     - _Metallic: 0
+    - _MicrowaveScale: 1
+    - _MicrowaveStrength: 0.5
+    - _MirrorContrast: 1
+    - _MirrorFPOW: 5
+    - _MirrorR0: 0.01
+    - _MirrorSaturation: 1
+    - _MirrorStrength: 1
+    - _MirrorWaveFlow: 5
+    - _MirrorWavePow: 1
+    - _MirrorWaveScale: 1
     - _Mode: 0
-    - _NormalStrength: 1.35
-    - _NormalTiling: 0.25
+    - _NormalMap1Strength: 1
+    - _NormalMap2Flow: 0.5
+    - _NormalMap2Strength: 1
+    - _NormalMap2Tiling: 0.7
+    - _NormalStrength: 0
+    - _NormalTiling: 2
     - _OcclusionStrength: 1
+    - _Outline: 0.005
     - _OutlineSize: 10
     - _Parallax: 0.02
+    - _ParallaxAmount: 0.1
+    - _ParallaxFlow: 40
+    - _ParallaxNoiseAmplitude: 3
+    - _ParallaxNoiseFrequency: 1
+    - _ParallaxNoiseGain: 0.3
+    - _ParallaxNoiseLacunarity: 4
+    - _ParallaxNoiseScale: 1
+    - _ParallaxNormal2Offset: 1
     - _ProbeReflectionIntensity: 0.578
     - _RampLevels: 2
     - _RealtimeReflectionIntensity: 1
+    - _ReflectionContrast: 1
     - _ReflectionIntensity: 0.385
+    - _ReflectionSaturation: 1
+    - _ReflectionStrength: 0.15
     - _Refraction: 0.4
     - _RefractionDistance: 10
     - _RefractionFalloff: 1
     - _RimAlpha: 0
     - _RimDropOff: 0
     - _RimPower: 0
+    - _Rotation: 0
+    - _Shininess: 0.15
     - _ShoreFade: 0.56
     - _ShoreTransparency: 0.5
     - _SmoothnessTextureChannel: 0
+    - _Snow: 0
+    - _SnowDepth: 0.1
+    - _SoftFactor: 0.5
     - _Specular: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -152,16 +269,27 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
+    - _AlbedoColor: {r: 0.15, g: 0.161, b: 0.16, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepWaterColor: {r: 0.06763973, g: 0.11615724, b: 0.1509434, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamSoft: {r: 0.25, g: 0.6, b: 1, a: 0}
     - _FogColor: {r: 1, g: 1, b: 1, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
     - _LowColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0.4745098, g: 1, b: 0.80784315, a: 1}
+    - _MirrorColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _MirrorDepthColor: {r: 0, g: 0, b: 0, a: 0.5}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectionColor: {r: 0.28, g: 0.29, b: 0.25, a: 0.5}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SnowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SnowDirection: {r: 0, g: 1, b: 0, a: 1}
+    - _SpecColor: {r: 0.086, g: 0.086, b: 0.086, a: 1}
     - _SpecularColor: {r: 0.9716981, g: 0.9139198, b: 0.7104397, a: 1}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
