@@ -8,14 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterSimpleDaylight
-  m_Shader: {fileID: 4800000, guid: 1fe8cefbb0066914f8f323f408d6b201, type: 3}
+  m_Shader: {fileID: 4800000, guid: d54a881b830cae544a72985daaece999, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
+  - _ENABLEPROBERELFECTIONS_ON
+  - _ENABLEREALTIMEREFLECTIONS_ON
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -48,6 +50,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FoamTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -60,6 +66,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalTexture:
+        m_Texture: {fileID: 2800000, guid: 6cb123095ca4b4e4680773312ba1c076, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -68,41 +78,75 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _Density: 1
+    - _DepthTransparency: 0
     - _DetailNormalMapScale: 1
+    - _DistanceFade: 0
+    - _Distortion: 0
     - _DstBlend: 0
+    - _EnableProbeRelfections: 1
+    - _EnableRealtimeReflections: 1
+    - _Fade: 0
+    - _FarTilingDistance: 0
+    - _FoamBlend: 0
+    - _FoamContrast: 0.402
+    - _FoamIntensity: 0.21
+    - _FoamSpeed: 0.1
+    - _FoamTiling: 1.35
+    - _FoamVisibility: 0.571
     - _FresnelBrightness: 0
     - _FresnelPower: 0
     - _FresnelShadowDropoff: 0
+    - _Gloss: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HighIntensity: 1.5
     - _LightScalar: 1
+    - _LightWrapping: 0.84
     - _LowIntensity: 1
+    - _MediumTilingDistance: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NormalStrength: 2
+    - _NormalTiling: 2
     - _OcclusionStrength: 1
     - _OutlineSize: 10
     - _Parallax: 0.02
+    - _ProbeReflectionIntensity: 0
     - _RampLevels: 2
+    - _RealtimeReflectionIntensity: 0
+    - _Refraction: 0.792
     - _RimAlpha: 0
     - _RimDropOff: 0
     - _RimPower: 0
     - _SmoothnessTextureChannel: 0
+    - _Specular: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TransparencyFade: 0
     - _UVSec: 0
+    - _WaveSpeed: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _DeepWaterColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 0.8773585, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
     - _LowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
