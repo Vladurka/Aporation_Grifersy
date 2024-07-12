@@ -123,6 +123,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &963812955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963812957}
+  - component: {fileID: 963812956}
+  m_Layer: 0
+  m_Name: Occlusion Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!192 &963812956
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963812955}
+  serializedVersion: 2
+  m_Size: {x: 225.04497, y: 7.5962334, z: -221.9966}
+  m_Center: {x: 63.18168, y: 2.0529099, z: 64.16297}
+  m_IsViewVolume: 1
+--- !u!4 &963812957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963812955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 18.99, z: 0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724233530
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,10 +320,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6648932064270265953, guid: e5e93970528d4454c81822133fdde083, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 60.67
+      objectReference: {fileID: 0}
     - target: {fileID: 7186267359467314062, guid: e5e93970528d4454c81822133fdde083, type: 3}
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 7487391213020132380, guid: e5e93970528d4454c81822133fdde083, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: ba68e2220e9f3e548ac58afbed358439, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1369017877287200007, guid: e5e93970528d4454c81822133fdde083, type: 3}
@@ -293,3 +344,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1724233532}
   - {fileID: 1940448247470670042}
+  - {fileID: 963812957}

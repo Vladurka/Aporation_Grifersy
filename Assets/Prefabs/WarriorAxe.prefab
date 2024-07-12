@@ -1264,7 +1264,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.81
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -1280,6 +1280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af754613ee3c44b83bf80665728f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission5: 0
+  _range: 20
   IsDetected: 0
   IsDead: 0
 --- !u!114 &1874551947635102147
