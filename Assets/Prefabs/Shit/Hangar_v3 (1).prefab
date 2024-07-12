@@ -83,7 +83,7 @@ LODGroup:
   m_GameObject: {fileID: 3347894021697739910}
   serializedVersion: 2
   m_LocalReferencePoint: {x: -2.6541235, y: 4.6799135, z: 4.5301933}
-  m_Size: 23.396927
+  m_Size: 23.4
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
