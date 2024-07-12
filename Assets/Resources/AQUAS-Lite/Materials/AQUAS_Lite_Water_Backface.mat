@@ -18,7 +18,7 @@ Material:
   - _ENABLEREALTIMEREFLECTIONS_ON
   - _ENABLEREFLECTIONS_ON
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -87,11 +87,11 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Density: 0.24
+    - _Density: 1
     - _DepthTransparency: 0.2
     - _DetailNormalMapScale: 1
     - _DistanceFade: 0.5
-    - _Distortion: 0.686
+    - _Distortion: 0
     - _DstBlend: 0
     - _EnableCustomFog: 0
     - _EnableProbeRelfections: 1
@@ -117,21 +117,21 @@ Material:
     - _GlossyReflections: 1
     - _HighIntensity: 1.5
     - _LightScalar: 1
-    - _LightWrapping: 2
+    - _LightWrapping: 0
     - _LowIntensity: 1
     - _MediumTilingDistance: 100
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 1
-    - _NormalTiling: 0.25
+    - _NormalStrength: 0
+    - _NormalTiling: 0.01
     - _OcclusionStrength: 1
     - _OutlineSize: 10
     - _Parallax: 0.02
-    - _ProbeReflectionIntensity: 0.578
+    - _ProbeReflectionIntensity: 1
     - _RampLevels: 2
     - _RealtimeReflectionIntensity: 1
     - _ReflectionIntensity: 0.385
-    - _Refraction: 0.4
+    - _Refraction: 1
     - _RefractionDistance: 10
     - _RefractionFalloff: 1
     - _RimAlpha: 0
