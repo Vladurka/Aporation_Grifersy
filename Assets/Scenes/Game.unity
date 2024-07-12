@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12076039, g: 0.18643652, b: 0.33524966, a: 1}
+  m_IndirectSpecularColor: {r: 0.12076032, g: 0.18643649, b: 0.3352496, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ded8a12a35b927f43bf2993f7f7c3b46, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -601,7 +601,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4800138798869726427, guid: a54025c25a16ea346ba1d9e31281355f, type: 3}
   m_PrefabInstance: {fileID: 1509651607}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
 --- !u!1 &1530759010
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,9 +645,6 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3255603357145653570
-=======
---- !u!1001 &6781009425563503940
->>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -656,7 +652,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< Updated upstream
     - target: {fileID: 659303454541658266, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -810,71 +805,26 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6049085178328822212, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
-=======
-    - target: {fileID: 5835618943296071685, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
->>>>>>> Stashed changes
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5835618943296071685, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
+    - target: {fileID: 6049085178328822212, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 545
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 7131412164954266845, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 7771518995359805649, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: _mission4Enemies
       value: 
       objectReference: {fileID: 27874505}
     - target: {fileID: 8337154218666897110, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_IsActive
-=======
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalRotation.x
->>>>>>> Stashed changes
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176012951509880593, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6982071386089434999, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
-      propertyPath: m_Name
-      value: Game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-<<<<<<< Updated upstream
     m_RemovedGameObjects:
     - {fileID: 891380351168600942, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
     - {fileID: 6158220649742583309, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
@@ -889,16 +839,13 @@ PrefabInstance:
     - {fileID: 7718590677951666313, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
     - {fileID: 4486654198625332449, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
     - {fileID: 5852993673452442820, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
-=======
-    m_RemovedGameObjects: []
->>>>>>> Stashed changes
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3b48c5fdeeb5abc4ba1d69f8ee74c5d1, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 6781009425563503940}
+  - {fileID: 3255603357145653570}
   - {fileID: 912581236}
   - {fileID: 1530759012}
