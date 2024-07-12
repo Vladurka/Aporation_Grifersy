@@ -1201,6 +1201,7 @@ GameObject:
   - component: {fileID: 1874551947635102147}
   - component: {fileID: 4586593318959656614}
   - component: {fileID: 2754512684711551804}
+  - component: {fileID: 6887740221663475809}
   m_Layer: 0
   m_Name: WarriorAxe
   m_TagString: Enemy
@@ -1334,6 +1335,28 @@ CapsuleCollider:
   m_Height: 1.827013
   m_Direction: 1
   m_Center: {x: 0.019628763, y: 0.91324115, z: 0}
+--- !u!205 &6887740221663475809
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370646573296566286}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0036629438, y: 0.9397242, z: -0.047268316}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.020034304
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3384263739376400533}
+    - renderer: {fileID: 9168376231839622508}
+    - renderer: {fileID: 1387053010586120868}
+    - renderer: {fileID: 685094798841637946}
+  m_Enabled: 1
 --- !u!1 &5617492366964623179
 GameObject:
   m_ObjectHideFlags: 0

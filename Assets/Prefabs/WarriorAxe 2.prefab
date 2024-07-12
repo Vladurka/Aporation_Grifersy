@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 6258896975868267189}
   - component: {fileID: 5989423510338461083}
   - component: {fileID: 3566716568720314858}
+  - component: {fileID: 4727128433137281557}
   m_Layer: 0
   m_Name: WarriorAxe 2
   m_TagString: Enemy
@@ -402,6 +403,28 @@ MonoBehaviour:
   _attackRange: 3
   _range: 1
   _damage: 20
+--- !u!205 &4727128433137281557
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085496656015836393}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0036629438, y: 0.93972445, z: -0.047265664}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.018662877
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7538257121005141611}
+    - renderer: {fileID: 125170371342598936}
+    - renderer: {fileID: 7811217471114404914}
+    - renderer: {fileID: 405103545318194224}
+  m_Enabled: 1
 --- !u!1 &1122901652764218893
 GameObject:
   m_ObjectHideFlags: 0

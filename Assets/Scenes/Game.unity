@@ -652,6 +652,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659303454541658266, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403286796497330593, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1864282284597610932, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_Name
       value: Game
@@ -768,6 +776,10 @@ PrefabInstance:
       propertyPath: _videoPanel
       value: 
       objectReference: {fileID: 305020104}
+    - target: {fileID: 5603727669386788703, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5768376077459063615, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_AspectRatio
       value: 5
@@ -776,9 +788,21 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5874141951455028306, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927347332777793959, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6026985368002957548, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_Name
       value: Enemies4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038783617968863240, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6049085178328822212, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -814,6 +838,7 @@ PrefabInstance:
     - {fileID: 8944286938083610332, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
     - {fileID: 7718590677951666313, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
     - {fileID: 4486654198625332449, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
+    - {fileID: 5852993673452442820, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc84ce896680dd8449b63c3c5ed951f8, type: 3}
