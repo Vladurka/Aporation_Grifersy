@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 695778849490271218}
   - component: {fileID: 3905564251472705409}
   - component: {fileID: 3915517229076585599}
+  - component: {fileID: 7030104097814595813}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -155,3 +156,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!205 &7030104097814595813
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102551263268455338}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.51124144, y: 4.6054993, z: -1.2859066}
+  m_Size: 9
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.19962934
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8777302094070564591}
+  m_Enabled: 1
