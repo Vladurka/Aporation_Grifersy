@@ -14,10 +14,9 @@ namespace Game.Enemy
         protected GameObject _mainCharacter;
         protected NavMeshAgent _agent;
 
-        [HideInInspector] public bool IsDetected = false;
+        /*[HideInInspector] */public bool IsDetected = false;
         [HideInInspector] public bool IsDead = false;
 
-        public abstract void Chill();
         public abstract void EnemyDetected();
     }
 }

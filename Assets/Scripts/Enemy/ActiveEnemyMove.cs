@@ -47,11 +47,14 @@ namespace Game.Enemy
             if (IsDead)
                 _agent.speed = 0f;
 
-            if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
-                IsDetected = true;
+            if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
+            {
+                if (!IsDetected)
+                    IsDetected = true;
+            }
         }
 
-        public override void Chill()
+        private void Chill()
         {
             _agent.speed = 1;
             _animator.SetBool("Run", false);

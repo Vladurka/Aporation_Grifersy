@@ -27,7 +27,7 @@ public class NotActiveEnemyMove : AbstractEnemy
             IsDetected = true;
     }
 
-    public override void Chill()
+    private void Chill()
     {
         _animator.SetBool("Run", false);
     }
