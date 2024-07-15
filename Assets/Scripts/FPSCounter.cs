@@ -18,7 +18,7 @@ public class FPSCounter : MonoBehaviour
         if (_deltaTime > _updateInterval)
         {
             _fps = _frameCount / _deltaTime;
-            _fpsText.text = _fps.ToString();
+            _fpsText.text = _frameCount.ToString();
 
             _frameCount = 0;
             _deltaTime -= _updateInterval;
