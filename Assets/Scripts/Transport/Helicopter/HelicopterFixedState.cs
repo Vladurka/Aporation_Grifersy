@@ -1,4 +1,3 @@
-using UnityEngine;
 public class HelicopterFixedState : IStates
 {
     public void Enter()
