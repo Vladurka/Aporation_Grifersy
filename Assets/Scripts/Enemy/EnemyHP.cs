@@ -36,20 +36,14 @@ namespace Game.Enemy
 
         public void GetDamage(float damage)
         {
+            _animator.SetTrigger("GetDamage");
+
             Health -= damage;
 
             if (Health <= 0 && IsDead != true)
             {
                 _eventBus.Invoke(new MoneyAdd(KillCost));
                 Die();
-            }
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.tag == "Bullet")
-            {
-                GetDamage(100f);
             }
         }
 

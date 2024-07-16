@@ -15,17 +15,18 @@ public class SoldierShoot : MonoBehaviour
     }
     public IEnumerator Shoot()
     {
+        yield return new WaitForSeconds(3f);
+
         RaycastHit hit;
         if (Physics.Raycast(_shootPosition.position, _shootPosition.forward, out hit))
         {
             _animator.SetTrigger("Shoot");
-            if (hit.collider.TryGetComponent(out IPlayerHealth player))
-            {
-                player.GetDamage(_damage);
-            }
-        }
+            Debug.Log("Shoot");
 
-        yield return new WaitForSeconds(3f);
+            if (hit.collider.TryGetComponent(out IPlayerHealth player))
+                player.GetDamage(_damage);
+
+        }
         StartCoroutine(Shoot());
     }
 }
