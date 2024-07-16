@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Game.SeniorEventBus.Signals;

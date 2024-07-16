@@ -88,6 +88,7 @@ namespace Game.Weapon
                 RaycastHit hit;
                 if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
                 {
+                    
                     if (hit.collider.TryGetComponent(out IEnemyHealth enemy))
                     {
                         enemy.GetDamage(_damage);
