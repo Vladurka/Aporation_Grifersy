@@ -37,9 +37,12 @@ public class SetMine : AbstractWeapon
             RaycastHit hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, _range))
             {
-                Quaternion rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                Instantiate(_minePrefab, hit.point, rotation);
-                TotalBullets--;
+                if (hit.collider.CompareTag("Tank"))
+                {
+                    Quaternion rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                    Instantiate(_minePrefab, hit.point, rotation);
+                    TotalBullets--;
+                }
             }
         }
 
