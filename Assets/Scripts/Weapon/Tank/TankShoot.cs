@@ -12,7 +12,9 @@ public class TankShoot : MonoBehaviour
     [SerializeField] private float _shootForce = 100;
     [SerializeField] private float _rotationSpeed = 2f;
     [SerializeField] private float _range = 250f;
+
     private float _spread = 1f;
+    private bool _isStared = false;
 
     private AudioSource _audioSource;
     private GameObject _mainCharacter;
@@ -25,6 +27,8 @@ public class TankShoot : MonoBehaviour
         _eventBus.Subscribe<DestroyTank>(DestroyTank, 1);
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(Shoot());
+
+        _isStared = true;
     }
 
     private void Update()
@@ -74,6 +78,7 @@ public class TankShoot : MonoBehaviour
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<DestroyTank>(DestroyTank);
+        if(_isStared)
+            _eventBus.Unsubscribe<DestroyTank>(DestroyTank);
     }
 }

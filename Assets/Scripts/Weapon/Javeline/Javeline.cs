@@ -22,7 +22,6 @@ public class Javeline : AbstractWeapon
     public override void Init()
     {
         //_eventBus = ServiceLocator.Current.Get<EventBus>();
-        //_eventBus.Subscribe<SetAimCamera>(GetCamera, 3);
 
         //_mainCamera = Camera.main;
 
@@ -33,6 +32,8 @@ public class Javeline : AbstractWeapon
 
     private void Start()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+
         _mainCamera = Camera.main;
 
         _audioSource = GetComponent<AudioSource>();
@@ -40,15 +41,20 @@ public class Javeline : AbstractWeapon
         _mainCamera.enabled = true;
 
         X3.SetActive(false);
+
+        _eventBus.Invoke(new SetTotalBullets(true));
+        _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
     }
 
     private void OnEnable()
     {
+        _mainCamera.enabled = true;
+
         if (TotalBullets > 0)
-        {
-            _mainCamera.enabled = true;
             Realod();
-        }
+
+        _eventBus.Invoke(new SetTotalBullets(true));
+        _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
     }
 
     private void Update()
@@ -118,6 +124,9 @@ public class Javeline : AbstractWeapon
                 GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
                 Missile missile = missileObject.GetComponent<Missile>();
                 missile.Target = _target;
+                TotalBullets--;
+                _canShoot = false;
+                _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             }
         }
 
@@ -139,6 +148,9 @@ public class Javeline : AbstractWeapon
                 GameObject currentBullet = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
                 currentBullet.transform.forward = dirWithoutSpread.normalized;
                 currentBullet.GetComponent<Rigidbody>().AddForce(dirWithoutSpread.normalized * 1f, ForceMode.Impulse);
+                TotalBullets--;
+                _canShoot = false;
+                _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             }
         }
 
@@ -148,5 +160,10 @@ public class Javeline : AbstractWeapon
     private void Realod()
     {
         _canShoot = true;
+    }
+
+    private void OnDisable()
+    {
+        _eventBus.Invoke(new SetTotalBullets(false));
     }
 }

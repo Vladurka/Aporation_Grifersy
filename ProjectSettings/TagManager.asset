@@ -13,7 +13,6 @@ TagManager:
   - Enemy
   - Bullet
   - Map
-  - Point1
   - Plane
   layers:
   - Default

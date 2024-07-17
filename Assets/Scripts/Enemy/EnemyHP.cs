@@ -6,6 +6,8 @@ namespace Game.Enemy
 {
     public class EnemyHP : MonoBehaviour, IEnemyHealth
     {
+        private bool _isAdded = false;
+
         public bool IsDead { get; set; } = false;
         public int KillCost { get; set; } = 100;
         public float Health { get; set; } = 10f;
@@ -21,6 +23,8 @@ namespace Game.Enemy
             _eventBus = ServiceLocator.Current.Get<EventBus>();
 
             _eventBus.Invoke(new AddObj(gameObject));
+
+            _isAdded = true;
         }
 
         public void Die()
@@ -49,7 +53,8 @@ namespace Game.Enemy
 
         private void OnDestroy()
         {
-            _eventBus.Invoke(new RemoveObj(gameObject));
+            if(_isAdded)
+                _eventBus.Invoke(new RemoveObj(gameObject));
         }
     }
 }
