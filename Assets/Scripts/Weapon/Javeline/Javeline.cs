@@ -2,15 +2,20 @@ using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Javeline : AbstractWeapon
 {
     [SerializeField] private Transform _spawnPosition;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Camera _scopeCamera;
+    [SerializeField] private Text _distanceText;
+    [SerializeField] private GameObject X3;
 
     private Transform _target;
     private bool _canShoot = true;
+    private bool _targetSet = false;
+    private int _distance;
 
     private AudioSource _audioSource;
     private EventBus _eventBus;
@@ -33,6 +38,8 @@ public class Javeline : AbstractWeapon
         _audioSource = GetComponent<AudioSource>();
 
         _mainCamera.enabled = true;
+
+        X3.SetActive(false);
     }
 
     private void OnEnable()
@@ -63,19 +70,40 @@ public class Javeline : AbstractWeapon
             {
                 if (hit.collider.CompareTag("Plane") && _canShoot)
                 {
-                    _target = hit.collider.transform;
+                    if (!_targetSet)
+                    {
+                        _target = hit.collider.transform;
+                        X3.SetActive(true);
+                        _targetSet = true;
+                    }
 
                     if (!_audioSource.isPlaying)
                         _audioSource.Play();
-
                 }
+
+                _distance = (int)hit.distance;
+
+                _distanceText.text = _distance.ToString() + "m";
+            }
+
+            else
+            {
+                if (_targetSet)
+                {
+                    _target = null;
+                    X3.SetActive(false);
+                    _targetSet = false;
+                }
+
+                if (_audioSource.isPlaying)
+                    _audioSource.Stop();
+
+                _distanceText.text = "-";
             }
         }
 
         else
         {
-            _target = null;
-
             if (_audioSource.isPlaying)
                 _audioSource.Stop();
         }
@@ -110,7 +138,7 @@ public class Javeline : AbstractWeapon
 
                 GameObject currentBullet = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
                 currentBullet.transform.forward = dirWithoutSpread.normalized;
-                currentBullet.GetComponent<Rigidbody>().AddForce(dirWithoutSpread.normalized * 1.5f, ForceMode.Impulse);
+                currentBullet.GetComponent<Rigidbody>().AddForce(dirWithoutSpread.normalized * 1f, ForceMode.Impulse);
             }
         }
 

@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour
     private AudioSource _audioSource;
 
 
-    public Transform Target;
+    [HideInInspector] public Transform Target;
 
 
     private void Start()
