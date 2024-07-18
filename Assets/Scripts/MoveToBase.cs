@@ -12,8 +12,10 @@ public class MoveToBase : MonoBehaviour
         Vector3 car = new Vector3(1337.42f, 11f, 671.2f);
         Vector3 helicopter = new Vector3(1308.45f, 10f, 666.13f);
 
-        _mainCharacter.transform.position = character;
-        _car.transform.position = car;
-        _helicopter.transform.position = helicopter;
+        _mainCharacter.transform.localPosition = character;
+        _car.transform.localPosition = car;
+
+        if(ConstSystem.CanEnterHelicopter)
+            _helicopter.transform.localPosition = helicopter;
     }
 }
