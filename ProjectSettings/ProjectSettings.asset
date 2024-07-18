@@ -855,11 +855,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 15e61dc6-8bab-47b4-9bcd-cfd60400e6a9
+  cloudProjectId: daeef401-22e5-496b-8318-bd841d1639d2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Aporation_Grifersy
-  organizationId: unity_6f673c15d165f10282b4
+  organizationId: vlad0s1k4
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

@@ -12,4 +12,9 @@ public class SceneManagement : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ClearPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
