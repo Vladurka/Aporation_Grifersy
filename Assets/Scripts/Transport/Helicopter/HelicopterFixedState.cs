@@ -2,11 +2,7 @@ public class HelicopterFixedState : IStates
 {
     public void Enter()
     {
-        if (MissionsController.MissionCondition >= 4)
-        {
-            ConstSystem.CanEnterHelicopter = true;
-            ConstSystem.CanFixHelicopter = false;
-        }
+        ConstSystem.CanEnterHelicopter = true;
     }
 
     public void Exit()

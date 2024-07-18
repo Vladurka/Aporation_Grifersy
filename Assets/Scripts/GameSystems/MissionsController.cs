@@ -8,14 +8,14 @@ public class MissionsController : MonoBehaviour
 
     [SerializeField] private GameObject _car;
 
-    [SerializeField] private GameObject _mission3Enemies;
-    [SerializeField] private GameObject _mission4Enemies;
+    [SerializeField] private GameObject _mission3Things;
+    [SerializeField] private GameObject _mission4Things;
 
     public void Init()
     {
         _car.SetActive(false);
-        _mission3Enemies.SetActive(false);
-        _mission4Enemies.SetActive(false);
+        _mission3Things.SetActive(false);
+        _mission4Things.SetActive(false);
 
         foreach (GameObject button in _missionsButtons)
         {
@@ -53,21 +53,23 @@ public class MissionsController : MonoBehaviour
 
         if (MissionCondition >= 3)
             _car.SetActive(true);
-
     }
 
     public void CurrentMission(int currentIndex)
     {
         if(currentIndex == 3)
-            _mission3Enemies.SetActive(true);
+            _mission3Things.SetActive(true);
 
-        if(currentIndex == 4)
-            _mission4Enemies.SetActive(true);
+        if (currentIndex == 4)
+            _mission4Things.SetActive(true);
 
-        if(currentIndex != 3)
-            _mission3Enemies.SetActive(false);
+        if (currentIndex >= 4)
+            ConstSystem.CanFixHelicopter = true;
+
+        if (currentIndex != 3)
+            _mission3Things.SetActive(false);
 
         if (currentIndex != 4)
-            _mission4Enemies.SetActive(false);
+            _mission4Things.SetActive(false);
     }
 }

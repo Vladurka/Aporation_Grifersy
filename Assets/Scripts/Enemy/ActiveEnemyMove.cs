@@ -16,12 +16,14 @@ namespace Game.Enemy
 
         private void Start()
         {
+            if (_mainCharacter == null)
+                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
             _points = GameObject.FindGameObjectsWithTag("Point");
             _agent = GetComponent<NavMeshAgent>();
-            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
             _animator = GetComponent<Animator>();
             _index = Random.Range(0, _points.Length);
-            _eventBus = ServiceLocator.Current.Get<EventBus>();
+            _eventBus = ServiceLocator.Current.Get<EventBus>(); 
         }
 
         private void FixedUpdate()

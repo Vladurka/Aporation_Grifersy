@@ -8,6 +8,7 @@ public class TankShoot : MonoBehaviour
     [SerializeField] private ParticleSystem _effect;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnBullet;
+    [SerializeField] private GameObject _mainCharacter;
 
     [SerializeField] private float _shootForce = 100;
     [SerializeField] private float _rotationSpeed = 2f;
@@ -17,15 +18,16 @@ public class TankShoot : MonoBehaviour
     private bool _isStared = false;
 
     private AudioSource _audioSource;
-    private GameObject _mainCharacter;
 
     private EventBus _eventBus;
     private void Start()
     {
+        if (_mainCharacter == null)
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
         _audioSource = GetComponent<AudioSource>();
         _eventBus  = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<DestroyTank>(DestroyTank, 1);
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(Shoot());
 
         _isStared = true;

@@ -108,6 +108,6 @@ public class Car : AbstractTransport, IService
 
     public override void TransportReset()
     {
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
     }
 }
