@@ -13,7 +13,6 @@ namespace Game.Data
         private ScopeLevels _scopeLevels;
         private CoinSystem _coinSystem;
         private GrenadeThrower _grenadeThrower;
-        private VolumeController _volume;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -22,7 +21,6 @@ namespace Game.Data
             _scopeLevels = ServiceLocator.Current.Get<ScopeLevels>();
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
-            _volume = ServiceLocator.Current.Get<VolumeController>();
         }
 
         //private void Update()
@@ -33,7 +31,7 @@ namespace Game.Data
 
         public void SaveInfo()
         {
-            SaveSystem.SaveMissionPlayerData(_playerHealth, _volume, _grenadeThrower, _scopeLevels, _weaponAk, _rpg, _coinSystem);
+            SaveSystem.SaveMissionPlayerData(_playerHealth, _grenadeThrower, _scopeLevels, _weaponAk, _rpg, _coinSystem);
         }
     }
 }

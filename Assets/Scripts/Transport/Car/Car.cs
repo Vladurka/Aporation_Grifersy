@@ -82,17 +82,21 @@ public class Car : AbstractTransport, IService
 
     public override void Exit()
     {
-        _colliderFL.brakeTorque = 2000f;
-        _colliderFR.brakeTorque = 2000f;
-        _colliderBL.brakeTorque = 2000f;
-        _colliderBR.brakeTorque = 2000f;
+        if (ConstSystem.CanExit)
+        {
+            _colliderFL.brakeTorque = 2000f;
+            _colliderFR.brakeTorque = 2000f;
+            _colliderBL.brakeTorque = 2000f;
+            _colliderBR.brakeTorque = 2000f;
 
-        _camera.enabled = false;
-        _mainCharacter.transform.position = _spawnCharacter.position;
-        _mainCharacter.SetActive(true);
-        _eventBus.Invoke(new SetSpeedometer(false));
-        this.enabled = false;
-        ConstSystem.InTransport = false;
+            _camera.enabled = false;
+            _mainCharacter.transform.position = _spawnCharacter.position;
+            _mainCharacter.SetActive(true);
+            _eventBus.Invoke(new SetSpeedometer(false));
+            this.enabled = false;
+            ConstSystem.InTransport = false;
+            ConstSystem.InCar = false;
+        }
     }
 
     public override void Enter()
@@ -104,6 +108,7 @@ public class Car : AbstractTransport, IService
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
+        ConstSystem.InCar = true;
     }
 
     public override void TransportReset()

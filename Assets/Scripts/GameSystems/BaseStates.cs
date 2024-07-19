@@ -6,7 +6,7 @@ public class BaseStates : MonoBehaviour, IService
 {
     [SerializeField] private GameObject[] _states;
 
-    [HideInInspector] public int BaseLevel = -1;
+    public int BaseLevel = -1;
 
     private EventBus _eventBus;
 

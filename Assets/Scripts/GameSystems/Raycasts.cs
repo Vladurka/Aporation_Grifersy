@@ -12,8 +12,11 @@ public class Raycasts : MonoBehaviour, IService
     public void Init()
     {
         _cam = Camera.main;
-        _fixText.SetActive(false);
-        _missionText.SetActive(false);
+        if (_fixText != null && _missionText != null)
+        {
+            _fixText.SetActive(false);
+            _missionText.SetActive(false);
+        }
     }
 
     private void Update()

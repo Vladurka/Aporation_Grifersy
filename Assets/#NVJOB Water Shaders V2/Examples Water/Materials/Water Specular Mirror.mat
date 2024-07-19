@@ -19,9 +19,10 @@ Material:
   - EFFECT_NORMALMAP2
   - EFFECT_PARALLAX
   - EFFECT_REFLECTION
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _NORMALMAP
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -164,6 +165,7 @@ Material:
     - _Albedo2Tiling: 0.9
     - _AlbedoContrast: 1.1
     - _AlbedoIntensity: 1.25
+    - _Ambient: 0.2
     - _Brightness: 1
     - _BumpReflectionStr: 0.5
     - _BumpScale: 1
@@ -240,6 +242,7 @@ Material:
     - _ParallaxNoiseScale: 1.5
     - _ParallaxNormal2Offset: -1
     - _ParallaxScale: 0.35
+    - _PowerLambert: 1
     - _R0: 0.1
     - _Radius: 1
     - _ReflToRefrExponent: 1
@@ -263,10 +266,12 @@ Material:
     - _SrcBlend: 1
     - _Transparency: 1
     - _UVSec: 0
+    - _WaveAmount: 1
     - _WaveAmp: 0.1
     - _WaveIntensity: -0.47
     - _WaveScrollSpeed: 0.1
     - _WaveSpeed: 20
+    - _WaveStrength: 0
     - _ZWrite: 1
     m_Colors:
     - _AlbedoColor: {r: 0.1254902, g: 0.15461197, b: 0.1882353, a: 1}

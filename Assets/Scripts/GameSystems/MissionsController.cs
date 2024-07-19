@@ -24,6 +24,9 @@ public class MissionsController : MonoBehaviour
 
         MissionCondition = PlayerPrefs.GetInt(ConstSystem.MISSION_KEY);
 
+        if (MissionCondition == 0)
+            _missionsButtons[0].SetActive(true);
+
         if (MissionCondition == 1)
         {
             _missionsButtons[0].SetActive(false);

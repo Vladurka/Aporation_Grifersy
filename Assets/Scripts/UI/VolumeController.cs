@@ -3,8 +3,19 @@ using UnityEngine.UI;
 
 public class VolumeController : MonoBehaviour, IService
 {
+    [SerializeField] private string _volumeKey = "GameVolume";
     [SerializeField] private AudioSource[] _audioSource;
-    public Slider _volumeSlider;
+
+    [SerializeField] private Slider _volumeSlider;
+
+    private void Start()
+    {
+        if(PlayerPrefs.HasKey(_volumeKey))
+            _volumeSlider.value = PlayerPrefs.GetFloat(_volumeKey);
+
+        else
+            _volumeSlider.value = 0.3f;
+    }
 
     private void Update()
     {
@@ -18,6 +29,11 @@ public class VolumeController : MonoBehaviour, IService
             if (audioSource != null)
                 audioSource.volume = _volumeSlider.value;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetFloat(_volumeKey, _volumeSlider.value);
     }
 
 }

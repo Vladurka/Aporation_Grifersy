@@ -112,12 +112,15 @@ public class Helicopter : AbstractTransport, IService
 
     public override void Exit()
     {
-        _camera.enabled = false;
-        _mainCharacter.transform.position = _spawnCharacter.position;
-        _mainCharacter.SetActive(true);
-        Invoke("UseGravity", 2f);
-        this.enabled = false;
-        ConstSystem.InTransport = false;
+        if (ConstSystem.CanExit)
+        {
+            _camera.enabled = false;
+            _mainCharacter.transform.position = _spawnCharacter.position;
+            _mainCharacter.SetActive(true);
+            Invoke("UseGravity", 2f);
+            this.enabled = false;
+            ConstSystem.InTransport = false;
+        }
     }
 
     public override void TransportReset()

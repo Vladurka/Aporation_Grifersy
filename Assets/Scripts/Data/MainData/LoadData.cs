@@ -81,8 +81,6 @@ namespace Game.Data
 
             if(_baseStates != null)
                 _baseStates.BaseLevel = data.BaseLevelData;
-
-            _volume._volumeSlider.value = data.VolumeData;
         }
     }
 }

@@ -35,7 +35,6 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private KnifeAnim _knifeAnim;
 
     [Header("Data")]
-    [SerializeField] private SaveMissionData _saveMissionData;
     [SerializeField] private LoadMissionData _loadMissionData;
 
     private EventBus _eventBus;
@@ -58,7 +57,6 @@ public class EnterMission : MonoBehaviour
 
         _loadMissionData.Init();
         _loadMissionData.LoadInfo();
-        _saveMissionData.Init();
 
         _gamePanel.Init();
         _playerHealth.Init();

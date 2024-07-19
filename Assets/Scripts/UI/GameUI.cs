@@ -79,6 +79,7 @@ public class GameUI : MonoBehaviour
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);
         _pausePanel.SetActive(true);
+        ConstSystem.CanExit = false;
 
         if (_shopPanel != null && _speedometerPanel != null)
         {
@@ -98,6 +99,8 @@ public class GameUI : MonoBehaviour
         _pauseGame = false;
         _uiCamera.SetActive(false);
 
+        ConstSystem.CanExit = true;
+
         if(_shopPanel != null && _levelsPanel != null)
         {
             _shopPanel.SetActive(false);
@@ -106,6 +109,10 @@ public class GameUI : MonoBehaviour
 
         if (!ConstSystem.InTransport)
             _mainCharacter.SetActive(true);
+
+        if (ConstSystem.InCar && _speedometerPanel != null)
+            _speedometerPanel.SetActive(true);
+
     }
 
     public void BackToMainMenu()
