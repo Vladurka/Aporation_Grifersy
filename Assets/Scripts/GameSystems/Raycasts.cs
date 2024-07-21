@@ -92,4 +92,13 @@ public class Raycasts : MonoBehaviour, IService
         yield return new WaitForSeconds(5f);
         text.SetActive(false);
     }
+
+    private void OnDisable()
+    {
+        if (_fixText != null && _missionText != null)
+        {
+            _fixText.SetActive(false);
+            _missionText.SetActive(false);
+        }
+    }
 }

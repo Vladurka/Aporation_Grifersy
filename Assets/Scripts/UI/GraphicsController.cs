@@ -4,13 +4,11 @@ using UnityEngine.UI;
 public class GraphicsController : MonoBehaviour
 {
     [Header("Quality")]
-
     [SerializeField] private Dropdown _qualityDropdown;
     private string _qualityKey = "Quality";
     private string _qualityDropdownKey = "QualityDropdown";
 
     [Header("Resolution")]
-
     [SerializeField] private Dropdown _resolutionDropdown;
     private Resolution[] _resolutions;
     private string _resolutionKey = "Resolution";
@@ -19,8 +17,6 @@ public class GraphicsController : MonoBehaviour
     [SerializeField] private Dropdown _fpsDropdown;
     private string _fpsKey = "FPS";
     private string _fpsDropdownKey = "FPSdropdown";
-
-
 
     private void Start()
     {
@@ -70,7 +66,6 @@ public class GraphicsController : MonoBehaviour
             currentResolutionIndex = PlayerPrefs.GetInt(_resolutionKey);
 
         ChangeResolution(currentResolutionIndex);
-        Debug.Log(Screen.resolutions[currentResolutionIndex]);
 
         if (_resolutionDropdown != null)
         {
@@ -86,7 +81,7 @@ public class GraphicsController : MonoBehaviour
             SetFPS(PlayerPrefs.GetInt(_fpsKey));
 
         if (!PlayerPrefs.HasKey(_fpsKey))
-            SetFPS(144);
+            SetFPS(Screen.currentResolution.refreshRate);
 
         if (_fpsDropdown != null)
         {
@@ -98,8 +93,11 @@ public class GraphicsController : MonoBehaviour
         }
 
         #endregion
+
+        FullScreen();
     }
 
+    #region  Toogle
     public void FullScreen()
     {
         Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
@@ -111,6 +109,17 @@ public class GraphicsController : MonoBehaviour
         Screen.fullScreenMode = FullScreenMode.Windowed;
         Screen.fullScreen = false;
     }
+
+    public void ScreenModeChanged(Toggle change)
+    {
+        if (change.isOn)
+            FullScreen();
+
+        else
+            WindowMode();
+    }
+
+    #endregion
 
     #region Quality
     public void DropDownQuality(int value)
@@ -155,7 +164,7 @@ public class GraphicsController : MonoBehaviour
     public void DropDownFPS(int value)
     {
         if (value == 0)
-            SetFPS(500);
+            SetFPS(-1);
 
         if (value == 1)
             SetFPS(360);
@@ -177,13 +186,15 @@ public class GraphicsController : MonoBehaviour
 
         if (value == 7)
             SetFPS(30);
+
+        if (value == 8)
+            SetFPS(Screen.currentResolution.refreshRate);
     }
 
     public void SetFPS(int amount)
     {
         Application.targetFrameRate = amount;
         PlayerPrefs.SetInt(_fpsKey, amount);
-        Debug.Log(amount);
     }
 
     public void DropdownFPSChanged(Dropdown change)
