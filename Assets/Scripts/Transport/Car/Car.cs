@@ -1,10 +1,15 @@
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Car : AbstractTransport, IService
 {
+    [Header("Sound")]
+    [SerializeField] private AudioSource _audioSourceDrive;
+    [SerializeField] private AudioSource _audioSourceIdle;
+    [SerializeField] private AudioSource _audioSourceStart;
+    private AudioListener _audioListener;
+
     [Header("Drive")]
     [SerializeField] private Transform _transformFL;
     [SerializeField] private Transform _transformFR;
@@ -19,30 +24,60 @@ public class Car : AbstractTransport, IService
     [SerializeField] private float _maxAngle;
 
     private EventBus _eventBus;
+    private Rigidbody _rb;
 
     public override void Init()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _camera.enabled = false;
         this.enabled = false;
+        _rb = GetComponent<Rigidbody>();
+        _audioListener = GetComponentInChildren<AudioListener>();
+        _audioListener.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        _audioSourceStart.Play();
     }
 
     private void FixedUpdate()
     {
         Move();
+
+        if (_rb.velocity.magnitude >= 0.1f)
+        {
+            if (!_audioSourceDrive.isPlaying)
+            {
+                _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
+                _audioSourceDrive.Play();
+                _audioSourceIdle.Stop();
+            }
+        }
+
+        if (_rb.velocity.magnitude < 0.1f)
+        {
+            if (!_audioSourceIdle.isPlaying)
+            {
+                _audioSourceIdle.Play();
+                _audioSourceDrive.Stop();
+            }
+        }
     }
+        
 
     protected override void Move()
     {
         _colliderFL.motorTorque = Input.GetAxis("Vertical") * _forwardSpeed;
         _colliderFR.motorTorque = Input.GetAxis("Vertical") * _forwardSpeed;
 
+
         if (Input.GetKey(KeyCode.Space))
         {
-            _colliderFL.brakeTorque = 3000f;
-            _colliderFR.brakeTorque = 3000f;
-            _colliderBL.brakeTorque = 3000f;
-            _colliderBR.brakeTorque = 3000f;
+            _colliderFL.brakeTorque = 5000f;
+            _colliderFR.brakeTorque = 5000f;
+            _colliderBL.brakeTorque = 5000f;
+            _colliderBR.brakeTorque = 5000f;
         }
         else
         {
@@ -96,6 +131,7 @@ public class Car : AbstractTransport, IService
             this.enabled = false;
             ConstSystem.InTransport = false;
             ConstSystem.InCar = false;
+            _audioListener.enabled = false;
         }
     }
 
@@ -109,6 +145,7 @@ public class Car : AbstractTransport, IService
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
         ConstSystem.InCar = true;
+        _audioListener.enabled = true;
     }
 
     public override void TransportReset()

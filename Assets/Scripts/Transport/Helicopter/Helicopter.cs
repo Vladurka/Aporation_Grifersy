@@ -19,6 +19,7 @@ public class Helicopter : AbstractTransport, IService
     private EventBus _eventBus;
 
     private Rigidbody _rb;
+    private AudioListener _audioListener;
 
     private Animator _animator;
 
@@ -30,6 +31,8 @@ public class Helicopter : AbstractTransport, IService
 
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
+        _audioListener = GetComponentInChildren<AudioListener>();
+        _audioListener.enabled = false;
 
         this.enabled = false;
     }
@@ -108,6 +111,7 @@ public class Helicopter : AbstractTransport, IService
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
+        _audioListener.enabled = true;
     }
 
     public override void Exit()
@@ -120,6 +124,7 @@ public class Helicopter : AbstractTransport, IService
             Invoke("UseGravity", 2f);
             this.enabled = false;
             ConstSystem.InTransport = false;
+            _audioListener.enabled = false;
         }
     }
 
