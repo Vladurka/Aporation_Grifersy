@@ -19,16 +19,6 @@ public class Javeline : AbstractWeapon
 
     private AudioSource _audioSource;
     private EventBus _eventBus;
-    public override void Init()
-    {
-        //_eventBus = ServiceLocator.Current.Get<EventBus>();
-
-        //_mainCamera = Camera.main;
-
-        //_audioSource = GetComponent<AudioSource>();
-
-        //_mainCamera.enabled = true;
-    }
 
     private void Start()
     {
@@ -46,6 +36,10 @@ public class Javeline : AbstractWeapon
         _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
     }
 
+    public override void Init()
+    {
+
+    }
     private void OnEnable()
     {
         _mainCamera.enabled = true;

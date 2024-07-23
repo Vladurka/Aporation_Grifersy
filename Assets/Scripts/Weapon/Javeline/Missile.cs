@@ -10,6 +10,7 @@ public class Missile : MonoBehaviour
     [SerializeField] private ParticleSystem _flyEffect;
 
     [SerializeField] private AudioClip _bulletSound;
+    [SerializeField] private string _tag = "Player";
 
     private GameObject _mainCharacter;
 
@@ -21,7 +22,7 @@ public class Missile : MonoBehaviour
 
     private void Start()
     {
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
         _audioSource = _mainCharacter.GetComponent<AudioSource>();
         _audioSource.PlayOneShot(_bulletSound);
         StartCoroutine(Effect());

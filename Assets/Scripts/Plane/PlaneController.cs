@@ -6,8 +6,6 @@ public class PlaneController : MonoBehaviour
     [SerializeField] private float _minSpeed = 70f;
     [SerializeField] private float _startSpeed = 50f;
 
-    [SerializeField] private Transform _centerOfMass;
-
     [SerializeField] private float _force = 0.08f;
 
     [SerializeField] private float _pitchAngle = 70f;
@@ -107,7 +105,7 @@ public class PlaneController : MonoBehaviour
             _pitchSpeed = 0.175f;
         }
 
-        if (_flySpeed >= 60f && !_isClosed)
+        if (_flySpeed >= 70f && !_isClosed)
         {
             _animator.SetTrigger("CloseWheels");
             _isClosed = true;
