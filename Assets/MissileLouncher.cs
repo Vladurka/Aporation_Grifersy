@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MissileLouncher : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _spawnPosition;
+    [SerializeField] private Transform _spawnPosition;
     [SerializeField] private List<GameObject> _missile;
 
     [SerializeField] private GameObject _bullet;
@@ -46,7 +46,7 @@ public class MissileLouncher : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && _scopeCamera.enabled == true)
         {
-            StartCoroutine(Shoot());
+            Shoot();
         }
 
         if (_scopeCamera.enabled == true)
@@ -54,7 +54,7 @@ public class MissileLouncher : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(_scopeCamera.transform.position, _scopeCamera.transform.forward, out hit))
             {
-                if (hit.collider.CompareTag("Plane"))
+                if (hit.collider.CompareTag("Plane") || hit.collider.CompareTag("AirDefence"))
                 {
                     if (!_targetSet)
                     {
@@ -95,23 +95,22 @@ public class MissileLouncher : MonoBehaviour
         }
     }
 
-    private IEnumerator Shoot()
+    private void Shoot()
     {
+        int index = 0;
+
         if (_missilesAmount > 0 && _target != null)
         {
-            int index = Random.Range(0, _missile.Count + 1);
-
-            GameObject missileObject = Instantiate(_bullet, _spawnPosition[index].position, _spawnPosition[index].rotation);
+            GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
             Missile missile = missileObject.GetComponent<Missile>();
             missile.Target = _target;
 
             _missile[index].SetActive(false);
             _missile.Remove(_missile[index]);
-            _spawnPosition.Remove(_spawnPosition[index]);
             
             _missilesAmount--;
+
+            index++;
         }
-       
-        yield return null;
     }
 }

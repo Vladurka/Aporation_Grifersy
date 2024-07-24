@@ -51,10 +51,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 500
   _rotationSpeed: 200
+  _lifeTime: 10
   _explosionEffect: {fileID: 198000012777718758, guid: 0e6591c39ca4e7846bd9c13ace5b2bc2, type: 3}
   _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
   _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}
-  _tag: F-14
+  _tag1: AirDefence
+  _tag2: F-14
+  _destroySound: {fileID: 8300000, guid: c2153dcd0edd22f40bdebf613271bae7, type: 3}
   Target: {fileID: 0}
 --- !u!1 &5661948587466636004
 GameObject:

@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using UnityEngine;
 public class AirDefence : MonoBehaviour
 {
     [SerializeField] private float _range = 2000f;
     [SerializeField] private float _time = 15f;
+    [SerializeField] private float _rotationSpeed = 5f;
 
     [SerializeField] private GameObject _missile;
     [SerializeField] private Transform _target;
@@ -14,6 +14,17 @@ public class AirDefence : MonoBehaviour
     {
         StartCoroutine(Shoot());
     }
+
+    //private void Update()
+    //{
+    //    if (_target != null)
+    //    {
+    //        Vector3 direction = _target.transform.position - transform.position;
+    //        direction.y = 0; 
+    //        Quaternion rotation = Quaternion.LookRotation(direction);
+    //        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
+    //    }
+    //}
 
     private IEnumerator Shoot()
     {
