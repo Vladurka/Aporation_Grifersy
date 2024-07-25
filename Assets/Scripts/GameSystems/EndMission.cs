@@ -12,6 +12,8 @@ public class EndMission : MonoBehaviour
     [SerializeField] private float _time = 1f;
     [SerializeField] private int _signals = 0;
 
+    private bool _isStarted = false;
+
     private EventBus _eventBus;
 
     private void Start()
@@ -19,6 +21,8 @@ public class EndMission : MonoBehaviour
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
         _eventBus.Subscribe<EndSignal>(AddSignal, 1);
+
+        _isStarted = true;
     }
 
     private void AddSignal(EndSignal signal)
@@ -40,7 +44,8 @@ public class EndMission : MonoBehaviour
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<EndSignal>(AddSignal);
+        if (_isStarted)
+            _eventBus.Unsubscribe<EndSignal>(AddSignal);
     }
 }
 

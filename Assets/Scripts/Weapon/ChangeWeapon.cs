@@ -43,11 +43,22 @@ public class ChangeWeapon : MonoBehaviour
             _items[3].SetActive(true);
         }
 
+        //if (Input.GetKeyDown(KeyCode.Alpha5) && !_items[5].activeSelf)
+        //{
+        //    if (_items[5] != null)
+        //    {
+        //        Deactivate();
+        //        _items[5].SetActive(true);
+        //    }
+        //}
+
         if (Input.GetKeyDown(KeyCode.V) && !_items[4].activeSelf)
         {
             Deactivate();
             _items[4].SetActive(true);
         }
+
+
     }
 
     private void Deactivate()

@@ -8,23 +8,29 @@ public class TankShoot : MonoBehaviour
     [SerializeField] private ParticleSystem _effect;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnBullet;
+    [SerializeField] private GameObject _mainCharacter;
 
     [SerializeField] private float _shootForce = 100;
     [SerializeField] private float _rotationSpeed = 2f;
     [SerializeField] private float _range = 250f;
+
     private float _spread = 1f;
+    private bool _isStared = false;
 
     private AudioSource _audioSource;
-    private GameObject _mainCharacter;
 
     private EventBus _eventBus;
     private void Start()
     {
+        if (_mainCharacter == null)
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
         _audioSource = GetComponent<AudioSource>();
         _eventBus  = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<DestroyTank>(DestroyTank, 1);
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(Shoot());
+
+        _isStared = true;
     }
 
     private void Update()
@@ -36,7 +42,7 @@ public class TankShoot : MonoBehaviour
             rotation.x = 0;
             rotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
-        };
+        }
     }
 
     private IEnumerator Shoot()
@@ -74,6 +80,7 @@ public class TankShoot : MonoBehaviour
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<DestroyTank>(DestroyTank);
+        if(_isStared)
+            _eventBus.Unsubscribe<DestroyTank>(DestroyTank);
     }
 }

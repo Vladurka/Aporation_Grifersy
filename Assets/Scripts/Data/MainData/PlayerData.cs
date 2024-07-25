@@ -15,13 +15,12 @@ namespace Game.Data
         public int RPGTotalBulletsData;
         public int GrenadesData;
         public int MoneyData;
-        public float VolumeData;
         public float HpData;
         public int ScopeLevelData;
         public int MissionsData;
         public int BaseLevelData;
 
-        public PlayerData(PlayerHealth playerHP, Movement playerMove, VolumeController volume, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
+        public PlayerData(PlayerHealth playerHP, Movement playerMove, GrenadeThrower grenade, ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
         {
             HelicopterConditionData = helicopterStatesController.HelicopterState;
 
@@ -54,11 +53,9 @@ namespace Game.Data
             MoneyData = coins.Money;
 
             BaseLevelData = baseStates.BaseLevel;
-
-            VolumeData = volume._volumeSlider.value;
         }
 
-        public PlayerData(PlayerHealth playerHP, VolumeController volume, GrenadeThrower grenade, ScopeLevels scopeLevels, WeaponAk ak, RPG rpg, CoinSystem coins)
+        public PlayerData(PlayerHealth playerHP, GrenadeThrower grenade, ScopeLevels scopeLevels, WeaponAk ak, RPG rpg, CoinSystem coins)
         {
 
             HpData = playerHP.Health;
@@ -73,8 +70,6 @@ namespace Game.Data
             ScopeLevelData = scopeLevels.ScopeLevel;
 
             MoneyData = coins.Money;
-
-            VolumeData = volume._volumeSlider.value;
         }
     }
 }

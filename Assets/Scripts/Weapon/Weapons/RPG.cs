@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Game.SeniorEventBus.Signals;
@@ -38,9 +37,10 @@ namespace Game.Weapon
 
         private void OnEnable()
         {
+            _mainCamera.enabled = true;
+
             if (TotalBullets > 0)
             {
-                _mainCamera.enabled = true;
                 Realod();
             }
 

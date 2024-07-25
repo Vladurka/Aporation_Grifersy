@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour, IService, IShop
 {
-    [Header("Bullets-")]
+    [Header("Bullets")]
     [SerializeField] private int _akBulletsAmount = 30;
     [SerializeField] private int _rpgBulletsAmount = 5;
     [SerializeField] private int _grenadesAmount = 1;
@@ -51,7 +51,7 @@ public class Shop : MonoBehaviour, IService, IShop
             _eventBus.Invoke(new BuyBase());
             _coinSystem.SpendMoney(_basePrice);
             _baseUpgradeAmount++;
-            _basePrice += 500;
+            //_basePrice += 500;
         }
     }
 

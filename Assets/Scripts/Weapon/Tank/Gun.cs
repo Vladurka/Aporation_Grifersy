@@ -5,15 +5,21 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 5f;
-    private GameObject _mainCharacter;
+    [SerializeField] private GameObject _mainCharacter;
+
+    private bool _isStarted = false;
 
     private EventBus _eventBus;
 
     private void Start()
     {
+        if (_mainCharacter == null)
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<DestroyTank>(SetFalse, 2);
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
+        _isStarted = true;
     }
 
     void Update()
@@ -34,6 +40,7 @@ public class Gun : MonoBehaviour
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<DestroyTank>(SetFalse);
+        if(_isStarted)
+            _eventBus.Unsubscribe<DestroyTank>(SetFalse);
     }
 }

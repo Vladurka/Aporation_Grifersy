@@ -19,6 +19,8 @@ public class Helicopter : AbstractTransport, IService
     private EventBus _eventBus;
 
     private Rigidbody _rb;
+    private AudioListener _audioListener;
+    private AudioSource _audioSource;
 
     private Animator _animator;
 
@@ -30,6 +32,9 @@ public class Helicopter : AbstractTransport, IService
 
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
+        _audioListener = GetComponentInChildren<AudioListener>();
+        _audioListener.enabled = false;
+        _audioSource = GetComponent<AudioSource>();
 
         this.enabled = false;
     }
@@ -108,21 +113,28 @@ public class Helicopter : AbstractTransport, IService
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
+        _audioListener.enabled = true;
+        _audioSource.Play();
     }
 
     public override void Exit()
     {
-        _camera.enabled = false;
-        _mainCharacter.transform.position = _spawnCharacter.position;
-        _mainCharacter.SetActive(true);
-        Invoke("UseGravity", 2f);
-        this.enabled = false;
-        ConstSystem.InTransport = false;
+        if (ConstSystem.CanExit)
+        {
+            _camera.enabled = false;
+            _mainCharacter.transform.position = _spawnCharacter.position;
+            _mainCharacter.SetActive(true);
+            Invoke("UseGravity", 2f);
+            this.enabled = false;
+            ConstSystem.InTransport = false;
+            _audioListener.enabled = false;
+            _audioSource.Stop();
+        }
     }
 
     public override void TransportReset()
     {
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
     }
 
     private void UseGravity()

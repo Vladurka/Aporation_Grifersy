@@ -16,12 +16,14 @@ namespace Game.Enemy
 
         private void Start()
         {
+            if (_mainCharacter == null)
+                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
             _points = GameObject.FindGameObjectsWithTag("Point");
             _agent = GetComponent<NavMeshAgent>();
-            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
             _animator = GetComponent<Animator>();
             _index = Random.Range(0, _points.Length);
-            _eventBus = ServiceLocator.Current.Get<EventBus>();
+            _eventBus = ServiceLocator.Current.Get<EventBus>(); 
         }
 
         private void FixedUpdate()
@@ -48,10 +50,13 @@ namespace Game.Enemy
                 _agent.speed = 0f;
 
             if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
-                IsDetected = true;
+            {
+                if (!IsDetected)
+                    IsDetected = true;
+            }
         }
 
-        public override void Chill()
+        private void Chill()
         {
             _agent.speed = 1;
             _animator.SetBool("Run", false);

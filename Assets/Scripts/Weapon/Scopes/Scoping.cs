@@ -9,10 +9,12 @@ public class Scoping : MonoBehaviour
     [HideInInspector] public Camera AimCamera;
 
     private EventBus _eventBus;
+    private Movement _movement;
 
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _movement = ServiceLocator.Current.Get<Movement>();
 
         _mainCamera = Camera.main;
 
@@ -27,6 +29,8 @@ public class Scoping : MonoBehaviour
             AimCamera.enabled = true;
             _eventBus.Invoke(new SetAimCamera(AimCamera));
             _eventBus.Invoke(new ChangeSens(70));
+            _movement.Speed = _movement.ScopeSpeed;
+            _movement.InScope = true;
         }
         else
         {
@@ -34,6 +38,8 @@ public class Scoping : MonoBehaviour
             AimCamera = GetComponentInChildren<Camera>();
             AimCamera.enabled = false;
             _eventBus.Invoke(new ChangeSens(300));
+            _movement.Speed = _movement.NormalSpeed;
+            _movement.InScope = false;
         }
     }
 }

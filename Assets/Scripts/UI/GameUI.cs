@@ -19,10 +19,12 @@ public class GameUI : MonoBehaviour
 
     private bool _pauseGame;
     private bool _canPause = true;
+    private bool _isStarted = false;
 
     private EventBus _eventBus;
     public void Init()
     {
+        _isStarted = true;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<EnablePause>(PauseState, 1);
         _eventBus.Subscribe<SetDie>(SetDie, 1);
@@ -79,6 +81,7 @@ public class GameUI : MonoBehaviour
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);
         _pausePanel.SetActive(true);
+        ConstSystem.CanExit = false;
 
         if (_shopPanel != null && _speedometerPanel != null)
         {
@@ -98,6 +101,8 @@ public class GameUI : MonoBehaviour
         _pauseGame = false;
         _uiCamera.SetActive(false);
 
+        ConstSystem.CanExit = true;
+
         if(_shopPanel != null && _levelsPanel != null)
         {
             _shopPanel.SetActive(false);
@@ -106,16 +111,10 @@ public class GameUI : MonoBehaviour
 
         if (!ConstSystem.InTransport)
             _mainCharacter.SetActive(true);
-    }
 
-    public void BackToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
+        if (ConstSystem.InCar && _speedometerPanel != null)
+            _speedometerPanel.SetActive(true);
 
-    public void BackGame()
-    {
-        SceneManager.LoadScene("Game");
     }
 
     public void Settings()
@@ -130,33 +129,6 @@ public class GameUI : MonoBehaviour
         _gamePanel.SetActive(false);
         _pausePanel.SetActive(true);
         _settingsPanel.SetActive(false);
-    }
-
-    public void SetLowSettings()
-    {
-        QualitySettings.SetQualityLevel(0, true);
-    }
-
-    public void SetMediumSettings()
-    {
-        QualitySettings.SetQualityLevel(2, true);
-    }
-
-    public void SetHighSettings()
-    {
-        QualitySettings.SetQualityLevel(5, true);
-    }
-
-    public void FullScreen()
-    {
-        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-        Screen.fullScreen = true;
-    }
-
-    public void WindowMode()
-    {
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-        Screen.fullScreen = false;
     }
     public void RestartLevel()
     {
@@ -179,7 +151,10 @@ public class GameUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<EnablePause>(PauseState);
-        _eventBus.Unsubscribe<SetDie>(SetDie);
+        if (_isStarted)
+        {
+            _eventBus.Unsubscribe<EnablePause>(PauseState);
+            _eventBus.Unsubscribe<SetDie>(SetDie);
+        }
     }
 }

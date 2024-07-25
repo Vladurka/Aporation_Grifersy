@@ -12,7 +12,6 @@ namespace Game.Data
         private ScopeLevels _scopeLevels;
         private CoinSystem _coinSystem;
         private GrenadeThrower _grenadeThrower;
-        private VolumeController _volume;
 
         public void Init()
         {
@@ -22,7 +21,6 @@ namespace Game.Data
             _scopeLevels = ServiceLocator.Current.Get<ScopeLevels>();
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>(); ;
-            _volume = ServiceLocator.Current.Get<VolumeController>();
         }
 
         public void LoadInfo()
@@ -41,8 +39,6 @@ namespace Game.Data
             _scopeLevels.ScopeLevel = data.ScopeLevelData;
 
             _coinSystem.Money = data.MoneyData;
-
-            _volume._volumeSlider.value = data.VolumeData;
         }
     }
 }

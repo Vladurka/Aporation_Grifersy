@@ -8,25 +8,25 @@ namespace Game.Data
 {
     public static class SaveSystem
     {
-        public static void SavePlayerData(PlayerHealth playerHealth, Movement playerMove, VolumeController volume, GrenadeThrower grenadeThrower,ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
+        public static void SavePlayerData(PlayerHealth playerHealth, Movement playerMove, GrenadeThrower grenadeThrower,ScopeLevels scopeLevels, Helicopter helicopter, HelicopterStatesController helicopterStatesController, Car car, WeaponAk ak, RPG rpg, CoinSystem coins, BaseStates baseStates)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath + ConstSystem.DATA_PATH;
             FileStream stream = new FileStream(path, FileMode.Create);
 
-            PlayerData data = new PlayerData(playerHealth, playerMove, volume, grenadeThrower, scopeLevels, helicopter, helicopterStatesController, car, ak, rpg, coins, baseStates);
+            PlayerData data = new PlayerData(playerHealth, playerMove, grenadeThrower, scopeLevels, helicopter, helicopterStatesController, car, ak, rpg, coins, baseStates);
 
             formatter.Serialize(stream, data);
             stream.Close();
         }
 
-        public static void SaveMissionPlayerData(PlayerHealth playerHealth, VolumeController volume, GrenadeThrower grenadeThrower, ScopeLevels scopeLevels, WeaponAk ak, RPG rpg, CoinSystem coins)
+        public static void SaveMissionPlayerData(PlayerHealth playerHealth, GrenadeThrower grenadeThrower, ScopeLevels scopeLevels, WeaponAk ak, RPG rpg, CoinSystem coins)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath + ConstSystem.DATA_PATH;
             FileStream stream = new FileStream(path, FileMode.Create);
 
-            PlayerData data = new PlayerData(playerHealth, volume, grenadeThrower, scopeLevels, ak, rpg, coins);
+            PlayerData data = new PlayerData(playerHealth, grenadeThrower, scopeLevels, ak, rpg, coins);
 
             formatter.Serialize(stream, data);
             stream.Close();

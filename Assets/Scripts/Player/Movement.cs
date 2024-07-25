@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour, IService
 {
-    [SerializeField] private float _moveSpeed = 7.0f;
     [SerializeField] private float _jumpForce = 5.0f;
     [SerializeField] private float _gravity = 9.8f;
     [SerializeField] private float _slopeRayLength = 1.5f;
+    [SerializeField] private AudioSource _cameraAudioSource;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Animator _animator;
 
@@ -17,6 +17,12 @@ public class Movement : MonoBehaviour, IService
 
     private CharacterController _controller;
     private Vector3 _moveDirection = Vector3.zero;
+
+    public float NormalSpeed = 5.0f;
+    public float ScopeSpeed = 3.0f;
+    public float Speed = 5.0f;
+
+    public bool InScope;
 
     public void Init()
     {
@@ -45,21 +51,35 @@ public class Movement : MonoBehaviour, IService
 
     private void SetMoveDirection()
     {
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 Direction = new Vector3(horizontal, 0.0f, vertical);
         Direction = transform.TransformDirection(Direction);
-        _moveDirection = Direction * _moveSpeed;
+        _moveDirection = Direction * Speed;
 
         if (vertical != 0.0f || horizontal != 0.0f)
         {
-            if (!_audioSource.isPlaying &&  _controller.isGrounded)
-                _audioSource.Play();
+            if (_controller.isGrounded)
+            {
+                if (!_audioSource.isPlaying && InScope)
+                {
+                    _audioSource.Play();
+                    _cameraAudioSource.Stop();
+                }
 
-            if(!_controller.isGrounded)
+                if (!_cameraAudioSource.isPlaying && !InScope)
+                {
+                    _audioSource.Stop();
+                    _cameraAudioSource.Play();
+                }
+            }
+
+            if (!_controller.isGrounded)
+            {
                 _audioSource.Stop();
+                _cameraAudioSource.Stop();
+            }
 
             _animator.SetBool("Walking", true);
         }
@@ -70,6 +90,9 @@ public class Movement : MonoBehaviour, IService
 
             if (_audioSource.isPlaying)
                 _audioSource.Stop();
+
+            if (_cameraAudioSource.isPlaying)
+                _cameraAudioSource.Stop();
         }
     }
 
@@ -83,7 +106,7 @@ public class Movement : MonoBehaviour, IService
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, _slopeRayLength) == false)
             return;
     }
-    void ChangePitchRandomly()
+    private void ChangePitchRandomly()
     {
         float randomPitch = Random.Range(_minPitch, _maxPitch);
         _audioSource.pitch = randomPitch;
