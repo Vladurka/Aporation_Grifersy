@@ -1,5 +1,5 @@
 using UnityEngine;
-public class PlaneController : MonoBehaviour 
+public class PlaneController : MonoBehaviour , IService
 {
     public float FlySpeed;
     [SerializeField] private float _maxSpeed = 120f;
@@ -38,7 +38,7 @@ public class PlaneController : MonoBehaviour
     public Rigidbody Rb;
     private Animator _animator;
 
-    private void Awake()
+    public void Init()
     {
         Rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
@@ -57,7 +57,7 @@ public class PlaneController : MonoBehaviour
             if(!IsSet)
             {
                 Rb.useGravity = false;
-                Force = 0.5f;
+                Force = 0.2f;
                 IsSet = true;
                 IsStarted = true;
                 CanFly = true;

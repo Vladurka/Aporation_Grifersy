@@ -17,6 +17,7 @@ TagManager:
   - F-14
   - AirDefence
   - Avianosec
+  - Missile
   layers:
   - Default
   - TransparentFX

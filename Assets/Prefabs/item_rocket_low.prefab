@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2577660797053861204}
   - component: {fileID: 4383944902924727310}
   - component: {fileID: 8357335582094252440}
-  - component: {fileID: 7832148569572111680}
   - component: {fileID: 4896051172101308685}
   - component: {fileID: -6936214968677565542}
+  - component: {fileID: 8356150359604440419}
   m_Layer: 0
   m_Name: item_rocket_low
-  m_TagString: Untagged
+  m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,28 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7832148569572111680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9135447802007120921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1384a747ff280e244bf418dab3992299, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 450
-  _rotationSpeed: 100
-  _lifeTime: 10
-  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
-  _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
-  _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}
-  _tag1: F-14
-  _tag2: AirDefence
-  _destroySound: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
-  Target: {fileID: 0}
 --- !u!54 &4896051172101308685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,3 +136,26 @@ CapsuleCollider:
   m_Height: 0.03913745
   m_Direction: 1
   m_Center: {x: 0, y: 0.00053237565, z: -0.031351656}
+--- !u!114 &8356150359604440419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135447802007120921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc5e8c7985948d449c77bae92f7cbe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 50
+  _speed: 600
+  _rotationSpeed: 85
+  _lifeTime: 10
+  _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
+  _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}
+  _tag1: F-14
+  _tag2: AirDefence
+  _destroySound: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
+  Target: {fileID: 0}
