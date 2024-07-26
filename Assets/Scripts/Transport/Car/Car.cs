@@ -45,17 +45,17 @@ public class Car : AbstractTransport, IService
     {
         Move();
 
-        if (_rb.velocity.magnitude >= 0.1f)
+        if (_rb.velocity.magnitude >= 2f)
         {
+            _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
             if (!_audioSourceDrive.isPlaying)
             {
-                _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
                 _audioSourceDrive.Play();
                 _audioSourceIdle.Stop();
             }
         }
 
-        if (_rb.velocity.magnitude < 0.1f)
+        if (_rb.velocity.magnitude < 2f)
         {
             if (!_audioSourceIdle.isPlaying)
             {
@@ -123,6 +123,10 @@ public class Car : AbstractTransport, IService
             _colliderFR.brakeTorque = 2000f;
             _colliderBL.brakeTorque = 2000f;
             _colliderBR.brakeTorque = 2000f;
+
+            _audioSourceDrive.Stop();
+            _audioSourceIdle.Stop();
+            _audioSourceStart.Stop();
 
             _camera.enabled = false;
             _mainCharacter.transform.position = _spawnCharacter.position;
