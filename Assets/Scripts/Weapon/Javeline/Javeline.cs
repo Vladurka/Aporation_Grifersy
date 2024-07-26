@@ -116,7 +116,7 @@ public class Javeline : AbstractWeapon
             if (TotalBullets > 0 && _canShoot == true)
             {
                 GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
-                Missile missile = missileObject.GetComponent<Missile>();
+                AirMissile missile = missileObject.GetComponent<AirMissile>();
                 missile.Target = _target;
                 TotalBullets--;
                 _canShoot = false;
