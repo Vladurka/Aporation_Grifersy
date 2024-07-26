@@ -1,7 +1,11 @@
 using UnityEngine;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using UnityEngine.UI;
 public class PlaneController : MonoBehaviour , IService
+=======
+public class PlaneController : MonoBehaviour 
+>>>>>>> parent of a7405a9b (dwad)
 =======
 public class PlaneController : MonoBehaviour 
 >>>>>>> parent of a7405a9b (dwad)

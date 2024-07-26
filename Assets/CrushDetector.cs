@@ -1,13 +1,17 @@
 using UnityEngine;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
+=======
+>>>>>>> parent of a7405a9b (dwad)
 =======
 >>>>>>> parent of a7405a9b (dwad)
 
 public class CrushDetector : MonoBehaviour
 {
     private PlaneController _controller;
+<<<<<<< HEAD
 <<<<<<< HEAD
     [SerializeField] private ParticleSystem _explosion;
     [SerializeField] private float _range  = 2f;
@@ -17,6 +21,8 @@ public class CrushDetector : MonoBehaviour
     private EventBus _eventBus;
 
     private static bool _isDead  = false;
+=======
+>>>>>>> parent of a7405a9b (dwad)
 =======
 >>>>>>> parent of a7405a9b (dwad)
 
@@ -36,6 +42,7 @@ public class CrushDetector : MonoBehaviour
                 _controller.Rb.useGravity = true;   
                 Debug.Log("Crush");
 <<<<<<< HEAD
+<<<<<<< HEAD
                 float angle = Vector3.Angle(transform.forward, hit.normal);
 
                 if (hit.collider.CompareTag("Avianosec"))
@@ -46,6 +53,8 @@ public class CrushDetector : MonoBehaviour
 
                 else
                     _eventBus.Invoke(new SetDie());
+=======
+>>>>>>> parent of a7405a9b (dwad)
 =======
 >>>>>>> parent of a7405a9b (dwad)
             }
