@@ -14,7 +14,11 @@ public class MoveToBase : MonoBehaviour
 
         _mainCharacter.transform.localPosition = character;
         _car.transform.localPosition = car;
+<<<<<<< Updated upstream
         if(ConstSystem.CanEnterHelicopter)
+=======
+
+>>>>>>> Stashed changes
         if(ConstSystem.CanEnterHelicopter == true)
             _helicopter.transform.localPosition = helicopter;
     }

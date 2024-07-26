@@ -6,21 +6,19 @@ public class PlaneScopeCamera : MonoBehaviour
     [SerializeField] private float _minXRotation = -45f;
     [SerializeField] private float _maxYRotation = 45f;
     [SerializeField] private float _minYRotation = -45f;
+    [SerializeField] private Camera _camera;
 
     private float xRotation = 0f;
     private float yRotation = 0f;
 
-    private Camera _camera;
 
-    void Start()
+    public void Init()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        _camera = GetComponent<Camera>();
-
         transform.rotation = Quaternion.Euler(45, 0, 0);
     }
 
-    void Update()
+    private void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
@@ -34,7 +32,7 @@ public class PlaneScopeCamera : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
-        if (_camera.enabled == true)
+        if (_camera.enabled)
         {
             if (Input.GetKey(KeyCode.E) && _camera.fieldOfView >= 10f)
                 _camera.fieldOfView -= 0.05f;

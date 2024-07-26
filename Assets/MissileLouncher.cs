@@ -11,8 +11,14 @@ public class MissileLouncher : MonoBehaviour
     [SerializeField] private Text _distanceText;
     [SerializeField] private GameObject X3;
     [SerializeField] private int _missilesAmount = 4;
+
     [SerializeField] private Camera _scopeCamera;
-    [SerializeField] private Canvas _canvas;
+    [SerializeField] private Camera _minigunCamera;
+
+    [SerializeField] private Canvas _scopeCanvas;
+    [SerializeField] private Canvas _minigunCanvas;
+    [SerializeField] private GameObject _gameCanvas;
+
     [SerializeField] private AudioSource _audioSource;
 
     private Camera _mainCamera;
@@ -32,16 +38,22 @@ public class MissileLouncher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && !_minigunCamera.enabled)
         {
+            _mainCamera.enabled = false;
             _scopeCamera.enabled = true;
-            _canvas.enabled = true;
+            _scopeCanvas.enabled = true;
+            _gameCanvas.SetActive(false); 
+            _minigunCanvas.enabled = false;
+            _minigunCamera.enabled = false;
         }
 
         if (!Input.GetMouseButton(1))
         {
             _scopeCamera.enabled = false;
-            _canvas.enabled = false;
+            _scopeCanvas.enabled = false;
+            _gameCanvas.SetActive(true);
+            _mainCamera.enabled = true;
         }
 
         if (Input.GetButtonDown("Fire1") && _scopeCamera.enabled == true)

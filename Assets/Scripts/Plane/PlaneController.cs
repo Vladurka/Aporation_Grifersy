@@ -1,5 +1,10 @@
 using UnityEngine;
+<<<<<<< Updated upstream
 public class PlaneController : MonoBehaviour 
+=======
+using UnityEngine.UI;
+public class PlaneController : MonoBehaviour , IService
+>>>>>>> Stashed changes
 {
     public float FlySpeed;
     [SerializeField] private float _maxSpeed = 120f;
@@ -20,6 +25,9 @@ public class PlaneController : MonoBehaviour
 
     [SerializeField] private float _flapSpeed = 15f;
     [SerializeField] private float _flapAngle = 20f;
+
+    [SerializeField] private Text _forceText;
+    [SerializeField] private Text _speedText;
 
     private float _pitchSmoothness;
     private float _rollSmoothness;
@@ -105,6 +113,11 @@ public class PlaneController : MonoBehaviour
 
     private void Update()
     {
+        int forceUi = (int)FlySpeed / 3;
+        int speedUi = (int)FlySpeed * 4;
+        _forceText.text = forceUi.ToString() + " %";
+        _speedText.text = speedUi.ToString() + " km/h";
+
         if (FlySpeed <= 70f)
         {
             _pitchSmoothness = FlySpeed / 20f;

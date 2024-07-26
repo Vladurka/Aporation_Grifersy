@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  _mainCharacter: {fileID: 0}
 --- !u!1 &3246269133709236251
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effect: {fileID: 19800008, guid: 8c895bfa0e04954488d29a670da58455, type: 3}
   _pos: {fileID: 2726190319286751401}
+  _material: {fileID: 2100000, guid: 87a9a6e90c062a9438775b84ca07da2a, type: 2}
+  _renderer: {fileID: 227667879620944495}
 --- !u!114 &1701328325909891771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,8 +221,10 @@ MonoBehaviour:
   _effect: {fileID: 19800000, guid: dff0ff07a14dee24290d638a7f832736, type: 3}
   _bullet: {fileID: 6015874451968190492, guid: 8d6c90588c435854385bcbbdb91f79ca, type: 3}
   _spawnBullet: {fileID: 3084926903159212883}
+  _mainCharacter: {fileID: 0}
   _shootForce: 10
   _rotationSpeed: 2
+  _range: 250
 --- !u!54 &6162924982780560456
 Rigidbody:
   m_ObjectHideFlags: 0
