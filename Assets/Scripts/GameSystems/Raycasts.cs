@@ -65,10 +65,7 @@ public class Raycasts : MonoBehaviour, IService
                     else
                     {
                         EnableText(_missionText);
-<<<<<<< Updated upstream
                         EnableText(_missionText);
-=======
->>>>>>> Stashed changes
                         statesController.SetDestroyedState();
                     }
                 }

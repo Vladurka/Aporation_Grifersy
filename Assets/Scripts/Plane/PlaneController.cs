@@ -1,10 +1,6 @@
 using UnityEngine;
-<<<<<<< Updated upstream
-public class PlaneController : MonoBehaviour 
-=======
 using UnityEngine.UI;
 public class PlaneController : MonoBehaviour , IService
->>>>>>> Stashed changes
 {
     public float FlySpeed;
     [SerializeField] private float _maxSpeed = 120f;
