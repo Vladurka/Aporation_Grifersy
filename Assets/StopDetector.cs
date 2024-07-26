@@ -1,15 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public class StopDetector : MonoBehaviour, IService
+public class StopDetector : MonoBehaviour
 {
-    [SerializeField] private float _stopForce = 1.2f;
+    [SerializeField] private float _stopForce = 1f;
 
     private PlaneController _controller;
 
-    public void Init()
+    private void Start()
     {
-        _controller = ServiceLocator.Current.Get<PlaneController>();
+        _controller = FindAnyObjectByType<PlaneController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,32 +17,22 @@ public class StopDetector : MonoBehaviour, IService
         if(!_controller.IsClosed && _controller.IsStarted && _controller.CanFly)
         {
             if(other.CompareTag("Avianosec"))
-                StartCoroutine(Stoping(_stopForce));
+                StartCoroutine(Stoping());
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        StopAllCoroutines();
-        _controller.CanFly = true;
-        _controller.IsStarted = true;
-        _controller.IsSet = true;
-        _controller.Rb.useGravity = false;
-        _controller.Force = 0.3f;
-    }
-
-    public IEnumerator Stoping(float stopForce)
+    private IEnumerator Stoping()
     {
         if(_controller.FlySpeed > 0)
         {
-            _controller.FlySpeed -= stopForce;
+            _controller.FlySpeed -= _stopForce;
             _controller.CanFly = false;
             _controller.IsStarted = false;
             _controller.IsSet = false;
             _controller.Rb.useGravity = true;
             _controller.Force = 0f;
             yield return new WaitForSeconds(0.1f);
-            StartCoroutine(Stoping(stopForce));
+            StartCoroutine(Stoping());
         }
 
         else

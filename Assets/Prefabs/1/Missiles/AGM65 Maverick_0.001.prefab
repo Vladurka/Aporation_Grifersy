@@ -46,11 +46,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 903119323232287664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc5e8c7985948d449c77bae92f7cbe3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1384a747ff280e244bf418dab3992299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 100
-  _speed: 600
+  _speed: 500
   _rotationSpeed: 200
   _lifeTime: 10
   _explosionEffect: {fileID: 198000012777718758, guid: 0e6591c39ca4e7846bd9c13ace5b2bc2, type: 3}

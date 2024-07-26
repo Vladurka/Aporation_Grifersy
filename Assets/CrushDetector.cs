@@ -1,31 +1,26 @@
-using Game.SeniorEventBus;
-using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
 public class CrushDetector : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _explosion;
-    [SerializeField] private float _range  = 2f;
-    [SerializeField] private string _tagToIgnore = "Missile";
-
-    private EventBus _eventBus;
-
-    private static bool _isDead  = false;
+    private PlaneController _controller;
 
     private void Start()
     {
-        _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _controller = FindAnyObjectByType<PlaneController>();
     }
 
     private void Update()
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward, out hit, _range))
+        if(Physics.Raycast(transform.position, transform.forward, out hit, 2f))
         {
-            if (!hit.collider.CompareTag(_tagToIgnore) && !_isDead)
+            if (hit.collider)
             {
-                _eventBus.Invoke(new SetDie());
+                _controller.FlySpeed = 0;
+                _controller.Rb.useGravity = true;   
+                Debug.Log("Crush");
             }
         }
+        Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
     }
 }
