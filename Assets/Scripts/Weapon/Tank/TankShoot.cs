@@ -42,7 +42,7 @@ public class TankShoot : MonoBehaviour
             rotation.x = 0;
             rotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
-        }
+        };
     }
 
     private IEnumerator Shoot()

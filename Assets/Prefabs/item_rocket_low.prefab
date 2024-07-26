@@ -98,15 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1384a747ff280e244bf418dab3992299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 450
+  _speed: 500
   _rotationSpeed: 100
-  _lifeTime: 10
   _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
   _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}
-  _tag1: F-14
-  _tag2: AirDefence
-  _destroySound: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
+  _tag: F-14
   Target: {fileID: 0}
 --- !u!54 &4896051172101308685
 Rigidbody:

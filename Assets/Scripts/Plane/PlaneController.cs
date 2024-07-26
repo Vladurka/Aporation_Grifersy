@@ -1,12 +1,12 @@
 using UnityEngine;
 public class PlaneController : MonoBehaviour 
 {
-    public float FlySpeed;
+    [SerializeField] private float _flySpeed;
     [SerializeField] private float _maxSpeed = 120f;
     [SerializeField] private float _minSpeed = 70f;
     [SerializeField] private float _startSpeed = 50f;
 
-    public float Force = 0.08f;
+    [SerializeField] private float _force = 0.08f;
 
     [SerializeField] private float _pitchAngle = 70f;
     [SerializeField] private float _rollAngle = 45f;
@@ -30,48 +30,32 @@ public class PlaneController : MonoBehaviour
     private float _horizontalMovement;
     private float _amount = 120;
 
-    public bool IsClosed = false;
-    public bool IsStarted = false;
-    public bool IsSet = false;
-    public bool CanFly = false;
+    private bool _isClosed = false;
 
-    public Rigidbody Rb;
+    private Rigidbody rb;
     private Animator _animator;
 
     private void Awake()
     {
-        Rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
-        FlySpeed = 0f;
-        Rb.useGravity = true;
-        IsClosed = false;
-        CanFly = false;
-        IsSet = false;
-        IsStarted = false;
+        _flySpeed = 0f;
+        rb.useGravity = true;
     }
 
     private void FixedUpdate()
     {
-        if (FlySpeed >= _startSpeed)
+        if (_flySpeed >= _startSpeed)
         {
-            if(!IsSet)
-            {
-                Rb.useGravity = false;
-                Force = 0.5f;
-                IsSet = true;
-                IsStarted = true;
-                CanFly = true;
-            }
+            rb.useGravity = false;
+            Movement();
         }
 
-        if (CanFly)
-            Movement();
-
-        if (Input.GetKey(KeyCode.Space) && FlySpeed < _maxSpeed)
-            FlySpeed += Force;
+        if (Input.GetKey(KeyCode.Space) && _flySpeed < _maxSpeed)
+            _flySpeed += _force;
 
 
-        if (Input.GetKey(KeyCode.Space) && FlySpeed > 80)
+        if (Input.GetKey(KeyCode.Space) && _flySpeed > 80)
         {
             if(_leftWing.localRotation.y >= -45 && _rightWing.localRotation.y <= 45)
             {
@@ -96,24 +80,24 @@ public class PlaneController : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.LeftShift) && FlySpeed > _minSpeed + 1f)
-            FlySpeed -= Force;
+        if (Input.GetKey(KeyCode.LeftShift) && _flySpeed > _minSpeed + 1f)
+            _flySpeed -= _force;
 
-        transform.Translate(Vector3.forward * FlySpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * _flySpeed * Time.deltaTime);
 
     }
 
     private void Update()
     {
-        if (FlySpeed <= 70f)
+        if (_flySpeed <= 70f)
         {
-            _pitchSmoothness = FlySpeed / 20f;
-            _rollSmoothness = FlySpeed / 20f;
+            _pitchSmoothness = _flySpeed / 20f;
+            _rollSmoothness = _flySpeed / 20f;
             _rollSpeed = _rollSmoothness / 10f;
             _pitchSpeed = _pitchSmoothness / 20f;
         }
 
-        else if (FlySpeed > 70f)
+        else if (_flySpeed > 70f)
         {
             _pitchSmoothness = 3.5f;
             _rollSmoothness = 3.5f;
@@ -121,19 +105,10 @@ public class PlaneController : MonoBehaviour
             _pitchSpeed = 0.175f;
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (_flySpeed >= 70f && !_isClosed)
         {
-            if (!IsClosed && FlySpeed >= 60f)
-            {
-                _animator.SetBool("CloseWheels", true);
-                IsClosed = true;   
-            }
-
-            else
-            {
-                _animator.SetBool("CloseWheels", false);
-                IsClosed = false;
-            }
+            _animator.SetTrigger("CloseWheels");
+            _isClosed = true;
         }
 
         if (Input.GetKey(KeyCode.W))

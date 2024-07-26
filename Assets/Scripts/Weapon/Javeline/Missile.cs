@@ -5,7 +5,6 @@ public class Missile : MonoBehaviour
 {
     [SerializeField] private float _speed = 500f;
     [SerializeField] private float _rotationSpeed = 100f;
-    [SerializeField] private float _lifeTime = 10f;
     
 
     [Header("Effects")]
@@ -13,16 +12,11 @@ public class Missile : MonoBehaviour
     [SerializeField] private ParticleSystem _flyEffect;
 
     [SerializeField] private AudioClip _bulletSound;
-    [SerializeField] private string _tag1 = "Player";
-    [SerializeField] private string _tag2 = "AirDefence";
+    [SerializeField] private string _tag = "Player";
 
-    private GameObject _obj1;
-    private GameObject _obj2;
-
-    [SerializeField] private AudioClip _destroySound;
+    private GameObject _mainCharacter;
 
     private AudioSource _audioSource;
-    private AudioSource _audioSourceBase;
 
 
     [HideInInspector] public Transform Target;
@@ -30,20 +24,17 @@ public class Missile : MonoBehaviour
 
     private void Start()
     {
-        _obj1 = GameObject.FindGameObjectWithTag(_tag1);
-        _obj2 = GameObject.FindGameObjectWithTag(_tag2);
-        _audioSource = _obj1.GetComponent<AudioSource>();
-        _audioSourceBase = _obj2.GetComponent<AudioSource>();
-        _audioSourceBase.PlayOneShot(_bulletSound);
+        _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
+        _audioSource = _mainCharacter.GetComponent<AudioSource>();
+        _audioSource.PlayOneShot(_bulletSound);
         StartCoroutine(Effect());
-        Invoke("BulletDestroy", _lifeTime);
+        Invoke("SetFalse", 7f);
     }
 
     void Update()
     {
         if (Target != null)
         {
-            transform.LookAt(Target);
             Vector3 dir = Target.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
@@ -64,15 +55,21 @@ public class Missile : MonoBehaviour
     {
         Instantiate(_flyEffect, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.05f);
+        Invoke("SetFalse", 10f);
         StartCoroutine(Effect());
     }
 
     private void BulletDestroy()
     {
-        _audioSource.PlayOneShot(_destroySound);
+        _audioSource.Play();
         StopAllCoroutines();
         Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    private void SetFalse()
+    {
+        gameObject.SetActive(false);
     }
 
     void OnCollisionEnter(Collision collision)

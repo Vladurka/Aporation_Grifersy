@@ -15,8 +15,6 @@ TagManager:
   - Map
   - Plane
   - F-14
-  - AirDefence
-  - Avianosec
   layers:
   - Default
   - TransparentFX
