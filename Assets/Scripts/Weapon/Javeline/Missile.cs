@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    [SerializeField] private float _speed = 500f;
-    [SerializeField] private float _rotationSpeed = 100f;
-    
+    [SerializeField] private float _speed = 100f;
 
     [Header("Effects")]
     [SerializeField] private ParticleSystem _explosionEffect;
@@ -35,19 +33,16 @@ public class Missile : MonoBehaviour
     {
         if (Target != null)
         {
+            transform.LookAt(Target.position);
             Vector3 dir = Target.position - transform.position;
-            Quaternion targetRotation = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
             float distanceThisFrame = _speed * Time.deltaTime;
 
             if (dir.magnitude <= distanceThisFrame)
             {
                 BulletDestroy();
             }
-            else
-            {
-                transform.Translate(Vector3.forward * distanceThisFrame);
-            }
+
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         }
     }
 
@@ -55,7 +50,7 @@ public class Missile : MonoBehaviour
     {
         Instantiate(_flyEffect, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.05f);
-        Invoke("SetFalse", 10f);
+        Invoke("SetFalse", 7f);
         StartCoroutine(Effect());
     }
 

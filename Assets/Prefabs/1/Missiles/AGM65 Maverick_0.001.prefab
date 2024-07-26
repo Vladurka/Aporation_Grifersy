@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 500
-  _rotationSpeed: 200
   _explosionEffect: {fileID: 198000012777718758, guid: 0e6591c39ca4e7846bd9c13ace5b2bc2, type: 3}
   _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
   _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}

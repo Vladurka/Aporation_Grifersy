@@ -1,30 +1,24 @@
-using System;
-using System.Collections;
 using UnityEngine;
 public class AirDefence : MonoBehaviour
 {
-    [SerializeField] private float _range = 2000f;
-    [SerializeField] private float _time = 15f;
-
     [SerializeField] private GameObject _missile;
-    [SerializeField] private Transform _target;
-    [SerializeField] private Transform _spawnPosition;
+    [SerializeField] private float _range = 50f;
 
+    private GameObject _target;
+    private bool _isLaunched  = false;
     private void Start()
     {
-        StartCoroutine(Shoot());
+        _missile.SetActive(false);
+        _target = GameObject.FindGameObjectWithTag("Helicopter");
     }
 
-    private IEnumerator Shoot()
+    private void Update()
     {
-        yield return new WaitForSeconds(_time);
-
-        if (Vector3.Distance(transform.position, _target.position) <= _range)
+        if (Vector3.Distance(transform.position, _target.transform.position) <= _range && _isLaunched == false)
         {
-            GameObject missileObject = Instantiate(_missile, _spawnPosition.position, _spawnPosition.rotation);
-            Missile missile = missileObject.GetComponent<Missile>();
-            missile.Target = _target;
+            _missile.SetActive(true);
+            _isLaunched = true;
         }
-        StartCoroutine(Shoot());
     }
+
 }
