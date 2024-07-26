@@ -33,7 +33,7 @@ public class AirDefence : MonoBehaviour
         if (Vector3.Distance(transform.position, _target.position) <= _range)
         {
             GameObject missileObject = Instantiate(_missile, _spawnPosition.position, _spawnPosition.rotation);
-            AirMissile missile = missileObject.GetComponent<AirMissile>();
+            Missile missile = missileObject.GetComponent<Missile>();
             missile.Target = _target;
         }
         StartCoroutine(Shoot());

@@ -15,19 +15,21 @@ public class TransportCamera : MonoBehaviour
     private float _x = 0.0f;
     private float _y = 0.0f;
 
-    private void Start()
+    void Start()
     {
         Vector3 angles = transform.eulerAngles;
         _x = angles.y;
         _y = angles.x;
 
         if (GetComponent<Rigidbody>())
+        {
             GetComponent<Rigidbody>().freezeRotation = true;
+        }
 
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         if (_target)
         {
@@ -48,10 +50,8 @@ public class TransportCamera : MonoBehaviour
     {
         if (angle < -360F)
             angle += 360F;
-
         if (angle > 360F)
             angle -= 360F;
-
         return Mathf.Clamp(angle, min, max);
     }
 }
