@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class HelicopterStatesController : MonoBehaviour, IService, IStatesConntroller
 {
+    [SerializeField] private Material[] _materials;
+
     public string HelicopterState = "Destroyed";
+
+    private MeshRenderer _renderer;
 
     private Dictionary<Type, IStates> _statesMap;
 
@@ -12,6 +16,7 @@ public class HelicopterStatesController : MonoBehaviour, IService, IStatesConntr
 
     public void Init()
     {
+        _renderer = GetComponent<MeshRenderer>();
         InitStates();
         SetStartState();
     }
@@ -52,6 +57,7 @@ public class HelicopterStatesController : MonoBehaviour, IService, IStatesConntr
         var state = GetState<HelicopterDestroyedState>();
         SetState(state);
         HelicopterState = "Destroyed";
+        _renderer.material = _materials[1];
     }
 
     public void SetFixedState()
@@ -59,5 +65,6 @@ public class HelicopterStatesController : MonoBehaviour, IService, IStatesConntr
         var state = GetState<HelicopterFixedState>();
         SetState(state);
         HelicopterState = "Fixed";
+        _renderer.material = _materials[0];
     }
 }

@@ -59,11 +59,15 @@ public class Raycasts : MonoBehaviour, IService
             {
                 if (hit.collider.TryGetComponent(out IStatesConntroller statesController))
                 {
-                    if (ConstSystem.CanFixHelicopter && hit.collider.CompareTag("Helicopter"))
+                    if (ConstSystem.CanFixHelicopter == true && hit.collider.CompareTag("Helicopter"))
                         statesController.SetFixedState();
 
                     else
+                    {
                         EnableText(_missionText);
+                        EnableText(_missionText);
+                        statesController.SetDestroyedState();
+                    }
                 }
             }
         }

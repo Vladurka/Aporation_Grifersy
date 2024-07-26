@@ -6,6 +6,11 @@ public class TankHP : MonoBehaviour, ITankHealth
 {
     [SerializeField] private ParticleSystem _effect;
     [SerializeField] private Transform _pos;
+    [SerializeField] private Material _material;
+
+    [SerializeField] private MeshRenderer _renderer;
+    private MeshRenderer _thisRenderer;
+    private MeshRenderer _gunRender;
 
     private bool _isDead = false;
 
@@ -14,6 +19,8 @@ public class TankHP : MonoBehaviour, ITankHealth
 
     private void Start()
     {
+        _thisRenderer = GetComponent<MeshRenderer>();
+        _gunRender = GetComponentInChildren<MeshRenderer>();
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
         _rb = GetComponent<Rigidbody>();
@@ -22,6 +29,10 @@ public class TankHP : MonoBehaviour, ITankHealth
     {
         if (!_isDead)
         {
+            _thisRenderer.material = _material;
+            _gunRender.material = _material;
+            _renderer.material = _material;
+
             Instantiate(_effect, _pos.position, Quaternion.identity);
 
             float x = Random.Range(0f, 6f);

@@ -64,6 +64,7 @@ public class GrenadeThrower : AbstractWeapon, IService
     private void OnDisable()
     {
         _eventBus.Invoke(new SetTotalBullets(false));
+        _eventBus.Invoke(new SetImage(2, false));
     }
 
     private void OnDestroy()

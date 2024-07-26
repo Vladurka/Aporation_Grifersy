@@ -49,5 +49,5 @@ public static class ConstSystem
     public static bool CanExit = true;
 
     public static bool CanEnterHelicopter = false;
-    public static bool CanFixHelicopter = true;
+    public static bool CanFixHelicopter = false;
 }
