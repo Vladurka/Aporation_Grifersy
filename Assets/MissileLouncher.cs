@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,13 +20,14 @@ public class MissileLouncher : MonoBehaviour
     private bool _targetSet = false;
     private int _distance;
 
-    public void Init()
+    private void Start()
     {
         _mainCamera = Camera.main;
 
         _mainCamera.enabled = true;
 
         X3.SetActive(false);
+
     }
 
     private void Update()
@@ -65,20 +67,6 @@ public class MissileLouncher : MonoBehaviour
                         _audioSource.Play();
                 }
 
-                else
-                {
-                    if (_targetSet)
-                    {
-                        _target = null;
-                        X3.SetActive(false);
-                        _targetSet = false;
-                    }
-
-                    if (_audioSource.isPlaying)
-                        _audioSource.Stop();
-                }
-
-
                 _distance = (int)hit.distance;
 
                 _distanceText.text = _distance.ToString() + "m";
@@ -114,7 +102,7 @@ public class MissileLouncher : MonoBehaviour
         if (_missilesAmount > 0 && _target != null)
         {
             GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
-            AirMissile missile = missileObject.GetComponent<AirMissile>();
+            Missile missile = missileObject.GetComponent<Missile>();
             missile.Target = _target;
 
             _missile[index].SetActive(false);
