@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class MissileLouncher : MonoBehaviour
+public class MissileLouncher : MonoBehaviour, IService
 {
-    [SerializeField] private List<Transform> _spawnPosition;
+    [SerializeField] private Transform _spawnPosition;
     [SerializeField] private List<GameObject> _missile;
 
     [SerializeField] private GameObject _bullet;
@@ -26,7 +26,7 @@ public class MissileLouncher : MonoBehaviour
     private bool _targetSet = false;
     private int _distance;
 
-    private void Start()
+    public void Init()
     {
         _mainCamera = Camera.main;
 
@@ -113,13 +113,12 @@ public class MissileLouncher : MonoBehaviour
         {
             int index = Random.Range(0, _missile.Count + 1);
 
-            GameObject missileObject = Instantiate(_bullet, _spawnPosition[index].position, _spawnPosition[index].rotation);
+            GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
             Missile missile = missileObject.GetComponent<Missile>();
             missile.Target = _target;
 
             _missile[index].SetActive(false);
             _missile.Remove(_missile[index]);
-            _spawnPosition.Remove(_spawnPosition[index]);
             
             _missilesAmount--;
         }

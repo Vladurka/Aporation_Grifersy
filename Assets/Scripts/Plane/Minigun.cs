@@ -23,7 +23,7 @@ public class Minigun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _isThisCamera)
         {
             StartCoroutine(Shoot());
 

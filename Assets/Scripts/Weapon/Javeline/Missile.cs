@@ -4,6 +4,8 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     [SerializeField] private float _speed = 100f;
+    [SerializeField] private float _lifeTime = 10f;
+    [SerializeField] private float _rotationSpeed = 85f;
 
     [Header("Effects")]
     [SerializeField] private ParticleSystem _explosionEffect;
@@ -26,23 +28,29 @@ public class Missile : MonoBehaviour
         _audioSource = _mainCharacter.GetComponent<AudioSource>();
         _audioSource.PlayOneShot(_bulletSound);
         StartCoroutine(Effect());
-        Invoke("SetFalse", 7f);
+        Invoke("BulletDestroy", _lifeTime);
     }
 
     void Update()
     {
         if (Target != null)
         {
-            transform.LookAt(Target.position);
             Vector3 dir = Target.position - transform.position;
+
+            Quaternion targetRotation = Quaternion.LookRotation(dir);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+
             float distanceThisFrame = _speed * Time.deltaTime;
 
             if (dir.magnitude <= distanceThisFrame)
             {
                 BulletDestroy();
             }
-
-            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+            else
+            {
+                transform.Translate(Vector3.forward * distanceThisFrame);
+            }
         }
     }
 
@@ -50,7 +58,6 @@ public class Missile : MonoBehaviour
     {
         Instantiate(_flyEffect, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.05f);
-        Invoke("SetFalse", 7f);
         StartCoroutine(Effect());
     }
 
@@ -59,12 +66,7 @@ public class Missile : MonoBehaviour
         _audioSource.Play();
         StopAllCoroutines();
         Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-        gameObject.SetActive(false);
-    }
-
-    private void SetFalse()
-    {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision collision)
