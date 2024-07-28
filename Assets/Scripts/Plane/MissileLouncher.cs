@@ -20,6 +20,7 @@ public class MissileLouncher : MonoBehaviour, IService
     [SerializeField] private GameObject _gameCanvas;
 
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private string _targetTag = "Airdefence";
 
     private Camera _mainCamera;
     private Transform _target;
@@ -56,17 +57,17 @@ public class MissileLouncher : MonoBehaviour, IService
             _mainCamera.enabled = true;
         }
 
-        if (Input.GetButtonDown("Fire1") && _scopeCamera.enabled == true)
+        if (Input.GetButtonDown("Fire1") && _scopeCamera.enabled)
         {
             StartCoroutine(Shoot());
         }
 
-        if (_scopeCamera.enabled == true)
+        if (_scopeCamera.enabled)
         {
             RaycastHit hit;
             if (Physics.Raycast(_scopeCamera.transform.position, _scopeCamera.transform.forward, out hit))
             {
-                if (hit.collider.CompareTag("Plane"))
+                if (hit.collider.CompareTag(_targetTag))
                 {
                     if (!_targetSet)
                     {
@@ -78,6 +79,20 @@ public class MissileLouncher : MonoBehaviour, IService
                     if (!_audioSource.isPlaying)
                         _audioSource.Play();
                 }
+
+                else
+                {
+                    if (_targetSet)
+                    {
+                        _target = null;
+                        X3.SetActive(false);
+                        _targetSet = false;
+                    }
+
+                    if (_audioSource.isPlaying)
+                        _audioSource.Stop();
+                }
+
 
                 _distance = (int)hit.distance;
 

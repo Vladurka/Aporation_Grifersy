@@ -4,8 +4,8 @@ public class PlaneScopeCamera : MonoBehaviour
     [SerializeField] private float _mouseSensitivity = 100f;
     [SerializeField] private float _maxXRotation = 45f;
     [SerializeField] private float _minXRotation = -45f;
-    [SerializeField] private float _maxYRotation = 45f;
-    [SerializeField] private float _minYRotation = -45f;
+    [SerializeField] private float _maxYRotation = -45f;
+    [SerializeField] private float _minYRotation = -0;
     [SerializeField] private Camera _camera;
 
     private float xRotation = 0f;

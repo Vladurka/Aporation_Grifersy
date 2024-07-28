@@ -56,6 +56,11 @@ public class Minigun : MonoBehaviour
                 _mainCamera.enabled = true;
                 _thisCamera.enabled = false;
                 _canvas.enabled = false;
+
+                StopAllCoroutines();
+
+                if (_source.isPlaying)
+                    _source.Stop();
             }
 
         }
