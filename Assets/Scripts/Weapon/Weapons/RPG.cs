@@ -51,12 +51,12 @@ namespace Game.Weapon
 
         void Update()
         {
-            if (Input.GetButtonDown("Fire1") && _mainCamera.enabled == true)
+            if (Input.GetButtonDown("Fire1") && _mainCamera.enabled)
             {
                 StartCoroutine(Shoot(_mainCamera));
             }
 
-            if (Input.GetMouseButtonDown(0) && _aimCamera.enabled == true)
+            if (Input.GetMouseButtonDown(0) && _aimCamera.enabled)
             {
                 StartCoroutine(Shoot(_aimCamera));
             }
@@ -64,7 +64,7 @@ namespace Game.Weapon
 
         protected override IEnumerator Shoot(Camera cam)
         {
-            if (TotalBullets > 0 && _canShoot == true)
+            if (TotalBullets > 0 && _canShoot)
             {
                 _audioSource.Play();
                 _eventBus.Invoke(new RpgShootAnim());

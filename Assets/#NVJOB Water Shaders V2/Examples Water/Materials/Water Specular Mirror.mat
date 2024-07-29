@@ -14,7 +14,6 @@ Material:
   m_ValidKeywords:
   - EFFECT_ALBEDO2
   - EFFECT_FOAM
-  - EFFECT_MICROWAVE
   - EFFECT_MIRROR
   - EFFECT_NORMALMAP2
   - EFFECT_PARALLAX
@@ -124,11 +123,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap1:
-        m_Texture: {fileID: 2800000, guid: e7ee2ee1e448437e8de9a957ccc37298, type: 3}
+        m_Texture: {fileID: 2800000, guid: b4b23fc51ba94ffab43b9704acdd1bfb, type: 3}
         m_Scale: {x: 90, y: 90}
         m_Offset: {x: 0, y: 0}
     - _NormalMap2:
-        m_Texture: {fileID: 2800000, guid: b4b23fc51ba94ffab43b9704acdd1bfb, type: 3}
+        m_Texture: {fileID: 2800000, guid: e7ee2ee1e448437e8de9a957ccc37298, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -206,7 +205,7 @@ Material:
     - _MainDetailFlow: 0
     - _MainDetailScale: 3
     - _Metallic: 0
-    - _MicrowaveScale: 1
+    - _MicrowaveScale: 10
     - _MicrowaveStrength: 0.01
     - _MinuteDetailIntensity: 1.455
     - _MinuteDetailScrollSpeed: 0.089
@@ -221,10 +220,10 @@ Material:
     - _Mitigation: 22.4
     - _Mode: 0
     - _NormalDetailFlow: 1
-    - _NormalMap1Strength: 0.95
-    - _NormalMap2Flow: 0.5
-    - _NormalMap2Strength: 0.9
-    - _NormalMap2Tiling: -0.9
+    - _NormalMap1Strength: 10
+    - _NormalMap2Flow: 0.2
+    - _NormalMap2Strength: 10
+    - _NormalMap2Tiling: 125
     - _NormalStrength: 0.85
     - _NormalmapDetailScale: 0.7
     - _NormalmapDetailScaleA: 1
@@ -233,11 +232,11 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: -0.2
     - _ParallaxAmount: 0.3
-    - _ParallaxFlow: -100
+    - _ParallaxFlow: -50
     - _ParallaxMapTiling: 1
     - _ParallaxNoiseAmplitude: 2.5
     - _ParallaxNoiseFrequency: 1
-    - _ParallaxNoiseGain: 0.622
+    - _ParallaxNoiseGain: 0.581
     - _ParallaxNoiseLacunarity: 4
     - _ParallaxNoiseScale: 1.5
     - _ParallaxNormal2Offset: -1
