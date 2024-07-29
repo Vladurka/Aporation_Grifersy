@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6774664859055631882}
   - component: {fileID: 596835381074216409}
+  - component: {fileID: 1298121850190152393}
   m_Layer: 0
   m_Name: AGM65 Maverick_0.001 1
   m_TagString: Untagged
@@ -191,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6124342426887418005}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5014169, y: -0.49857804, z: -0.49840403, w: 0.501592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1058.681, y: 23.485, z: -97.462}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
@@ -202,7 +203,7 @@ Transform:
   - {fileID: 8893066769147650796}
   - {fileID: 4955002009654605782}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -89.98, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &596835381074216409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,16 +217,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 100
-  _speed: 600
+  _speed: 500
   _rotationSpeed: 100
-  _lifeTime: 10
+  _lifeTime: 30
+  _lfrResistent: 1
   _explosionEffect: {fileID: 198000012777718758, guid: 0e6591c39ca4e7846bd9c13ace5b2bc2, type: 3}
   _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
   _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}
   _tag1: Airdefence
-  _tag2: F-14
   _destroySound: {fileID: 8300000, guid: c2153dcd0edd22f40bdebf613271bae7, type: 3}
   Target: {fileID: 0}
+--- !u!65 &1298121850190152393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6124342426887418005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.025219722, y: 0.0032854646, z: 0.003310623}
+  m_Center: {x: -0.00035522698, y: 0.00017457038, z: 0.0000029373168}
 --- !u!1 &6700380921366825083
 GameObject:
   m_ObjectHideFlags: 0

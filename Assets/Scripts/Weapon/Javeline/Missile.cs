@@ -1,3 +1,5 @@
+using Game.SeniorEventBus.Signals;
+using Game.SeniorEventBus;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +9,7 @@ public class Missile : MonoBehaviour
     [SerializeField] private float _speed = 600f;
     [SerializeField] private float _rotationSpeed = 100f;
     [SerializeField] private float _lifeTime = 10f;
+    [SerializeField] private bool _lfrResistent = false;
 
 
     [Header("Effects")]
@@ -15,27 +18,24 @@ public class Missile : MonoBehaviour
 
     [SerializeField] private AudioClip _bulletSound;
     [SerializeField] private string _tag1 = "Player";
-    [SerializeField] private string _tag2 = "AirDefence";
-
-    private GameObject _obj1;
-    private GameObject _obj2;
 
     [SerializeField] private AudioClip _destroySound;
 
+    private GameObject _obj1;
     private AudioSource _audioSource;
-    private AudioSource _audioSourceBase;
-
 
     [HideInInspector] public Transform Target;
+
+    private EventBus _eventBus;
 
 
     private void Start()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Subscribe<ShootFLR>(FLR, 1);
+
         _obj1 = GameObject.FindGameObjectWithTag(_tag1);
-        _obj2 = GameObject.FindGameObjectWithTag(_tag2);
         _audioSource = _obj1.GetComponent<AudioSource>();
-        _audioSourceBase = _obj2.GetComponent<AudioSource>();
-        _audioSourceBase.PlayOneShot(_bulletSound);
         StartCoroutine(Effect());
         Invoke("BulletDestroy", _lifeTime);
     }
@@ -59,7 +59,7 @@ public class Missile : MonoBehaviour
                 transform.Translate(Vector3.forward * distanceThisFrame);
             }
 
-            transform.LookAt(Target);
+            transform.LookAt(Target.position);
         }
     }
 
@@ -87,5 +87,24 @@ public class Missile : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         BulletDestroy();
+    }
+
+    private void FLR(ShootFLR flr)
+    {
+        if(!_lfrResistent)
+        {
+            int index;
+            index = Random.Range(0, 6);
+
+            if(index == 0)
+            {
+                Target = flr.Target;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _eventBus.Unsubscribe<ShootFLR>(FLR);
     }
 }

@@ -11,6 +11,7 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
     private MeshRenderer[] _meshRenderer;
 
     private bool _gotDamage = false;
+    private bool _isDead = false;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
             _gotDamage = true;
         }
 
-        if (_health <= 0)
+        if (_health <= 0 && !_isDead)
             Die();
     }
 
@@ -42,5 +43,6 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
             mesh.material = _destoyedMaterial;
 
         _airDefence.StopAllCoroutines();
+        _isDead = true;
     }
 }

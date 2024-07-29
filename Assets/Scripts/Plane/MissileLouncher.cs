@@ -20,7 +20,10 @@ public class MissileLouncher : MonoBehaviour, IService
     [SerializeField] private GameObject _gameCanvas;
 
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSourceLounch;
     [SerializeField] private string _targetTag = "Airdefence";
+
+    [SerializeField] private Text _rocketText;
 
     private Camera _mainCamera;
     private Transform _target;
@@ -34,6 +37,8 @@ public class MissileLouncher : MonoBehaviour, IService
         _mainCamera.enabled = true;
 
         X3.SetActive(false);
+
+        _rocketText.text = _missilesAmount.ToString();
 
     }
 
@@ -126,6 +131,8 @@ public class MissileLouncher : MonoBehaviour, IService
     {
         if (_missilesAmount > 0 && _target != null)
         {
+            _audioSourceLounch.Play();
+
             int index = Random.Range(0, _missile.Count + 1);
 
             GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
@@ -136,6 +143,8 @@ public class MissileLouncher : MonoBehaviour, IService
             _missile.Remove(_missile[index]);
             
             _missilesAmount--;
+
+            _rocketText.text = _missilesAmount.ToString();
         }
        
         yield return null;

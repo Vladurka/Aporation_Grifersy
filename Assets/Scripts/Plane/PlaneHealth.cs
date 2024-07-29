@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlaneHealth : MonoBehaviour, ITargetHealth
@@ -13,6 +14,7 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
     private Rigidbody _rb;
 
     private PlaneScopeCamera _scopeCamera;
+    private PlaneController _controller;
 
     public void Init()
     {
@@ -62,6 +64,16 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
 
         foreach (MeshRenderer mesh in _meshRenderer)
             mesh.material = _destoyedMaterial;
+
+        StartCoroutine(Stopping());
+    }
+
+    private IEnumerator Stopping()
+    {
+        _controller.FlySpeed -= 3;
+
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(Stopping());
     }
 
 }

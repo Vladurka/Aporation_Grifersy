@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class PlaneController : MonoBehaviour, IService
 {
     public float FlySpeed;
@@ -20,6 +21,9 @@ public class PlaneController : MonoBehaviour, IService
 
     [SerializeField] private float _flapSpeed = 15f;
     [SerializeField] private float _flapAngle = 20f;
+
+    [SerializeField] private Text _speedText;
+    [SerializeField] private Text _forceText;
 
     private float _pitchSmoothness;
     private float _rollSmoothness;
@@ -101,6 +105,12 @@ public class PlaneController : MonoBehaviour, IService
 
     private void Update()
     {
+        int convertedSpeed = (int)FlySpeed * 3;
+        _speedText.text = convertedSpeed.ToString() + " km/h";
+
+        int convertedPower = (int)FlySpeed / 4;
+        _forceText.text = convertedPower.ToString() + " %";
+
         if (FlySpeed <= _minSpeed)
         {
             _pitchSmoothness = FlySpeed / 20f;

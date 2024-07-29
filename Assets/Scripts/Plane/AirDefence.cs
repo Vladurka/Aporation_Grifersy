@@ -10,6 +10,8 @@ public class AirDefence : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private Transform _spawnPosition;
 
+    [SerializeField] private AudioSource _audioSourceLaunch;
+
     private void Start()
     {
         StartCoroutine(Shoot());
@@ -35,6 +37,7 @@ public class AirDefence : MonoBehaviour
             GameObject missileObject = Instantiate(_missile, _spawnPosition.position, _spawnPosition.rotation);
             Missile missile = missileObject.GetComponent<Missile>();
             missile.Target = _target;
+            _audioSourceLaunch.Play();
         }
         StartCoroutine(Shoot());
     }
