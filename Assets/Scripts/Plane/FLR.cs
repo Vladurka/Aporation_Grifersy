@@ -9,6 +9,6 @@ public class FLR : MonoBehaviour
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Invoke(new ShootFLR(gameObject.transform));
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 20f);
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6936214968677565542}
   m_Layer: 0
   m_Name: item_rocket_low
-  m_TagString: Untagged
+  m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 50
-  _speed: 600
+  _speed: 700
   _rotationSpeed: 80
-  _lifeTime: 10
+  _lifeTime: 20
+  _lfrResistent: 0
   _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   _flyEffect: {fileID: 19800002, guid: 06d796ccd85dc4c4b9c98270196715ae, type: 3}
   _bulletSound: {fileID: 8300000, guid: 97141086626777f4088bb5606496405a, type: 3}

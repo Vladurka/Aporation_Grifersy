@@ -44,5 +44,7 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
 
         _airDefence.StopAllCoroutines();
         _isDead = true;
+
+        gameObject.tag = "Untagged";
     }
 }
