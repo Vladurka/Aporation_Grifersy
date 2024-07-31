@@ -1,3 +1,5 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
 public class TargetHealth : MonoBehaviour, ITargetHealth
@@ -9,12 +11,16 @@ public class TargetHealth : MonoBehaviour, ITargetHealth
     private AirDefence _airDefence;
 
     private MeshRenderer[] _meshRenderer;
+    private EventBus _eventBus;
 
     private bool _gotDamage = false;
     private bool _isDead = false;
 
     private void Start()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Invoke(new AddObj(gameObject));
+
         _meshRenderer = GetComponentsInChildren<MeshRenderer>();
         _airDefence = GetComponent<AirDefence>();
 
@@ -48,5 +54,6 @@ public class TargetHealth : MonoBehaviour, ITargetHealth
         _isDead = true;
 
         gameObject.tag = "Untagged";
+        _eventBus.Invoke(new RemoveObj(gameObject));
     }
 }

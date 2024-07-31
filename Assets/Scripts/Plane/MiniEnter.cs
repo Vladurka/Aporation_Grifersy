@@ -11,13 +11,11 @@ public class MiniEnter : MonoBehaviour
 
     private EnemyListController _enemyListController;
     private EventBus _eventBus;
-    private CoinSystem _coinSystem;
 
     private void Awake()
     {
         _enemyListController = new EnemyListController();
         _eventBus = new EventBus();
-        _coinSystem = new CoinSystem();
 
         Register();
         Init();
@@ -31,13 +29,13 @@ public class MiniEnter : MonoBehaviour
         _missileLouncher.Init();
         _planeHealth.Init();
         _gameUI.Init();
+        _enemyListController.Init();
     }
     private void Register()
     {
         ServiceLocator.Initialize();
 
         ServiceLocator.Current.Register(_eventBus);
-        ServiceLocator.Current.Register(_coinSystem);
         ServiceLocator.Current.Register(_enemyListController);
         ServiceLocator.Current.Register<PlaneController>(_planeController);
         ServiceLocator.Current.Register<StopDetector>(_stopDetector);
