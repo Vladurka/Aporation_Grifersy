@@ -23,7 +23,7 @@ public class MissileLouncher : MonoBehaviour, IService
     [SerializeField] private AudioSource _audioSourceLounch;
 
     [SerializeField] private string _airdefenceTag = "Airdefence";
-    [SerializeField] private string _tankTag = "Tank";
+    [SerializeField] private string _rlsTag = "RLS";
     [SerializeField] private string _helicopterTag = "Helicopter";
 
     [SerializeField] private Text _rocketText;
@@ -75,7 +75,7 @@ public class MissileLouncher : MonoBehaviour, IService
             RaycastHit hit;
             if (Physics.Raycast(_scopeCamera.transform.position, _scopeCamera.transform.forward, out hit))
             {
-                if (hit.collider.CompareTag(_airdefenceTag) || hit.collider.CompareTag(_tankTag) || hit.collider.CompareTag(_helicopterTag))
+                if (hit.collider.CompareTag(_airdefenceTag) || hit.collider.CompareTag(_rlsTag) || hit.collider.CompareTag(_helicopterTag))
                 {
                     if (!_targetSet)
                     {
