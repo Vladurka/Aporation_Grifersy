@@ -21,7 +21,6 @@ public class SoldierShoot : MonoBehaviour
         if (Physics.Raycast(_shootPosition.position, _shootPosition.forward, out hit))
         {
             _animator.SetTrigger("Shoot");
-            Debug.Log("Shoot");
 
             if (hit.collider.TryGetComponent(out IPlayerHealth player))
                 player.GetDamage(_damage);

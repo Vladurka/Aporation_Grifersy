@@ -33,6 +33,8 @@ public class MissileLouncher : MonoBehaviour, IService
     private bool _targetSet = false;
     private int _distance;
 
+    private int _index = 0;
+
     public void Init()
     {
         _mainCamera = Camera.main;
@@ -132,22 +134,21 @@ public class MissileLouncher : MonoBehaviour, IService
 
     private IEnumerator Shoot()
     {
-        if (_missilesAmount > 0 && _target != null)
+        if (_missilesAmount > 0 && _target != null && _index < 8)
         {
             _audioSourceLounch.Play();
-
-            int index = Random.Range(0, _missile.Count + 1);
 
             GameObject missileObject = Instantiate(_bullet, _spawnPosition.position, _spawnPosition.rotation);
             Missile missile = missileObject.GetComponent<Missile>();
             missile.Target = _target;
 
-            _missile[index].SetActive(false);
-            _missile.Remove(_missile[index]);
-            
+            _missile[_index].SetActive(false);
+
+            _missile.Remove(_missile[_index]);
             _missilesAmount--;
 
             _rocketText.text = _missilesAmount.ToString();
+            _index++;
         }
        
         yield return null;
