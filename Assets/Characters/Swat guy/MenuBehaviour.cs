@@ -15,14 +15,20 @@ public class MenuBehaviour : MonoBehaviour
 
     private IEnumerator Animation()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(10f);
 
-        _index = Random.Range(0, 2);
+        _index = Random.Range(0, 4);
         if(_index == 0 )
             _animator.SetTrigger("sho");
 
         if(_index == 1 )
             _animator.SetTrigger("rotation");
+
+        if (_index == 2)
+            _animator.SetTrigger("backflip");
+
+        if (_index == 3)
+            _animator.SetTrigger("warming");
 
         StartCoroutine(Animation());
     }
