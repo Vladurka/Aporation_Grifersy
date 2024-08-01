@@ -1,3 +1,5 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using System.Collections;
 using UnityEngine;
 
@@ -7,9 +9,12 @@ public class StopDetector : MonoBehaviour, IService
 
     private PlaneController _controller;
 
+    private EventBus _eventBus;
+
     public void Init()
     {
         _controller = ServiceLocator.Current.Get<PlaneController>();
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +42,7 @@ public class StopDetector : MonoBehaviour, IService
 
     public IEnumerator Stoping(float stopForce)
     {
-        if(_controller.FlySpeed > 0)
+        if (_controller.FlySpeed > 0)
         {
             _controller.FlySpeed -= stopForce;
             _controller.CanFly = false;
@@ -50,6 +55,9 @@ public class StopDetector : MonoBehaviour, IService
         }
 
         else
+        {
+            _eventBus.Invoke(new EndSignal());
             yield return null;
+        }
     }
 }

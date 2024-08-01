@@ -79,8 +79,8 @@ public class Minigun : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, _range))
             {
-                //if (hit.collider.TryGetComponent(out ITargetHealth target))
-                //    target.GetDamage(3f);
+                if (hit.collider.TryGetComponent(out ITargetHealth target))
+                    target.GetDamage(3f);
             }
 
             yield return new WaitForSeconds(0.01f);

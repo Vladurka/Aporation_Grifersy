@@ -3,8 +3,6 @@ using UnityEngine;
 public class AirDefence : MonoBehaviour
 {
     [SerializeField] private float _range = 2000f;
-    [SerializeField] private float _time = 15f;
-    [SerializeField] private float _rotationSpeed = 5f;
 
     [SerializeField] private GameObject _missile;
     [SerializeField] private Transform _target;
@@ -12,21 +10,13 @@ public class AirDefence : MonoBehaviour
 
     [SerializeField] private AudioSource _audioSourceLaunch;
 
+    private float _time;
+
     private void Start()
     {
+        _time = Random.Range(15, 26);
         StartCoroutine(Shoot());
     }
-
-    //private void Update()
-    //{
-    //    if (_target != null)
-    //    {
-    //        Vector3 direction = _target.transform.position - transform.position;
-    //        direction.y = 0; 
-    //        Quaternion rotation = Quaternion.LookRotation(direction);
-    //        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
-    //    }
-    //}
 
     private IEnumerator Shoot()
     {
@@ -39,6 +29,8 @@ public class AirDefence : MonoBehaviour
             missile.Target = _target;
             _audioSourceLaunch.Play();
         }
+
+        _time = Random.Range(15, 26);
         StartCoroutine(Shoot());
     }
 }

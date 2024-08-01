@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 50
-  _speed: 700
-  _rotationSpeed: 80
+  _speed: 650
+  _rotationSpeed: 75
   _lifeTime: 20
   _lfrResistent: 0
   _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
