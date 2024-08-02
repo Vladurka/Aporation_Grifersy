@@ -14432,7 +14432,7 @@ GameObject:
   - component: {fileID: 198000012777718758}
   - component: {fileID: 199000010553669322}
   m_Layer: 0
-  m_Name: PlaneExplosion
+  m_Name: PLaneExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
