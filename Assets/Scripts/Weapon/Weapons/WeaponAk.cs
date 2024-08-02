@@ -20,6 +20,7 @@ namespace Game.Weapon
         [SerializeField] private AudioClip _noBulletsSound;
 
         [SerializeField] private int _maxBullets = 30;
+        [SerializeField] private float _interval = 0.12f;
 
         private bool _canShoot = true;
 
@@ -84,6 +85,7 @@ namespace Game.Weapon
             if (Bullets > 0 && _canShoot == true)
             {
                 _eventBus.Invoke(new AkShootAnim());
+                //StartCoroutine(Shake(_interval, 0.2f, _cam));
 
                 RaycastHit hit;
                 if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
@@ -105,7 +107,7 @@ namespace Game.Weapon
                 _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
 
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(_interval);
 
                 StartCoroutine(Shoot(_cam));
             }
@@ -115,6 +117,27 @@ namespace Game.Weapon
                 _audioSource.PlayOneShot(_noBulletsSound);
                 yield return null;
             }
+        }
+
+        private IEnumerator Shake(float duration, float magnitude, Camera cam)
+        {
+            Vector3 originalPosition = cam.transform.localPosition;
+
+            float elapsed = 0.0f;
+
+            while (elapsed < duration)
+            {
+                float x = Random.Range(-1f, 1f) * magnitude;
+                float y = Random.Range(-1f, 1f) * magnitude;
+
+                cam.transform.localPosition = new Vector3(x, y, originalPosition.z);
+
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+
+            cam.transform.localPosition = originalPosition;
         }
 
         private void AddBullets(BuyAkBullets bullets)
