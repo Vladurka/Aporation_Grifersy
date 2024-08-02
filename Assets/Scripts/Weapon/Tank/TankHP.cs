@@ -34,20 +34,17 @@ public class TankHP : MonoBehaviour, ITankHealth
     {
         if (!_isDead)
         {
-            foreach (MeshRenderer material in _renderers)
+            foreach (MeshRenderer renderer in _renderers)
             {
-                foreach (MeshRenderer renderer in _renderers)
+                Material[] materials = renderer.materials;
+
+                Material[] newMaterials = new Material[materials.Length];
+
+                for (int i = 0; i < newMaterials.Length; i++)
                 {
-                    Material[] materials = renderer.materials;
-
-                    Material[] newMaterials = new Material[materials.Length];
-
-                    for (int i = 0; i < newMaterials.Length; i++)
-                    {
-                        newMaterials[i] = _material;
-                    }
-                    renderer.materials = newMaterials;
+                    newMaterials[i] = _material;
                 }
+                renderer.materials = newMaterials;
             }
 
             Instantiate(_explosion, _pos.position, Quaternion.identity);

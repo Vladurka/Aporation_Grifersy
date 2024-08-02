@@ -35,4 +35,26 @@ public class SkinInfo : MonoBehaviour
         PlayerPrefs.SetInt(_skinData.Key, 0);
         PlayerPrefs.Save();
     }
+
+    public void SkinPreview(Material material)
+    {
+        if (transform.TryGetComponent(out MeshRenderer meshRenderer))
+        {
+            meshRenderer.material = material;
+        }
+
+        if (transform.TryGetComponent(out SkinnedMeshRenderer skinnedMeshRenderer))
+        {
+            if(!transform.CompareTag("Gloves"))
+                skinnedMeshRenderer.material = material;
+
+            if (transform.CompareTag("Gloves"))
+            {
+                Material[] Materials = skinnedMeshRenderer.materials;
+                Materials[1] = material;
+                skinnedMeshRenderer.materials = Materials;
+            }
+
+        }
+    }
 }

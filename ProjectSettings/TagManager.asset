@@ -19,6 +19,7 @@ TagManager:
   - Missile
   - Airdefence
   - RLS
+  - Gloves
   layers:
   - Default
   - TransparentFX
