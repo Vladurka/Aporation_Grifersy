@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class TankHP : MonoBehaviour, ITankHealth
 {
-    [SerializeField] private ParticleSystem _effect;
+    [SerializeField] private ParticleSystem _explosion;
+    [SerializeField] private ParticleSystem _fire;
     [SerializeField] private Transform _pos;
     [SerializeField] private Material _material;
 
-    [SerializeField] private MeshRenderer _renderer;
-    private MeshRenderer _thisRenderer;
-    private MeshRenderer _gunRender;
+    [SerializeField] private MeshRenderer[] _renderers;
 
     private bool _isDead = false;
 
@@ -19,21 +18,39 @@ public class TankHP : MonoBehaviour, ITankHealth
 
     private void Start()
     {
-        _thisRenderer = GetComponent<MeshRenderer>();
-        _gunRender = GetComponentInChildren<MeshRenderer>();
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-
+        _eventBus.Invoke(new AddObj(gameObject));
         _rb = GetComponent<Rigidbody>();
+        _fire.Stop();
     }
+
+    private void OnEnable()
+    {
+        if(!_isDead)
+            _fire.Stop();
+    }
+
     public void Destroy()
     {
         if (!_isDead)
         {
-            _thisRenderer.material = _material;
-            _gunRender.material = _material;
-            _renderer.material = _material;
+            foreach (MeshRenderer material in _renderers)
+            {
+                foreach (MeshRenderer renderer in _renderers)
+                {
+                    Material[] materials = renderer.materials;
 
-            Instantiate(_effect, _pos.position, Quaternion.identity);
+                    Material[] newMaterials = new Material[materials.Length];
+
+                    for (int i = 0; i < newMaterials.Length; i++)
+                    {
+                        newMaterials[i] = _material;
+                    }
+                    renderer.materials = newMaterials;
+                }
+            }
+
+            Instantiate(_explosion, _pos.position, Quaternion.identity);
 
             float x = Random.Range(0f, 6f);
             float y = Random.Range(0f, 6f);
@@ -42,7 +59,8 @@ public class TankHP : MonoBehaviour, ITankHealth
             Vector3 dir = new Vector3(x, y, z);
             _rb.AddForce(dir * 2f, ForceMode.Impulse);
             _eventBus.Invoke(new DestroyTank());
-            _eventBus.Invoke(new EndSignal());
+            _eventBus.Invoke(new RemoveObj(gameObject));
+            _fire.Play();
             _isDead = true;
         }
     }
