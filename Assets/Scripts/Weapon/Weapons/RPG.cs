@@ -67,6 +67,7 @@ namespace Game.Weapon
             if (TotalBullets > 0 && _canShoot)
             {
                 _audioSource.Play();
+                _eventBus.Invoke(new ShakeCamera(0.5f, 0.5f));
                 _eventBus.Invoke(new RpgShootAnim());
 
                 Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));

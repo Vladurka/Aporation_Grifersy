@@ -56,7 +56,7 @@ namespace Game.Weapon
         {
             if (Input.GetButtonDown("Fire1") )
             {
-                if (_mainCamera.enabled == true)
+                if (_mainCamera.enabled)
                 {
                     StartCoroutine(Shoot(_mainCamera));
                 }
@@ -82,10 +82,10 @@ namespace Game.Weapon
 
         protected override IEnumerator Shoot(Camera _cam)
         {
-            if (Bullets > 0 && _canShoot == true)
+            if (Bullets > 0 && _canShoot)
             {
+                _eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
                 _eventBus.Invoke(new AkShootAnim());
-                //StartCoroutine(Shake(_interval, 0.2f, _cam));
 
                 RaycastHit hit;
                 if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
@@ -117,27 +117,6 @@ namespace Game.Weapon
                 _audioSource.PlayOneShot(_noBulletsSound);
                 yield return null;
             }
-        }
-
-        private IEnumerator Shake(float duration, float magnitude, Camera cam)
-        {
-            Vector3 originalPosition = cam.transform.localPosition;
-
-            float elapsed = 0.0f;
-
-            while (elapsed < duration)
-            {
-                float x = Random.Range(-1f, 1f) * magnitude;
-                float y = Random.Range(-1f, 1f) * magnitude;
-
-                cam.transform.localPosition = new Vector3(x, y, originalPosition.z);
-
-                elapsed += Time.deltaTime;
-
-                yield return null;
-            }
-
-            cam.transform.localPosition = originalPosition;
         }
 
         private void AddBullets(BuyAkBullets bullets)

@@ -32,9 +32,16 @@ public class Striker : AbstractTransport
     [Header("Stats")]
     [SerializeField] private float _maxAngle = 30f;
     [SerializeField] private float _brakeTorque = 5000f;
+    [SerializeField] private float _antiRoll = 5000f;
+
+    [SerializeField] private Transform _center;
 
     private EventBus _eventBus;
-    private Rigidbody _rb;
+    [SerializeField] private Rigidbody _rb;
+
+    private bool _crabMode = false;
+    private bool _frontWheelDriveMode = true;
+    private bool _breakeMode = false;
 
     public override void Init()
     {
@@ -49,30 +56,18 @@ public class Striker : AbstractTransport
     private void OnEnable()
     {
         //_audioSourceStart.Play();
+        //_rb.centerOfMass = _center.position;
+
+       
     }
 
     private void FixedUpdate()
     {
         Move();
-
-        //if (_rb.velocity.magnitude >= 2f)
-        //{
-        //    _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
-        //    if (!_audioSourceDrive.isPlaying)
-        //    {
-        //        _audioSourceDrive.Play();
-        //        _audioSourceIdle.Stop();
-        //    }
-        //}
-
-        //if (_rb.velocity.magnitude < 2f)
-        //{
-        //    if (!_audioSourceIdle.isPlaying)
-        //    {
-        //        _audioSourceIdle.Play();
-        //        _audioSourceDrive.Stop();
-        //    }
-        //}
+        AntiRollBar(_colliderFR, _colliderFL);
+        AntiRollBar(_colliderFMR, _colliderFML);
+        AntiRollBar(_colliderBMR, _colliderBML);
+        AntiRollBar(_colliderBR, _colliderBL);
     }
 
 
@@ -82,6 +77,10 @@ public class Striker : AbstractTransport
         _colliderFL.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
         _colliderFMR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
         _colliderFML.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
+        _colliderBR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
+        _colliderBL.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
+        _colliderBMR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
+        _colliderBML.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
 
 
         if (Input.GetKey(KeyCode.Space))
@@ -109,10 +108,51 @@ public class Striker : AbstractTransport
             _colliderBL.brakeTorque = 0f;
         }
 
-        _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-        _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-        _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-        _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+
+        if (!_crabMode)
+        {
+            if (_frontWheelDriveMode)
+            {
+                _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            }
+
+            if(!_frontWheelDriveMode)
+            {
+                _colliderBR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderBL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderBMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderBML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            }
+        }
+
+        if(_breakeMode)
+        {
+            _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderBR.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
+            _colliderBL.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
+            _colliderBMR.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
+            _colliderBML.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
+        }
+
+        if(_crabMode)
+        {
+            _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderBR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderBL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderBMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderBML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+        }
+
+
 
         RotateWheel(_colliderFR, _transformFR);
         RotateWheel(_colliderFMR, _transformFMR);
@@ -123,6 +163,29 @@ public class Striker : AbstractTransport
         RotateWheel(_colliderBML, _transformBML);
         RotateWheel(_colliderBL, _transformBL);
     }
+    private void AntiRollBar(WheelCollider wheelL, WheelCollider wheelR)
+    {
+        WheelHit hit;
+        float travelL = 1.0f;
+        float travelR = 1.0f;
+
+        bool groundedL = wheelL.GetGroundHit(out hit);
+        if (groundedL)
+            travelL = (-wheelL.transform.InverseTransformPoint(hit.point).y - wheelL.radius) / wheelL.suspensionDistance;
+
+        bool groundedR = wheelR.GetGroundHit(out hit);
+        if (groundedR)
+            travelR = (-wheelR.transform.InverseTransformPoint(hit.point).y - wheelR.radius) / wheelR.suspensionDistance;
+
+        float antiRollForce = (travelL - travelR) * _antiRoll;
+
+        if (groundedL)
+            GetComponent<Rigidbody>().AddForceAtPosition(wheelL.transform.up * -antiRollForce, wheelL.transform.position);
+
+        if (groundedR)
+            GetComponent<Rigidbody>().AddForceAtPosition(wheelR.transform.up * antiRollForce, wheelR.transform.position);
+    }
+
     private void RotateWheel(WheelCollider collider, Transform transform)
     {
         Vector3 position;
@@ -136,9 +199,65 @@ public class Striker : AbstractTransport
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            if (_crabMode)
+            {
+                _crabMode = false;
+                _forwardSpeed = _forwardSpeed * 3f;
+            }
+
+            else
+            {
+                _crabMode = true;
+                _forwardSpeed = _forwardSpeed / 3f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (_frontWheelDriveMode)
+                _frontWheelDriveMode = false;
+
+            else
+                _frontWheelDriveMode = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            if (_breakeMode)
+            {
+                _breakeMode = false;
+            }
+
+            else
+            {
+                _breakeMode = true;
+            }
+        }
+
         //if (Input.GetKeyDown(KeyCode.E))
         //{
         //    Exit();
+        //}
+
+        //if (_rb.velocity.magnitude >= 2f)
+        //{
+        //    _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
+        //    if (!_audioSourceDrive.isPlaying)
+        //    {
+        //        _audioSourceDrive.Play();
+        //        _audioSourceIdle.Stop();
+        //    }
+        //}
+
+        //if (_rb.velocity.magnitude < 2f)
+        //{
+        //    if (!_audioSourceIdle.isPlaying)
+        //    {
+        //        _audioSourceIdle.Play();
+        //        _audioSourceDrive.Stop();
+        //    }
         //}
     }
 
