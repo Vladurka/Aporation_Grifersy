@@ -17,12 +17,8 @@ public class Missile : MonoBehaviour
     [SerializeField] private ParticleSystem _flyEffect;
 
     [SerializeField] private AudioClip _bulletSound;
-    [SerializeField] private string _tag1 = "Player";
 
     [SerializeField] private AudioClip _destroySound;
-
-    private GameObject _obj1;
-    private AudioSource _audioSource;
 
     [HideInInspector] public Transform Target;
 
@@ -34,8 +30,6 @@ public class Missile : MonoBehaviour
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<ShootFLR>(FLR, 1);
 
-        _obj1 = GameObject.FindGameObjectWithTag(_tag1);
-        _audioSource = _obj1.GetComponent<AudioSource>();
         StartCoroutine(Effect());
         Invoke("BulletDestroy", _lifeTime);
     }
@@ -77,8 +71,10 @@ public class Missile : MonoBehaviour
         {
             if (hit.TryGetComponent(out ITargetHealth target))
                 target.GetDamage(_damage);
+
+            if(hit.TryGetComponent(out AudioSource audioSource))
+                audioSource.PlayOneShot(_destroySound);
         }
-        _audioSource.PlayOneShot(_destroySound);
         StopAllCoroutines();
         Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
