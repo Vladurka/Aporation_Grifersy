@@ -57,14 +57,10 @@ namespace Game.Weapon
             if (Input.GetButtonDown("Fire1") )
             {
                 if (_mainCamera.enabled)
-                {
                     StartCoroutine(Shoot(_mainCamera));
-                }
 
-                else
-                {
+                if (_aimCamera.enabled)
                     StartCoroutine(Shoot(_aimCamera));
-                }
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -84,8 +80,8 @@ namespace Game.Weapon
         {
             if (Bullets > 0 && _canShoot)
             {
-                _eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
                 _eventBus.Invoke(new AkShootAnim());
+                _eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
 
                 RaycastHit hit;
                 if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))

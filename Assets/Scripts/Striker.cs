@@ -2,7 +2,7 @@ using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
 
-public class Striker : AbstractTransport
+public class Striker : MonoBehaviour
 {
     [Header("Sound")]
     [SerializeField] private AudioSource _audioSourceDrive;
@@ -30,11 +30,10 @@ public class Striker : AbstractTransport
     [SerializeField] private WheelCollider _colliderBL;
 
     [Header("Stats")]
+    [SerializeField] private float _forwardSpeed = 750f;
     [SerializeField] private float _maxAngle = 30f;
     [SerializeField] private float _brakeTorque = 5000f;
     [SerializeField] private float _antiRoll = 5000f;
-
-    [SerializeField] private Transform _center;
 
     private EventBus _eventBus;
     [SerializeField] private Rigidbody _rb;
@@ -43,7 +42,7 @@ public class Striker : AbstractTransport
     private bool _frontWheelDriveMode = true;
     private bool _breakeMode = false;
 
-    public override void Init()
+    public void Init()
     {
         //_eventBus = ServiceLocator.Current.Get<EventBus>();
         //_camera.enabled = false;
@@ -51,14 +50,6 @@ public class Striker : AbstractTransport
         //_rb = GetComponent<Rigidbody>();
         //_audioListener = GetComponentInChildren<AudioListener>();
         //_audioListener.enabled = false;
-    }
-
-    private void OnEnable()
-    {
-        //_audioSourceStart.Play();
-        //_rb.centerOfMass = _center.position;
-
-       
     }
 
     private void FixedUpdate()
@@ -71,7 +62,7 @@ public class Striker : AbstractTransport
     }
 
 
-    protected override void Move()
+    protected void Move()
     {
         _colliderFR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
         _colliderFL.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
@@ -236,11 +227,6 @@ public class Striker : AbstractTransport
             }
         }
 
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Exit();
-        //}
-
         //if (_rb.velocity.magnitude >= 2f)
         //{
         //    _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
@@ -259,53 +245,6 @@ public class Striker : AbstractTransport
         //        _audioSourceDrive.Stop();
         //    }
         //}
-    }
-
-
-    public override void Exit()
-    {
-        if (ConstSystem.CanExit)
-        {
-            _colliderFR.brakeTorque = 2000f;
-            _colliderFMR.brakeTorque = 2000f;
-            _colliderBMR.brakeTorque = 2000f;
-            _colliderBR.brakeTorque = 2000f;
-
-            _colliderFL.brakeTorque = 2000f;
-            _colliderFML.brakeTorque = 2000f;
-            _colliderBML.brakeTorque = 2000f;
-            _colliderBL.brakeTorque = 2000f;
-
-            _audioSourceDrive.Stop();
-            _audioSourceIdle.Stop();
-            _audioSourceStart.Stop();
-
-            _camera.enabled = false;
-            _mainCharacter.transform.position = _spawnCharacter.position;
-            _mainCharacter.SetActive(true);
-            _eventBus.Invoke(new SetSpeedometer(false));
-            this.enabled = false;
-            ConstSystem.InTransport = false;
-            ConstSystem.InCar = false;
-            _audioListener.enabled = false;
-        }
-    }
-
-    public override void Enter()
-    {
-        this.enabled = true;
-        _camera.enabled = true;
-        _mainCharacter.SetActive(false);
-        _eventBus.Invoke(new SetCurrentBullets(false));
-        _eventBus.Invoke(new SetTotalBullets(false));
-        ConstSystem.InTransport = true;
-        ConstSystem.InCar = true;
-        _audioListener.enabled = true;
-    }
-
-    public override void TransportReset()
-    {
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
     }
 }
 

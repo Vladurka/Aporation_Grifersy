@@ -20,7 +20,7 @@ public class Scoping : MonoBehaviour
 
         _mainCamera.enabled = true;
     }
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButton(1))
         {
