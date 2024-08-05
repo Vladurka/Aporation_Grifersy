@@ -20,27 +20,25 @@ public class PlaneScopeCamera : MonoBehaviour
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
-
-        yRotation += mouseX;
-        xRotation -= mouseY;
-
-        xRotation = Mathf.Clamp(xRotation, _minXRotation, _maxXRotation);
-
-        yRotation = Mathf.Clamp(yRotation, _minYRotation, _maxYRotation);
-
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
         if (_camera.enabled)
         {
+            float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
+
+            yRotation += mouseX;
+            xRotation -= mouseY;
+
+            xRotation = Mathf.Clamp(xRotation, _minXRotation, _maxXRotation);
+
+            yRotation = Mathf.Clamp(yRotation, _minYRotation, _maxYRotation);
+
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
             if (Input.GetKey(KeyCode.E) && _camera.fieldOfView >= 10f)
                 _camera.fieldOfView -= 0.05f;
 
             if (Input.GetKey(KeyCode.Q) && _camera.fieldOfView <= 70f)
                 _camera.fieldOfView += 0.05f;
         }
-
-
     }
 }

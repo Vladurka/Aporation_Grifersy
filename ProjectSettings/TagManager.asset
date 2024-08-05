@@ -20,6 +20,7 @@ TagManager:
   - Airdefence
   - RLS
   - Gloves
+  - Stryker
   layers:
   - Default
   - TransparentFX

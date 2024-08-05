@@ -10,7 +10,9 @@ public class TransportCamera : MonoBehaviour
     [SerializeField] private float _ySpeed = 120.0f;
 
     [SerializeField] private float _yMinLimit = -20f;
-    [SerializeField] private float _yMaxLimit = 80f; 
+    [SerializeField] private float _yMaxLimit = 80f;
+
+    private Camera _camera;
 
     private float _x = 0.0f;
     private float _y = 0.0f;
@@ -27,11 +29,12 @@ public class TransportCamera : MonoBehaviour
         }
 
         Cursor.lockState = CursorLockMode.Locked;
+        _camera = GetComponent<Camera>();
     }
 
     void LateUpdate()
     {
-        if (_target)
+        if (_camera.enabled)
         {
             _x += Input.GetAxis("Mouse X") * _xSpeed * 0.02f;
             _y -= Input.GetAxis("Mouse Y") * _ySpeed * 0.02f;

@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Minigun : MonoBehaviour
 {
+    [SerializeField] private float _interval = 0.01f;
+    [SerializeField] private float _shootForce = 10f;
+    [SerializeField] private GameObject _bullet;
+    [SerializeField] private Transform _position;
+    [SerializeField] private Transform _bulletPos;
     [SerializeField] private Camera _scopeCamera;
     [SerializeField] private Camera _thisCamera;
     private Camera _mainCamera;
@@ -41,13 +46,16 @@ public class Minigun : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!_isThisCamera && !_scopeCamera.enabled)
+            if (!_isThisCamera)
             {
-                _mainCamera.enabled = false;
-                _isThisCamera = true;
-                _scopeCamera.enabled = false;
-                _thisCamera.enabled = true;
-                _canvas.enabled = true;
+                if (!_scopeCamera.enabled)
+                {
+                    _mainCamera.enabled = false;
+                    _isThisCamera = true;
+                    _scopeCamera.enabled = false;
+                    _thisCamera.enabled = true;
+                    _canvas.enabled = true;
+                }
             }
 
             else
@@ -77,13 +85,28 @@ public class Minigun : MonoBehaviour
     {
         if (_canShoot)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, _range))
+            if (Physics.Raycast(_position.position, _position.forward, out hit, _range))
             {
                 if (hit.collider.TryGetComponent(out ITargetHealth target))
                     target.GetDamage(3f);
             }
 
-            yield return new WaitForSeconds(0.01f);
+            Ray ray = _thisCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Vector3 targetPoint;
+
+            if (Physics.Raycast(ray, out hit))
+                targetPoint = hit.point;
+            else
+                targetPoint = ray.GetPoint(75);
+
+            Vector3 dirWithoutSpread = targetPoint - _bulletPos.position;
+
+            GameObject currentBullet = Instantiate(_bullet, _bulletPos.position, _bulletPos.rotation);
+            currentBullet.GetComponent<Rigidbody>().AddForce(dirWithoutSpread.normalized * _shootForce, ForceMode.Impulse);
+            Destroy(currentBullet, 5f);
+
+
+            yield return new WaitForSeconds(_interval);
             StartCoroutine(Shoot());
         }
 

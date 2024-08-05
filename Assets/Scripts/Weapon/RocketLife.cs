@@ -16,15 +16,16 @@ namespace Game.Weapon
         [SerializeField] private ParticleSystem _flyEffect;
 
         [SerializeField] private AudioClip _explosion;
+        [SerializeField] private string _tag = "Player";
 
         private GameObject _mainCharacter;
 
         private AudioSource _audioSource;
 
-
+        
         private void Start()
         {
-            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+            _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
             _audioSource = _mainCharacter.GetComponent<AudioSource>();
             StartCoroutine(Effect());
             Invoke("SetFalse", 7f);

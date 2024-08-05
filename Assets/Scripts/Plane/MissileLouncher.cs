@@ -59,7 +59,7 @@ public class MissileLouncher : MonoBehaviour, IService
             _minigunCamera.enabled = false;
         }
 
-        if (!Input.GetMouseButton(1))
+        if (!Input.GetMouseButton(1) && !_minigunCamera.enabled)
         {
             _scopeCamera.enabled = false;
             _scopeCanvas.enabled = false;
