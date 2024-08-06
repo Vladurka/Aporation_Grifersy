@@ -3,7 +3,7 @@ using Game.SeniorEventBus.Signals;
 using System.Collections;
 using UnityEngine;
 
-public class GrenadeThrower : AbstractWeapon, IService
+public class GrenadeThrower : MonoBehaviour, IService
 {
     [SerializeField] private Grenade _grenade;
     [SerializeField] private Transform _throwPoint;
@@ -11,11 +11,11 @@ public class GrenadeThrower : AbstractWeapon, IService
     [SerializeField] private GameObject _grenadeModel;
 
     private bool _canThrow;
-
     private EventBus _eventBus;
+    private Camera _mainCamera;
 
     public int Grenades = 10;
-    public override void Init()
+    public void Init()
     {
         _mainCamera = Camera.main;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
@@ -33,18 +33,18 @@ public class GrenadeThrower : AbstractWeapon, IService
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _canThrow == true && Grenades > 0)
+        if (Input.GetMouseButtonDown(0) && _canThrow && Grenades > 0)
         {
             _eventBus.Invoke(new Throw1());
         }
 
-        if (Input.GetMouseButtonUp(0) && _canThrow == true && Grenades > 0)
+        if (Input.GetMouseButtonUp(0) && _canThrow && Grenades > 0)
         {
-            StartCoroutine(Shoot(_mainCamera));
+            StartCoroutine(Shoot());
         }
     }
 
-    protected override IEnumerator Shoot(Camera cam)
+    protected IEnumerator Shoot()
     {
         _eventBus.Invoke(new Throw2());
         Instantiate(_grenade, _throwPoint.position, _throwPoint.rotation).Throw(_throwPoint.forward * _throwForce);
@@ -58,7 +58,7 @@ public class GrenadeThrower : AbstractWeapon, IService
     private void AddGrenades(BuyGrenades grenades)
     {
         Grenades += grenades.Amount;
-        _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
+        _eventBus.Invoke(new UpdateTotalBullets(Grenades));
     }
 
     private void OnDisable()
