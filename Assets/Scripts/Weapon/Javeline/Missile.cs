@@ -24,11 +24,17 @@ public class Missile : MonoBehaviour
 
     private EventBus _eventBus;
 
+    private GameObject _obj;
+    private AudioSource _audioSource;
+
 
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<ShootFLR>(FLR, 1);
+
+        _obj = GameObject.FindGameObjectWithTag("Airdefence");
+        _audioSource = _obj.GetComponent<AudioSource>();
 
         StartCoroutine(Effect());
         Invoke("BulletDestroy", _lifeTime);
@@ -74,6 +80,10 @@ public class Missile : MonoBehaviour
 
             if(hit.TryGetComponent(out AudioSource audioSource))
                 audioSource.PlayOneShot(_destroySound);
+
+            else
+                _audioSource.PlayOneShot(_destroySound);
+
         }
         StopAllCoroutines();
         Instantiate(_explosionEffect, transform.position, Quaternion.identity);

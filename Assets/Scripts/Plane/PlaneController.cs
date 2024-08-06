@@ -25,6 +25,8 @@ public class PlaneController : MonoBehaviour, IService
     [SerializeField] private Text _speedText;
     [SerializeField] private Text _forceText;
 
+    [SerializeField] private AudioSource _engineSound;
+
     private float _pitchSmoothness;
     private float _rollSmoothness;
 
@@ -68,10 +70,21 @@ public class PlaneController : MonoBehaviour, IService
         }
 
         if (Input.GetKey(KeyCode.Space) && FlySpeed < _maxSpeed)
+        {
             FlySpeed += Force;
+            if (_engineSound.volume <= 0.05f)
+                _engineSound.volume += 0.00001f;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && FlySpeed > _minSpeed + 1f)
+        {
+            FlySpeed -= Force;
+            if (_engineSound.volume >= 0.01f)
+                _engineSound.volume -= 0.00001f;
+        }
 
 
-        if (Input.GetKey(KeyCode.Space) && FlySpeed > 80)
+        if (Input.GetKey(KeyCode.Space) && FlySpeed > 100f)
         {
             if(_leftWing.localRotation.y >= -45 && _rightWing.localRotation.y <= 45)
             {
@@ -94,10 +107,6 @@ public class PlaneController : MonoBehaviour, IService
                 _rightWing.localRotation = Quaternion.Lerp(_rightWing.localRotation, rightWingTargetRotation, Time.deltaTime * _wingSpeed);
             }
         }
-
-
-        if (Input.GetKey(KeyCode.LeftShift) && FlySpeed > _minSpeed + 1f)
-            FlySpeed -= Force;
 
         transform.Translate(Vector3.forward * FlySpeed * Time.deltaTime);
 
