@@ -17,6 +17,9 @@ public class GraphicsController : MonoBehaviour
     [SerializeField] private Dropdown _fpsDropdown;
     private string _fpsKey = "FPS";
     private string _fpsDropdownKey = "FPSdropdown";
+    private RefreshRate _refreshRate;
+    private float _targetFPS;
+
 
     private void Start()
     {
@@ -58,7 +61,7 @@ public class GraphicsController : MonoBehaviour
             if (_resolutions[i].width == Screen.currentResolution.width &&
                     _resolutions[i].height == Screen.currentResolution.height)
             {
-                    currentResolutionIndex = i;
+                currentResolutionIndex = i;
             }
         }
 
@@ -77,11 +80,15 @@ public class GraphicsController : MonoBehaviour
 
         #region FPS
 
+        _refreshRate = Screen.currentResolution.refreshRateRatio;
+        _targetFPS = _refreshRate.numerator;
+
+
         if (PlayerPrefs.HasKey(_fpsKey))
             SetFPS(PlayerPrefs.GetInt(_fpsKey));
 
         if (!PlayerPrefs.HasKey(_fpsKey))
-            SetFPS(Screen.currentResolution.refreshRate);
+            SetFPS(_targetFPS);
 
         if (_fpsDropdown != null)
         {
@@ -89,7 +96,7 @@ public class GraphicsController : MonoBehaviour
                 _fpsDropdown.value = PlayerPrefs.GetInt(_fpsDropdownKey);
 
             if (!PlayerPrefs.HasKey(_fpsDropdownKey))
-                _fpsDropdown.value = 3;
+                _fpsDropdown.value = 7;
         }
 
         #endregion
@@ -142,6 +149,7 @@ public class GraphicsController : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(amount, true);
         PlayerPrefs.SetInt(_qualityKey, amount);
+        Debug.Log(amount);
     }
 
     public void DropdownQualityChanged(Dropdown change)
@@ -157,6 +165,8 @@ public class GraphicsController : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
         PlayerPrefs.SetInt(_resolutionKey, resolutionIndex);
+
+        Debug.Log(resolution.width + "" + resolution.height);
     }
     #endregion
 
@@ -164,37 +174,35 @@ public class GraphicsController : MonoBehaviour
     public void DropDownFPS(int value)
     {
         if (value == 0)
-            SetFPS(-1);
+            SetFPS(-1f);
 
         if (value == 1)
-            SetFPS(360);
+            SetFPS(360f);
 
         if (value == 2)
             SetFPS(240);
 
         if (value == 3)
-            SetFPS(144);
+            SetFPS(144f);
 
         if (value == 4)
-            SetFPS(120);
+            SetFPS(120f);
 
         if (value == 5)
-            SetFPS(60);
+            SetFPS(60f);
 
         if (value == 6)
-            SetFPS(45);
+            SetFPS(30f);
 
         if (value == 7)
-            SetFPS(30);
-
-        if (value == 8)
-            SetFPS(Screen.currentResolution.refreshRate);
+            SetFPS(_targetFPS);
     }
 
-    public void SetFPS(int amount)
+    public void SetFPS(float amount)
     {
-        Application.targetFrameRate = amount;
-        PlayerPrefs.SetInt(_fpsKey, amount);
+        Application.targetFrameRate = (int)amount;
+        PlayerPrefs.SetFloat(_fpsKey, amount);
+        Debug.Log(amount);
     }
 
     public void DropdownFPSChanged(Dropdown change)

@@ -63,8 +63,17 @@ namespace Game
             _enemyListController = new EnemyListController();
             _coinSystem = new CoinSystem();
 
-            Register();
-            Init();
+           Register();
+           Init();
+
+           RefreshRate refreshRate = Screen.currentResolution.refreshRateRatio;
+           float targetFPS = refreshRate.numerator;
+
+           if (PlayerPrefs.HasKey("FPS"))
+               Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+
+           if (!PlayerPrefs.HasKey("FPS"))
+               Application.targetFrameRate = (int)targetFPS;
         }
 
         private void Init()

@@ -19,6 +19,15 @@ public class MiniEnter : MonoBehaviour
 
         Register();
         Init();
+
+        RefreshRate refreshRate = Screen.currentResolution.refreshRateRatio;
+        float targetFPS = refreshRate.numerator;
+
+        if (PlayerPrefs.HasKey("FPS"))
+            Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+
+        if (!PlayerPrefs.HasKey("FPS"))
+            Application.targetFrameRate = (int)targetFPS;
     }
 
 
