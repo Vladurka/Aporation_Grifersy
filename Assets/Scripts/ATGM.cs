@@ -13,11 +13,14 @@ public class ATGM : MonoBehaviour
 
     private Camera _camera;
 
+    private AudioSource _audioSource;
+
     private int _missiles = 2;
 
     private void Start()
     {
         _camera = Camera.main;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -47,12 +50,12 @@ public class ATGM : MonoBehaviour
             GameObject missile = Instantiate(_missilePrefab, _launchPoint.position, _launchPoint.rotation);
             MissileATGM missileScript = missile.GetComponent<MissileATGM>();
             missileScript.Camera = _cameraATGM;
+            _audioSource.Play();
 
             _missiles--;
 
             if (_missiles <= 0)
                 StartCoroutine(Reload());
-
         }
     }
 

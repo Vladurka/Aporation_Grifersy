@@ -12,12 +12,10 @@ public class GrenadeThrower : MonoBehaviour, IService
 
     private bool _canThrow;
     private EventBus _eventBus;
-    private Camera _mainCamera;
 
     public int Grenades = 10;
     public void Init()
     {
-        _mainCamera = Camera.main;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
     }
 

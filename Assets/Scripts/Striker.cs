@@ -1,6 +1,7 @@
 using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
+using UnityEditor.ShaderGraph.Internal;
 
 public class Striker : MonoBehaviour
 {
@@ -64,15 +65,17 @@ public class Striker : MonoBehaviour
 
     protected void Move()
     {
-        _colliderFR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderFL.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderFMR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderFML.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderBR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderBL.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderBMR.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
-        _colliderBML.motorTorque = Input.GetAxis("Vertical") * -_forwardSpeed;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
+        _colliderFR.motorTorque = vertical * -_forwardSpeed;
+        _colliderFL.motorTorque = vertical * -_forwardSpeed;
+        _colliderFMR.motorTorque = vertical * -_forwardSpeed;
+        _colliderFML.motorTorque = vertical * -_forwardSpeed;
+        _colliderBR.motorTorque = vertical * -_forwardSpeed;
+        _colliderBL.motorTorque = vertical * -_forwardSpeed;
+        _colliderBMR.motorTorque = vertical * -_forwardSpeed;
+        _colliderBML.motorTorque = vertical * -_forwardSpeed;
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -104,43 +107,43 @@ public class Striker : MonoBehaviour
         {
             if (_frontWheelDriveMode)
             {
-                _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-                _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-                _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-                _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderFR.steerAngle = _maxAngle * horizontal;
+                _colliderFL.steerAngle = _maxAngle * horizontal;
+                _colliderFMR.steerAngle = _maxAngle * horizontal;
+                _colliderFML.steerAngle = _maxAngle * horizontal;
             }
 
             if(!_frontWheelDriveMode)
             {
-                _colliderBR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-                _colliderBL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-                _colliderBMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-                _colliderBML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+                _colliderBR.steerAngle = _maxAngle * horizontal;
+                _colliderBL.steerAngle = _maxAngle * horizontal;
+                _colliderBMR.steerAngle = _maxAngle * horizontal;
+                _colliderBML.steerAngle = _maxAngle * horizontal;
             }
         }
 
         if(_breakeMode)
         {
-            _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderBR.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
-            _colliderBL.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
-            _colliderBMR.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
-            _colliderBML.steerAngle = -_maxAngle * Input.GetAxis("Horizontal");
+            _colliderFR.steerAngle = _maxAngle * horizontal;
+            _colliderFL.steerAngle = _maxAngle * horizontal;
+            _colliderFMR.steerAngle = _maxAngle * horizontal;
+            _colliderFML.steerAngle = _maxAngle * horizontal;
+            _colliderBR.steerAngle = -_maxAngle * horizontal;
+            _colliderBL.steerAngle = -_maxAngle * horizontal;
+            _colliderBMR.steerAngle = -_maxAngle * horizontal;
+            _colliderBML.steerAngle = -_maxAngle * horizontal;
         }
 
         if(_crabMode)
         {
-            _colliderFR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderFL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderFMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderFML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderBR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderBL.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderBMR.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
-            _colliderBML.steerAngle = _maxAngle * Input.GetAxis("Horizontal");
+            _colliderFR.steerAngle = _maxAngle * horizontal;
+            _colliderFL.steerAngle = _maxAngle * horizontal;
+            _colliderFMR.steerAngle = _maxAngle * horizontal;
+            _colliderFML.steerAngle = _maxAngle * horizontal;
+            _colliderBR.steerAngle = _maxAngle * horizontal;
+            _colliderBL.steerAngle = _maxAngle * horizontal;
+            _colliderBMR.steerAngle = _maxAngle * horizontal;
+            _colliderBML.steerAngle = _maxAngle * horizontal;
         }
 
 
