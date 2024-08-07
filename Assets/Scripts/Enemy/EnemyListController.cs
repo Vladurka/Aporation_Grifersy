@@ -25,10 +25,13 @@ public class EnemyListController : IService
 
     private void RemoveObject(RemoveObj obj)
     {
-        if(_enemies.Count > 0)
+        if (_enemies.Count > 0)
+        {
             _enemies.Remove(obj.Enemy);
+            Debug.Log(_enemies.Count);
+        }
 
-        if(_enemies.Count <= 0)
+            if (_enemies.Count <= 0)
             _eventBus.Invoke(new EndSignal());
     }
 

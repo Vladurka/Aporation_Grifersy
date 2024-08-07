@@ -62,7 +62,7 @@ namespace Game.Weapon
             foreach (Collider hit in colliders)
             {
                 if (hit.transform.TryGetComponent(out IPlayerHealth player))
-                    player.GetDamage(10);
+                    player.GetDamage(20f);
             }
             BulletDestroy();
         }

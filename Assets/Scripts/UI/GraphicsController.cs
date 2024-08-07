@@ -165,8 +165,6 @@ public class GraphicsController : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
         PlayerPrefs.SetInt(_resolutionKey, resolutionIndex);
-
-        Debug.Log(resolution.width + "" + resolution.height);
     }
     #endregion
 
@@ -202,7 +200,6 @@ public class GraphicsController : MonoBehaviour
     {
         Application.targetFrameRate = (int)amount;
         PlayerPrefs.SetFloat(_fpsKey, amount);
-        Debug.Log(amount);
     }
 
     public void DropdownFPSChanged(Dropdown change)

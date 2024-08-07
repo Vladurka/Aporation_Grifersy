@@ -3,31 +3,22 @@ using UnityEngine.AI;
 
 public class TankMove : MonoBehaviour
 {
-    private int _index;
-    private GameObject[] _points;
+    [SerializeField] private string _1targetTag;
+    [SerializeField] private string _2targetTag;
 
-    private NavMeshAgent Agent;
+    private GameObject _target;
+    private NavMeshAgent _agent;
+    
     private void Start()
     {
-        _points = GameObject.FindGameObjectsWithTag("Point");
-        Agent = GetComponent<NavMeshAgent>();
-        _index = Random.Range(0, _points.Length);
+        _target = GameObject.FindGameObjectWithTag(_1targetTag);
+        _agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Chill();
+        _agent.SetDestination(_target.transform.position);
     }
 
-    private void Chill()
-    {
-        Agent.speed = 1;
-        Agent.SetDestination(_points[_index].transform.position);
-
-        if (Agent.remainingDistance <= 2f)
-        {
-            _index = Random.Range(0, _points.Length);
-            return;
-        }
-    }
+    
 }

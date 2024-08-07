@@ -34,6 +34,8 @@ public class TankHP : MonoBehaviour, ITankHealth
     {
         if (!_isDead)
         {
+            _eventBus.Invoke(new RemoveObj(gameObject));
+
             foreach (MeshRenderer renderer in _renderers)
             {
                 Material[] materials = renderer.materials;
@@ -56,8 +58,8 @@ public class TankHP : MonoBehaviour, ITankHealth
             Vector3 dir = new Vector3(x, y, z);
             _rb.AddForce(dir * 2f, ForceMode.Impulse);
             _eventBus.Invoke(new DestroyTank());
-            _eventBus.Invoke(new RemoveObj(gameObject));
             _fire.Play();
+
             _isDead = true;
         }
     }

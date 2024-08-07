@@ -83,6 +83,7 @@ namespace Game.Weapon
         {
             if (Bullets > 0 && _canShoot)
             {
+                _eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
                 _eventBus.Invoke(new AkShootAnim());
 
                 RaycastHit hit;
@@ -105,8 +106,6 @@ namespace Game.Weapon
 
                 _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
-
-                _eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
 
                 yield return new WaitForSeconds(_interval);
 
