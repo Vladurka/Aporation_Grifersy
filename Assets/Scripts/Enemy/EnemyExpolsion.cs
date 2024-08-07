@@ -15,24 +15,22 @@ namespace Game.Enemy
 
         private void Start()
         {   
-            if(_mainCharacter == null)
+            if(!_mainCharacter)
                 _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void Update()
         {
-            if (_mainCharacter != null)
+            if (_mainCharacter)
             {
                 if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _explosionRadius && _mainCharacter.activeSelf)
-                {
                     Explode();
-                }
             }
         }
 
         private void Explode()
         {
-            if (_isExploded == false)
+            if (!_isExploded)
             {
                 Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
 

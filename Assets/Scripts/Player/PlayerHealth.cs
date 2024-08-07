@@ -6,6 +6,8 @@ namespace Game.Player
 {
     public class PlayerHealth : MonoBehaviour, IPlayerHealth, IService
     {
+        [SerializeField] private Animator _bloodAnim;
+
         public float Health { get; set; } = 100f;
 
         private EventBus _eventBus;
@@ -24,6 +26,8 @@ namespace Game.Player
 
         public void GetDamage(float damage)
         {
+            _bloodAnim.SetTrigger("Blood");
+
             Health -= damage;
 
             if (Health <= 0)

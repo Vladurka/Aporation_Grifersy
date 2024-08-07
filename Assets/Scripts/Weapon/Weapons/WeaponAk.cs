@@ -14,6 +14,8 @@ namespace Game.Weapon
         [SerializeField] private Transform _spawnPosition;
         [SerializeField] private ParticleSystem _shootingEffect;
         [SerializeField] private ParticleSystem _bulletEffect;
+        [SerializeField] private ParticleSystem _enemyEffect;
+
 
         [Header("Clips")]
         [SerializeField] private AudioClip _shootSound;
@@ -28,11 +30,11 @@ namespace Game.Weapon
 
         public override void Init()
         {
+            _mainCamera = Camera.main;
+
             _eventBus = ServiceLocator.Current.Get<EventBus>();
             _eventBus.Subscribe<BuyAkBullets>(AddBullets, 1);
             _eventBus.Subscribe<SetAimCamera>(GetCamera, 1);
-
-            _mainCamera = Camera.main;
 
             _aimCamera = GetComponentInChildren<Camera>();
 
@@ -45,6 +47,7 @@ namespace Game.Weapon
         private void OnEnable()
         {
             _mainCamera.enabled = true;
+            _shootingEffect.Stop();
             _eventBus.Invoke(new SetCurrentBullets(true));
             _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
@@ -81,15 +84,15 @@ namespace Game.Weapon
             if (Bullets > 0 && _canShoot)
             {
                 _eventBus.Invoke(new AkShootAnim());
-                _eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
 
                 RaycastHit hit;
                 if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
                 {
-                    
+
                     if (hit.collider.TryGetComponent(out IEnemyHealth enemy))
                     {
                         enemy.GetDamage(_damage);
+                        Instantiate(_enemyEffect, hit.point, Quaternion.identity);
                     }
 
                     else
@@ -97,11 +100,13 @@ namespace Game.Weapon
                 }
 
                 _audioSource.PlayOneShot(_shootSound);
-                Instantiate(_shootingEffect, _spawnPosition.position, _spawnPosition.transform.rotation);
+                _shootingEffect.Play();
                 Bullets--;
 
                 _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
+
+                //_eventBus.Invoke(new ShakeCamera(0.1f, 0.12f));
 
                 yield return new WaitForSeconds(_interval);
 

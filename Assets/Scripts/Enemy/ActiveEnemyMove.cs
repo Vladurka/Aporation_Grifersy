@@ -74,7 +74,29 @@ namespace Game.Enemy
             _agent.speed = 2.5f;
             _animator.SetBool("Run", true);
             if (_mainCharacter != null)
-                _agent.SetDestination(_mainCharacter.transform.position);
+            {
+                Vector3 startPosition = _agent.transform.position;
+                Vector3 targetPosition = _mainCharacter.transform.position;
+                Vector3 direction = (targetPosition - startPosition).normalized;
+
+                bool isSet = false;
+                float frequency = 1f;
+                float amplitude = 1f;
+
+                if (!isSet)
+                {
+                    frequency = Random.Range(1f, 5f);
+                    amplitude = Random.Range(1f, 5f);
+                    isSet = true;
+                }
+
+                float sinOffset = Mathf.Sin(Time.time * frequency) * amplitude;
+
+                Vector3 sideOffset = Vector3.Cross(direction, Vector3.up) * sinOffset;
+                Vector3 finalTargetPosition = targetPosition + sideOffset;
+
+                _agent.SetDestination(finalTargetPosition);
+            }    
         }
 
         private void SetSiren()

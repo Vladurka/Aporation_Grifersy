@@ -97,9 +97,7 @@ namespace Game.Weapon
             }
 
             if (TotalBullets <= 0)
-            {
                 _audioSource.PlayOneShot(_noBulletsSound);
-            }
 
             yield return null;
         }

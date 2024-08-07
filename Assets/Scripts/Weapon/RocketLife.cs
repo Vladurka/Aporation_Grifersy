@@ -1,3 +1,4 @@
+using Game.Player;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using System.Collections;
@@ -47,7 +48,6 @@ namespace Game.Weapon
         private void Kill()
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
-
             foreach (Collider hit in hits)
             {
                 if (hit.transform.TryGetComponent(out IEnemyHealth enemy))
@@ -55,6 +55,14 @@ namespace Game.Weapon
 
                 if (hit.transform.TryGetComponent(out ITankHealth tank))
                     tank.Destroy();
+            }
+
+
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 3f);
+            foreach (Collider hit in colliders)
+            {
+                if (hit.transform.TryGetComponent(out IPlayerHealth player))
+                    player.GetDamage(10);
             }
             BulletDestroy();
         }
