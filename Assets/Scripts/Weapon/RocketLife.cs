@@ -10,7 +10,7 @@ namespace Game.Weapon
     {
         [Header("Rocket stats")]
         [SerializeField] private float _damage = 10f;
-        [SerializeField] private float _explosionRadius = 5f;
+        [SerializeField] private float _explosionRadius = 3f;
 
         [Header("Effects")]
         [SerializeField] private ParticleSystem _explosionEffect;
@@ -55,15 +55,11 @@ namespace Game.Weapon
 
                 if (hit.transform.TryGetComponent(out ITankHealth tank))
                     tank.Destroy();
-            }
 
-
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 3f);
-            foreach (Collider hit in colliders)
-            {
                 if (hit.transform.TryGetComponent(out IPlayerHealth player))
                     player.GetDamage(20f);
             }
+          
             BulletDestroy();
         }
 

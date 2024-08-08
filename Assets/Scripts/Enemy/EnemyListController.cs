@@ -16,11 +16,14 @@ public class EnemyListController : IService
         _eventBus.Subscribe<AddObj>(AddObject, 1);
         _eventBus.Subscribe<CheckList>(CheckDistance, 1);
         _eventBus.Subscribe<RemoveObj>(RemoveObject, 1);
+
+        _enemies.Clear();
     }
 
     private void AddObject(AddObj obj)
     {
         _enemies.Add(obj.Enemy);
+        Debug.Log(_enemies.Count);
     }
 
     private void RemoveObject(RemoveObj obj)
