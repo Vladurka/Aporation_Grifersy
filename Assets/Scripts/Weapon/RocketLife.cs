@@ -65,6 +65,7 @@ namespace Game.Weapon
 
         private void BulletDestroy()
         {
+            _audioSource.pitch = Random.Range(0.8f, 1.2f);
             _audioSource.PlayOneShot(_explosion);
             StopAllCoroutines();
             Instantiate(_explosionEffect, transform.position, Quaternion.identity);

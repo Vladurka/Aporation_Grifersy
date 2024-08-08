@@ -8,14 +8,20 @@ namespace Game.Player
     {
         [SerializeField] private Animator _bloodAnim;
 
+        [SerializeField] private AudioClip[] _hurtSound;
+        [SerializeField] private AudioClip _dieSound;
+
         public float Health { get; set; } = 100f;
 
         private EventBus _eventBus;
+        private AudioSource _audioSource;
 
         public void Init()
         {
             _eventBus = ServiceLocator.Current.Get<EventBus>();
             _eventBus.Invoke(new UpdateHealth(Health));
+
+            _audioSource = GetComponent<AudioSource>();
         }
 
         public void Die()
@@ -26,17 +32,23 @@ namespace Game.Player
 
         public void GetDamage(float damage)
         {
-            _bloodAnim.SetTrigger("Blood");
-
             Health -= damage;
 
             if (Health <= 0)
             {
                 Invoke("Die", 0.5f);
                 Health = 0;
+                _audioSource.PlayOneShot(_dieSound);
+            }
+
+            else
+            {
+                int index = Random.Range(0, _hurtSound.Length);
+                _audioSource.PlayOneShot(_hurtSound[index]);
             }
 
             _eventBus.Invoke(new UpdateHealth(Health));
+            _bloodAnim.SetTrigger("Blood");
         }
     }
 }

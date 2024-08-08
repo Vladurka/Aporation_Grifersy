@@ -20,6 +20,8 @@ namespace Game.Weapon
         [Header("Clips")]
         [SerializeField] private AudioClip _shootSound;
         [SerializeField] private AudioClip _noBulletsSound;
+        [SerializeField] private AudioClip _reloadSound;
+
 
         [SerializeField] private int _maxBullets = 30;
         [SerializeField] private float _interval = 0.12f;
@@ -74,6 +76,7 @@ namespace Game.Weapon
             if (Input.GetKeyDown(KeyCode.R) && Bullets < _maxBullets && TotalBullets > 0)
             {
                 _eventBus.Invoke(new AkReloadAnim());
+                _audioSource.PlayOneShot(_reloadSound);
                 _canShoot = false;
                 Invoke("Reaload", 1.5f);
             }
