@@ -17,19 +17,19 @@ namespace Game.Weapon
         [SerializeField] private ParticleSystem _flyEffect;
 
         [SerializeField] private AudioClip _explosion;
-        [SerializeField] private string _tag = "Player";
-
-        private GameObject _mainCharacter;
 
         private AudioSource _audioSource;
+        private MeshRenderer _meshRenderer;
+
+        private bool _isExploded = false;
 
         
         private void Start()
         {
-            _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
-            _audioSource = _mainCharacter.GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
+            _meshRenderer = GetComponentInChildren<MeshRenderer>();
             StartCoroutine(Effect());
-            Invoke("SetFalse", 7f);
+            Invoke("BulletDestroy", 7f);
         }
 
         private IEnumerator Effect()
@@ -39,12 +39,6 @@ namespace Game.Weapon
 
             StartCoroutine(Effect());
         }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            Kill();
-        }
-            
         private void Kill()
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
@@ -65,16 +59,22 @@ namespace Game.Weapon
 
         private void BulletDestroy()
         {
-            _audioSource.pitch = Random.Range(0.8f, 1.2f);
-            _audioSource.PlayOneShot(_explosion);
-            StopAllCoroutines();
-            Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
+            if (!_isExploded)
+            {
+                _isExploded = true;
+                _audioSource.pitch = Random.Range(0.8f, 1.2f);
+                _audioSource.PlayOneShot(_explosion);
+                StopAllCoroutines();
+                Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+                _meshRenderer.enabled = false;
+                Destroy(gameObject, 2f);
+            }
         }
 
-        private void SetFalse()
+        private void OnCollisionEnter(Collision collision)
         {
-            gameObject.SetActive(false);
+            Kill();
         }
+
     }
 }
