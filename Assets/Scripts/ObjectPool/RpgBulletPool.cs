@@ -13,10 +13,10 @@ public class RpgBulletPool : MonoBehaviour, IService
     private ObjectPool<RocketLife> _pool;
     private EventBus _eventBus;
 
-    public void Init()
+    private void Start()
     {
-        _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<InstantRocket>(LaunchRocket, 1);
+       _eventBus = ServiceLocator.Current.Get<EventBus>();
+       _eventBus.Subscribe<InstantRocket>(LaunchRocket, 1);
 
        _pool = new ObjectPool<RocketLife>(_rocketLife, _poolAmount, transform);
        _pool.AutoExpand = _autoExpand;

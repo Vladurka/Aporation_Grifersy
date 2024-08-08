@@ -42,9 +42,6 @@ namespace Game
         [SerializeField] private GamePanel _gamePanel;
         [SerializeField] private VolumeController _volume;
 
-        [Header("Pools")]
-        [SerializeField] private RpgBulletPool _rpgPool;
-
         [Header("Else")]
         [SerializeField] private Raycasts _raycasts;
         [SerializeField] private BaseStates _baseStates;
@@ -112,8 +109,6 @@ namespace Game
             _grenadeAnim.Init();
             _knifeAnim.Init();
 
-            _rpgPool.Init();
-
             _gameUI.Init();
 
             Debug.Log("Initializated");
@@ -140,7 +135,6 @@ namespace Game
             ServiceLocator.Current.Register<SaveData>(_saveData);
             ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
             ServiceLocator.Current.Register<VolumeController>(_volume);
-            ServiceLocator.Current.Register<RpgBulletPool>(_rpgPool);
             Debug.Log("Registreted");
         }
     }

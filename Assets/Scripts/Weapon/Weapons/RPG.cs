@@ -40,9 +40,7 @@ namespace Game.Weapon
             _mainCamera.enabled = true;
 
             if (TotalBullets > 0)
-            {
                 Realod();
-            }
 
             _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
@@ -52,14 +50,10 @@ namespace Game.Weapon
         void Update()
         {
             if (Input.GetButtonDown("Fire1") && _mainCamera.enabled)
-            {
                 StartCoroutine(Shoot(_mainCamera));
-            }
 
             if (Input.GetMouseButtonDown(0) && _aimCamera.enabled)
-            {
                 StartCoroutine(Shoot(_aimCamera));
-            }
         }
 
         protected override IEnumerator Shoot(Camera cam)
@@ -76,6 +70,7 @@ namespace Game.Weapon
 
                 if (Physics.Raycast(ray, out hit))
                     targetPoint = hit.point;
+
                 else
                     targetPoint = ray.GetPoint(75);
 
