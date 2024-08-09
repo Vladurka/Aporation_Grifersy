@@ -45,8 +45,8 @@ namespace Game
         [Header("Else")]
         [SerializeField] private Raycasts _raycasts;
         [SerializeField] private BaseStates _baseStates;
-        [SerializeField] private SaveData _saveData;
-        [SerializeField] private LoadData _loadData;
+        [SerializeField] private JSON_load _loadDataJson;
+        [SerializeField] private JSON_save _saveDataJson;
         [SerializeField] private Shop _shop;
         [SerializeField] private MissionsController _missionsController;
 
@@ -77,9 +77,9 @@ namespace Game
         {
             _mainCharacter.SetActive(true);
 
-            _loadData.Init();
-            //_loadData.LoadInfo();
-            _saveData.Init();
+            _loadDataJson.Init();
+            _loadDataJson.Load();
+            _saveDataJson.Init();
 
             _gamePanel.Init();
             _playerHealth.Init();
@@ -131,8 +131,6 @@ namespace Game
             ServiceLocator.Current.Register<HelicopterStatesController>(_helicopterStatesController);
             ServiceLocator.Current.Register<CameraController>(_cameraController);
             ServiceLocator.Current.Register<ScopeLevels>(_scopeLevels);
-            ServiceLocator.Current.Register<Shop>(_shop);
-            ServiceLocator.Current.Register<SaveData>(_saveData);
             ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
             ServiceLocator.Current.Register<VolumeController>(_volume);
             Debug.Log("Registreted");

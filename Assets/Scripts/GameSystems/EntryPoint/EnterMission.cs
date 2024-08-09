@@ -35,7 +35,10 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private KnifeAnim _knifeAnim;
 
     [Header("Data")]
-    [SerializeField] private LoadMissionData _loadMissionData;
+    [SerializeField] private JSON_load_mission _loadDataJson;
+    [SerializeField] private JSON_save_mission _saveDataJson;
+
+    [SerializeField] private bool _load = true;
 
     private EventBus _eventBus;
     private EnemyListController _enemyListController;
@@ -64,8 +67,12 @@ public class EnterMission : MonoBehaviour
     {
         _mainCharacter.SetActive(true);
 
-        _loadMissionData.Init();
-        _loadMissionData.LoadInfo();
+        _saveDataJson.Init();
+
+        if(_load)
+            _loadDataJson.Init();
+
+        _loadDataJson.Load();
 
         _gamePanel.Init();
         _playerHealth.Init();

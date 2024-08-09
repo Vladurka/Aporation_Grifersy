@@ -29,6 +29,7 @@ public class Car : AbstractTransport, IService
     public override void Init()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Invoke(new SetSpeedometer(false));
         _camera.enabled = false;
         this.enabled = false;
         _rb = GetComponent<Rigidbody>();
