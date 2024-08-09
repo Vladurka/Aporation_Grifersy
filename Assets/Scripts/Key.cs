@@ -16,7 +16,7 @@ public class Key : MonoBehaviour
                     Destroy(hit.collider.gameObject);
                 }
 
-                if (hit.collider.TryGetComponent(out IDoor door))
+                if (hit.collider.TryGetComponent(out IDoor door) && _isKey)
                     door.Open();
             }
         }

@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 
 public class Scoping : MonoBehaviour
 {
+    [SerializeField] private Image _crosshair;
+
     private Camera _mainCamera;
 
     [HideInInspector] public Camera AimCamera;
@@ -17,6 +20,7 @@ public class Scoping : MonoBehaviour
         _movement = ServiceLocator.Current.Get<Movement>();
 
         _mainCamera = Camera.main;
+        _crosshair.enabled = true;
 
         _mainCamera.enabled = true;
     }
@@ -31,6 +35,7 @@ public class Scoping : MonoBehaviour
             _eventBus.Invoke(new ChangeSens(70));
             _movement.Speed = _movement.ScopeSpeed;
             _movement.InScope = true;
+            _crosshair.enabled = false;
         }
         else
         {
@@ -40,6 +45,7 @@ public class Scoping : MonoBehaviour
             _eventBus.Invoke(new ChangeSens(300));
             _movement.Speed = _movement.NormalSpeed;
             _movement.InScope = false;
+            _crosshair.enabled = true;
         }
     }
 }
