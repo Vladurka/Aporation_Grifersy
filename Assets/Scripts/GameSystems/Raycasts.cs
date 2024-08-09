@@ -44,7 +44,7 @@ public class Raycasts : MonoBehaviour, IService
                 if (hit.collider.TryGetComponent(out IBox box))
                     box.Open();
 
-                if (hit.collider.TryGetComponent(out IDoor door))
+                if (hit.collider.TryGetComponent(out IDoor door) && hit.collider.CompareTag("Door"))
                     door.Open();
 
                 if (hit.collider.TryGetComponent(out IInstrument instrument))

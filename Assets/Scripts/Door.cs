@@ -9,13 +9,13 @@ public class Door : MonoBehaviour, IDoor
     {
         if (_open)
         {
-            _animator.SetTrigger("Close");
+            _animator.SetBool("Open", false);
             _open = false;
         }
 
         if (!_open)
         {
-            _animator.SetTrigger("Open");
+            _animator.SetBool("Open", true);
             _open = true;
         }
     }

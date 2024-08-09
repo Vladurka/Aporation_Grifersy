@@ -21,6 +21,8 @@ TagManager:
   - RLS
   - Gloves
   - Stryker
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX
