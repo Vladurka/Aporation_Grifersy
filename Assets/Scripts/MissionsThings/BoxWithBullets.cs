@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoxWithBullets : MonoBehaviour, IBox
 {
+    private Animator _animator;
     private bool _isOpen = false;
 
     private EventBus _eventBus;
@@ -11,6 +12,7 @@ public class BoxWithBullets : MonoBehaviour, IBox
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Open()
@@ -21,6 +23,7 @@ public class BoxWithBullets : MonoBehaviour, IBox
             _eventBus.Invoke(new BuyRpgBullets(5));
             _eventBus.Invoke(new EndSignal());
             _isOpen = true;
+            _animator.SetTrigger("Open");
        }
     }
 }
