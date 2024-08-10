@@ -149,7 +149,6 @@ public class GraphicsController : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(amount, true);
         PlayerPrefs.SetInt(_qualityKey, amount);
-        Debug.Log(amount);
     }
 
     public void DropdownQualityChanged(Dropdown change)

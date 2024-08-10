@@ -15,7 +15,6 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _completedPanel;
     [SerializeField] private GameObject _diePanel;
     [SerializeField] private GameObject _levelsPanel;
-    [SerializeField] private GameObject _videoPanel;
 
     private bool _pauseGame;
     private bool _canPause = true;
@@ -29,9 +28,8 @@ public class GameUI : MonoBehaviour
         _eventBus.Subscribe<EnablePause>(PauseState, 1);
         _eventBus.Subscribe<SetDie>(SetDie, 1);
 
-        if (_shopPanel != null && _speedometerPanel != null && _videoPanel != null)
+        if (_shopPanel != null && _speedometerPanel != null)
         {
-            _videoPanel.SetActive(false);
             _speedometerPanel.SetActive(false);
             _shopPanel.SetActive(false);
         }

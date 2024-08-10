@@ -49,6 +49,7 @@ namespace Game
         [SerializeField] private JSON_save _saveDataJson;
         [SerializeField] private Shop _shop;
         [SerializeField] private MissionsController _missionsController;
+        [SerializeField] private Loading _loading;
 
         private EnemyListController _enemyListController;
         private EventBus _eventBus;
@@ -133,6 +134,7 @@ namespace Game
             ServiceLocator.Current.Register<ScopeLevels>(_scopeLevels);
             ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
             ServiceLocator.Current.Register<VolumeController>(_volume);
+            ServiceLocator.Current.Register<Loading>(_loading);
             Debug.Log("Registreted");
         }
     }

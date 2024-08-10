@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class Raft : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("End");
             PlayerPrefs.SetInt("Prison", 1);
         }
     }
