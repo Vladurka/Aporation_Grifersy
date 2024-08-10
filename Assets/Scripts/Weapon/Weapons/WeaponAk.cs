@@ -99,7 +99,7 @@ namespace Game.Weapon
                         Instantiate(_enemyEffect, hit.point, Quaternion.identity);
                     }
 
-                    else
+                    else if(!hit.collider.isTrigger)
                         Instantiate(_bulletEffect, hit.point, Quaternion.identity);
                 }
 
