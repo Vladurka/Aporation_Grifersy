@@ -11,7 +11,7 @@ public class ButtonPlayMenu : MonoBehaviour
     }
     public void Play()
     {
-        if (_index == 0)
+        if (!PlayerPrefs.HasKey("Prison"))
             _load.StartLoading(1);
 
         if (_index == 1)
