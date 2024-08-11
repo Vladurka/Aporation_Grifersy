@@ -31,7 +31,7 @@ public class PapichMovement : MonoBehaviour
         if(PlayerPrefs.HasKey("Papich"))
             _isStarted = true;
 
-        if (PlayerPrefs.HasKey("Papich"))
+        if(!PlayerPrefs.HasKey("Papich"))
             _isStarted = false;
 
         _currentState = State.Patrol;
@@ -121,6 +121,7 @@ public class PapichMovement : MonoBehaviour
         if (!_audioSource.isPlaying && _played2)
         {
             _audioSource.Stop();
+            PlayerPrefs.SetInt("Papich", 1);
             _isStarted = true;
             _currentState = State.Patrol;
         }
