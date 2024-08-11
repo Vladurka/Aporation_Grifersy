@@ -44,6 +44,7 @@ public static class ConstSystem
     public const string MISSION_KEY = "MISSION";
 
     public static bool CanSave;
+    public static bool CanPause = true;
     public static bool InTransport = false;
     public static bool InCar = false;
     public static bool CanExit = true;
