@@ -26,7 +26,7 @@ public class Loading : MonoBehaviour, IService
             _loadBar.fillAmount = progress;
             _barTxt.text = "Loading   " + string.Format("{0:0}%", progress * 100f);
 
-            if(loadAsync.progress >= 0.9f && !loadAsync.allowSceneActivation)
+            if(loadAsync.progress >= .9f && !loadAsync.allowSceneActivation)
                 loadAsync.allowSceneActivation = true;
 
             yield return null;
