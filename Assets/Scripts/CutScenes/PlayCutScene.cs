@@ -11,10 +11,10 @@ public class PlayCutScene : MonoBehaviour
         _loading = ServiceLocator.Current.Get<Loading>();
     }
 
-    public void PlayCutscene(int index)
+    public void PlayCutscene(PlayableDirector playableDirector)
     {
-        _playableDirector.stopped += (director) => OnPlayableDirectorStopped(index);
-        _playableDirector.Play();
+        //_playableDirector.stopped += (director) => OnPlayableDirectorStopped(index);
+        playableDirector.Play();
     }
 
     private void OnPlayableDirectorStopped(int index)
