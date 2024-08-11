@@ -1,34 +1,24 @@
 using UnityEngine;
-using UnityEngine.Video;
+using UnityEngine.Playables;
 
 public class PlayCutScene : MonoBehaviour
 {
-    [SerializeField] private VideoPlayer _video;
-    [SerializeField] private GameObject[] _panels;
-    [SerializeField] private GameObject _videoPanel;
+    [SerializeField] private PlayableDirector _playableDirector;
     private Loading _loading;
 
     private void Start()
     {
         _loading = ServiceLocator.Current.Get<Loading>();
-        Debug.Log(_loading);
     }
 
-    public void PlayVideo(int index)
+    public void PlayCutscene(PlayableDirector playableDirector)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        ConstSystem.CanPause = false;
-
-        _videoPanel.SetActive(true);
-        _video.Play();
-        _video.loopPointReached += (vp) => Load(vp, index);
+        //_playableDirector.stopped += (director) => OnPlayableDirectorStopped(index);
+        playableDirector.Play();
     }
 
-    private void Load(VideoPlayer vp, int index)
+    private void OnPlayableDirectorStopped(int index)
     {
-        foreach (GameObject panel in _panels)
-            panel.SetActive(false);
-
         _loading.StartLoading(index);
     }
 }
