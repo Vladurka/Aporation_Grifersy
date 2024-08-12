@@ -24,25 +24,22 @@ namespace Game.Data
 
         public void SaveInfo()
         {
-            if (ConstSystem.CanSave)
+            JSON_playerData data = new JSON_playerData
             {
-                JSON_playerData data = new JSON_playerData
-                {
-                    HpData = _playerHealth.Health,
+                HpData = _playerHealth.Health,
 
-                    AKBulletsData = _weaponAk.Bullets,
-                    AKTotalBulletsData = _weaponAk.TotalBullets,
+                AKBulletsData = _weaponAk.Bullets,
+                AKTotalBulletsData = _weaponAk.TotalBullets,
 
-                    RPGTotalBulletsData = _rpg.TotalBullets,
-                    GrenadesData = _grenadeThrower.Grenades,
+                RPGTotalBulletsData = _rpg.TotalBullets,
+                GrenadesData = _grenadeThrower.Grenades,
 
-                    ScopeLevelData = _scopeLevels.ScopeLevel,
+                ScopeLevelData = _scopeLevels.ScopeLevel,
 
-                    MoneyData = _coinSystem.Money,
-                };
+                MoneyData = _coinSystem.Money,
+            };
 
-                JSON_saveSystem.Save(data);
-            }
+            JSON_saveSystem.Save(data);
         }
     }
 }
