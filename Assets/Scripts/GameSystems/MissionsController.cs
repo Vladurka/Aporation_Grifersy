@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MissionsController : MonoBehaviour
 {
-    public static int MissionCondition = 3;
+    public static int MissionCondition;
 
     [SerializeField] private GameObject[] _missionsButtons;
 
