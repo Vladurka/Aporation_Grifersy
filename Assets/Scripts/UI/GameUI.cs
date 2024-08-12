@@ -23,6 +23,7 @@ public class GameUI : MonoBehaviour
     private EventBus _eventBus;
     public void Init()
     {
+        ConstSystem.CanPause = true;
         _isStarted = true;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<EnablePause>(PauseState, 1);
@@ -34,7 +35,7 @@ public class GameUI : MonoBehaviour
             _shopPanel.SetActive(false);
         }
 
-        if(_completedPanel != null)
+        if (_completedPanel != null)
             _completedPanel.SetActive(false);
 
         _uiCamera.SetActive(false);
@@ -71,47 +72,53 @@ public class GameUI : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        _pauseGame = true;
-        _gamePanel.SetActive(false);
-        _settingsPanel.SetActive(false);
-        _mainCharacter.SetActive(false);
-        _uiCamera.SetActive(true);
-        _pausePanel.SetActive(true);
-        ConstSystem.CanExit = false;
-
-        if (_shopPanel != null && _speedometerPanel != null)
+        if (ConstSystem.CanPause)
         {
-            _speedometerPanel.SetActive(false);
-            _shopPanel.SetActive(false);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            _pauseGame = true;
+            _gamePanel.SetActive(false);
+            _settingsPanel.SetActive(false);
+            _mainCharacter.SetActive(false);
+            _uiCamera.SetActive(true);
+            _pausePanel.SetActive(true);
+            ConstSystem.CanExit = false;
+
+            if (_shopPanel != null && _speedometerPanel != null)
+            {
+                _speedometerPanel.SetActive(false);
+                _shopPanel.SetActive(false);
+            }
         }
     }
 
     public void Continue()
     {
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        _gamePanel.SetActive(true);
-
-        _settingsPanel.SetActive(false);
-        _pausePanel.SetActive(false);
-        _pauseGame = false;
-        _uiCamera.SetActive(false);
-
-        ConstSystem.CanExit = true;
-
-        if(_shopPanel != null && _levelsPanel != null)
+        if (ConstSystem.CanPause)
         {
-            _shopPanel.SetActive(false);
-            _levelsPanel.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            _gamePanel.SetActive(true);
+
+            _settingsPanel.SetActive(false);
+            _pausePanel.SetActive(false);
+            _pauseGame = false;
+            _uiCamera.SetActive(false);
+
+            ConstSystem.CanExit = true;
+
+            if (_shopPanel != null && _levelsPanel != null)
+            {
+                _shopPanel.SetActive(false);
+                _levelsPanel.SetActive(false);
+            }
+
+            if (!ConstSystem.InTransport)
+                _mainCharacter.SetActive(true);
+
+            if (ConstSystem.InCar && _speedometerPanel != null)
+                _speedometerPanel.SetActive(true);
         }
-
-        if (!ConstSystem.InTransport)
-            _mainCharacter.SetActive(true);
-
-        if (ConstSystem.InCar && _speedometerPanel != null)
-            _speedometerPanel.SetActive(true);
 
     }
 
@@ -127,10 +134,6 @@ public class GameUI : MonoBehaviour
         _gamePanel.SetActive(false);
         _pausePanel.SetActive(true);
         _settingsPanel.SetActive(false);
-    }
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
     }
 
     private void SetDie(SetDie set)

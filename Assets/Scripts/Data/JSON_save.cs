@@ -34,56 +34,53 @@ namespace Game.Data
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && ConstSystem.CanSave)
                 SaveInfo();
         }
 
-        private void SaveInfo()
+        public void SaveInfo()
         {
-            if (ConstSystem.CanSave)
+            JSON_playerData data = new JSON_playerData
             {
-                JSON_playerData data = new JSON_playerData
-                {
-                    HelicopterConditionData = _helicopterStatesController.HelicopterState,
+                HelicopterConditionData = _helicopterStatesController.HelicopterState,
 
-                    HelicopterPositionData = new float[3]
-                    {
+                HelicopterPositionData = new float[3]
+                   {
                     _helicopter.transform.position.x,
                     _helicopter.transform.position.y,
                     _helicopter.transform.position.z,
-                    },
+                   },
 
-                    CarPositionData = new float[3]
-                    {
+                CarPositionData = new float[3]
+                   {
                     _car.transform.position.x,
                     _car.transform.position.y,
                     _car.transform.position.z,
-                    },
+                   },
 
-                    HpData = _playerHealth.Health,
+                HpData = _playerHealth.Health,
 
-                    PlayerPositionData = new float[3]
-                    {
+                PlayerPositionData = new float[3]
+                   {
                     _playerMove.transform.position.x,
                     _playerMove.transform.position.y,
                     _playerMove.transform.position.z
-                    },
+                   },
 
-                    AKBulletsData = _weaponAk.Bullets,
-                    AKTotalBulletsData = _weaponAk.TotalBullets,
+                AKBulletsData = _weaponAk.Bullets,
+                AKTotalBulletsData = _weaponAk.TotalBullets,
 
-                    RPGTotalBulletsData = _rpg.TotalBullets,
-                    GrenadesData = _grenadeThrower.Grenades,
+                RPGTotalBulletsData = _rpg.TotalBullets,
+                GrenadesData = _grenadeThrower.Grenades,
 
-                    ScopeLevelData = _scopeLevels.ScopeLevel,
+                ScopeLevelData = _scopeLevels.ScopeLevel,
 
-                    MoneyData = _coinSystem.Money,
+                MoneyData = _coinSystem.Money,
 
-                    BaseLevelData = _baseStates.BaseLevel,
-                };
+                BaseLevelData = _baseStates.BaseLevel,
+            };
 
-                JSON_saveSystem.Save(data);
-            }
+            JSON_saveSystem.Save(data);
         }
     }
 }

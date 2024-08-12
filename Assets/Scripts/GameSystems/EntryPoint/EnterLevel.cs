@@ -51,6 +51,8 @@ namespace Game
         [SerializeField] private MissionsController _missionsController;
         [SerializeField] private Loading _loading;
 
+        [SerializeField] private bool _load = true;
+
         private EnemyListController _enemyListController;
         private EventBus _eventBus;
         private CoinSystem _coinSystem;
@@ -79,7 +81,10 @@ namespace Game
             _mainCharacter.SetActive(true);
 
             _loadDataJson.Init();
-            _loadDataJson.Load();
+
+            if(_load)
+                _loadDataJson.Load();
+
             _saveDataJson.Init();
 
             _gamePanel.Init();

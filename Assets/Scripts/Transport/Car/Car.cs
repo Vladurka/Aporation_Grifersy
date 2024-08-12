@@ -48,7 +48,6 @@ public class Car : AbstractTransport, IService
 
         if (_rb.velocity.magnitude >= 2f)
         {
-            _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
             if (!_audioSourceDrive.isPlaying)
             {
                 _audioSourceDrive.Play();

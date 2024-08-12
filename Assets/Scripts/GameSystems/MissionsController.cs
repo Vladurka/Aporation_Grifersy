@@ -17,62 +17,38 @@ public class MissionsController : MonoBehaviour
         _mission3Things.SetActive(false);
         _mission4Things.SetActive(false);
 
+        if(MissionCondition >= 3)
+            _car.SetActive(true);
+
         foreach (GameObject button in _missionsButtons)
-        {
             button.SetActive(false);
-        }
 
         MissionCondition = PlayerPrefs.GetInt(ConstSystem.MISSION_KEY);
 
         if (MissionCondition == 0)
             _missionsButtons[0].SetActive(true);
 
-        if (MissionCondition == 1)
+        if (MissionCondition > 0)
         {
-            _missionsButtons[0].SetActive(false);
-            _missionsButtons[1].SetActive(true);
+            _missionsButtons[MissionCondition - 1].SetActive(false);
+            _missionsButtons[MissionCondition].SetActive(true);
         }
-
-        if (MissionCondition == 2)
-        {
-            _missionsButtons[1].SetActive(false);
-            _missionsButtons[2].SetActive(true);
-        }
-        if (MissionCondition == 3)
-        {
-            _missionsButtons[2].SetActive(false);
-            _missionsButtons[3].SetActive(true);
-        }
-
-        if (MissionCondition == 4)
-        {
-            _missionsButtons[3].SetActive(false);
-            _missionsButtons[4].SetActive(true);
-        }
-
-        if (MissionCondition == 5)
-            _missionsButtons[4].SetActive(false);
-
-
-        if (MissionCondition >= 3)
-            _car.SetActive(true);
     }
 
     public void CurrentMission(int currentIndex)
     {
-        if(currentIndex == 3)
+        if (currentIndex == 3)
+        {
             _mission3Things.SetActive(true);
+            _car.SetActive(true);
+            ConstSystem.CanSave = false;
+        }
 
         if (currentIndex == 4)
+        {
             _mission4Things.SetActive(true);
-
-        if (currentIndex >= 4)
+            ConstSystem.CanSave = false;
             ConstSystem.CanFixHelicopter = true;
-
-        if (currentIndex != 3)
-            _mission3Things.SetActive(false);
-
-        if (currentIndex != 4)
-            _mission4Things.SetActive(false);
+        }
     }
 }
