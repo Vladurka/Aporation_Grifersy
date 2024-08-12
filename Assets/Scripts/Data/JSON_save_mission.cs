@@ -22,13 +22,7 @@ namespace Game.Data
             ConstSystem.CanSave = true;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                SaveInfo();
-        }
-
-        private void SaveInfo()
+        public void SaveInfo()
         {
             if (ConstSystem.CanSave)
             {
