@@ -1,38 +1,57 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] private string[] _tips;
     [SerializeField] private Text _text;
     [SerializeField] private string _key = "Tips";
+    [SerializeField] private bool _repeat = true;
+
+    private EventBus _eventBus;
 
     private int _index = 0;
     private void Start()
     {
-        if (!PlayerPrefs.HasKey(_key))
-            _text.text = _tips[_index];
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Subscribe<NextTip>(Next, 1);
+
+        if (!_repeat)
+        {
+            if (!PlayerPrefs.HasKey(_key))
+                _text.text = _tips[_index];
+        }
+
+        if (_repeat)
+           _text.text = _tips[_index];
+
+        else
+            _text.text = "";
     }
 
-    private void Update()
+    private void Next(NextTip tip)
     {
         if (!PlayerPrefs.HasKey(_key))
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (_index < _tips.Length - 1)
             {
-                if (_index < _tips.Length - 1)
-                {
-                    _index++;
-                    _text.text = _tips[_index];
-                }
+                _index++;
+                _text.text = _tips[_index];
+            }
 
-                else if (_index >= _tips.Length - 1)
-                {
-                    _text.text = "";
-                    PlayerPrefs.SetInt(_key, 1);
-                }
+            else if (_index >= _tips.Length - 1)
+            {
+                _text.text = "";
+                PlayerPrefs.SetInt(_key, 1);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        _eventBus.Unsubscribe<NextTip>(Next);
     }
 }
 

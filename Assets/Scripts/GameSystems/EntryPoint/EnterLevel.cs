@@ -50,6 +50,7 @@ namespace Game
         [SerializeField] private Shop _shop;
         [SerializeField] private MissionsController _missionsController;
         [SerializeField] private Loading _loading;
+        [SerializeField] private PapichMovement _papich;
 
         [SerializeField] private bool _load = true;
 
@@ -109,6 +110,7 @@ namespace Game
             _changeSkinCar.Init();
             _changeRpgSkin.Init();
             _missionsController.Init();
+            _papich.Init();
 
             _akAnim.Init();
             _rpgAnim.Init();

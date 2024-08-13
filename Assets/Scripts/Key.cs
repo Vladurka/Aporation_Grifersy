@@ -24,6 +24,7 @@ public class Key : MonoBehaviour
                 {
                     _isKey = true;
                     Destroy(hit.collider.gameObject);
+                    _eventBus.Invoke(new NextTip());
                 }
 
                 if (hit.collider.TryGetComponent(out IDoor door) && _isKey)

@@ -1,3 +1,5 @@
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +21,7 @@ public class PapichMovement : MonoBehaviour
 
     private Animator _animator;
     private NavMeshAgent _agent;
+    private EventBus _eventBus;
 
     private int _index;
 
@@ -26,8 +29,10 @@ public class PapichMovement : MonoBehaviour
     private bool _played1 = false;
     private bool _played2 = false;
 
-    private void Start()
+    public void Init()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+
         if(PlayerPrefs.HasKey("Papich"))
             _isStarted = true;
 
@@ -95,6 +100,7 @@ public class PapichMovement : MonoBehaviour
     {
         if (!_audioSource.isPlaying && !_played1)
         {
+            _eventBus.Invoke(new NextTip());
             _audioSource.PlayOneShot(_clip1);
             _played1 = true;
         }
