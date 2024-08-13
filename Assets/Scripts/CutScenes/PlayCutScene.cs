@@ -37,8 +37,8 @@ public class PlayCutScene : MonoBehaviour
         _video.Play();
         _video.loopPointReached += (vp) => Load(vp, index);
 
-        _uiCamera.SetActive(true);
         _mainCharacter.SetActive(false);
+        _uiCamera.SetActive(true);
     }
 
     private void PlayCut(PlayCut cut)
