@@ -23,6 +23,7 @@ TagManager:
   - Stryker
   - Key
   - Door
+  - Point1
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Weapon
   - 
   - 
   - 
