@@ -47,7 +47,7 @@ namespace Game.Weapon
                 if (hit.transform.TryGetComponent(out IEnemyHealth enemy))
                     enemy.GetDamage(_damage);
 
-                if (hit.transform.TryGetComponent(out ITankHealth tank))
+                if (hit.transform.TryGetComponent(out ITargetHealth tank))
                     tank.Destroy();
 
                 if (hit.transform.TryGetComponent(out IPlayerHealth player))

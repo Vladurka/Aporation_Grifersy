@@ -1,9 +1,6 @@
-using Game.SeniorEventBus.Signals;
-using Game.SeniorEventBus;
 using UnityEngine;
-using UnityEditor.ShaderGraph.Internal;
 
-public class Striker : MonoBehaviour
+public class Stryker : MonoBehaviour
 {
     [Header("Sound")]
     [SerializeField] private AudioSource _audioSourceDrive;
@@ -36,22 +33,11 @@ public class Striker : MonoBehaviour
     [SerializeField] private float _brakeTorque = 5000f;
     [SerializeField] private float _antiRoll = 5000f;
 
-    private EventBus _eventBus;
     [SerializeField] private Rigidbody _rb;
 
     private bool _crabMode = false;
     private bool _frontWheelDriveMode = true;
     private bool _breakeMode = false;
-
-    public void Init()
-    {
-        //_eventBus = ServiceLocator.Current.Get<EventBus>();
-        //_camera.enabled = false;
-        //this.enabled = false;
-        //_rb = GetComponent<Rigidbody>();
-        //_audioListener = GetComponentInChildren<AudioListener>();
-        //_audioListener.enabled = false;
-    }
 
     private void FixedUpdate()
     {

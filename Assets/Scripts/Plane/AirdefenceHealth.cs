@@ -2,7 +2,7 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
-public class TargetHealth : MonoBehaviour, ITargetHealth
+public class AirdefenceHealth : MonoBehaviour, ITargetHealth
 {
     [SerializeField] private float _health = 100;
     [SerializeField] private ParticleSystem[] _lowHpEffect;
@@ -40,10 +40,10 @@ public class TargetHealth : MonoBehaviour, ITargetHealth
         }
 
         if (_health <= 0 && !_isDead)
-            Die();
+            Destroy();
     }
 
-    public void Die()
+    public void Destroy()
     {
         foreach (MeshRenderer mesh in _meshRenderer)
             mesh.material = _destoyedMaterial;

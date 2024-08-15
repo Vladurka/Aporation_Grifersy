@@ -21,7 +21,7 @@ public class MineTank : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, _range);
         foreach (Collider hit in hits)
         {
-            if(hit.transform.TryGetComponent(out ITankHealth health))
+            if(hit.transform.TryGetComponent(out ITargetHealth health))
                 health.Destroy();
         }
         Instantiate(_effect, transform.position, Quaternion.identity);

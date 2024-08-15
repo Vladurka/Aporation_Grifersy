@@ -44,10 +44,10 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
         }
 
         if (_health <= 0)
-            Die();
+            Destroy();
     }
 
-    public void Die()
+    public void Destroy()
     {
         _rb.useGravity = true;
         _rb.mass = 2f;

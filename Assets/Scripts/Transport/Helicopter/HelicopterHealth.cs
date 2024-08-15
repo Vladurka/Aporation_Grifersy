@@ -2,7 +2,7 @@ using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
 
-public class HelicopterHealth : MonoBehaviour, IHelicopterHealth
+public class HelicopterHealth : MonoBehaviour, ITransportHealth
 {
     public float Health { get; set; } = 100f;
 

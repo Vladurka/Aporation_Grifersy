@@ -2,16 +2,18 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
-public class TankHP : MonoBehaviour, ITankHealth
+public class TankHealth : MonoBehaviour, ITargetHealth
 {
     [SerializeField] private ParticleSystem _explosion;
     [SerializeField] private ParticleSystem _fire;
-    [SerializeField] private Transform _pos;
+    [SerializeField] private GameObject _tower;
     [SerializeField] private Material _material;
 
-    [SerializeField] private MeshRenderer[] _renderers;
+    private MeshRenderer[] _renderers;
 
     private bool _isDead = false;
+
+    private float _health = 100f;
 
     private EventBus _eventBus;
     private Rigidbody _rb;
@@ -20,7 +22,8 @@ public class TankHP : MonoBehaviour, ITankHealth
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Invoke(new AddObj(gameObject));
-        _rb = GetComponent<Rigidbody>();
+        _renderers = GetComponentsInChildren<MeshRenderer>();
+        _rb = _tower.GetComponent<Rigidbody>();
         _fire.Stop();
     }
 
@@ -28,6 +31,14 @@ public class TankHP : MonoBehaviour, ITankHealth
     {
         if(!_isDead)
             _fire.Stop();
+    }
+
+    public void GetDamage(float damage)
+    {
+        _health -= damage;
+
+        if (_health <= 0)
+            Destroy();
     }
 
     public void Destroy()
@@ -49,7 +60,7 @@ public class TankHP : MonoBehaviour, ITankHealth
                 renderer.materials = newMaterials;
             }
 
-            Instantiate(_explosion, _pos.position, Quaternion.identity);
+            Instantiate(_explosion, _tower.transform.position, Quaternion.identity);
 
             float x = Random.Range(0f, 6f);
             float y = Random.Range(0f, 6f);

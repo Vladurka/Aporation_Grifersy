@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 8293359525126648928}
   - component: {fileID: 2517223564817812102}
   - component: {fileID: 2097197083751841749}
-  - component: {fileID: 3815480730417976032}
   - component: {fileID: 528611187333606394}
   - component: {fileID: 6012556798224745041}
   - component: {fileID: 7053207747111218734}
@@ -121,26 +120,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3815480730417976032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2287423586049548202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b80616dd1d91947949f1d26a788c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosion: {fileID: 198000012777718758, guid: 0e6591c39ca4e7846bd9c13ace5b2bc2, type: 3}
-  _fire: {fileID: 4373027180121027582}
-  _pos: {fileID: 8293359525126648928}
-  _material: {fileID: 2100000, guid: 7268a08ef5872c74599e6afd043c4146, type: 2}
-  _renderers:
-  - {fileID: 6917162675710863265}
-  - {fileID: 2097197083751841749}
-  - {fileID: 2752809687246237252}
 --- !u!114 &528611187333606394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072669686019957621}
   - component: {fileID: 7447384245449068799}
+  - component: {fileID: 7041182527044311561}
   m_Layer: 0
   m_Name: tank
   m_TagString: Tank
@@ -459,6 +439,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7788291588132379583, guid: 3f75075f4d837bc40b69d489f65cea19, type: 3}
+--- !u!114 &7041182527044311561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109407138192863224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b80616dd1d91947949f1d26a788c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 198000012777718758, guid: 0e6591c39ca4e7846bd9c13ace5b2bc2, type: 3}
+  _fire: {fileID: 4373027180121027582}
+  _tower: {fileID: 2287423586049548202}
+  _material: {fileID: 2100000, guid: 7268a08ef5872c74599e6afd043c4146, type: 2}
 --- !u!1 &7641590534691046353
 GameObject:
   m_ObjectHideFlags: 0

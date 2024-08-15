@@ -2,7 +2,7 @@ using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
 
-public class CarHealth : MonoBehaviour, ICarHealth
+public class CarHealth : MonoBehaviour, ITransportHealth
 {
     public float Health { get; set; } = 100f;
 

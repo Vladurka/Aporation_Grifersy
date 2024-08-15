@@ -1,7 +1,5 @@
-public interface ICarHealth 
+public interface ITransportHealth
 {
-    public float Health { get; set; }
-
     public void GetDamage(float damage);
     public void Die();
 }
