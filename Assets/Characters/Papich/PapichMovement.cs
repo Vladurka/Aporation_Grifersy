@@ -92,7 +92,7 @@ public class PapichMovement : MonoBehaviour
             return;
         }
 
-        if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 10f)
+        if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 10f)
             _currentState = State.Talk1;
     }
 

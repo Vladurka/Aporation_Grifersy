@@ -33,7 +33,25 @@ public class Tutorial : MonoBehaviour
 
     private void Next(NextTip tip)
     {
-        if (!PlayerPrefs.HasKey(_key))
+        if (!_repeat)
+        {
+            if (!PlayerPrefs.HasKey(_key))
+            {
+                if (_index < _tips.Length - 1)
+                {
+                    _index++;
+                    _text.text = _tips[_index];
+                }
+
+                else if (_index >= _tips.Length - 1)
+                {
+                    _text.text = "";
+                    PlayerPrefs.SetInt(_key, 1);
+                }
+            }
+        }
+
+        if (_repeat)
         {
             if (_index < _tips.Length - 1)
             {
