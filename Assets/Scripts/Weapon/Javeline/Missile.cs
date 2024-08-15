@@ -70,7 +70,7 @@ public class Missile : MonoBehaviour
 
     private void BulletDestroy()
     {
-        if (_isExploded)
+        if (!_isExploded)
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, 5f);
             foreach (Collider hit in hits)
