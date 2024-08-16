@@ -17,11 +17,9 @@ public class Helicopter : AbstractTransport, IService
     private bool _canMove = true;
 
     private EventBus _eventBus;
-
-    private Rigidbody _rb;
     private AudioListener _audioListener;
+    private Rigidbody _rb;
     private AudioSource _audioSource;
-
     private Animator _animator;
 
     public override void Init()
@@ -29,11 +27,10 @@ public class Helicopter : AbstractTransport, IService
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
         _camera.enabled = false;
-
+        _audioListener = GetComponent<AudioListener>();
+        _audioListener.enabled = false;
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
-        _audioListener = GetComponentInChildren<AudioListener>();
-        _audioListener.enabled = false;
         _audioSource = GetComponent<AudioSource>();
 
         this.enabled = false;
@@ -54,13 +51,13 @@ public class Helicopter : AbstractTransport, IService
 
     protected override void Move()
     {
-        if (_canMove == true)
+        if (_canMove)
         {
             _forwardSpeed = 10f;
             _rotationSpeed = 25f;
         }
 
-        if (_canMove == false)
+        if (!_canMove)
         {
             _forwardSpeed = 0f;
             _rotationSpeed = 0f;
@@ -86,6 +83,7 @@ public class Helicopter : AbstractTransport, IService
             _rb.AddForce(Vector3.down * _liftForce * Time.deltaTime);
             _isStopping = false;
         }
+
         else
         {
             if (!_isStopping)
@@ -113,8 +111,8 @@ public class Helicopter : AbstractTransport, IService
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
-        _audioListener.enabled = true;
         _audioSource.Play();
+        _audioListener.enabled = true;
     }
 
     public override void Exit()
@@ -127,8 +125,8 @@ public class Helicopter : AbstractTransport, IService
             Invoke("UseGravity", 2f);
             this.enabled = false;
             ConstSystem.InTransport = false;
-            _audioListener.enabled = false;
             _audioSource.Stop();
+            _audioListener.enabled = false;
         }
     }
 
@@ -145,7 +143,7 @@ public class Helicopter : AbstractTransport, IService
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.CompareTag("Ground"))
             _canMove = false;
     }
 

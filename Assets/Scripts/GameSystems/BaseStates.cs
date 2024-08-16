@@ -16,16 +16,12 @@ public class BaseStates : MonoBehaviour, IService
         _eventBus.Subscribe<BuyBase>(GetNewState, 1);
 
         foreach (GameObject state in _states)
-        {
             state.SetActive(false);
-        }
 
         if (BaseLevel >= 0)
         {
             for (int i = 0; i <= BaseLevel; i++)
-            {
                 _states[i].SetActive(true);
-            }
         }
     }
 

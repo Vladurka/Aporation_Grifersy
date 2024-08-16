@@ -24,8 +24,6 @@ public class PlayCutScene : MonoBehaviour
             _loading = ServiceLocator.Current.Get<Loading>();
 
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-
-        Debug.Log(_loading);
     }
 
     public void PlayVideo(int index)
