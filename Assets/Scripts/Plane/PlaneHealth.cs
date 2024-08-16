@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PlaneHealth : MonoBehaviour, ITargetHealth
 {
-    [SerializeField] private float _health = 100;
+    public float Health { get; set; } = 100f;
+
     [SerializeField] private ParticleSystem[] _lowHpEffect;
     [SerializeField] private Material _destoyedMaterial;
 
@@ -34,7 +35,7 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
 
     public void GetDamage(float damage)
     {
-        _health -= damage;
+        Health -= damage;
 
         if (!_gotDamage)
         {
@@ -43,7 +44,7 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
             _gotDamage = true;
         }
 
-        if (_health <= 0)
+        if (Health <= 0)
             Destroy();
     }
 

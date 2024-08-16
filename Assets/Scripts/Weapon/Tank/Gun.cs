@@ -1,25 +1,14 @@
-using Game.SeniorEventBus.Signals;
-using Game.SeniorEventBus;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : MonoBehaviour, IVehicleShoot
 {
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private GameObject _mainCharacter;
 
-    private bool _isStarted = false;
-
-    private EventBus _eventBus;
+    private GameObject _mainCharacter;
 
     private void Start()
     {
-        if (_mainCharacter == null)
-            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-
-        _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<DestroyTank>(SetFalse, 2);
-
-        _isStarted = true;
+        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -33,14 +22,8 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void SetFalse(DestroyTank tank)
+    public void Stop()
     {
         this.enabled = false;   
-    }
-
-    private void OnDestroy()
-    {
-        if(_isStarted)
-            _eventBus.Unsubscribe<DestroyTank>(SetFalse);
     }
 }

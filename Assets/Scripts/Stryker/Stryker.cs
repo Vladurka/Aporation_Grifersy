@@ -6,7 +6,6 @@ public class Stryker : MonoBehaviour
     [SerializeField] private AudioSource _audioSourceDrive;
     [SerializeField] private AudioSource _audioSourceIdle;
     [SerializeField] private AudioSource _audioSourceStart;
-    private AudioListener _audioListener;
 
     [Header("Drive")]
     [SerializeField] private Transform _transformFR;
@@ -32,8 +31,6 @@ public class Stryker : MonoBehaviour
     [SerializeField] private float _maxAngle = 30f;
     [SerializeField] private float _brakeTorque = 5000f;
     [SerializeField] private float _antiRoll = 5000f;
-
-    [SerializeField] private Rigidbody _rb;
 
     private bool _crabMode = false;
     private bool _frontWheelDriveMode = true;

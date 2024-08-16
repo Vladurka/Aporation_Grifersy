@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-public class AirDefence : MonoBehaviour
+public class AirDefence : MonoBehaviour, IVehicleShoot
 {
     [SerializeField] private float _range = 2000f;
 
@@ -29,5 +29,10 @@ public class AirDefence : MonoBehaviour
 
         _time = Random.Range(15, 26);
         StartCoroutine(Shoot());
+    }
+
+    public void Stop()
+    {
+        this.enabled = false;
     }
 }

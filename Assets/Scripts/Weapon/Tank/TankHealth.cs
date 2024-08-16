@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TankHealth : MonoBehaviour, ITargetHealth
 {
+    public float Health { get; set; } = 100f;
+
     [SerializeField] private ParticleSystem _explosion;
     [SerializeField] private ParticleSystem _fire;
     [SerializeField] private GameObject _tower;
@@ -13,8 +15,7 @@ public class TankHealth : MonoBehaviour, ITargetHealth
 
     private bool _isDead = false;
 
-    private float _health = 100f;
-
+    private IVehicleShoot[] _tankShoot;
     private EventBus _eventBus;
     private Rigidbody _rb;
 
@@ -22,6 +23,7 @@ public class TankHealth : MonoBehaviour, ITargetHealth
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Invoke(new AddObj(gameObject));
+        _tankShoot = GetComponentsInChildren<IVehicleShoot>();
         _renderers = GetComponentsInChildren<MeshRenderer>();
         _rb = _tower.GetComponent<Rigidbody>();
         _fire.Stop();
@@ -35,9 +37,9 @@ public class TankHealth : MonoBehaviour, ITargetHealth
 
     public void GetDamage(float damage)
     {
-        _health -= damage;
+        Health -= damage;
 
-        if (_health <= 0)
+        if (Health <= 0)
             Destroy();
     }
 
@@ -68,8 +70,10 @@ public class TankHealth : MonoBehaviour, ITargetHealth
 
             Vector3 dir = new Vector3(x, y, z);
             _rb.AddForce(dir * 2f, ForceMode.Impulse);
-            _eventBus.Invoke(new DestroyTank());
             _fire.Play();
+
+            foreach (IVehicleShoot vehicle in _tankShoot)
+                vehicle.Stop();
 
             _isDead = true;
         }
