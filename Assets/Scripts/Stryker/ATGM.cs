@@ -17,7 +17,7 @@ public class ATGM : MonoBehaviour
 
     private int _missiles = 2;
 
-    private void Start()
+    public void Init()
     {
         _camera = Camera.main;
         _audioSource = GetComponent<AudioSource>();
@@ -27,8 +27,8 @@ public class ATGM : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && !_cameraMinigun.enabled)
         {
-            _cameraATGM.enabled = true;
             _camera.enabled = false;
+            _cameraATGM.enabled = true;
             _canvas.enabled = true;
         }
 

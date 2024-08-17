@@ -15,13 +15,13 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
 
     private Rigidbody _rb;
 
-    private PlaneScopeCamera _scopeCamera;
+    private MissileScopeCamera _scopeCamera;
     private PlaneController _controller;
 
     public void Init()
     {
         _controller = ServiceLocator.Current.Get<PlaneController>();
-        _scopeCamera = GetComponentInChildren<PlaneScopeCamera>();
+        _scopeCamera = GetComponentInChildren<MissileScopeCamera>();
         _rb = GetComponent<Rigidbody>();
         _meshRenderer = GetComponentsInChildren<MeshRenderer>();
     }

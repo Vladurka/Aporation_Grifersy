@@ -10,7 +10,7 @@ public class Minigun : MonoBehaviour
     [SerializeField] private Transform _bulletPos;
     [SerializeField] private Camera _scopeCamera;
     [SerializeField] private Camera _thisCamera;
-    private Camera _mainCamera;
+    [SerializeField] private Camera _mainCamera;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private float _range = 500f;
     [SerializeField] private AudioSource _source;
@@ -20,9 +20,8 @@ public class Minigun : MonoBehaviour
 
     RaycastHit hit;
 
-    private void Start()
+    public void Init()
     {
-        _mainCamera = Camera.main;
         _thisCamera.enabled = false;
     }
 

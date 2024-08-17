@@ -28,15 +28,13 @@ public class MissileLouncher : MonoBehaviour, IService
 
     [SerializeField] private Text _rocketText;
 
-    private Camera _mainCamera;
+    [SerializeField] private Camera _mainCamera;
     private Transform _target;
     private bool _targetSet = false;
     private int _distance;
 
     public void Init()
     {
-        _mainCamera = Camera.main;
-
         _mainCamera.enabled = true;
 
         X3.SetActive(false);

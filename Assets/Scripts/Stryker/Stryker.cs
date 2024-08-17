@@ -5,7 +5,6 @@ public class Stryker : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private AudioSource _audioSourceDrive;
     [SerializeField] private AudioSource _audioSourceIdle;
-    [SerializeField] private AudioSource _audioSourceStart;
 
     [Header("Drive")]
     [SerializeField] private Transform _transformFR;
@@ -35,6 +34,13 @@ public class Stryker : MonoBehaviour
     private bool _crabMode = false;
     private bool _frontWheelDriveMode = true;
     private bool _breakeMode = false;
+
+    private Rigidbody _rb;
+
+    public void Init()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
@@ -213,24 +219,23 @@ public class Stryker : MonoBehaviour
             }
         }
 
-        //if (_rb.velocity.magnitude >= 2f)
-        //{
-        //    _audioSourceDrive.volume = _rb.velocity.magnitude / 2;
-        //    if (!_audioSourceDrive.isPlaying)
-        //    {
-        //        _audioSourceDrive.Play();
-        //        _audioSourceIdle.Stop();
-        //    }
-        //}
+        if (_rb.velocity.magnitude >= 2f)
+        {
+            if (!_audioSourceDrive.isPlaying)
+            {
+                _audioSourceDrive.Play();
+                _audioSourceIdle.Stop();
+            }
+        }
 
-        //if (_rb.velocity.magnitude < 2f)
-        //{
-        //    if (!_audioSourceIdle.isPlaying)
-        //    {
-        //        _audioSourceIdle.Play();
-        //        _audioSourceDrive.Stop();
-        //    }
-        //}
+        if (_rb.velocity.magnitude < 2f)
+        {
+            if (!_audioSourceIdle.isPlaying)
+            {
+                _audioSourceIdle.Play();
+                _audioSourceDrive.Stop();
+            }
+        }
     }
 }
 

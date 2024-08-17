@@ -15,6 +15,7 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
         _tankMove = GetComponent<TankMove>();   
 
         _target = GameObject.FindGameObjectWithTag(_1targetTag);
+        Debug.Log(_target.name);
         _tankMove.Target = _target;
     }
 

@@ -1,12 +1,11 @@
 using UnityEngine;
 using Game.SeniorEventBus;
 
-public class MiniEnter : MonoBehaviour
+public class EnterTank : MonoBehaviour
 {
-    [SerializeField] private PlaneController _planeController;
-    [SerializeField] private PlaneHealth _planeHealth;
-    [SerializeField] private MissileLouncher _missileLouncher;
-    [SerializeField] private StopDetector _stopDetector;
+    [SerializeField] private Stryker _stryker;
+    [SerializeField] private ATGM _atgm;
+    [SerializeField] private Minigun _minigun;
     [SerializeField] private GameUI _gameUI;
 
     private EnemyListController _enemyListController;
@@ -33,10 +32,9 @@ public class MiniEnter : MonoBehaviour
 
     private void Init()
     {
-        _planeController.Init();
-        _stopDetector.Init();
-        _missileLouncher.Init();
-        _planeHealth.Init();
+        _stryker.Init();    
+        _atgm.Init();
+        _minigun.Init();
         _gameUI.Init();
         _enemyListController.Init();
     }
@@ -46,7 +44,5 @@ public class MiniEnter : MonoBehaviour
 
         ServiceLocator.Current.Register(_eventBus);
         ServiceLocator.Current.Register(_enemyListController);
-        ServiceLocator.Current.Register<PlaneController>(_planeController);
-        ServiceLocator.Current.Register<StopDetector>(_stopDetector);
     }
 }

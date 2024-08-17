@@ -36,7 +36,6 @@ public class StopDetector : MonoBehaviour, IService
             _controller.IsSet = true;
             _controller.Rb.useGravity = false;
             _controller.Force = 0.3f;
-            Debug.Log("nonstop");
         }
     }
 
