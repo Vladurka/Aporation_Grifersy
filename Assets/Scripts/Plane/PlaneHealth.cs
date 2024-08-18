@@ -77,7 +77,8 @@ public class PlaneHealth : MonoBehaviour, ITargetHealth
 
     private IEnumerator Stopping()
     {
-        _controller.FlySpeed -= 3;
+        if(_controller.FlySpeed > 0f)
+            _controller.FlySpeed -= 2f;
 
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(Stopping());

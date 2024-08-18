@@ -7,8 +7,9 @@ public class StopDetector : MonoBehaviour, IService
 {
     [SerializeField] private float _stopForce = 1.2f;
 
-    private PlaneController _controller;
+    private bool _stopped = false;
 
+    private PlaneController _controller;
     private EventBus _eventBus;
 
     public void Init()
@@ -41,7 +42,7 @@ public class StopDetector : MonoBehaviour, IService
 
     public IEnumerator Stoping(float stopForce)
     {
-        if (_controller.FlySpeed > 0)
+        if (_controller.FlySpeed > 0f)
         {
             _controller.FlySpeed -= stopForce;
             _controller.CanFly = false;
@@ -53,9 +54,10 @@ public class StopDetector : MonoBehaviour, IService
             StartCoroutine(Stoping(stopForce));
         }
 
-        else
+        if(_controller.FlySpeed < 1f && !_stopped)
         {
             _eventBus.Invoke(new EndSignal());
+            _stopped = true;
             yield return null;
         }
     }

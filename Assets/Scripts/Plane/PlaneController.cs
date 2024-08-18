@@ -136,7 +136,7 @@ public class PlaneController : MonoBehaviour, IService
             _pitchSpeed = 0.175f;
         }
 
-        if (Input.GetKeyDown(KeyCode.C) && FlySpeed >=  _minSpeed)
+        if (Input.GetKeyDown(KeyCode.C) && FlySpeed >= _minSpeed - 2f)
         {
             if (!IsClosed)
             {

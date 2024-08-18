@@ -9,8 +9,6 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
     [SerializeField] private ParticleSystem[] _lowHpEffect;
     [SerializeField] private Material _destoyedMaterial;
 
-    private IVehicleShoot _airDefence;
-
     private MeshRenderer[] _meshRenderer;
     private EventBus _eventBus;
 
@@ -23,7 +21,6 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
         _eventBus.Invoke(new AddObj(gameObject));
 
         _meshRenderer = GetComponentsInChildren<MeshRenderer>();
-        _airDefence = GetComponent<IVehicleShoot>();
 
         foreach (ParticleSystem effect in _lowHpEffect)
             effect.Stop();
@@ -49,7 +46,8 @@ public class AirdefenceHealth : MonoBehaviour, ITargetHealth
         foreach (MeshRenderer mesh in _meshRenderer)
             mesh.material = _destoyedMaterial;
 
-        _airDefence.Stop();
+        if(transform.TryGetComponent(out IVehicleShoot vehicle))
+            vehicle.Stop();
 
         _isDead = true;
 

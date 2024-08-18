@@ -68,6 +68,7 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
 
     public void Stop()
     {
+        StopAllCoroutines();
         this.enabled = false;
     }
 }

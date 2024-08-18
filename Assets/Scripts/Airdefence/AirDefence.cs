@@ -12,7 +12,7 @@ public class AirDefence : MonoBehaviour, IVehicleShoot
 
     private void Start()
     {
-        _time = Random.Range(15, 26);
+        _time = Random.Range(20f, 30f);
         StartCoroutine(Shoot());
     }
 
@@ -33,6 +33,7 @@ public class AirDefence : MonoBehaviour, IVehicleShoot
 
     public void Stop()
     {
+        StopAllCoroutines();
         this.enabled = false;
     }
 }

@@ -148,6 +148,8 @@ public class GameUI : MonoBehaviour
 
         if (_speedometerPanel != null)
             _speedometerPanel.SetActive(false);
+
+        Time.timeScale = 0f;
     }
 
     private void OnDestroy()
