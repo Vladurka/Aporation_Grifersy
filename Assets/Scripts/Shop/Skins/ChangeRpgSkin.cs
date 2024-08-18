@@ -10,9 +10,9 @@ public class ChangeRpgSkin : MonoBehaviour
     public void Init()
     {
         _renderer = GetComponent<SkinnedMeshRenderer>();
-        _materialIndex = PlayerPrefs.GetInt(ConstSystem.RPG_SKIN_INDEX);
+        _materialIndex = PlayerPrefsSafe.GetInt(ConstSystem.RPG_SKIN_INDEX);
 
-        if(PlayerPrefs.HasKey(ConstSystem.RPG_SKIN_INDEX))
+        if(PlayerPrefsSafe.HasKey(ConstSystem.RPG_SKIN_INDEX))
             _renderer.material = _materials[_materialIndex];
     }
 }

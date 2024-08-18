@@ -11,9 +11,9 @@ public class ChangeAkSkin : MonoBehaviour
     public void Init()
     {
         _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
-        _materialIndex = PlayerPrefs.GetInt(ConstSystem.AK_SKIN_INDEX);
+        _materialIndex = PlayerPrefsSafe.GetInt(ConstSystem.AK_SKIN_INDEX);
 
-        if (PlayerPrefs.HasKey(ConstSystem.AK_SKIN_INDEX))
+        if (PlayerPrefsSafe.HasKey(ConstSystem.AK_SKIN_INDEX))
             _skinnedMeshRenderer.material = _materials[_materialIndex];
     }
 }

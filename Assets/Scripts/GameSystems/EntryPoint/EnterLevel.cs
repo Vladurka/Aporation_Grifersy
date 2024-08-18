@@ -30,6 +30,7 @@ namespace Game
         [SerializeField] private ChangeAkSkin _changeAkSkin;
         [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
         [SerializeField] private GrenadeThrower _grenadeThrower;
+        [SerializeField] private ChangeWeapon _changeWeapon;
 
         [Header("Animations")]
         [SerializeField] private AKAnim _akAnim;
@@ -70,10 +71,10 @@ namespace Game
            RefreshRate refreshRate = Screen.currentResolution.refreshRateRatio;
            float targetFPS = refreshRate.numerator;
 
-           if (PlayerPrefs.HasKey("FPS"))
-               Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+           if (PlayerPrefsSafe.HasKey("FPS"))
+               Application.targetFrameRate = PlayerPrefsSafe.GetInt("FPS");
 
-           if (!PlayerPrefs.HasKey("FPS"))
+           if (!PlayerPrefsSafe.HasKey("FPS"))
                Application.targetFrameRate = (int)targetFPS;
         }
 
@@ -87,6 +88,8 @@ namespace Game
                 _loadDataJson.Load();
 
             _saveDataJson.Init();
+
+            _papich.Init();
 
             _gamePanel.Init();
             _playerHealth.Init();
@@ -110,7 +113,6 @@ namespace Game
             _changeSkinCar.Init();
             _changeRpgSkin.Init();
             _missionsController.Init();
-            _papich.Init();
 
             _akAnim.Init();
             _rpgAnim.Init();
@@ -118,6 +120,8 @@ namespace Game
             _knifeAnim.Init();
 
             _gameUI.Init();
+
+            _changeWeapon.Init();
 
             Debug.Log("Initializated");
         }
@@ -131,6 +135,7 @@ namespace Game
             ServiceLocator.Current.Register<Movement>(_movement);
             ServiceLocator.Current.Register<Helicopter>(_helicopter);
             ServiceLocator.Current.Register<Car>(_car);
+            ServiceLocator.Current.Register<ChangeWeapon>(_changeWeapon);
             ServiceLocator.Current.Register<RPG>(_rpg);
             ServiceLocator.Current.Register<WeaponAk>(_weaponAk);
             ServiceLocator.Current.Register<Raycasts>(_raycasts);

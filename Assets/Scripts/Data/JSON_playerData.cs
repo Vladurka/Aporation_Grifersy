@@ -5,6 +5,7 @@ public class JSON_playerData
     public string HelicopterConditionData;
     public float[] CarPositionData;
     public float[] PlayerPositionData;
+    public int SyrgineAmount;
     public int AKBulletsData;
     public int AKTotalBulletsData;
     public int RPGTotalBulletsData;

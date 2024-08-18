@@ -22,6 +22,7 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private ChangeRpgSkin _changeRpgSkin;
     [SerializeField] private ChangeAkSkin _changeAkSkin;
     [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
+    [SerializeField] private ChangeWeapon _changeWeapon;
 
     [Header("UI")]
     [SerializeField] private GameUI _gameUI;
@@ -56,10 +57,10 @@ public class EnterMission : MonoBehaviour
         RefreshRate refreshRate = Screen.currentResolution.refreshRateRatio;
         float targetFPS = refreshRate.numerator;
 
-        if (PlayerPrefs.HasKey("FPS"))
-            Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+        if (PlayerPrefsSafe.HasKey("FPS"))
+            Application.targetFrameRate = PlayerPrefsSafe.GetInt("FPS");
 
-        if (!PlayerPrefs.HasKey("FPS"))
+        if (!PlayerPrefsSafe.HasKey("FPS"))
             Application.targetFrameRate = (int)targetFPS;
     }
 
@@ -73,6 +74,7 @@ public class EnterMission : MonoBehaviour
         if (_load)
             _loadDataJson.Load();
 
+        _changeWeapon.Init();
         _gamePanel.Init();
         _playerHealth.Init();
         _movement.Init();
@@ -107,6 +109,7 @@ public class EnterMission : MonoBehaviour
         ServiceLocator.Current.Register(_eventBus);
         ServiceLocator.Current.Register<PlayerHealth>(_playerHealth);
         ServiceLocator.Current.Register<Movement>(_movement);
+        ServiceLocator.Current.Register<ChangeWeapon>(_changeWeapon);
         ServiceLocator.Current.Register<RPG>(_rpg);
         ServiceLocator.Current.Register<WeaponAk>(_weaponAk);
         ServiceLocator.Current.Register<CoinSystem>(_coinSystem);

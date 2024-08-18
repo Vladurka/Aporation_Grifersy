@@ -1,17 +1,27 @@
+using Game.Player;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
-public class ChangeWeapon : MonoBehaviour
+public class ChangeWeapon : MonoBehaviour, IService
 {
     [SerializeField] private GameObject[] _items;
 
-    private EventBus _eventBus;
+    private bool _canTake = true;
 
-    private void Start()
+    private EventBus _eventBus;
+    private PlayerHealth _playerHealth;
+
+    public int SyrgineAmount = 2;
+
+    public void Init()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<UseBuilder>(UseBuilder, 1);
+        _eventBus.Subscribe<BuySyrgine>(AddSyrgine, 1);
+
+        _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
+
+        _eventBus.Invoke(new UpdateSyrgine(SyrgineAmount));
 
         Deactivate();
         _items[0].SetActive(true);
@@ -19,46 +29,42 @@ public class ChangeWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !_items[0].activeSelf)
+        if (_canTake)
         {
-            Deactivate();
-            _items[0].SetActive(true);
+            CheckAndActivateItem(KeyCode.Alpha1, 0);
+            CheckAndActivateItem(KeyCode.Alpha2, 1);
+            CheckAndActivateItem(KeyCode.Alpha3, 2);
+            CheckAndActivateItem(KeyCode.Alpha4, 3);
+            CheckAndActivateItem(KeyCode.X, 4, true);
+            CheckAndActivateItem(KeyCode.J, 5);
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !_items[1].activeSelf)
+    private void CheckAndActivateItem(KeyCode key, int itemIndex, bool isSyrgine = false)
+    {
+        if (Input.GetKeyDown(key) && !_items[itemIndex].activeSelf)
         {
-            Deactivate();
-            _items[1].SetActive(true);
+            if (!isSyrgine)
+            {
+                CancelInvoke("CanTake");
+                _canTake = false;
+                Invoke("CanTake", 0.8f);
+                Deactivate();
+                _items[itemIndex].SetActive(true);
+            }
+
+            if(isSyrgine)
+            {
+                if (_playerHealth.Health < 100f && SyrgineAmount > 0)
+                {
+                    CancelInvoke("CanTake");
+                    _canTake = false;
+                    Invoke("UseAfter", 1f);
+                    Deactivate();
+                    _items[itemIndex].SetActive(true);
+                }
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !_items[2].activeSelf)
-        {
-            Deactivate();
-            _items[2].SetActive(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4) && !_items[3].activeSelf)
-        {
-            Deactivate();
-            _items[3].SetActive(true);
-        }
-
-        //if (Input.GetKeyDown(KeyCode.Alpha5) && !_items[5].activeSelf)
-        //{
-        //    if (_items[5] != null)
-        //    {
-        //        Deactivate();
-        //        _items[5].SetActive(true);
-        //    }
-        //}
-
-        if (Input.GetKeyDown(KeyCode.V) && !_items[4].activeSelf)
-        {
-            Deactivate();
-            _items[4].SetActive(true);
-        }
-
-
     }
 
     private void Deactivate()
@@ -69,15 +75,30 @@ public class ChangeWeapon : MonoBehaviour
         }
     }
 
-    private void UseBuilder(UseBuilder builder)
+    private void AddSyrgine(BuySyrgine syrgine)
     {
+        SyrgineAmount += syrgine.Amount;
+        _eventBus.Invoke(new UpdateSyrgine(SyrgineAmount));
+    }
+
+    private void UseAfter()
+    {
+        _canTake = true;
         Deactivate();
-        _items[5].SetActive(true);
+        _items[0].SetActive(true);
+        _playerHealth.AddHealth(100f);
+        SyrgineAmount--;
+        _eventBus.Invoke(new UpdateSyrgine(SyrgineAmount));
+    }
+
+    private void CanTake()
+    {
+        _canTake = true;
     }
 
     private void OnDestroy()
     {
-        _eventBus.Unsubscribe<UseBuilder>(UseBuilder);
+        _eventBus.Unsubscribe<BuySyrgine>(AddSyrgine);
     }
 }
 

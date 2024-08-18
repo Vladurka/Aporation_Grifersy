@@ -6,7 +6,7 @@ public class BaseStates : MonoBehaviour, IService
 {
     [SerializeField] private GameObject[] _states;
 
-    public int BaseLevel = -1;
+    public int BaseLevel = 0;
 
     private EventBus _eventBus;
 
@@ -18,19 +18,19 @@ public class BaseStates : MonoBehaviour, IService
         foreach (GameObject state in _states)
             state.SetActive(false);
 
-        if (BaseLevel >= 0)
+        if (BaseLevel >= 1)
         {
-            for (int i = 0; i <= BaseLevel; i++)
+            for (int i = 0; i <= BaseLevel - 1; i++)
                 _states[i].SetActive(true);
         }
     }
 
     private void GetNewState(BuyBase state)
     {
-        if (BaseLevel < _states.Length - 1)
+        if (BaseLevel - 1 < _states.Length)
         {
             BaseLevel++;
-            _states[BaseLevel].SetActive(true);
+            _states[BaseLevel - 1].SetActive(true);
         }
     }
 

@@ -23,10 +23,10 @@ public class EnterPlane : MonoBehaviour
         RefreshRate refreshRate = Screen.currentResolution.refreshRateRatio;
         float targetFPS = refreshRate.numerator;
 
-        if (PlayerPrefs.HasKey("FPS"))
-            Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+        if (PlayerPrefsSafe.HasKey("FPS"))
+            Application.targetFrameRate = PlayerPrefsSafe.GetInt("FPS");
 
-        if (!PlayerPrefs.HasKey("FPS"))
+        if (!PlayerPrefsSafe.HasKey("FPS"))
             Application.targetFrameRate = (int)targetFPS;
     }
 

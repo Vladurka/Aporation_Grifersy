@@ -16,8 +16,6 @@ namespace Game.Weapon
 
         [SerializeField] private AudioClip _noBulletsSound;
 
-        private bool _canShoot = true;
-
         private AudioSource _audioSource;
 
         private EventBus _eventBus;
@@ -45,6 +43,9 @@ namespace Game.Weapon
             _eventBus.Invoke(new SetTotalBullets(true));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             _eventBus.Invoke(new SetImage(1, true));
+
+            _canShoot = false;
+            Invoke("CanShoot", 0.8f);
         }
 
         void Update()
@@ -114,10 +115,18 @@ namespace Game.Weapon
             _aimCamera = AimCamera.AimCamera;
         }
 
+        protected override void CanShoot()
+        {
+            base.CanShoot();
+        }
+
         private void OnDisable()
         {
             _eventBus.Invoke(new SetTotalBullets(false));
             _eventBus.Invoke(new SetImage(1, false));
+
+            _canShoot = false;
+            CancelInvoke("CanShoot");
         }
 
         private void OnDestroy()

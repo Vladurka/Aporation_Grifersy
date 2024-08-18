@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
 
         if (!_repeat)
         {
-            if (!PlayerPrefs.HasKey(_key))
+            if (!PlayerPrefsSafe.HasKey(_key))
                 _text.text = _tips[_index];
         }
 
@@ -35,7 +35,7 @@ public class Tutorial : MonoBehaviour
     {
         if (!_repeat)
         {
-            if (!PlayerPrefs.HasKey(_key))
+            if (!PlayerPrefsSafe.HasKey(_key))
             {
                 if (_index < _tips.Length - 1)
                 {
@@ -46,7 +46,7 @@ public class Tutorial : MonoBehaviour
                 else if (_index >= _tips.Length - 1)
                 {
                     _text.text = "";
-                    PlayerPrefs.SetInt(_key, 1);
+                    PlayerPrefsSafe.SetInt(_key, 1);
                 }
             }
         }
@@ -62,7 +62,7 @@ public class Tutorial : MonoBehaviour
             else if (_index >= _tips.Length - 1)
             {
                 _text.text = "";
-                PlayerPrefs.SetInt(_key, 1);
+                PlayerPrefsSafe.SetInt(_key, 1);
             }
         }
     }

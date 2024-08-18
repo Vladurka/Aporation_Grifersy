@@ -23,7 +23,7 @@ public class MissionsController : MonoBehaviour
         foreach (GameObject button in _missionsButtons)
             button.SetActive(false);
 
-        MissionCondition = PlayerPrefs.GetInt(ConstSystem.MISSION_KEY);
+        MissionCondition = PlayerPrefsSafe.GetInt(ConstSystem.MISSION_KEY);
 
         if (MissionCondition == 0)
             _missionsButtons[0].SetActive(true);

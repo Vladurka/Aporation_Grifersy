@@ -11,7 +11,7 @@ public class VolumeController : MonoBehaviour, IService
     private void Start()
     {
         if(PlayerPrefs.HasKey(_volumeKey))
-            _volumeSlider.value = PlayerPrefs.GetFloat(_volumeKey);
+            _volumeSlider.value = PlayerPrefsSafe.GetFloat(_volumeKey);
 
         else
             _volumeSlider.value = 0.3f;
@@ -33,7 +33,7 @@ public class VolumeController : MonoBehaviour, IService
 
     private void OnDestroy()
     {
-        PlayerPrefs.SetFloat(_volumeKey, _volumeSlider.value);
+        PlayerPrefsSafe.SetFloat(_volumeKey, _volumeSlider.value);
     }
 
 }

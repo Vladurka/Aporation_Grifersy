@@ -16,6 +16,7 @@ namespace Game.Data
         private CoinSystem _coinSystem;
         private BaseStates _baseStates;
         private GrenadeThrower _grenadeThrower;
+        private ChangeWeapon _changeWeapon;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -29,6 +30,7 @@ namespace Game.Data
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _baseStates = ServiceLocator.Current.Get<BaseStates>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
+            _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
             ConstSystem.CanSave = true;
         }
 
@@ -46,26 +48,28 @@ namespace Game.Data
 
                 HelicopterPositionData = new float[3]
                    {
-                    _helicopter.transform.position.x,
-                    _helicopter.transform.position.y,
-                    _helicopter.transform.position.z,
+                       _helicopter.transform.position.x,
+                       _helicopter.transform.position.y,
+                       _helicopter.transform.position.z,
                    },
 
                 CarPositionData = new float[3]
                    {
-                    _car.transform.position.x,
-                    _car.transform.position.y,
-                    _car.transform.position.z,
+                       _car.transform.position.x,
+                       _car.transform.position.y,
+                       _car.transform.position.z,
                    },
 
                 HpData = _playerHealth.Health,
 
                 PlayerPositionData = new float[3]
                    {
-                    _playerMove.transform.position.x,
-                    _playerMove.transform.position.y,
-                    _playerMove.transform.position.z
+                       _playerMove.transform.position.x,
+                       _playerMove.transform.position.y,
+                       _playerMove.transform.position.z
                    },
+
+                SyrgineAmount = _changeWeapon.SyrgineAmount,
 
                 AKBulletsData = _weaponAk.Bullets,
                 AKTotalBulletsData = _weaponAk.TotalBullets,

@@ -34,7 +34,7 @@ public class EndMission : MonoBehaviour
 
     private void EndGame()
     {
-        PlayerPrefs.SetInt(ConstSystem.MISSION_KEY, _index);
+        PlayerPrefsSafe.SetInt(ConstSystem.MISSION_KEY, _index);
         Cursor.lockState = CursorLockMode.None;
         _uiCamera.SetActive(true); 
         _endPanel.SetActive(true);

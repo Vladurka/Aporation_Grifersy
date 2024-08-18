@@ -16,6 +16,7 @@ namespace Game.Data
         private CoinSystem _coinSystem;
         private BaseStates _baseStates;
         private GrenadeThrower _grenadeThrower;
+        private ChangeWeapon _changeWeapon;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -29,6 +30,7 @@ namespace Game.Data
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _baseStates = ServiceLocator.Current.Get<BaseStates>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
+            _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
             ConstSystem.CanSave = true;
         }
 
@@ -67,6 +69,8 @@ namespace Game.Data
                     _carPosition.z = data.CarPositionData[2];
                     _car.transform.position = _carPosition;
                 }
+
+                _changeWeapon.SyrgineAmount = data.SyrgineAmount;
 
                 _weaponAk.Bullets = data.AKBulletsData;
                 _weaponAk.TotalBullets = data.AKTotalBulletsData;

@@ -8,7 +8,7 @@ public class Shop : MonoBehaviour, IService, IShop
     [SerializeField] private int _akBulletsAmount = 30;
     [SerializeField] private int _rpgBulletsAmount = 5;
     [SerializeField] private int _grenadesAmount = 1;
-    [SerializeField] private int _minesAmount = 1;
+    [SerializeField] private int _syrgineAmount = 1;
 
     [Header("Base")]
     [SerializeField] private int _baseUpgradeAmount = 0;
@@ -82,10 +82,10 @@ public class Shop : MonoBehaviour, IService, IShop
 
     }
 
-    public void BuyMine(int price)
+    public void BuySyrgine(int price)
     {
         if (_coinSystem.Money >= price)
-            _eventBus.Invoke(new BuyMine(_minesAmount));
+            _eventBus.Invoke(new BuySyrgine(_syrgineAmount));
     }
 
     public void SetPanel(bool state)

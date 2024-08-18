@@ -11,6 +11,7 @@ namespace Game.Data
         private ScopeLevels _scopeLevels;
         private CoinSystem _coinSystem;
         private GrenadeThrower _grenadeThrower;
+        private ChangeWeapon _changeWeapon;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -19,6 +20,7 @@ namespace Game.Data
             _scopeLevels = ServiceLocator.Current.Get<ScopeLevels>();
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
+            _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
             ConstSystem.CanSave = true;
         }
 
@@ -27,6 +29,8 @@ namespace Game.Data
             JSON_playerData data = new JSON_playerData
             {
                 HpData = _playerHealth.Health,
+
+                SyrgineAmount = _changeWeapon.SyrgineAmount,
 
                 AKBulletsData = _weaponAk.Bullets,
                 AKTotalBulletsData = _weaponAk.TotalBullets,

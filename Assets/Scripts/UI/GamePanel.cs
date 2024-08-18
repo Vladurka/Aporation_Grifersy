@@ -11,6 +11,7 @@ public class GamePanel : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] private Text _healthText;
+    [SerializeField] private Text _syrgineText;
     [SerializeField] private Slider _healthBar;
 
     [Header("Money")]
@@ -31,6 +32,7 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<UpdateTotalBullets>(UpdateTotalBulletsText, 1);
         _eventBus.Subscribe<UpdateHealth>(UpdateHealthText, 1);
         _eventBus.Subscribe<UpdateMoney>(UpdateMoneyText, 1);
+        _eventBus.Subscribe<UpdateSyrgine>(UpdateSyrgineText, 1);
         _eventBus.Subscribe<SetImage>(SetImage, 1);
         _eventBus.Subscribe<SetSpeedometer>(SetSpeedometer, 1);
 
@@ -71,6 +73,11 @@ public class GamePanel : MonoBehaviour
         _totalBulletsText.enabled = state.State;
     }
 
+    private void UpdateSyrgineText(UpdateSyrgine updateSyrgine)
+    {
+        _syrgineText.text = updateSyrgine.Amount.ToString();
+    }
+
     private void SetImage(SetImage images)
     {
         foreach (Image image in _images)
@@ -97,6 +104,7 @@ public class GamePanel : MonoBehaviour
         _eventBus.Unsubscribe<UpdateTotalBullets>(UpdateTotalBulletsText);
         _eventBus.Unsubscribe<UpdateHealth>(UpdateHealthText);
         _eventBus.Unsubscribe<UpdateMoney>(UpdateMoneyText);
+        _eventBus.Unsubscribe<UpdateSyrgine>(UpdateSyrgineText);
         _eventBus.Unsubscribe<SetImage>(SetImage);
         _eventBus.Unsubscribe<SetSpeedometer>(SetSpeedometer);
     }

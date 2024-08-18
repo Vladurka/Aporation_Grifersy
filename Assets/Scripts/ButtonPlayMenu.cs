@@ -6,12 +6,12 @@ public class ButtonPlayMenu : MonoBehaviour
     private int _index = 0;
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Prison"))
-            _index = PlayerPrefs.GetInt("Prison");
+        if (PlayerPrefsSafe.HasKey("Prison"))
+            _index = PlayerPrefsSafe.GetInt("Prison");
     }
     public void Play()
     {
-        if (!PlayerPrefs.HasKey("Prison"))
+        if (!PlayerPrefsSafe.HasKey("Prison"))
             _load.StartLoading(1);
 
         if (_index == 1)

@@ -18,6 +18,9 @@ public class Knife : AbstractWeapon
         _mainCamera.enabled = true;
         _eventBus.Invoke(new SetTotalBullets(false));
         _eventBus.Invoke(new SetImage(3, true));
+
+        _canShoot = false;
+        Invoke("CanShoot", 0.8f);
     }
 
     private void Update()
@@ -41,8 +44,16 @@ public class Knife : AbstractWeapon
         }
     }
 
+    protected override void CanShoot()
+    {
+        base.CanShoot();
+    }
+
     private void OnDisable()
     {
         _eventBus.Invoke(new SetImage(3, false));
+
+        _canShoot = false;
+        CancelInvoke("CanShoot");
     }
 }

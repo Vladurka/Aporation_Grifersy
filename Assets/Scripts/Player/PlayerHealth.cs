@@ -24,10 +24,14 @@ namespace Game.Player
             _audioSource = GetComponent<AudioSource>();
         }
 
-        public void Die()
+        public void AddHealth(float amount)
         {
-            _eventBus.Invoke(new SetDie());
-            Destroy(gameObject);
+            Health += amount;
+
+            if (Health > 100f)
+                Health = 100f;
+
+            _eventBus.Invoke(new UpdateHealth(Health));
         }
 
         public void GetDamage(float damage)
@@ -49,6 +53,12 @@ namespace Game.Player
 
             _eventBus.Invoke(new UpdateHealth(Health));
             _bloodAnim.SetTrigger("Blood");
+        }
+
+        public void Die()
+        {
+            _eventBus.Invoke(new SetDie());
+            Destroy(gameObject);
         }
     }
 }

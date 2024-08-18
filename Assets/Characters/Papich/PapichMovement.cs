@@ -19,8 +19,8 @@ public class PapichMovement : MonoBehaviour
 
     private State _currentState;
 
-    private Animator _animator;
-    private NavMeshAgent _agent;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private NavMeshAgent _agent;
     private EventBus _eventBus;
 
     private int _index;
@@ -33,16 +33,13 @@ public class PapichMovement : MonoBehaviour
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
-        if(PlayerPrefs.HasKey("Papich"))
+        if (PlayerPrefsSafe.HasKey("Papich"))
             _isStarted = true;
 
-        if(!PlayerPrefs.HasKey("Papich"))
+        if(!PlayerPrefsSafe.HasKey("Papich"))
             _isStarted = false;
 
         _currentState = State.Patrol;
-        _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
-        _audioSource = GetComponent<AudioSource>();
         _index = Random.Range(0, _points.Length);
     }
 
@@ -127,7 +124,7 @@ public class PapichMovement : MonoBehaviour
         if (!_audioSource.isPlaying && _played2)
         {
             _audioSource.Stop();
-            PlayerPrefs.SetInt("Papich", 1);
+            PlayerPrefsSafe.SetInt("Papich", 1);
             _isStarted = true;
             _currentState = State.Patrol;
         }

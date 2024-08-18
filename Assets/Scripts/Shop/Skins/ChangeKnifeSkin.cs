@@ -13,9 +13,9 @@ public class ChangeKnifeSkin : MonoBehaviour
     public void Init()
     {
         _renderer = GetComponent<MeshRenderer>();
-        _materialIndex = PlayerPrefs.GetInt(ConstSystem.KNIFE_SKIN_INDEX);
+        _materialIndex = PlayerPrefsSafe.GetInt(ConstSystem.KNIFE_SKIN_INDEX);
 
-        if (PlayerPrefs.HasKey(ConstSystem.KNIFE_SKIN_INDEX))
+        if (PlayerPrefsSafe.HasKey(ConstSystem.KNIFE_SKIN_INDEX))
             _renderer.material = _materials[_materialIndex];
     }
 }

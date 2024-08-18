@@ -26,8 +26,6 @@ namespace Game.Weapon
         [SerializeField] private int _maxBullets = 30;
         [SerializeField] private float _interval = 0.12f;
 
-        private bool _canShoot = true;
-
         private EventBus _eventBus;
 
         public override void Init()
@@ -55,6 +53,9 @@ namespace Game.Weapon
             _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             _eventBus.Invoke(new SetImage(0, true));
+
+            _canShoot = false;
+            Invoke("CanShoot", 0.8f);
         }
 
         private void Update()
@@ -115,7 +116,7 @@ namespace Game.Weapon
                 StartCoroutine(Shoot(_cam));
             }
 
-            else
+            if(TotalBullets <= 0)
             {
                 _audioSource.PlayOneShot(_noBulletsSound);
                 yield return null;
@@ -153,11 +154,19 @@ namespace Game.Weapon
             _aimCamera = AimCamera.AimCamera;
         }
 
+        protected override void CanShoot()
+        {
+            base.CanShoot();
+        }
+
         private void OnDisable()
         {
             _eventBus.Invoke(new SetCurrentBullets(false));
             _eventBus.Invoke(new SetTotalBullets(false));
             _eventBus.Invoke(new SetImage(3, false));
+
+            _canShoot = false;
+            CancelInvoke("CanShoot");
         }
 
         private void OnDestroy()
