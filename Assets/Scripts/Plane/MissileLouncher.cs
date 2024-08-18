@@ -36,11 +36,8 @@ public class MissileLouncher : MonoBehaviour, IService
     public void Init()
     {
         _mainCamera.enabled = true;
-
         X3.SetActive(false);
-
         _rocketText.text = _missilesAmount.ToString();
-
     }
 
     private void Update()
