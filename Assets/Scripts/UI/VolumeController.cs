@@ -4,16 +4,21 @@ using UnityEngine.UI;
 public class VolumeController : MonoBehaviour, IService
 {
     [SerializeField] private string _volumeKey = "GameVolume";
-    [SerializeField] private AudioSource[] _audioSource;
+    [SerializeField] private AudioSource[] _audioSourceItems;
+
+    [SerializeField] private GameObject _capitalObject;
+    [SerializeField] private AudioSource[] _capitalAudioSource;
 
     [SerializeField] private Slider _volumeSlider;
 
     private void Start()
     {
-        if(PlayerPrefs.HasKey(_volumeKey))
+        _capitalAudioSource = _capitalObject.GetComponentsInChildren<AudioSource>(true);
+
+        if (PlayerPrefsSafe.HasKey(_volumeKey))
             _volumeSlider.value = PlayerPrefsSafe.GetFloat(_volumeKey);
 
-        else
+        if (!PlayerPrefsSafe.HasKey(_volumeKey))
             _volumeSlider.value = 0.3f;
     }
 
@@ -24,7 +29,13 @@ public class VolumeController : MonoBehaviour, IService
 
     public void ChangeVolume()
     {
-        foreach (AudioSource audioSource in _audioSource)
+        foreach (AudioSource audioSource in _audioSourceItems)
+        {
+            if(audioSource != null)
+                audioSource.volume = _volumeSlider.value;
+        }
+
+        foreach (AudioSource audioSource in _capitalAudioSource)
         {
             if (audioSource != null)
                 audioSource.volume = _volumeSlider.value;

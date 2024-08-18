@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChangeWeapon : MonoBehaviour, IService
 {
     [SerializeField] private GameObject[] _items;
+    [SerializeField] private bool _startSettings = true;
 
     private bool _canTake = true;
 
@@ -23,8 +24,11 @@ public class ChangeWeapon : MonoBehaviour, IService
 
         _eventBus.Invoke(new UpdateSyrgine(SyrgineAmount));
 
-        Deactivate();
-        _items[0].SetActive(true);
+        if (_startSettings)
+        {
+            Deactivate();
+            _items[0].SetActive(true);
+        }
     }
 
     private void Update()
