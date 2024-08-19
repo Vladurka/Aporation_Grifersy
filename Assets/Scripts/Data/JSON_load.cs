@@ -17,6 +17,7 @@ namespace Game.Data
         private BaseStates _baseStates;
         private GrenadeThrower _grenadeThrower;
         private ChangeWeapon _changeWeapon;
+        private Shop _shop;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -31,6 +32,7 @@ namespace Game.Data
             _baseStates = ServiceLocator.Current.Get<BaseStates>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
+            _shop = ServiceLocator.Current.Get<Shop>();
             ConstSystem.CanSave = true;
         }
 
@@ -84,7 +86,10 @@ namespace Game.Data
                 _coinSystem.Money = data.MoneyData;
 
                 if (data.BaseLevelData != null)
+                {
                     _baseStates.BaseLevel = data.BaseLevelData;
+                    _shop.BaseUpgradeAmount = data.BaseLevelData;
+                }
             }
 
             else

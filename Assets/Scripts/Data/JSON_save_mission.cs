@@ -26,24 +26,23 @@ namespace Game.Data
 
         public void SaveInfo()
         {
-            JSON_playerData data = new JSON_playerData
+            JSON_playerData existingData = JSON_saveSystem.Load<JSON_playerData>();
+
+            if (existingData == null)
             {
-                HpData = _playerHealth.Health,
+                existingData = new JSON_playerData();
+            }
 
-                SyrgineAmount = _changeWeapon.SyrgineAmount,
+            existingData.HpData = _playerHealth.Health;
+            existingData.SyrgineAmount = _changeWeapon.SyrgineAmount;
+            existingData.AKBulletsData = _weaponAk.Bullets;
+            existingData.AKTotalBulletsData = _weaponAk.TotalBullets;
+            existingData.RPGTotalBulletsData = _rpg.TotalBullets;
+            existingData.GrenadesData = _grenadeThrower.Grenades;
+            existingData.ScopeLevelData = _scopeLevels.ScopeLevel;
+            existingData.MoneyData = _coinSystem.Money;
 
-                AKBulletsData = _weaponAk.Bullets,
-                AKTotalBulletsData = _weaponAk.TotalBullets,
-
-                RPGTotalBulletsData = _rpg.TotalBullets,
-                GrenadesData = _grenadeThrower.Grenades,
-
-                ScopeLevelData = _scopeLevels.ScopeLevel,
-
-                MoneyData = _coinSystem.Money,
-            };
-
-            JSON_saveSystem.Save(data);
+            JSON_saveSystem.Save(existingData);
         }
     }
 }

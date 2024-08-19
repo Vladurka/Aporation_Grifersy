@@ -146,6 +146,7 @@ namespace Game
             ServiceLocator.Current.Register<ScopeLevels>(_scopeLevels);
             ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
             ServiceLocator.Current.Register<VolumeController>(_volume);
+            ServiceLocator.Current.Register<Shop>(_shop);
             ServiceLocator.Current.Register<Loading>(_loading);
             Debug.Log("Registreted");
         }

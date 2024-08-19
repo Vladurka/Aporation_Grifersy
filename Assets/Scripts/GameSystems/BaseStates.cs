@@ -18,7 +18,7 @@ public class BaseStates : MonoBehaviour, IService
         foreach (GameObject state in _states)
             state.SetActive(false);
 
-        if (BaseLevel >= 1)
+        if (BaseLevel >= 1 && BaseLevel - 1 < _states.Length)
         {
             for (int i = 0; i <= BaseLevel - 1; i++)
                 _states[i].SetActive(true);
@@ -27,10 +27,11 @@ public class BaseStates : MonoBehaviour, IService
 
     private void GetNewState(BuyBase state)
     {
-        if (BaseLevel - 1 < _states.Length)
+        if (BaseLevel < _states.Length)
         {
             BaseLevel++;
-            _states[BaseLevel - 1].SetActive(true);
+            if (_states[BaseLevel - 1])
+                _states[BaseLevel - 1].SetActive(true);
         }
     }
 

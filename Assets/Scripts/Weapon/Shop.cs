@@ -11,7 +11,7 @@ public class Shop : MonoBehaviour, IService, IShop
     [SerializeField] private int _syrgineAmount = 1;
 
     [Header("Base")]
-    [SerializeField] private int _baseUpgradeAmount = 0;
+    public int BaseUpgradeAmount = 0;
     [SerializeField] private int _maxBaseUpgradeAmount = 4;
     [SerializeField] private int _basePrice = 500;
 
@@ -46,11 +46,11 @@ public class Shop : MonoBehaviour, IService, IShop
 
     public void BuyBase()
     {
-        if (_coinSystem.Money >= _basePrice && _baseUpgradeAmount <= _maxBaseUpgradeAmount)
+        if (_coinSystem.Money >= _basePrice && BaseUpgradeAmount < _maxBaseUpgradeAmount)
         {
             _eventBus.Invoke(new BuyBase());
             _coinSystem.SpendMoney(_basePrice);
-            _baseUpgradeAmount++;
+            BaseUpgradeAmount++;
             //_basePrice += 500;
         }
     }
