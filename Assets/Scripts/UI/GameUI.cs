@@ -11,7 +11,6 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private GameObject _uiCamera;
     [SerializeField] private GameObject _shopPanel;
-    [SerializeField] private GameObject _speedometerPanel;
     [SerializeField] private GameObject _completedPanel;
     [SerializeField] private GameObject _diePanel;
     [SerializeField] private GameObject _levelsPanel;
@@ -24,16 +23,16 @@ public class GameUI : MonoBehaviour
     public void Init()
     {
         ConstSystem.CanPause = true;
+        ConstSystem.InCar = false;
+        ConstSystem.InTransport = false;
+        ConstSystem.CanSave = true;    
         _isStarted = true;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<EnablePause>(PauseState, 1);
         _eventBus.Subscribe<SetDie>(SetDie, 1);
 
-        if (_shopPanel != null && _speedometerPanel != null)
-        {
-            _speedometerPanel.SetActive(false);
+        if (_shopPanel != null)
             _shopPanel.SetActive(false);
-        }
 
         if (_completedPanel != null)
             _completedPanel.SetActive(false);
@@ -43,7 +42,6 @@ public class GameUI : MonoBehaviour
         _gamePanel.SetActive(true);
         _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
-        ConstSystem.InTransport = false;
     }
 
     private void Update()
@@ -83,12 +81,10 @@ public class GameUI : MonoBehaviour
             _uiCamera.SetActive(true);
             _pausePanel.SetActive(true);
             ConstSystem.CanExit = false;
+            _eventBus.Invoke(new SetSpeedometer(false));
 
-            if (_shopPanel != null && _speedometerPanel != null)
-            {
-                _speedometerPanel.SetActive(false);
+            if (_shopPanel != null)
                 _shopPanel.SetActive(false);
-            }
         }
     }
 
@@ -99,12 +95,11 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
             _gamePanel.SetActive(true);
-
             _settingsPanel.SetActive(false);
             _pausePanel.SetActive(false);
             _pauseGame = false;
             _uiCamera.SetActive(false);
-
+            _eventBus.Invoke(new SetSpeedometer(false));
             ConstSystem.CanExit = true;
 
             if (_shopPanel != null && _levelsPanel != null)
@@ -116,8 +111,8 @@ public class GameUI : MonoBehaviour
             if (!ConstSystem.InTransport)
                 _mainCharacter.SetActive(true);
 
-            if (ConstSystem.InCar && _speedometerPanel != null)
-                _speedometerPanel.SetActive(true);
+            if (ConstSystem.InCar)
+               _eventBus.Invoke(new SetSpeedometer(true));
         }
 
     }
@@ -148,8 +143,7 @@ public class GameUI : MonoBehaviour
         if (_mainCharacter != null)
             _mainCharacter.SetActive(false);
 
-        if (_speedometerPanel != null)
-            _speedometerPanel.SetActive(false);
+        _eventBus.Invoke(new SetSpeedometer(false));
     }
 
     private void OnDestroy()
