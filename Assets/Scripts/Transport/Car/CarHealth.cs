@@ -6,11 +6,13 @@ public class CarHealth : MonoBehaviour, ITransportHealth
 {
     public float Health { get; set; } = 100f;
 
+    private AudioSource[] _audioSource;
     private EventBus _eventBus;
 
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _audioSource = GetComponentsInChildren<AudioSource>();
     }
 
     public void Die()
@@ -20,6 +22,9 @@ public class CarHealth : MonoBehaviour, ITransportHealth
 
         if (ConstSystem.InTransport)
         {
+            foreach (AudioSource sourse in _audioSource)
+                sourse.Stop();
+
             ConstSystem.CanSave = false;
             Destroy(gameObject);
         }

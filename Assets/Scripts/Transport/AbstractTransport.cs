@@ -6,6 +6,7 @@ public abstract class AbstractTransport : MonoBehaviour
     [SerializeField] protected Transform _spawnCharacter;
     [SerializeField] protected GameObject _mainCharacter;
     [SerializeField] protected Camera _camera;
+    [SerializeField] protected GameObject _gamePanel;
 
     public abstract void Init();
     public abstract void Enter();

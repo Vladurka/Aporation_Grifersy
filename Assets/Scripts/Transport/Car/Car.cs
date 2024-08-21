@@ -35,6 +35,8 @@ public class Car : AbstractTransport, IService
         _rb = GetComponent<Rigidbody>();
         _audioListener = GetComponentInChildren<AudioListener>();
         _audioListener.enabled = false;
+
+        ConstSystem.CanExit = true;
     }
 
     private void OnEnable()
@@ -136,6 +138,7 @@ public class Car : AbstractTransport, IService
             ConstSystem.InTransport = false;
             ConstSystem.InCar = false;
             _audioListener.enabled = false;
+            _gamePanel.SetActive(true);
         }
     }
 
@@ -150,6 +153,7 @@ public class Car : AbstractTransport, IService
         ConstSystem.InTransport = true;
         ConstSystem.InCar = true;
         _audioListener.enabled = true;
+        _gamePanel.SetActive(false);
     }
 
     public override void TransportReset()

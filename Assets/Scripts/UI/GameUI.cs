@@ -138,6 +138,8 @@ public class GameUI : MonoBehaviour
 
     private void SetDie(SetDie set)
     {
+        Time.timeScale = 0f;
+
         _uiCamera.SetActive(true);
         _diePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -148,8 +150,6 @@ public class GameUI : MonoBehaviour
 
         if (_speedometerPanel != null)
             _speedometerPanel.SetActive(false);
-
-        Time.timeScale = 0f;
     }
 
     private void OnDestroy()
