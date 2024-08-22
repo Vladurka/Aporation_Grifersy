@@ -33,6 +33,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Mission8.unity
     guid: d3dc3de4f95fd1c418f8ed59f35772cf
   - enabled: 1
+    path: Assets/Scenes/Mission9.unity
+    guid: 2c22b1ca2a9a8d044a8368e95b135501
+  - enabled: 1
     path: Assets/Scenes/Mission10.unity
     guid: 377d0b0584ce36145bfa9433ad40cb7f
+  - enabled: 1
+    path: Assets/Scenes/Training.unity
+    guid: 6659cff0264076b42b0b074baa6f5913
   m_configObjects: {}

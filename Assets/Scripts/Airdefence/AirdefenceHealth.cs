@@ -5,6 +5,7 @@ using UnityEngine;
 public class AirdefenceHealth : MonoBehaviour, ITargetHealth
 {
     public float Health { get; set; } = 100f;
+    public bool IsArmored { get; set; } = true;
 
     [SerializeField] private ParticleSystem[] _lowHpEffect;
     [SerializeField] private Material _destoyedMaterial;

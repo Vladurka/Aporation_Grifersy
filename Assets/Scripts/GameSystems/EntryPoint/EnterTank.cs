@@ -4,6 +4,7 @@ using Game.SeniorEventBus;
 public class EnterTank : MonoBehaviour
 {
     [SerializeField] private Stryker _stryker;
+    [SerializeField] private StrykerHealth _strykerHealth;
     [SerializeField] private ATGM _atgm;
     [SerializeField] private Minigun _minigun;
     [SerializeField] private GameUI _gameUI;
@@ -32,7 +33,8 @@ public class EnterTank : MonoBehaviour
 
     private void Init()
     {
-        _stryker.Init();    
+        _stryker.Init();
+        _strykerHealth.Init();
         _atgm.Init();
         _minigun.Init();
         _gameUI.Init();

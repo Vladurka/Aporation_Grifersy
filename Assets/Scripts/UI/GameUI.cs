@@ -51,14 +51,10 @@ public class GameUI : MonoBehaviour
             if (_canPause)
             {
                 if (_pauseGame && !_diePanel.activeSelf && !_completedPanel.activeSelf)
-                {
                     Continue();
-                }
-            }
 
-            if (!_diePanel.activeSelf && !_completedPanel.activeSelf)
-            {
-                Pause();
+                if (!_diePanel.activeSelf && !_completedPanel.activeSelf)
+                    Pause();
             }
         }
     }
@@ -94,7 +90,6 @@ public class GameUI : MonoBehaviour
         {
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
-            _gamePanel.SetActive(true);
             _settingsPanel.SetActive(false);
             _pausePanel.SetActive(false);
             _pauseGame = false;
@@ -109,7 +104,10 @@ public class GameUI : MonoBehaviour
             }
 
             if (!ConstSystem.InTransport)
+            {
                 _mainCharacter.SetActive(true);
+                _gamePanel.SetActive(true);
+            }
 
             if (ConstSystem.InCar)
                _eventBus.Invoke(new SetSpeedometer(true));

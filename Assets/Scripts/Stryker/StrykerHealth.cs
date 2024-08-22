@@ -5,6 +5,7 @@ using UnityEngine;
 public class StrykerHealth : MonoBehaviour, ITargetHealth
 {
     public float Health { get; set; } = 100f;
+    public bool IsArmored { get; set; } = true;
 
     private EventBus _eventBus;
 

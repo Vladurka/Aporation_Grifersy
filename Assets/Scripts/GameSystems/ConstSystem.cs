@@ -1,7 +1,5 @@
 public static class ConstSystem 
 {
-    public const string DATA_PATH = "/player.data";
-
     public const string BUY_AK_SKIN_ID = "com.aporation.GetAkSkin";
     public const string BUY_KNIFE_SKIN_ID = "com.aporation.GetKnifeSkin";
     public const string BUY_CAR_SKIN_ID = "com.aporation.GetCarSkin";
@@ -43,12 +41,11 @@ public static class ConstSystem
 
     public const string MISSION_KEY = "MISSION";
 
-    public static bool CanSave;
+    public static bool CanSave = true;
     public static bool CanPause = true;
     public static bool InTransport = false;
     public static bool InCar = false;
     public static bool CanExit = true;
-
-    public static bool CanEnterHelicopter = false;
+    public static bool CanEnterHelicopter = true;
     public static bool CanFixHelicopter = false;
 }

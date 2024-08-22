@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour, IService
                 }
             }
 
-            if (!_controller.isGrounded)
+            else
             {
                 _audioSource.Stop();
                 _cameraAudioSource.Stop();

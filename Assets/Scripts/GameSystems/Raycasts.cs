@@ -59,15 +59,11 @@ public class Raycasts : MonoBehaviour, IService
             {
                 if (hit.collider.TryGetComponent(out IStatesConntroller statesController))
                 {
-                    if (ConstSystem.CanFixHelicopter == true && hit.collider.CompareTag("Helicopter"))
+                    if (ConstSystem.CanFixHelicopter)
                         statesController.SetFixedState();
 
                     else
-                    {
                         EnableText(_missionText);
-                        EnableText(_missionText);
-                        statesController.SetDestroyedState();
-                    }
                 }
             }
         }
@@ -78,15 +74,16 @@ public class Raycasts : MonoBehaviour, IService
             if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
             {
                 if (hit.collider.TryGetComponent(out AbstractTransport transport))
-                {
                     transport.TransportReset();
-                }
             }
         }
     }
 
     private void EnableText(GameObject text)
     {
+        _fixText.SetActive(false);
+        _missionText.SetActive(false);  
+
         text.SetActive(true);
         StartCoroutine(DisableText(text));
     }

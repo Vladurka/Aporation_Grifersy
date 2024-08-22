@@ -20,13 +20,24 @@ public class Water : MonoBehaviour
         if (other.TryGetComponent(out IPlayerHealth player))
             player.Die();
 
-        if (other.TryGetComponent(out ITransportHealth transportHealth) && !_mainCharacter.activeSelf)
-            transportHealth.Die();
+        if (_mainCharacter != null)
+        {
+            if (other.TryGetComponent(out ITargetHealth transportHealth) && !_mainCharacter.activeSelf)
+            {
+                if (other.gameObject.CompareTag("Helicopter") || other.gameObject.CompareTag("Car"))
+                    transportHealth.Destroy();
+            }
+        }
 
-        if (other.gameObject.CompareTag("F-14"))
-            _eventBus.Invoke(new SetDie());
+        if (other.TryGetComponent(out ITargetHealth target))
+        {
+            if (other.gameObject.CompareTag("F-14"))
+                _eventBus.Invoke(new SetDie());
+
+            if (other.gameObject.CompareTag("Stryker"))
+                target.Destroy();   
+        }
 
         _audioSource.Play();
-
     }
 }

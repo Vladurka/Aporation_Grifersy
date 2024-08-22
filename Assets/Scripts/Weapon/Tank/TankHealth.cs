@@ -5,11 +5,13 @@ using UnityEngine;
 public class TankHealth : MonoBehaviour, ITargetHealth
 {
     public float Health { get; set; } = 100f;
+    public bool IsArmored { get; set; }
 
     [SerializeField] private ParticleSystem _explosion;
     [SerializeField] private ParticleSystem _fire;
     [SerializeField] private GameObject _tower;
     [SerializeField] private Material _material;
+    [SerializeField] private bool _isArmored = false;
 
     private MeshRenderer[] _renderers;
 
@@ -26,6 +28,7 @@ public class TankHealth : MonoBehaviour, ITargetHealth
         _tankShoot = GetComponentsInChildren<IVehicleShoot>();
         _renderers = GetComponentsInChildren<MeshRenderer>();
         _rb = _tower.GetComponent<Rigidbody>();
+        IsArmored = _isArmored;
         _fire.Stop();
     }
 
