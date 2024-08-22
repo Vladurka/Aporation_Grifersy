@@ -6,6 +6,7 @@ using Game.SeniorEventBus.Signals;
 public class Scoping : MonoBehaviour
 {
     [SerializeField] private Image _crosshair;
+    [SerializeField] private Camera _layerCamera;
 
     private Camera _mainCamera;
 
@@ -36,6 +37,7 @@ public class Scoping : MonoBehaviour
             _movement.Speed = _movement.ScopeSpeed;
             _movement.InScope = true;
             _crosshair.enabled = false;
+            _layerCamera.enabled = false;
         }
         else
         {
@@ -46,6 +48,7 @@ public class Scoping : MonoBehaviour
             _movement.Speed = _movement.NormalSpeed;
             _movement.InScope = false;
             _crosshair.enabled = true;
+            _layerCamera.enabled = true;
         }
     }
 }
