@@ -37,9 +37,7 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<SetSpeedometer>(SetSpeedometer, 1);
 
         foreach (Image image in _images)
-        {
             image.enabled = false;
-        }
     }
 
     private void UpdateCurrentBulletsText(UpdateCurrentBullets currentBullets)
@@ -81,19 +79,16 @@ public class GamePanel : MonoBehaviour
     private void SetImage(SetImage images)
     {
         foreach (Image image in _images)
-        {
             image.enabled = false;
-        }
 
         if(images.Active)
-        {
             _images[images.Index].enabled = true;
-        }
     }
 
     private void SetSpeedometer(SetSpeedometer speedometer)
     {
-        _speedometr.SetActive(speedometer.State);
+        if (_speedometr != null)
+            _speedometr.SetActive(speedometer.State);
     }
 
     private void OnDestroy()
