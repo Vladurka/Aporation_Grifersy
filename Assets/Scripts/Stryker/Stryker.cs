@@ -42,6 +42,60 @@ public class Stryker : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (_crabMode)
+            {
+                _crabMode = false;
+                _forwardSpeed = _forwardSpeed * 3f;
+            }
+
+            else
+            {
+                _crabMode = true;
+                _forwardSpeed = _forwardSpeed / 3f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (_frontWheelDriveMode)
+                _frontWheelDriveMode = false;
+
+            else
+                _frontWheelDriveMode = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (_breakeMode)
+                _breakeMode = false;
+
+            else
+                _breakeMode = true;
+        }
+
+        if (_rb.velocity.magnitude >= 2f)
+        {
+            if (!_audioSourceDrive.isPlaying)
+            {
+                _audioSourceDrive.Play();
+                _audioSourceIdle.Stop();
+            }
+        }
+
+        if (_rb.velocity.magnitude < 2f)
+        {
+            if (!_audioSourceIdle.isPlaying)
+            {
+                _audioSourceIdle.Play();
+                _audioSourceDrive.Stop();
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -178,64 +232,6 @@ public class Stryker : MonoBehaviour
 
         transform.rotation = rotation;
         transform.position = position;
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            if (_crabMode)
-            {
-                _crabMode = false;
-                _forwardSpeed = _forwardSpeed * 3f;
-            }
-
-            else
-            {
-                _crabMode = true;
-                _forwardSpeed = _forwardSpeed / 3f;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (_frontWheelDriveMode)
-                _frontWheelDriveMode = false;
-
-            else
-                _frontWheelDriveMode = true;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            if (_breakeMode)
-            {
-                _breakeMode = false;
-            }
-
-            else
-            {
-                _breakeMode = true;
-            }
-        }
-
-        if (_rb.velocity.magnitude >= 2f)
-        {
-            if (!_audioSourceDrive.isPlaying)
-            {
-                _audioSourceDrive.Play();
-                _audioSourceIdle.Stop();
-            }
-        }
-
-        if (_rb.velocity.magnitude < 2f)
-        {
-            if (!_audioSourceIdle.isPlaying)
-            {
-                _audioSourceIdle.Play();
-                _audioSourceDrive.Stop();
-            }
-        }
     }
 }
 

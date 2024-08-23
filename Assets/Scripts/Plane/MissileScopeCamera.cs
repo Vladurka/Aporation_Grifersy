@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
+
 public class MissileScopeCamera : MonoBehaviour
 {
     [SerializeField] private float _mouseSensitivity = 100f;
@@ -25,6 +27,7 @@ public class MissileScopeCamera : MonoBehaviour
         {
             float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
 
             yRotation += mouseX;
             xRotation -= mouseY;
@@ -35,11 +38,14 @@ public class MissileScopeCamera : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
-            if (Input.GetKey(KeyCode.E) && _camera.fieldOfView >= 10f)
-                _camera.fieldOfView -= _scopingForce;
+            //if (Input.GetKey(KeyCode.E) && _camera.fieldOfView >= 10f)
+            //    _camera.fieldOfView -= _scopingForce;
 
-            if (Input.GetKey(KeyCode.Q) && _camera.fieldOfView <= 70f)
-                _camera.fieldOfView += _scopingForce;
+            //if (Input.GetKey(KeyCode.Q) && _camera.fieldOfView <= 70f)
+            //    _camera.fieldOfView += _scopingForce;
+
+            if (scroll != 0f)
+                _camera.fieldOfView += scroll * _scopingForce;
         }
     }
 }

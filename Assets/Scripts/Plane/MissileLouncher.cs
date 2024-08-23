@@ -12,7 +12,7 @@ public class MissileLouncher : MonoBehaviour, IService
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Text _distanceText;
     [SerializeField] private GameObject X3;
-    [SerializeField] private int _missilesAmount = 4;
+    [SerializeField] private int _missilesAmount = 8;
 
     [SerializeField] private Camera _scopeCamera;
     [SerializeField] private Camera _minigunCamera;

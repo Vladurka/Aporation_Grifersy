@@ -7,7 +7,7 @@ public class VolumeController : MonoBehaviour, IService
     [SerializeField] private AudioSource[] _audioSourceItems;
 
     [SerializeField] private GameObject _capitalObject;
-    [SerializeField] private AudioSource[] _capitalAudioSource;
+    private AudioSource[] _capitalAudioSource;
 
     [SerializeField] private Slider _volumeSlider;
 

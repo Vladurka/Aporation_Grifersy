@@ -1,7 +1,6 @@
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
@@ -78,6 +77,7 @@ public class GameUI : MonoBehaviour
             _pausePanel.SetActive(true);
             ConstSystem.CanExit = false;
             _eventBus.Invoke(new SetSpeedometer(false));
+            _eventBus.Invoke(new SetDronePanel(false));
 
             if (_shopPanel != null)
                 _shopPanel.SetActive(false);
@@ -95,6 +95,7 @@ public class GameUI : MonoBehaviour
             _pauseGame = false;
             _uiCamera.SetActive(false);
             _eventBus.Invoke(new SetSpeedometer(false));
+            _eventBus.Invoke(new SetDronePanel(false));
             ConstSystem.CanExit = true;
 
             if (_shopPanel != null && _levelsPanel != null)
@@ -111,6 +112,9 @@ public class GameUI : MonoBehaviour
 
             if (ConstSystem.InCar)
                _eventBus.Invoke(new SetSpeedometer(true));
+
+            if (ConstSystem.InDrone)
+                _eventBus.Invoke(new SetDronePanel(true));
         }
 
     }
@@ -142,6 +146,7 @@ public class GameUI : MonoBehaviour
             _mainCharacter.SetActive(false);
 
         _eventBus.Invoke(new SetSpeedometer(false));
+        _eventBus.Invoke(new SetDronePanel(false));
     }
 
     private void OnDestroy()

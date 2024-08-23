@@ -13,6 +13,7 @@ public class JSON_playerData
     public int MoneyData;
     public float HpData;
     public int ScopeLevelData;
+    public int DronesAmountData;
     public int MissionsData;
     public int BaseLevelData;   
 }

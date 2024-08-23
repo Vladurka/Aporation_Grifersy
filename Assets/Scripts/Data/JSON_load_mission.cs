@@ -5,6 +5,8 @@ namespace Game.Data
 {
     public class JSON_load_mission : MonoBehaviour
     {
+        [SerializeField] private bool _loadDrones = true;
+
         private PlayerHealth _playerHealth;
         private WeaponAk _weaponAk;
         private RPG _rpg;
@@ -12,6 +14,7 @@ namespace Game.Data
         private CoinSystem _coinSystem;
         private GrenadeThrower _grenadeThrower;
         private ChangeWeapon _changeWeapon;
+        private DroneLouncher _droneLouncher;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -21,6 +24,7 @@ namespace Game.Data
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
+            _droneLouncher = ServiceLocator.Current.Get<DroneLouncher>();
         }
 
         public void Load()
@@ -41,6 +45,9 @@ namespace Game.Data
                 _grenadeThrower.Grenades = data.GrenadesData;
 
                 _scopeLevels.ScopeLevel = data.ScopeLevelData;
+
+                if(_loadDrones)
+                    _droneLouncher.DronesAmount = data.DronesAmountData;
 
                 _coinSystem.Money = data.MoneyData;
             }

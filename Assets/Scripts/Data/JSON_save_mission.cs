@@ -5,6 +5,8 @@ namespace Game.Data
 {
     public class JSON_save_mission : MonoBehaviour
     {
+        [SerializeField] private bool _saveDrones = true;
+
         private PlayerHealth _playerHealth;
         private WeaponAk _weaponAk;
         private RPG _rpg;
@@ -12,6 +14,7 @@ namespace Game.Data
         private CoinSystem _coinSystem;
         private GrenadeThrower _grenadeThrower;
         private ChangeWeapon _changeWeapon;
+        private DroneLouncher _droneLouncher;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -21,6 +24,7 @@ namespace Game.Data
             _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
+            _droneLouncher = ServiceLocator.Current.Get<DroneLouncher>();
             ConstSystem.CanSave = true;
         }
 
@@ -40,6 +44,10 @@ namespace Game.Data
             existingData.RPGTotalBulletsData = _rpg.TotalBullets;
             existingData.GrenadesData = _grenadeThrower.Grenades;
             existingData.ScopeLevelData = _scopeLevels.ScopeLevel;
+
+            if(_saveDrones)
+                existingData.DronesAmountData = _droneLouncher.DronesAmount;
+
             existingData.MoneyData = _coinSystem.Money;
 
             JSON_saveSystem.Save(existingData);

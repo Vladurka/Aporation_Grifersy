@@ -20,6 +20,11 @@ public class GamePanel : MonoBehaviour
     [Header("Icons")]
     [SerializeField] private Image[] _images;
 
+    [Header("Drone")]
+    [SerializeField] private GameObject _dronePanel;
+    [SerializeField] private Text _droneAmountText;
+
+    [Header("Car")]
     [SerializeField] private GameObject _speedometr;
 
     private EventBus _eventBus;
@@ -34,6 +39,8 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<UpdateMoney>(UpdateMoneyText, 1);
         _eventBus.Subscribe<UpdateSyrgine>(UpdateSyrgineText, 1);
         _eventBus.Subscribe<SetImage>(SetImage, 1);
+        _eventBus.Subscribe<SetDronePanel>(SetDronePanel, 1);
+        _eventBus.Subscribe<UpdateDrone>(UpdateDroneText, 1);
         _eventBus.Subscribe<SetSpeedometer>(SetSpeedometer, 1);
 
         foreach (Image image in _images)
@@ -85,6 +92,17 @@ public class GamePanel : MonoBehaviour
             _images[images.Index].enabled = true;
     }
 
+    private void UpdateDroneText(UpdateDrone drone)
+    {
+        _droneAmountText.text = drone.Amount.ToString();
+    }
+
+    private void SetDronePanel(SetDronePanel drone)
+    {
+        if (_dronePanel != null)
+            _dronePanel.SetActive(drone.State);
+    }
+
     private void SetSpeedometer(SetSpeedometer speedometer)
     {
         if (_speedometr != null)
@@ -101,6 +119,8 @@ public class GamePanel : MonoBehaviour
         _eventBus.Unsubscribe<UpdateMoney>(UpdateMoneyText);
         _eventBus.Unsubscribe<UpdateSyrgine>(UpdateSyrgineText);
         _eventBus.Unsubscribe<SetImage>(SetImage);
+        _eventBus.Unsubscribe<SetDronePanel>(SetDronePanel);
+        _eventBus.Unsubscribe<UpdateDrone>(UpdateDroneText);
         _eventBus.Unsubscribe<SetSpeedometer>(SetSpeedometer);
     }
 }

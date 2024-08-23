@@ -44,6 +44,12 @@ public class Car : AbstractTransport, IService
         _audioSourceStart.Play();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+            Exit();
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -108,15 +114,6 @@ public class Car : AbstractTransport, IService
         transform.position = position;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Exit();
-        }
-    }
-
-
     public override void Exit()
     {
         if (ConstSystem.CanExit)
@@ -131,14 +128,14 @@ public class Car : AbstractTransport, IService
             _audioSourceStart.Stop();
 
             _camera.enabled = false;
-            _mainCharacter.transform.position = _spawnCharacter.position;
-            _mainCharacter.SetActive(true);
+            MainCharacter.transform.position = _spawnCharacter.position;
+            MainCharacter.SetActive(true);
             _eventBus.Invoke(new SetSpeedometer(false));
             this.enabled = false;
             ConstSystem.InTransport = false;
             ConstSystem.InCar = false;
             _audioListener.enabled = false;
-            _gamePanel.SetActive(true);
+            GamePanel.SetActive(true);
         }
     }
 
@@ -147,13 +144,13 @@ public class Car : AbstractTransport, IService
         this.enabled = true;
         _camera.enabled = true;
         _eventBus.Invoke(new SetSpeedometer(true));
-        _mainCharacter.SetActive(false);
+        MainCharacter.SetActive(false);
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
         ConstSystem.InCar = true;
         _audioListener.enabled = true;
-        _gamePanel.SetActive(false);
+        GamePanel.SetActive(false);
     }
 
     public override void TransportReset()

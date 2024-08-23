@@ -29,6 +29,9 @@ public class Water : MonoBehaviour
             }
         }
 
+        if(other.TryGetComponent(out AbstractTransport transport) && other.gameObject.CompareTag("Drone"))
+            transport.Exit();
+
         if (other.TryGetComponent(out ITargetHealth target))
         {
             if (other.gameObject.CompareTag("F-14"))

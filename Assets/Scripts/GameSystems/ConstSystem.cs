@@ -41,9 +41,11 @@ public static class ConstSystem
 
     public const string MISSION_KEY = "MISSION";
 
+    public static bool InShop = false;
     public static bool CanSave = true;
     public static bool CanPause = true;
     public static bool InTransport = false;
+    public static bool InDrone = false;
     public static bool InCar = false;
     public static bool CanExit = true;
     public static bool CanEnterHelicopter = true;

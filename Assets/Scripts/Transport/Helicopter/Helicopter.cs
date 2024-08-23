@@ -44,9 +44,7 @@ public class Helicopter : AbstractTransport, IService
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-        {
             Exit();
-        }
     }
 
     private void FixedUpdate()
@@ -131,7 +129,7 @@ public class Helicopter : AbstractTransport, IService
     {
         this.enabled = true;
         _camera.enabled = true;
-        _mainCharacter.SetActive(false);
+        MainCharacter.SetActive(false);
         _animator.SetBool("Fly", true);
         _rb.useGravity = false;
         _eventBus.Invoke(new SetCurrentBullets(false));
@@ -139,7 +137,7 @@ public class Helicopter : AbstractTransport, IService
         ConstSystem.InTransport = true;
         _audioSource.Play();
         _audioListener.enabled = true;
-        _gamePanel.SetActive(false);
+        GamePanel.SetActive(false);
     }
 
     public override void Exit()
@@ -147,14 +145,14 @@ public class Helicopter : AbstractTransport, IService
         if (ConstSystem.CanExit)
         {
             _camera.enabled = false;
-            _mainCharacter.transform.position = _spawnCharacter.position;
-            _mainCharacter.SetActive(true);
+            MainCharacter.transform.position = _spawnCharacter.position;
+            MainCharacter.SetActive(true);
             Invoke("UseGravity", 2f);
             this.enabled = false;
             ConstSystem.InTransport = false;
             _audioSource.Stop();
             _audioListener.enabled = false;
-            _gamePanel.SetActive(true);
+            GamePanel.SetActive(true);
         }
     }
 

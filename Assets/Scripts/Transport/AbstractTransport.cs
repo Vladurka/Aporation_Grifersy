@@ -4,11 +4,14 @@ public abstract class AbstractTransport : MonoBehaviour
 {
     [SerializeField] protected float _forwardSpeed;
     [SerializeField] protected Transform _spawnCharacter;
-    [SerializeField] protected GameObject _mainCharacter;
     [SerializeField] protected Camera _camera;
-    [SerializeField] protected GameObject _gamePanel;
+    public GameObject MainCharacter;
+    public GameObject GamePanel;
 
-    public abstract void Init();
+    public virtual void Init()
+    {
+
+    }
     public abstract void Enter();
     public abstract void Exit();
     public abstract void TransportReset();
