@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MissileLouncher : MonoBehaviour, IService
 {
+    [SerializeField] private float _range = 10000f;
+
     [SerializeField] private Transform _spawnPosition;
     [SerializeField] private List<GameObject> _missile;
 
@@ -68,7 +70,7 @@ public class MissileLouncher : MonoBehaviour, IService
         if (_scopeCamera.enabled)
         {
             RaycastHit hit;
-            if (Physics.Raycast(_scopeCamera.transform.position, _scopeCamera.transform.forward, out hit))
+            if (Physics.Raycast(_scopeCamera.transform.position, _scopeCamera.transform.forward, out hit, _range))
             {
                 if (hit.collider.CompareTag(_airdefenceTag) || hit.collider.CompareTag(_rlsTag) || hit.collider.CompareTag(_helicopterTag))
                 {

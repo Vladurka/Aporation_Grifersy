@@ -40,6 +40,7 @@ public class EndMission : MonoBehaviour
         _endPanel.SetActive(true);
         _eventBus.Invoke(new EnablePause(false));
         _mainCharacter.SetActive(false);
+        Time.timeScale = 0f;
     }
 
     private void OnDestroy()
