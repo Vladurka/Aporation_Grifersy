@@ -11,7 +11,7 @@ public abstract class AbstractTank : MonoBehaviour
     [SerializeField] protected float _range = 250f;
     [SerializeField] protected float _spread = 1f;
 
-    protected GameObject _target;
+    [SerializeField] protected GameObject _target;
 
     protected abstract IEnumerator Shoot();
 }

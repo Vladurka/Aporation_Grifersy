@@ -9,7 +9,8 @@ public class TankShoot : AbstractTank, IVehicleShoot
 
     private void Start()
     {
-        _target = GameObject.FindGameObjectWithTag("Player");
+        if (!_target)
+            _target = GameObject.FindGameObjectWithTag("Player");
 
         _audioSource = GetComponent<AudioSource>();
         StartCoroutine(Shoot());

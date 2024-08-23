@@ -16,7 +16,7 @@ namespace Game.Enemy
 
         private void Start()
         {
-            if (_mainCharacter == null)
+            if (!_mainCharacter)
                 _mainCharacter = GameObject.FindGameObjectWithTag("Player");
 
             _points = GameObject.FindGameObjectsWithTag("Point");

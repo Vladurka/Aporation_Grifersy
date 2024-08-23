@@ -7,7 +7,7 @@ namespace Game.Enemy
     {
         [SerializeField] protected bool _isMission5 = false;
         [SerializeField] protected float _range = 20f;
-        protected GameObject _mainCharacter;
+        [SerializeField] protected GameObject _mainCharacter;
 
         protected Animator _animator;
 

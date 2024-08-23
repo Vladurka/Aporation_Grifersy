@@ -13,7 +13,7 @@ public class ChangeWeapon : MonoBehaviour, IService
     private EventBus _eventBus;
     private PlayerHealth _playerHealth;
 
-    public int SyrgineAmount = 2;
+    public int SyrgineAmount = 0;
 
     public void Init()
     {

@@ -1,5 +1,4 @@
 using Game.Enemy;
-using Game.Player;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,7 +9,9 @@ public class SoldierMove : AbstractEnemy
     public bool _isStarted;
     private void Start()
     {
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        if(!_mainCharacter)
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _soldierShoot = GetComponent<SoldierShoot>();
