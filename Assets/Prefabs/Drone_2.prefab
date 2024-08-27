@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2650496509803295053}
   - component: {fileID: 6804821927970914796}
   - component: {fileID: 2002697061053465199}
+  - component: {fileID: 2584224418371829347}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -164,6 +165,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &2584224418371829347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391953211614707964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42241c33e76d45b43a440dfb487cdaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NVColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetBleachColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0}
+  m_baseLightingContribution: 0.025
+  m_LightSensitivityMultiplier: 1
+  useVignetting: 1
 --- !u!1001 &1726452466742307445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7a98d29185ae3164dbaca23abf73748c, type: 2}
     - target: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_Name
-      value: Drone_L
+      value: Drone_2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_TagString
