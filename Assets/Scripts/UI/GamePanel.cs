@@ -94,7 +94,8 @@ public class GamePanel : MonoBehaviour
 
     private void UpdateDroneText(UpdateDrone drone)
     {
-        _droneAmountText.text = drone.Amount.ToString();
+        if (_droneAmountText != null)
+            _droneAmountText.text = drone.Amount.ToString();
     }
 
     private void SetDronePanel(SetDronePanel drone)

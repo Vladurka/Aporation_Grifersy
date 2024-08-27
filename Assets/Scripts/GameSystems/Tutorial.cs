@@ -24,8 +24,8 @@ public class Tutorial : MonoBehaviour
                 _text.text = _tips[_index];
         }
 
-        if (_repeat)
-           _text.text = _tips[_index];
+        else if (_repeat)
+            _text.text = _tips[_index];
 
         else
             _text.text = "";

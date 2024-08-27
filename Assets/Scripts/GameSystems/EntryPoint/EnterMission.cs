@@ -72,9 +72,7 @@ public class EnterMission : MonoBehaviour
         _saveDataJson.Init();
         _loadDataJson.Init();
 
-        if (_load)
-            _loadDataJson.Load();
-
+        _loadDataJson.Load();
         _changeWeapon.Init();
         _gamePanel.Init();
         _playerHealth.Init();
@@ -88,7 +86,9 @@ public class EnterMission : MonoBehaviour
         _scopeLevels.Init();
         _grenadeThrower.Init();
         _raycasts.Init();
-        _droneLouncher.Init();
+
+        if(_droneLouncher != null)
+            _droneLouncher.Init();
 
         _akAnim.Init();
         _rpgAnim.Init();
@@ -120,6 +120,7 @@ public class EnterMission : MonoBehaviour
         ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
         ServiceLocator.Current.Register<VolumeController>(_volume);
         ServiceLocator.Current.Register<DroneLouncher>(_droneLouncher);
+
         Debug.Log("Registreted");
     }
 }

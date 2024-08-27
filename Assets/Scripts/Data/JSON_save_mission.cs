@@ -33,9 +33,7 @@ namespace Game.Data
             JSON_playerData existingData = JSON_saveSystem.Load<JSON_playerData>();
 
             if (existingData == null)
-            {
                 existingData = new JSON_playerData();
-            }
 
             existingData.HpData = _playerHealth.Health;
             existingData.SyrgineAmount = _changeWeapon.SyrgineAmount;
