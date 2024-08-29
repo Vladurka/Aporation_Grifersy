@@ -2,6 +2,7 @@ using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Drone : AbstractTransport
 {
@@ -43,7 +44,7 @@ public class Drone : AbstractTransport
 
         float distance = Vector3.Distance(transform.position, DroneSpawn);
         int intDistance = (int)distance;
-        TextDistance.text = intDistance.ToString() + "m";
+        TextDistance.text = $"{intDistance}m";
 
         if (distance >= 400f)
             Exit();
