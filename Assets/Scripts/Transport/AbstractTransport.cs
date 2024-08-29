@@ -8,10 +8,7 @@ public abstract class AbstractTransport : MonoBehaviour
     public GameObject MainCharacter;
     public GameObject GamePanel;
 
-    public virtual void Init()
-    {
-
-    }
+    public virtual void Init() { }
     public abstract void Enter();
     public abstract void Exit();
     public abstract void TransportReset();

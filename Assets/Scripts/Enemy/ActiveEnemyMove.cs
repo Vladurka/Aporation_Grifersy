@@ -2,7 +2,6 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.AI;
-
 namespace Game.Enemy
 {
     [RequireComponent(typeof(NavMeshAgent))]
@@ -16,8 +15,10 @@ namespace Game.Enemy
 
         private void Start()
         {
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
             if (!_mainCharacter)
-                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+                StartCoroutine(base.FindPlayer());
 
             _points = GameObject.FindGameObjectsWithTag("Point");
             _agent = GetComponent<NavMeshAgent>();
@@ -56,20 +57,26 @@ namespace Game.Enemy
             }
         }
 
-        private void Chill()
+        protected override void Chill()
         {
             _agent.speed = 1;
             _animator.SetBool("Run", false);
-            _agent.SetDestination(_points[_index].transform.position);
+
+            if (!_isGone)
+            {
+                _agent.SetDestination(_points[_index].transform.position);
+                _isGone = true;
+            }
 
             if (_agent.remainingDistance <= 2f)
             {
                 _index = Random.Range(0, _points.Length);
+                _isGone = true;
                 return;
             }
         }
 
-        public override void EnemyDetected()
+        protected override void EnemyDetected()
         {
             _agent.speed = 2.5f;
             _animator.SetBool("Run", true);

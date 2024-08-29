@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.AI;
 
 namespace Game.Enemy
@@ -7,16 +8,30 @@ namespace Game.Enemy
     {
         [SerializeField] protected bool _isMission5 = false;
         [SerializeField] protected float _range = 20f;
-        [SerializeField] protected GameObject _mainCharacter;
 
+        protected GameObject _mainCharacter;
         protected Animator _animator;
 
         protected GameObject[] _points;
         protected NavMeshAgent _agent;
 
-        /*[HideInInspector] */public bool IsDetected = false;
+        protected bool _isGone = false;
+        [HideInInspector] public bool IsDetected = false;
         [HideInInspector] public bool IsDead = false;
 
-        public abstract void EnemyDetected();
+        protected virtual void Chill() { }
+        protected abstract void EnemyDetected();
+        protected virtual IEnumerator FindPlayer()
+        {
+            if (!_mainCharacter)
+            {
+                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+                yield return new WaitForSeconds(3f);
+                StartCoroutine(FindPlayer());
+            }
+
+            if (_mainCharacter)
+                yield break;
+        }
     }
 }

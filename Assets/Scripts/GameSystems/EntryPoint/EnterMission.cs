@@ -72,7 +72,9 @@ public class EnterMission : MonoBehaviour
         _saveDataJson.Init();
         _loadDataJson.Init();
 
-        _loadDataJson.Load();
+        if(_load)
+            _loadDataJson.Load();
+
         _changeWeapon.Init();
         _gamePanel.Init();
         _playerHealth.Init();

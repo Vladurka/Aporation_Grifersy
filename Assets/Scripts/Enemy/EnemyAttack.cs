@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private float _attackRange = 3f;
-    [SerializeField] private float _range = 1f;
     [SerializeField] private float _damage = 20f;
 
     private bool _started = false;
@@ -24,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if(_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 3f)
+        if(!_mainCharacter && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _attackRange)
         {
             if(!_started)
             {
@@ -33,7 +32,7 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        else if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) > 3f)
+        else if (!_mainCharacter && Vector3.Distance(transform.position, _mainCharacter.transform.position) > _attackRange)
         {
             if (_started)
             {

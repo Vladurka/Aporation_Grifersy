@@ -122,15 +122,15 @@ public class Stryker : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            _colliderFR.brakeTorque = 5000f;
-            _colliderFMR.brakeTorque = 5000f;
-            _colliderBMR.brakeTorque = 5000f;
-            _colliderBR.brakeTorque = 5000f;
+            _colliderFR.brakeTorque = _brakeTorque;
+            _colliderFMR.brakeTorque = _brakeTorque;
+            _colliderBMR.brakeTorque = _brakeTorque;
+            _colliderBR.brakeTorque = _brakeTorque;
 
-            _colliderFL.brakeTorque = 5000f;
-            _colliderFML.brakeTorque = 5000f;
-            _colliderBML.brakeTorque = 5000f;
-            _colliderBL.brakeTorque = 5000f;
+            _colliderFL.brakeTorque = _brakeTorque;
+            _colliderFML.brakeTorque = _brakeTorque;
+            _colliderBML.brakeTorque = _brakeTorque;
+            _colliderBL.brakeTorque = _brakeTorque;
         }
         else
         {

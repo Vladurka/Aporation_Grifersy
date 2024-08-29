@@ -6,9 +6,13 @@ public class NotActiveEnemyMove : AbstractEnemy
 {
     private void Start()
     {
+        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
+        if (!_mainCharacter)
+            StartCoroutine(base.FindPlayer());
+
         _points = GameObject.FindGameObjectsWithTag("Point");
         _agent = GetComponent<NavMeshAgent>();
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         _animator = GetComponent<Animator>();
     }
 
@@ -27,18 +31,16 @@ public class NotActiveEnemyMove : AbstractEnemy
             IsDetected = true;
     }
 
-    private void Chill()
+    protected override void Chill()
     {
         _animator.SetBool("Run", false);
     }
 
-    public override void EnemyDetected()
+    protected override void EnemyDetected()
     {
         _agent.speed = 2.5f;
         _animator.SetBool("Run", true);
         if (_mainCharacter != null)
-        {
             _agent.SetDestination(_mainCharacter.transform.position);
-        }
     }
 }

@@ -9,8 +9,10 @@ public class SoldierMove : AbstractEnemy
     public bool _isStarted;
     private void Start()
     {
-        if(!_mainCharacter)
-            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
+        if (!_mainCharacter)
+            StartCoroutine(base.FindPlayer());
 
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
@@ -31,7 +33,7 @@ public class SoldierMove : AbstractEnemy
         }
     }
 
-    public override void EnemyDetected()
+    protected override void EnemyDetected()
     {
         if (Physics.SphereCast(transform.position, 1f, transform.forward, out _hit, 1000f))
         {
@@ -71,6 +73,5 @@ public class SoldierMove : AbstractEnemy
                 return;
             }
         }
-
     }
 }

@@ -89,11 +89,8 @@ namespace Game.Data
 
                 _coinSystem.Money = data.MoneyData;
 
-                if (data.BaseLevelData != null)
-                {
-                    _baseStates.BaseLevel = data.BaseLevelData;
-                    _shop.BaseUpgradeAmount = data.BaseLevelData;
-                }
+                _baseStates.BaseLevel = data.BaseLevelData;
+                _shop.BaseUpgradeAmount = data.BaseLevelData;
             }
 
             else

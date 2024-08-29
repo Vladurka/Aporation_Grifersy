@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.Player;
-using Unity.VisualScripting;
+using System.Collections;
 
 namespace Game.Enemy
 {
@@ -9,14 +9,17 @@ namespace Game.Enemy
         [SerializeField] private float _damage = 40f;
         [SerializeField] private float _explosionRadius = 2f;
         [SerializeField] private ParticleSystem _explosionEffect;
-        [SerializeField] private GameObject _mainCharacter;
+
+        private GameObject _mainCharacter;
 
         private bool _isExploded = false;
 
         private void Start()
         {   
-            if(!_mainCharacter)
-                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+            _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+
+            if (!_mainCharacter)
+                StartCoroutine(FindPlayer());
         }
 
         private void Update()
@@ -45,5 +48,20 @@ namespace Game.Enemy
                 _isExploded = true;
             }
         }
+
+        private IEnumerator FindPlayer()
+        {
+            if (!_mainCharacter)
+            {
+                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+                Debug.Log(_mainCharacter);
+                yield return new WaitForSeconds(3f);
+                StartCoroutine(FindPlayer());
+            }
+
+            if (_mainCharacter)
+                yield break;
+        }
+
     }
 }
