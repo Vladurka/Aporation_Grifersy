@@ -29,12 +29,12 @@ public class DroneLouncher : MonoBehaviour, IService
             if (!ConstSystem.InTransport && ConstSystem.CanPause && !ConstSystem.InShop)
             {
                 Vector3 pos = transform.position;
-                Instantiate(_drone, _lounchPos.position, _lounchPos.rotation);
+                Drone newDrone = Instantiate(_drone, _lounchPos.position, _lounchPos.rotation);
 
-                _drone.MainCharacter = _mainCharacter;
-                _drone.GamePanel = _panel;
-                _drone.DroneSpawn = pos;
-                _drone.TextDistance = _distanceText;
+                newDrone.MainCharacter = _mainCharacter;
+                newDrone.GamePanel = _panel;
+                newDrone.DroneSpawn = pos;
+                newDrone.TextDistance = _distanceText;
 
                 DronesAmount--;
                 _eventBus.Invoke(new UpdateDrone(DronesAmount));
