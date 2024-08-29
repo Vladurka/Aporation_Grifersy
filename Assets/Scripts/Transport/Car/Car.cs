@@ -8,7 +8,6 @@ public class Car : AbstractTransport, IService
     [SerializeField] private AudioSource _audioSourceDrive;
     [SerializeField] private AudioSource _audioSourceIdle;
     [SerializeField] private AudioSource _audioSourceStart;
-    private AudioListener _audioListener;
 
     [Header("Drive")]
     [SerializeField] private Transform _transformFL;
@@ -33,9 +32,6 @@ public class Car : AbstractTransport, IService
         _camera.enabled = false;
         this.enabled = false;
         _rb = GetComponent<Rigidbody>();
-        _audioListener = GetComponentInChildren<AudioListener>();
-        _audioListener.enabled = false;
-
         ConstSystem.CanExit = true;
     }
 
@@ -134,7 +130,6 @@ public class Car : AbstractTransport, IService
             this.enabled = false;
             ConstSystem.InTransport = false;
             ConstSystem.InCar = false;
-            _audioListener.enabled = false;
             GamePanel.SetActive(true);
         }
     }
@@ -149,7 +144,6 @@ public class Car : AbstractTransport, IService
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
         ConstSystem.InCar = true;
-        _audioListener.enabled = true;
         GamePanel.SetActive(false);
     }
 

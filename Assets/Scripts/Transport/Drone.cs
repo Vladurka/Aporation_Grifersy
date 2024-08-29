@@ -21,7 +21,6 @@ public class Drone : AbstractTransport
     private bool _isStopping = false;
 
     private EventBus _eventBus;
-    private AudioListener _audioListener;
     private Rigidbody _rb;
     private AudioSource _audioSource;
 
@@ -30,8 +29,6 @@ public class Drone : AbstractTransport
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
         _camera.enabled = false;
-        _audioListener = GetComponent<AudioListener>();
-        _audioListener.enabled = false;
         _audioSource = GetComponent<AudioSource>();
         _rb = GetComponent<Rigidbody>();
         ConstSystem.CanExit = true;
@@ -128,7 +125,6 @@ public class Drone : AbstractTransport
         ConstSystem.InTransport = true;
         ConstSystem.InDrone = true;
         _audioSource.Play();
-        _audioListener.enabled = true;
         GamePanel.SetActive(false);
         MainCharacter.SetActive(false);
     }
@@ -143,7 +139,6 @@ public class Drone : AbstractTransport
             ConstSystem.InTransport = false;
             ConstSystem.InDrone = false;
             _audioSource.Stop();
-            _audioListener.enabled = false;
             GamePanel.SetActive(true);
             Destroy(gameObject);
         }

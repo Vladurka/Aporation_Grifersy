@@ -40,7 +40,8 @@ namespace Game.Enemy
 
         public void GetDamage(float damage)
         {
-            _animator.SetTrigger("GetDamage");
+            if (HasTrigger(_animator, "GetDamage"))
+                _animator.SetTrigger("GetDamage");
 
             Health -= damage;
 
@@ -49,6 +50,16 @@ namespace Game.Enemy
                 _eventBus.Invoke(new MoneyAdd(KillCost));
                 Die();
             }
+        }
+
+        private bool HasTrigger(Animator animator, string triggerName)
+        {
+            foreach (AnimatorControllerParameter param in animator.parameters)
+            {
+                if (param.type == AnimatorControllerParameterType.Trigger && param.name == triggerName)
+                    return true;
+            }
+            return false;
         }
 
         private void OnDestroy()

@@ -25,10 +25,13 @@ public class ChangeWeapon : MonoBehaviour, IService
         _eventBus.Invoke(new UpdateSyrgine(SyrgineAmount));
 
         if (_startSettings)
-        {
-            Deactivate();
-            _items[0].SetActive(true);
-        }
+            StartSettings();
+    }
+
+    private void OnEnable()
+    {
+        if(!_startSettings)
+            StartSettings();
     }
 
     private void Update()
@@ -77,6 +80,12 @@ public class ChangeWeapon : MonoBehaviour, IService
         {
             item.SetActive(false);
         }
+    }
+
+    private void StartSettings()
+    {
+        Deactivate();
+        _items[0].SetActive(true);
     }
 
     private void AddSyrgine(BuySyrgine syrgine)

@@ -20,7 +20,6 @@ public class Helicopter : AbstractTransport, IService
     private bool _canMove = true;
 
     private EventBus _eventBus;
-    private AudioListener _audioListener;
     private Rigidbody _rb;
     private AudioSource _audioSource;
     private Animator _animator;
@@ -30,8 +29,6 @@ public class Helicopter : AbstractTransport, IService
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
         _camera.enabled = false;
-        _audioListener = GetComponent<AudioListener>();
-        _audioListener.enabled = false;
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
@@ -136,7 +133,6 @@ public class Helicopter : AbstractTransport, IService
         _eventBus.Invoke(new SetTotalBullets(false));
         ConstSystem.InTransport = true;
         _audioSource.Play();
-        _audioListener.enabled = true;
         GamePanel.SetActive(false);
     }
 
@@ -151,7 +147,6 @@ public class Helicopter : AbstractTransport, IService
             this.enabled = false;
             ConstSystem.InTransport = false;
             _audioSource.Stop();
-            _audioListener.enabled = false;
             GamePanel.SetActive(true);
         }
     }
