@@ -66,7 +66,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 10000
+  far clip plane: 3000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -337,7 +337,7 @@ MonoBehaviour:
   _targetForwardSpeed: 15
   _targetRotationSpeed: 25
   TextDistance: {fileID: 0}
-  DroneSpawn: {x: 17.27, y: 20.78335, z: 102.21768}
+  DroneSpawn: {x: -1138.5466, y: 15.973976, z: 323.27814}
 --- !u!82 &728850610735259057
 AudioSource:
   m_ObjectHideFlags: 0
