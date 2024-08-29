@@ -22,6 +22,8 @@ public class Car : AbstractTransport, IService
 
     [SerializeField] private float _maxAngle;
 
+    [SerializeField] private GameObject _driver;
+
     private EventBus _eventBus;
     private Rigidbody _rb;
 
@@ -33,6 +35,7 @@ public class Car : AbstractTransport, IService
         this.enabled = false;
         _rb = GetComponent<Rigidbody>();
         ConstSystem.CanExit = true;
+        _driver.SetActive(false);
     }
 
     private void OnEnable()
@@ -131,6 +134,7 @@ public class Car : AbstractTransport, IService
             ConstSystem.InTransport = false;
             ConstSystem.InCar = false;
             GamePanel.SetActive(true);
+            _driver.SetActive(false);
         }
     }
 
@@ -145,6 +149,7 @@ public class Car : AbstractTransport, IService
         ConstSystem.InTransport = true;
         ConstSystem.InCar = true;
         GamePanel.SetActive(false);
+        _driver.SetActive(true);
     }
 
     public override void TransportReset()
