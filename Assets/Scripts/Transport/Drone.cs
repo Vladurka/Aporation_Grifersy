@@ -2,7 +2,7 @@ using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
+using System.Collections;
 
 public class Drone : AbstractTransport
 {
@@ -13,11 +13,20 @@ public class Drone : AbstractTransport
     [SerializeField] private float _targetForwardSpeed = 25f;
     [SerializeField] private float _targetRotationSpeed = 25f;
 
-    public Text TextDistance;
-    public Vector3 DroneSpawn;
+    [SerializeField] private GameObject _gamerPrefab;
+    private GameObject _gamer;
+
+    [HideInInspector] public Text TextDistance;
+    [HideInInspector] public Text BatteryText;
+
+    [HideInInspector] public Vector3 DroneSpawn;
+    [HideInInspector] public Vector3 _characterPos;
+    [HideInInspector] public Quaternion _characterRot;
 
     private float _stopTimer = 0f;
     private float _currentVelocity;
+
+    private int _battery = 100;
 
     private bool _isStopping = false;
 
@@ -33,8 +42,8 @@ public class Drone : AbstractTransport
         _audioSource = GetComponent<AudioSource>();
         _rb = GetComponent<Rigidbody>();
         ConstSystem.CanExit = true;
-
-        Invoke("Enter", 0.1f);
+        StartCoroutine(Timer());
+        Enter();
     }
 
     private void Update()
@@ -116,6 +125,20 @@ public class Drone : AbstractTransport
         transform.rotation = Quaternion.Slerp(currentRotation, stabilizedRotation, Time.deltaTime * 5f);
     }
 
+    private IEnumerator Timer()
+    {
+        _battery--;
+        BatteryText.text = $"{_battery}%";
+
+        if (_battery <= 0)
+        {
+            Exit();
+            yield break;
+        }
+
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Timer());
+    }
 
     public override void Enter()
     {
@@ -128,6 +151,7 @@ public class Drone : AbstractTransport
         _audioSource.Play();
         GamePanel.SetActive(false);
         MainCharacter.SetActive(false);
+        _gamer = Instantiate(_gamerPrefab, _characterPos, _characterRot);
     }
 
     public override void Exit()
@@ -141,6 +165,7 @@ public class Drone : AbstractTransport
             ConstSystem.InDrone = false;
             _audioSource.Stop();
             GamePanel.SetActive(true);
+            Destroy(_gamer);
             Destroy(gameObject);
         }
     }

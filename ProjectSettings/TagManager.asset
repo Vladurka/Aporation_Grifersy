@@ -25,6 +25,7 @@ TagManager:
   - Door
   - Point1
   - Drone
+  - Buckhweat
   layers:
   - Default
   - TransparentFX

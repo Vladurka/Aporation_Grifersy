@@ -103,7 +103,7 @@ MonoBehaviour:
   _minXRotation: 0
   _maxYRotation: 360
   _minYRotation: 0
-  _scopingForce: 0.05
+  _scopingForce: 40
   _camera: {fileID: 2650496509803295053}
 --- !u!114 &2002697061053465199
 MonoBehaviour:
@@ -349,7 +349,7 @@ MonoBehaviour:
   _camera: {fileID: 2650496509803295053}
   MainCharacter: {fileID: 0}
   GamePanel: {fileID: 0}
-  _rotationSpeed: 35
+  _rotationSpeed: 50
   _liftForce: 100
   _stopDuration: 1.5
   _targetForwardSpeed: 15

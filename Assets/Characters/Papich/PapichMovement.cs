@@ -15,7 +15,7 @@ public class PapichMovement : MonoBehaviour
 
     [SerializeField] private Transform _board;
 
-    private enum State { Patrol, Talk1, Talk2, GoToPoint, TalkAtPoint }
+    public enum State { Patrol, Talk1, Talk2, GoToPoint, TalkAtPoint }
 
     private State _currentState;
 
@@ -56,7 +56,7 @@ public class PapichMovement : MonoBehaviour
                     Talk1();
                     break;
                 case State.Talk2:
-                    Talk2();
+                    Talk2(_clip2);
                     break;
                 case State.GoToPoint:
                     Walk();
@@ -113,11 +113,11 @@ public class PapichMovement : MonoBehaviour
         transform.LookAt(_mainCharacter.transform.position);
     }
 
-    private void Talk2()
+    private void Talk2(AudioClip clip)
     {
         if (!_audioSource.isPlaying && !_played2)
         {
-            _audioSource.PlayOneShot(_clip2);
+            _audioSource.PlayOneShot(clip);
             _played2 = true;
         }
 

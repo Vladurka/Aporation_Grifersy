@@ -13,7 +13,6 @@ public class Javeline : AbstractWeapon
     [SerializeField] private GameObject X3;
 
     private Transform _target;
-    private bool _canShoot = true;
     private bool _targetSet = false;
     private int _distance;
 

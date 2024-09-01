@@ -8,6 +8,7 @@ public class DroneLouncher : MonoBehaviour, IService
     [SerializeField] private Drone _drone;
     [SerializeField] private Transform _lounchPos;
     [SerializeField] private Text _distanceText;
+    [SerializeField] private Text _batteryText;
     [SerializeField] private GameObject _panel;
     private GameObject _mainCharacter;
 
@@ -35,6 +36,7 @@ public class DroneLouncher : MonoBehaviour, IService
                 newDrone.GamePanel = _panel;
                 newDrone.DroneSpawn = pos;
                 newDrone.TextDistance = _distanceText;
+                newDrone.BatteryText = _batteryText;
 
                 DronesAmount--;
                 _eventBus.Invoke(new UpdateDrone(DronesAmount));

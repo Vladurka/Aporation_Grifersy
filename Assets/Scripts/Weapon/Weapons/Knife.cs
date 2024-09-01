@@ -42,6 +42,7 @@ public class Knife : AbstractWeapon
             if (enemies.TryGetComponent(out IEnemyHealth _health))
                 _health.GetDamage(_damage);
         }
+        yield break;
     }
 
     protected override void CanShoot()

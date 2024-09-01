@@ -88,14 +88,13 @@ namespace Game.Weapon
                 TotalBullets--;
 
                 _eventBus.Invoke(new CheckList(transform.position, _callRange));
-                _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
-                
+                _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));    
             }
 
             if (TotalBullets <= 0)
                 _audioSource.PlayOneShot(_noBulletsSound);
 
-            yield return null;
+            yield break;
         }
 
         private void Realod()

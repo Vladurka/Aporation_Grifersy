@@ -8,7 +8,7 @@ public class MissileScopeCamera : MonoBehaviour
     [SerializeField] private float _minXRotation = -45f;
     [SerializeField] private float _maxYRotation = -45f;
     [SerializeField] private float _minYRotation = -0;
-    [SerializeField] private float _scopingForce = 0.05f;
+    [SerializeField] private float _scopingForce = 40f;
     [SerializeField] private Camera _camera;
 
     private float xRotation = 0f;
@@ -38,14 +38,16 @@ public class MissileScopeCamera : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
-            //if (Input.GetKey(KeyCode.E) && _camera.fieldOfView >= 10f)
-            //    _camera.fieldOfView -= _scopingForce;
+            if (scroll != 0f && _camera.fieldOfView <= 70f && _camera.fieldOfView >= 10f)
+            {
+                _camera.fieldOfView += -scroll * _scopingForce;
 
-            //if (Input.GetKey(KeyCode.Q) && _camera.fieldOfView <= 70f)
-            //    _camera.fieldOfView += _scopingForce;
+                if (_camera.fieldOfView <= 10f)
+                    _camera.fieldOfView = 10.1f;
 
-            if (scroll != 0f)
-                _camera.fieldOfView += scroll * _scopingForce;
+                if (_camera.fieldOfView >= 70f)
+                    _camera.fieldOfView = 69.9f;
+            }
         }
     }
 }
