@@ -30,14 +30,11 @@ public class GraphicsController : MonoBehaviour
         if (!PlayerPrefsSafe.HasKey(_qualityKey))
             QualitySettings.SetQualityLevel(5, true);
 
-        if (_qualityDropdown != null)
-        {
-            if (PlayerPrefsSafe.HasKey(_qualityDropdownKey))
-                _qualityDropdown.value = PlayerPrefsSafe.GetInt(_qualityDropdownKey);
+        if (PlayerPrefsSafe.HasKey(_qualityDropdownKey))
+            _qualityDropdown.value = PlayerPrefsSafe.GetInt(_qualityDropdownKey);
 
-            if (!PlayerPrefsSafe.HasKey(_qualityDropdownKey))
-                _qualityDropdown.value = 2;
-        }
+        if (!PlayerPrefsSafe.HasKey(_qualityDropdownKey))
+            _qualityDropdown.value = 2;
 
         #endregion
 
@@ -70,11 +67,8 @@ public class GraphicsController : MonoBehaviour
 
         ChangeResolution(currentResolutionIndex);
 
-        if (_resolutionDropdown != null)
-        {
-            _resolutionDropdown.value = currentResolutionIndex;
-            _resolutionDropdown.RefreshShownValue();
-        }
+        _resolutionDropdown.value = currentResolutionIndex;
+        _resolutionDropdown.RefreshShownValue();
 
         #endregion
 
@@ -90,14 +84,11 @@ public class GraphicsController : MonoBehaviour
         if (!PlayerPrefsSafe.HasKey(_fpsKey))
             SetFPS(_targetFPS);
 
-        if (_fpsDropdown != null)
-        {
-            if (PlayerPrefsSafe.HasKey(_fpsDropdownKey))
-                _fpsDropdown.value = PlayerPrefsSafe.GetInt(_fpsDropdownKey);
+        if (PlayerPrefsSafe.HasKey(_fpsDropdownKey))
+            _fpsDropdown.value = PlayerPrefsSafe.GetInt(_fpsDropdownKey);
 
-            if (!PlayerPrefsSafe.HasKey(_fpsDropdownKey))
-                _fpsDropdown.value = 7;
-        }
+        if (!PlayerPrefsSafe.HasKey(_fpsDropdownKey))
+            _fpsDropdown.value = 7;
 
         #endregion
 
@@ -207,4 +198,3 @@ public class GraphicsController : MonoBehaviour
     }
     #endregion
 }
-

@@ -29,19 +29,16 @@ public class DrawDistanceController : MonoBehaviour
         
         _camerasItems = camerasList.ToArray();
 
-        if (_slider != null)
-        {
-            _slider.minValue = 1000f;
-            _slider.maxValue = 10000f;
+        _slider.minValue = 1000f;
+        _slider.maxValue = 10000f;
 
-            if (PlayerPrefsSafe.HasKey(_key))
-            {
-                if (_slider != null)
-                    _slider.value = PlayerPrefsSafe.GetFloat(_key);
-            }
-            if (!PlayerPrefsSafe.HasKey(_key))
-                _slider.value = 3000f;
+        if (PlayerPrefsSafe.HasKey(_key))
+        {
+            if (_slider != null)
+                _slider.value = PlayerPrefsSafe.GetFloat(_key);
         }
+        if (!PlayerPrefsSafe.HasKey(_key))
+            _slider.value = 3000f;
 
 
         foreach (Camera camera in _cameras)
