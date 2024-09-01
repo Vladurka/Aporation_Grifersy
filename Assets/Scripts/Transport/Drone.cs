@@ -20,8 +20,8 @@ public class Drone : AbstractTransport
     [HideInInspector] public Text BatteryText;
 
     [HideInInspector] public Vector3 DroneSpawn;
-    [HideInInspector] public Vector3 _characterPos;
-    [HideInInspector] public Quaternion _characterRot;
+    [HideInInspector] public Vector3 CharacterPos;
+    [HideInInspector] public Quaternion CharacterRot;
 
     private float _stopTimer = 0f;
     private float _currentVelocity;
@@ -151,7 +151,7 @@ public class Drone : AbstractTransport
         _audioSource.Play();
         GamePanel.SetActive(false);
         MainCharacter.SetActive(false);
-        _gamer = Instantiate(_gamerPrefab, _characterPos, _characterRot);
+        _gamer = Instantiate(_gamerPrefab, CharacterPos, Quaternion.Euler(-90, 0, 0));
     }
 
     public override void Exit()

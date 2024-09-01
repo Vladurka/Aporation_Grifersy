@@ -37,6 +37,7 @@ public class DroneLouncher : MonoBehaviour, IService
                 newDrone.DroneSpawn = pos;
                 newDrone.TextDistance = _distanceText;
                 newDrone.BatteryText = _batteryText;
+                newDrone.CharacterPos = new Vector3(transform.position.x, transform.position.y - 0.77f, transform.position.z);
 
                 DronesAmount--;
                 _eventBus.Invoke(new UpdateDrone(DronesAmount));

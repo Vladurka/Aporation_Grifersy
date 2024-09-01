@@ -206,11 +206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -331,13 +331,17 @@ MonoBehaviour:
   _camera: {fileID: 2650496509803295053}
   MainCharacter: {fileID: 0}
   GamePanel: {fileID: 0}
-  _rotationSpeed: 50
+  _rotationSpeed: 100
   _liftForce: 100
   _stopDuration: 1.5
   _targetForwardSpeed: 15
   _targetRotationSpeed: 25
+  _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
   TextDistance: {fileID: 0}
+  BatteryText: {fileID: 0}
   DroneSpawn: {x: 1322.9811, y: 11.105637, z: 531.86194}
+  CharacterPos: {x: 0, y: 0, z: 0}
+  CharacterRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!82 &728850610735259057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -350,7 +354,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cbf6827fd4f356048a0d1d8e2b503df7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.102569126
   m_Pitch: 1
   Loop: 1
   Mute: 0
