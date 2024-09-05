@@ -29,7 +29,7 @@ public class EnterTraining : MonoBehaviour
     [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
     [SerializeField] private GrenadeThrower _grenadeThrower;
     [SerializeField] private ChangeWeapon _changeWeapon;
-    [SerializeField] private DroneLouncher _droneLouncher;
+    [SerializeField] private BaseDroneLouncher _droneLouncher;
 
     [Header("Animations")]
     [SerializeField] private AKAnim _akAnim;
@@ -125,7 +125,7 @@ public class EnterTraining : MonoBehaviour
         ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
         ServiceLocator.Current.Register<VolumeController>(_volume);
         ServiceLocator.Current.Register<Loading>(_loading);
-        ServiceLocator.Current.Register<DroneLouncher>(_droneLouncher);
+        ServiceLocator.Current.Register<BaseDroneLouncher>(_droneLouncher);
         Debug.Log("Registreted");
     }
 }

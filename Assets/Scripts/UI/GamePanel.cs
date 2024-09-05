@@ -94,19 +94,19 @@ public class GamePanel : MonoBehaviour
 
     private void UpdateDroneText(UpdateDrone drone)
     {
-        if (_droneAmountText != null)
+        if (!_droneAmountText.Equals(null))
             _droneAmountText.text = drone.Amount.ToString();
     }
 
     private void SetDronePanel(SetDronePanel drone)
     {
-        if (_dronePanel != null)
+        if (!_dronePanel.Equals(null))
             _dronePanel.SetActive(drone.State);
     }
 
     private void SetSpeedometer(SetSpeedometer speedometer)
     {
-        if (_speedometr != null)
+        if (!_speedometr.Equals(null))
             _speedometr.SetActive(speedometer.State);
     }
 

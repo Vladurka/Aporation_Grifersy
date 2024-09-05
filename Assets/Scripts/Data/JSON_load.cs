@@ -18,7 +18,7 @@ namespace Game.Data
         private GrenadeThrower _grenadeThrower;
         private ChangeWeapon _changeWeapon;
         private Shop _shop;
-        private DroneLouncher _droneLouncher;
+        private BaseDroneLouncher _droneLouncher;
         public void Init()
         {
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
@@ -34,7 +34,7 @@ namespace Game.Data
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
             _shop = ServiceLocator.Current.Get<Shop>();
-            _droneLouncher = ServiceLocator.Current.Get<DroneLouncher>();
+            _droneLouncher = ServiceLocator.Current.Get<BaseDroneLouncher>();
             ConstSystem.CanSave = true;
         }
 

@@ -23,7 +23,7 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private ChangeAkSkin _changeAkSkin;
     [SerializeField] private ChangeKnifeSkin _changeKnifeSkin;
     [SerializeField] private ChangeWeapon _changeWeapon;
-    [SerializeField] private DroneLouncher _droneLouncher;
+    [SerializeField] private BaseDroneLouncher _droneLouncher;
 
     [Header("UI")]
     [SerializeField] private GameUI _gameUI;
@@ -121,7 +121,9 @@ public class EnterMission : MonoBehaviour
         ServiceLocator.Current.Register<ScopeLevels>(_scopeLevels);
         ServiceLocator.Current.Register<GrenadeThrower>(_grenadeThrower);
         ServiceLocator.Current.Register<VolumeController>(_volume);
-        ServiceLocator.Current.Register<DroneLouncher>(_droneLouncher);
+
+        if(_droneLouncher != null)
+            ServiceLocator.Current.Register<BaseDroneLouncher>(_droneLouncher);
 
         Debug.Log("Registreted");
     }

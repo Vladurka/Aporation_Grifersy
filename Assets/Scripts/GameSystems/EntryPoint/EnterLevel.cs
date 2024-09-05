@@ -52,7 +52,7 @@ namespace Game
         [SerializeField] private MissionsController _missionsController;
         [SerializeField] private Loading _loading;
         [SerializeField] private PapichMovement _papich;
-        [SerializeField] private DroneLouncher _droneLouncher;
+        [SerializeField] private BaseDroneLouncher _droneLouncher;
 
         [SerializeField] private bool _load = true;
 
@@ -154,7 +154,7 @@ namespace Game
             ServiceLocator.Current.Register<VolumeController>(_volume);
             ServiceLocator.Current.Register<Shop>(_shop);
             ServiceLocator.Current.Register<Loading>(_loading);
-            ServiceLocator.Current.Register<DroneLouncher>(_droneLouncher);
+            ServiceLocator.Current.Register<BaseDroneLouncher>(_droneLouncher);
             Debug.Log("Registreted");
         }
     }
