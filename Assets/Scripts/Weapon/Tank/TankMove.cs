@@ -18,7 +18,7 @@ public class TankMove : MonoBehaviour
         if (Target != null && CanMove)
         {
             _agent.SetDestination(Target.transform.position);
-            _agent.speed = 2f;
+            _agent.speed = 3.5f;
         }
 
         else

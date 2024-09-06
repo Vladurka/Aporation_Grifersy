@@ -12,7 +12,7 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
 
     private void Start()
     {
-        _tankMove = GetComponent<TankMove>();   
+        _tankMove = GetComponentInParent<TankMove>();   
 
         _target = GameObject.FindGameObjectWithTag(_1targetTag);
         _tankMove.Target = _target;
@@ -20,7 +20,7 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
 
     private void Update()
     {
-        if (_target != null)
+        if (!_target.Equals(null))
         {
             Vector3 direction = _target.transform.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(direction);
