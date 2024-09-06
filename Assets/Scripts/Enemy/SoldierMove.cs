@@ -11,7 +11,7 @@ public class SoldierMove : AbstractEnemy
     {
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
 
-        if (!_mainCharacter)
+        if (_mainCharacter.Equals(null))
             StartCoroutine(base.FindPlayer());
 
         _animator = GetComponent<Animator>();
@@ -26,7 +26,7 @@ public class SoldierMove : AbstractEnemy
         if (IsDetected && !IsDead)
             EnemyDetected();
 
-        if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
+        if (!_mainCharacter.Equals(null) && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
         {
             if (!IsDetected)
                 IsDetected = true;
@@ -64,7 +64,7 @@ public class SoldierMove : AbstractEnemy
                     _isStarted = false;
                 }
 
-                if(_mainCharacter != null)
+                if(!_mainCharacter.Equals(null))
                     _agent.SetDestination(_mainCharacter.transform.position);
 
                 _animator.SetBool("Run", true);

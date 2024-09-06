@@ -23,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if(!_mainCharacter && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _attackRange)
+        if(_mainCharacter.Equals(null) && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _attackRange)
         {
             if(!_started)
             {
@@ -32,7 +32,7 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        else if (!_mainCharacter && Vector3.Distance(transform.position, _mainCharacter.transform.position) > _attackRange)
+        else if (_mainCharacter.Equals(null) && Vector3.Distance(transform.position, _mainCharacter.transform.position) > _attackRange)
         {
             if (_started)
             {

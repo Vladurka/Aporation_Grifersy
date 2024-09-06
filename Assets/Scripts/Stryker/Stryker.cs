@@ -33,7 +33,6 @@ public class Stryker : MonoBehaviour
 
     private bool _crabMode = false;
     private bool _frontWheelDriveMode = true;
-    private bool _breakeMode = false;
 
     private Rigidbody _rb;
 
@@ -66,15 +65,6 @@ public class Stryker : MonoBehaviour
 
             else
                 _frontWheelDriveMode = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            if (_breakeMode)
-                _breakeMode = false;
-
-            else
-                _breakeMode = true;
         }
 
         if (_rb.velocity.magnitude >= 2f)
@@ -163,18 +153,6 @@ public class Stryker : MonoBehaviour
                 _colliderBMR.steerAngle = _maxAngle * horizontal;
                 _colliderBML.steerAngle = _maxAngle * horizontal;
             }
-        }
-
-        if(_breakeMode)
-        {
-            _colliderFR.steerAngle = _maxAngle * horizontal;
-            _colliderFL.steerAngle = _maxAngle * horizontal;
-            _colliderFMR.steerAngle = _maxAngle * horizontal;
-            _colliderFML.steerAngle = _maxAngle * horizontal;
-            _colliderBR.steerAngle = -_maxAngle * horizontal;
-            _colliderBL.steerAngle = -_maxAngle * horizontal;
-            _colliderBMR.steerAngle = -_maxAngle * horizontal;
-            _colliderBML.steerAngle = -_maxAngle * horizontal;
         }
 
         if(_crabMode)
