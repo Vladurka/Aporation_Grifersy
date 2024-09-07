@@ -66,7 +66,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 10000
+  far clip plane: 5365.2783
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7a98d29185ae3164dbaca23abf73748c, type: 2}
     - target: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_Name
-      value: Drone_L
+      value: DroneBase
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_TagString
@@ -341,7 +341,6 @@ MonoBehaviour:
   BatteryText: {fileID: 0}
   DroneSpawn: {x: 1322.9811, y: 11.105637, z: 531.86194}
   CharacterPos: {x: 0, y: 0, z: 0}
-  CharacterRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!82 &728850610735259057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -354,7 +353,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cbf6827fd4f356048a0d1d8e2b503df7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.15891168
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
