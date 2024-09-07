@@ -26,6 +26,9 @@ TagManager:
   - Point1
   - Drone
   - Buckhweat
+  - BTR
+  - EnemyTank
+  - EnemyBTR
   layers:
   - Default
   - TransparentFX

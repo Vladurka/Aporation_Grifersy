@@ -5,7 +5,7 @@ public class TankMove : MonoBehaviour
 {
     private NavMeshAgent _agent;
 
-    [HideInInspector] public bool CanMove = true;
+    /*[HideInInspector]*/ public bool CanMove = true;
     [HideInInspector] public GameObject Target;
 
     private void Start()
@@ -13,15 +13,15 @@ public class TankMove : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Target != null && CanMove)
+        if (!Target.Equals(null) && CanMove && !_agent.isStopped)
         {
             _agent.SetDestination(Target.transform.position);
-            _agent.speed = 3.5f;
+            _agent.isStopped = false;
         }
 
-        else
-            _agent.speed = 0f;
+        else if(_agent.isStopped && !CanMove)
+            _agent.isStopped = true;
     }    
 }

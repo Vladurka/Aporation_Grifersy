@@ -18,6 +18,7 @@ public class TankHealth : MonoBehaviour, ITargetHealth
     private bool _isDead = false;
 
     private IVehicleShoot[] _tankShoot;
+    private TankMove _tankMove;
     private EventBus _eventBus;
     private Rigidbody _rb;
 
@@ -26,8 +27,9 @@ public class TankHealth : MonoBehaviour, ITargetHealth
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Invoke(new AddObj(gameObject));
         _tankShoot = GetComponentsInChildren<IVehicleShoot>();
+        _tankMove = GetComponent<TankMove>();
         _renderers = GetComponentsInChildren<MeshRenderer>();
-        _rb = _tower.GetComponent<Rigidbody>();
+        //_rb = _tower.GetComponent<Rigidbody>();
         IsArmored = _isArmored;
         _fire.Stop();
     }
@@ -71,12 +73,18 @@ public class TankHealth : MonoBehaviour, ITargetHealth
             float y = Random.Range(0f, 6f);
             float z = Random.Range(0f, 6f);
 
-            Vector3 dir = new Vector3(x, y, z);
-            _rb.AddForce(dir * 2f, ForceMode.Impulse);
+            if (_tower.TryGetComponent(out Rigidbody rb))
+            {
+                Vector3 dir = new Vector3(x, y, z);
+                _rb.AddForce(dir * 2f, ForceMode.Impulse);
+            }
+
             _fire.Play();
 
             foreach (IVehicleShoot vehicle in _tankShoot)
                 vehicle.Stop();
+
+            _tankMove.CanMove = false;
 
             _isDead = true;
         }
