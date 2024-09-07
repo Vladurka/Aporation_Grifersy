@@ -1,10 +1,9 @@
+using Game.Player;
 using System.Collections;
 using UnityEngine;
 
 public class TankShoot : AbstractTank, IVehicleShoot
 {
-    [SerializeField] private GameObject _bullet;
-
     private AudioSource _audioSource;
 
     private void Start()
@@ -25,6 +24,7 @@ public class TankShoot : AbstractTank, IVehicleShoot
             rotation.x = 0;
             rotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
+            Debug.DrawRay(_spawnPoint.position, _spawnPoint.forward * _range);
         }
     }
 
@@ -33,25 +33,21 @@ public class TankShoot : AbstractTank, IVehicleShoot
         yield return new WaitForSeconds(5f);
 
         RaycastHit hit;
-        Vector3 targetPoint;
 
-        if (Physics.Raycast(_spawnPoint.position, -_spawnPoint.forward, out hit, _range))
+        Vector3 spreadDirection = _spawnPoint.forward;
+        spreadDirection.x += Random.Range(-_spread, _spread);
+        spreadDirection.y += Random.Range(-_spread, _spread);
+
+        if (Physics.Raycast(_spawnPoint.position, spreadDirection, out hit, _range))
         {
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider.TryGetComponent(out PlayerHealth playerHealth))
             {
+                playerHealth.GetDamage(100f);
                 Instantiate(_shootingEffect, _spawnPoint.position, Quaternion.identity);
                 _audioSource.Play();
-                targetPoint = hit.point;
-                Vector3 dir = targetPoint - _spawnPoint.position;
-                float x = Random.Range(-_spread, _spread);
-                float y = Random.Range(-_spread, _spread);
-
-                Vector3 dirWidthSpread = dir + new Vector3(x, y, 0);
-                GameObject currentBullet = Instantiate(_bullet, _spawnPoint.position, _spawnPoint.rotation);
-                currentBullet.transform.forward = dirWidthSpread.normalized;
-                currentBullet.GetComponent<Rigidbody>().AddForce(dirWidthSpread.normalized * _shootForce, ForceMode.Impulse);
             }
         }
+
         StartCoroutine(Shoot());
     }
 
