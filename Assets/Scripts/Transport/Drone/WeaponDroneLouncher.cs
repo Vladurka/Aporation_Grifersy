@@ -16,7 +16,7 @@ public class WeaponDroneLouncher : AbstractDroneLouncher, IService
     {
         if (Input.GetKeyDown(KeyCode.T) && DronesAmount > 0)
         {
-            if (!ConstSystem.InTransport && ConstSystem.CanPause && !ConstSystem.InShop)
+            if (!ConstSystem.InTransport && ConstSystem.CanPause && !ConstSystem.IsBeasy)
             {
                 Vector3 pos = transform.position;
 

@@ -41,7 +41,7 @@ public static class ConstSystem
 
     public const string MISSION_KEY = "MISSION";
 
-    public static bool InShop = false;
+    public static bool IsBeasy = false;
     public static bool CanSave = true;
     public static bool CanPause = true;
     public static bool InTransport = false;

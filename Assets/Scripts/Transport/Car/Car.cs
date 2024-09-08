@@ -38,11 +38,6 @@ public class Car : AbstractTransport, IService
         _driver.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        _audioSourceStart.Play();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -141,6 +136,7 @@ public class Car : AbstractTransport, IService
     public override void Enter()
     {
         this.enabled = true;
+        _audioSourceStart.Play();
         _camera.enabled = true;
         _eventBus.Invoke(new SetSpeedometer(true));
         MainCharacter.SetActive(false);

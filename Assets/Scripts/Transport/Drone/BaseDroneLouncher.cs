@@ -15,7 +15,7 @@ public class BaseDroneLouncher : AbstractDroneLouncher, IService
     {
         if(Input.GetKeyDown(KeyCode.T) && DronesAmount > 0)
         {
-            if (!ConstSystem.InTransport && ConstSystem.CanPause && !ConstSystem.InShop)
+            if (!ConstSystem.InTransport && ConstSystem.CanPause && !ConstSystem.IsBeasy)
             {
                 Vector3 pos = transform.position;
                 BaseDrone newDrone = Instantiate(_drone, _lounchPos.position, _lounchPos.rotation);

@@ -22,60 +22,68 @@ public class Raycasts : MonoBehaviour, IService
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
-            {
-                if (hit.collider.TryGetComponent(out AbstractTransport transport))
-                {
-                    if (ConstSystem.CanEnterHelicopter && hit.collider.CompareTag("Helicopter"))
-                        transport.Enter();
-
-                    if (!ConstSystem.CanEnterHelicopter && hit.collider.CompareTag("Helicopter"))
-                        EnableText(_fixText);
-
-                    if (hit.collider.CompareTag("Car"))
-                        transport.Enter();
-                }
-
-                if (hit.collider.TryGetComponent(out IShop shop))
-                    shop.Open();
-
-                if (hit.collider.TryGetComponent(out IBox box))
-                    box.Open();
-
-                if (hit.collider.TryGetComponent(out IDoor door) && hit.collider.CompareTag("Door"))
-                    door.Open();
-
-                if (hit.collider.TryGetComponent(out IInstrument instrument))
-                    instrument.Get();
-            }
-        }
+            HandleInteraction();
 
         if (Input.GetKeyDown(KeyCode.Q))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
-            {
-                if (hit.collider.TryGetComponent(out IStatesConntroller statesController))
-                {
-                    if (ConstSystem.CanFixHelicopter)
-                        statesController.SetFixedState();
-
-                    else
-                        EnableText(_missionText);
-                }
-            }
-        }
+            HandleFixing();
 
         if (Input.GetKeyDown(KeyCode.T))
+            HandleTransportReset();
+    }
+
+    private bool TryPerformRaycast(out RaycastHit hit)
+    {
+        return Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range);
+    }
+
+    private void HandleInteraction()
+    {
+        if (TryPerformRaycast(out RaycastHit hit))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _range))
+            if (hit.collider.TryGetComponent(out AbstractTransport transport))
             {
-                if (hit.collider.TryGetComponent(out AbstractTransport transport))
-                    transport.TransportReset();
+                if (hit.collider.CompareTag("Helicopter"))
+                {
+                    if (ConstSystem.CanEnterHelicopter)
+                        transport.Enter();
+                    else
+                        EnableText(_fixText);
+                }
+                else if (hit.collider.CompareTag("Car"))
+                {
+                    transport.Enter();
+                }
             }
+
+            if (hit.collider.TryGetComponent(out IShop shop)) shop.Open();
+            if (hit.collider.TryGetComponent(out IBox box)) box.Open();
+            if (hit.collider.TryGetComponent(out IDoor door) && hit.collider.CompareTag("Door")) door.Open();
+            if (hit.collider.TryGetComponent(out IInstrument instrument)) instrument.Get();
+            if (hit.collider.TryGetComponent(out ITaskBoard board)) board.Open();
+        }
+    }
+
+    private void HandleFixing()
+    {
+        if (TryPerformRaycast(out RaycastHit hit))
+        {
+            if (hit.collider.TryGetComponent(out IStatesConntroller statesController))
+            {
+                if (ConstSystem.CanFixHelicopter)
+                    statesController.SetFixedState();
+
+                else
+                    EnableText(_missionText);
+            }
+        }
+    }
+
+    private void HandleTransportReset()
+    {
+        if (TryPerformRaycast(out RaycastHit hit))
+        {
+            if (hit.collider.TryGetComponent(out AbstractTransport transport))
+                transport.TransportReset();
         }
     }
 

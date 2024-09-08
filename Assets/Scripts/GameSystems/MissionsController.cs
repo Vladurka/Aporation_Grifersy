@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MissionsController : MonoBehaviour
 {
     public static int MissionCondition;
 
-    [SerializeField] private GameObject[] _missionsButtons;
+    [SerializeField] private Button[] _missionsButtons;
 
     [SerializeField] private GameObject _car;
 
@@ -20,19 +21,53 @@ public class MissionsController : MonoBehaviour
         if(MissionCondition >= 3)
             _car.SetActive(true);
 
-        foreach (GameObject button in _missionsButtons)
-            button.SetActive(false);
-
         MissionCondition = PlayerPrefsSafe.GetInt(ConstSystem.MISSION_KEY);
 
-        if (MissionCondition == 0)
-            _missionsButtons[0].SetActive(true);
+        UpdateMissionButtons(MissionCondition);
+    }
 
-        if (MissionCondition > 0)
+    private void SetButtonState(Button button, bool interactable, Color color)
+    {
+        if (button == null) return;
+
+        button.interactable = interactable;
+        Image image = button.GetComponent<Image>();
+
+        if (image != null)
+            image.color = color;
+    }
+
+    private void ResetButtonStates()
+    {
+        foreach (Button button in _missionsButtons)
+            SetButtonState(button, false, Color.red);
+    }
+
+    private void UpdateMissionButtons(int missionCondition)
+    {
+        if (_missionsButtons == null || _missionsButtons.Length == 0)
         {
-            _missionsButtons[MissionCondition - 1].SetActive(false);
-            _missionsButtons[MissionCondition].SetActive(true);
+            Debug.LogError("The _missionsButtons array is null or empty.");
+            return;
         }
+
+        ResetButtonStates();
+
+        if (missionCondition == 0)
+            SetButtonState(_missionsButtons[0], true, Color.white);
+
+        else if (missionCondition > 0 && missionCondition < _missionsButtons.Length)
+        {
+            SetButtonState(_missionsButtons[missionCondition - 1], false, Color.red);
+
+            SetButtonState(_missionsButtons[missionCondition], true, Color.white);
+
+            for (int i = 0; i < missionCondition; i++)
+                SetButtonState(_missionsButtons[i], false, Color.green);
+        }
+
+        else
+            Debug.LogError("MissionCondition out of bounds.");
     }
 
     public void CurrentMission(int currentIndex)

@@ -95,7 +95,7 @@ public class Shop : MonoBehaviour, IService, IShop
 
     public void Open()
     {
-        ConstSystem.InShop = true;
+        ConstSystem.IsBeasy = true;
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         _mainCharacter.SetActive(false);
@@ -105,7 +105,7 @@ public class Shop : MonoBehaviour, IService, IShop
 
     public void Close()
     {
-        ConstSystem.InShop = false;
+        ConstSystem.IsBeasy = false;
         _shopPanel.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
