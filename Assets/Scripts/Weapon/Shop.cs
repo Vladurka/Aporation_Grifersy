@@ -88,6 +88,12 @@ public class Shop : MonoBehaviour, IService, IShop
             _eventBus.Invoke(new BuySyrgine(_syrgineAmount));
     }
 
+    public void BuyDrone(int price)
+    {
+        if (_coinSystem.Money >= price)
+            _eventBus.Invoke(new BuyDrone());
+    }
+
     public void SetPanel(bool state)
     {
         _shopPanel.SetActive(state);

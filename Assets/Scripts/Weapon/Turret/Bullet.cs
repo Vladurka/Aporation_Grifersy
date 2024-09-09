@@ -32,6 +32,13 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
+        Collider[] hits = Physics.OverlapSphere(transform.position, 0.5f);
+        foreach (Collider hit in hits)
+        {
+            if (hit.transform.TryGetComponent(out IEnemyHealth enemy))
+                enemy.GetDamage(40f);
+        }
+
         Destroy(gameObject);
     }
 

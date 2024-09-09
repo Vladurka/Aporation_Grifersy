@@ -19,6 +19,7 @@ public class Turret : MonoBehaviour
     {
         if (_target == null)
             return;
+
         else
         {
             Vector3 targetDirection = _target.position - transform.position;
@@ -40,9 +41,7 @@ public class Turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();    
 
         if(bullet!= null)
-        {
             bullet.Seek(_target);
-        }
     }
 
     public void UpdateTarget()
@@ -59,15 +58,13 @@ public class Turret : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
+
         if(nearestEnemy != null && shortestDistance <= _range)
-        {
             _target = nearestEnemy.transform;
-        }
+
         else
-        {
             _target = null;
-        }
-            
+
     }
 
     private void OnDrawGizmosSelected()

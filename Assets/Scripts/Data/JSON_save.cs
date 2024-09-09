@@ -49,27 +49,27 @@ namespace Game.Data
                 HelicopterConditionData = _helicopterStatesController.HelicopterState,
 
                 HelicopterPositionData = new float[3]
-                   {
-                       _helicopter.transform.position.x,
-                       _helicopter.transform.position.y,
-                       _helicopter.transform.position.z,
-                   },
+                {
+                    _helicopter.transform.position.x,
+                    _helicopter.transform.position.y,
+                    _helicopter.transform.position.z,
+                },
 
                 CarPositionData = new float[3]
-                   {
-                       _car.transform.position.x,
-                       _car.transform.position.y,
-                       _car.transform.position.z,
-                   },
+                {
+                    _car.transform.position.x,
+                    _car.transform.position.y,
+                    _car.transform.position.z,
+                },
 
                 HpData = _playerHealth.Health,
 
                 PlayerPositionData = new float[3]
-                   {
-                       _playerMove.transform.position.x,
-                       _playerMove.transform.position.y,
-                       _playerMove.transform.position.z
-                   },
+                {
+                    _playerMove.transform.position.x,
+                    _playerMove.transform.position.y,
+                    _playerMove.transform.position.z
+                },
 
                 SyrgineAmount = _changeWeapon.SyrgineAmount,
 

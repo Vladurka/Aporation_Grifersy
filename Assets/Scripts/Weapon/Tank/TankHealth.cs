@@ -19,7 +19,6 @@ public class TankHealth : MonoBehaviour, ITargetHealth
 
     private IVehicleShoot[] _tankShoot;
     private EventBus _eventBus;
-    private Rigidbody _rb;
 
     private void Start()
     {
@@ -73,7 +72,7 @@ public class TankHealth : MonoBehaviour, ITargetHealth
             if (_tower.TryGetComponent(out Rigidbody rb))
             {
                 Vector3 dir = new Vector3(x, y, z);
-                _rb.AddForce(dir * 2f, ForceMode.Impulse);
+                rb.AddForce(dir * 2f, ForceMode.Impulse);
             }
 
             _fire.Play();

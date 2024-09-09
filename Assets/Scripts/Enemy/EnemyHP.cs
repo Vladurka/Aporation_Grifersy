@@ -9,7 +9,6 @@ namespace Game.Enemy
         private bool _isAdded = false;
 
         public bool IsDead { get; set; } = false;
-        public int KillCost { get; set; } = 100;
         public float Health { get; set; } = 10f;
 
         private EventBus _eventBus;
@@ -46,10 +45,7 @@ namespace Game.Enemy
             Health -= damage;
 
             if (Health <= 0 && IsDead != true)
-            {
-                _eventBus.Invoke(new MoneyAdd(KillCost));
                 Die();
-            }
         }
 
         private bool HasTrigger(Animator animator, string triggerName)

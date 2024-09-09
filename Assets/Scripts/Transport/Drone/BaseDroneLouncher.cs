@@ -7,6 +7,8 @@ public class BaseDroneLouncher : AbstractDroneLouncher, IService
     public void Init()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
+        _eventBus.Subscribe<BuyDrone>(BuyDrone, 1);
+
         _mainCharacter = gameObject;
         _eventBus.Invoke(new UpdateDrone(DronesAmount));
     }
@@ -32,5 +34,16 @@ public class BaseDroneLouncher : AbstractDroneLouncher, IService
                 _eventBus.Invoke(new UpdateDrone(DronesAmount));
             }
         }
+    }
+
+    private void BuyDrone(BuyDrone drone)
+    {
+        DronesAmount++;
+        _eventBus.Invoke(new UpdateDrone(DronesAmount));
+    }
+
+    private void OnDestroy()
+    {
+        _eventBus.Unsubscribe<BuyDrone>(BuyDrone);
     }
 }
