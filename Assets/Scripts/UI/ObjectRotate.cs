@@ -4,6 +4,7 @@ public class ObjectRotator : MonoBehaviour
 {
     public float rotationSpeed = 200f;
 
+    [SerializeField] private bool _rotateX = true;
     private bool isDragging = false;
 
     void Update()
@@ -24,7 +25,9 @@ public class ObjectRotator : MonoBehaviour
             float mouseY = Input.GetAxis("Mouse Y");
 
             transform.Rotate(Vector3.up, -mouseX * rotationSpeed * Time.deltaTime, Space.World);
-            transform.Rotate(Vector3.right, mouseY * rotationSpeed * Time.deltaTime, Space.World);
+
+            if(_rotateX)
+                transform.Rotate(Vector3.right, mouseY * rotationSpeed * Time.deltaTime, Space.World);
         }
     }
 }
