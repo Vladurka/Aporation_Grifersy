@@ -20,6 +20,12 @@ public class VolumeController : MonoBehaviour, IService
 
         if (!PlayerPrefsSafe.HasKey(_volumeKey))
             _volumeSlider.value = 0.3f;
+
+        foreach (AudioSource source in _capitalAudioSource)
+            source.spatialBlend = 0.4f;
+
+        foreach (AudioSource source in _audioSourceItems)
+            source.spatialBlend = 0.4f;
     }
 
     private void Update()
