@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6596819163270774844}
   - component: {fileID: 2650496509803295053}
-  - component: {fileID: 6804821927970914796}
   - component: {fileID: 2002697061053465199}
+  - component: {fileID: 77800058759777112}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391953211614707964}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.73134345, z: -0, w: -0.68200934}
-  m_LocalPosition: {x: 0, y: -0.0461, z: -0.0017}
+  m_LocalRotation: {x: -0.4822547, y: -0.51713675, z: 0.51713675, w: -0.4822547}
+  m_LocalPosition: {x: 0, y: -0.037, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1188719552083053982}
-  m_LocalEulerAnglesHint: {x: 0, y: -266.002, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -266.002, z: 0}
 --- !u!20 &2650496509803295053
 Camera:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 3000
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -85,25 +85,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &6804821927970914796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6391953211614707964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1122f21921c6ac74e89399c2cf30c8f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mouseSensitivity: 200
-  _maxXRotation: 180
-  _minXRotation: 0
-  _maxYRotation: 360
-  _minYRotation: 0
-  _scopingForce: 40
-  _camera: {fileID: 2650496509803295053}
 --- !u!114 &2002697061053465199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +145,25 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &77800058759777112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391953211614707964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1122f21921c6ac74e89399c2cf30c8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseSensitivity: 200
+  _maxXRotation: 180
+  _minXRotation: 0
+  _maxYRotation: 360
+  _minYRotation: 0
+  _scopingForce: 40
+  _camera: {fileID: 2650496509803295053}
 --- !u!1001 &1726452466742307445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,9 +293,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4634169464313956186}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 728850610735259057}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       insertIndex: -1
@@ -303,6 +300,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5629630625724862687}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5968028140430832747}
   m_SourcePrefab: {fileID: 100100000, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
 --- !u!4 &1188719552083053982 stripped
 Transform:
@@ -314,33 +314,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
   m_PrefabInstance: {fileID: 1726452466742307445}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4634169464313956186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960471627775383332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f7ac50f397e5664a9370de8d5e1b9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _forwardSpeed: 0
-  _spawnCharacter: {fileID: 0}
-  _camera: {fileID: 2650496509803295053}
-  MainCharacter: {fileID: 0}
-  GamePanel: {fileID: 0}
-  _rotationSpeed: 100
-  _liftForce: 100
-  _stopDuration: 1.5
-  _targetForwardSpeed: 15
-  _targetRotationSpeed: 25
-  _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
-  TextDistance: {fileID: 0}
-  BatteryText: {fileID: 0}
-  DroneSpawn: {x: 17.27, y: 20.78335, z: 102.21768}
-  CharacterPos: {x: 0, y: 0, z: 0}
 --- !u!82 &728850610735259057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -353,7 +326,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cbf6827fd4f356048a0d1d8e2b503df7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.09875568
+  m_Volume: 0.15891168
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -397,7 +370,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -485,3 +458,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20195328, y: 0.1476014, z: 0.17404786}
   m_Center: {x: -0.0049072984, y: -0.028514707, z: 0.0018676758}
+--- !u!114 &-5968028140430832747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960471627775383332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaed748953e2514284d8f81af01ecf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forwardSpeed: 0
+  _spawnCharacter: {fileID: 0}
+  _camera: {fileID: 2650496509803295053}
+  MainCharacter: {fileID: 0}
+  GamePanel: {fileID: 0}
+  _rotationSpeed: 25
+  _liftForce: 100
+  _stopDuration: 1.5
+  _targetForwardSpeed: 25
+  _targetRotationSpeed: 25
+  _maxDistance: 400
+  _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
+  TextDistance: {fileID: 0}
+  BatteryText: {fileID: 0}
+  DroneSpawn: {x: 0, y: 0, z: 0}
+  CharacterPos: {x: 0, y: 0, z: 0}
+  _bombPrefab: {fileID: 1714553175811186, guid: e46491d19bf932a4080a750d4b34207e, type: 3}

@@ -6,6 +6,7 @@ public class AbstractDroneLouncher : MonoBehaviour
 {
     [SerializeField] protected BaseDrone _drone;
     [SerializeField] protected KamikadzeDrone _kamikadze;
+    [SerializeField] protected FPVDrone _fpv;
     [SerializeField] protected Transform _lounchPos;
     [SerializeField] protected Text _distanceText;
     [SerializeField] protected Text _batteryText;

@@ -26,7 +26,7 @@ public class BaseDrone : AbstractDrone
         int intDistance = (int)distance;
         TextDistance.text = $"{intDistance}m";
 
-        if (distance >= 400f)
+        if (distance >= _maxDistance)
             Exit();
     }
 

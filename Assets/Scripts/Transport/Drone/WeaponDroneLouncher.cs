@@ -36,7 +36,7 @@ public class WeaponDroneLouncher : AbstractDroneLouncher, IService
 
                 else
                 {
-                   BaseDrone newDrone = Instantiate(_drone, _lounchPos.position, _lounchPos.rotation);
+                   FPVDrone newDrone = Instantiate(_fpv, _lounchPos.position, _lounchPos.rotation);
 
                     newDrone.MainCharacter = _mainCharacter;
                     newDrone.GamePanel = _panel;

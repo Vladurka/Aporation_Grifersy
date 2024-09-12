@@ -370,7 +370,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -480,6 +480,7 @@ MonoBehaviour:
   _stopDuration: 1.5
   _targetForwardSpeed: 20
   _targetRotationSpeed: 40
+  _maxDistance: 400
   _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
   TextDistance: {fileID: 0}
   BatteryText: {fileID: 0}

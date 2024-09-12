@@ -10,6 +10,7 @@ public abstract class AbstractDrone : AbstractTransport
     [SerializeField] protected float _stopDuration = 1.5f;
     [SerializeField] protected float _targetForwardSpeed = 25f;
     [SerializeField] protected float _targetRotationSpeed = 25f;
+    [SerializeField] protected float _maxDistance = 400f;
 
     [SerializeField] protected GameObject _gamerPrefab;
     protected GameObject _gamer;
