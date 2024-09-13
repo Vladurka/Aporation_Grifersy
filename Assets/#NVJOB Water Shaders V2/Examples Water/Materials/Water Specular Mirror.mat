@@ -90,6 +90,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmmisTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _FlowMap:
         m_Texture: {fileID: 2800000, guid: 9926e8b8960d1c24da43e476d2968241, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -128,6 +132,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap2:
         m_Texture: {fileID: 2800000, guid: e7ee2ee1e448437e8de9a957ccc37298, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -192,16 +200,22 @@ Material:
     - _FoamGain: 0.6
     - _FoamLacunarity: 6
     - _FoamScale: 0.1
+    - _FresnelBrightness: 0
+    - _FresnelPower: 0
+    - _FresnelShadowDropoff: 0
     - _GlossAmount: 0.03
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HighIntensity: 1.5
     - _Intensity: 2
     - _IntensityMicrowave: 0.2
     - _IntensityMt: 2.4
     - _IntensityNm: 0.85
     - _IntensityRef: 1.7
     - _InvFade: 0
+    - _LightScalar: 1
+    - _LowIntensity: 1
     - _MainDetailFlow: 0
     - _MainDetailScale: 3
     - _Metallic: 0
@@ -230,6 +244,7 @@ Material:
     - _NormalmapDetailScaleB: 5
     - _NormalmapDetailSpeed: 0.3
     - _OcclusionStrength: 1
+    - _OutlineSize: 10
     - _Parallax: -0.2
     - _ParallaxAmount: 0.3
     - _ParallaxFlow: -50
@@ -244,6 +259,7 @@ Material:
     - _PowerLambert: 1
     - _R0: 0.1
     - _Radius: 1
+    - _RampLevels: 2
     - _ReflToRefrExponent: 1
     - _Reflect: 1
     - _ReflectionContrast: 1.66
@@ -253,6 +269,9 @@ Material:
     - _RefractionIntensity: 0.61
     - _RefractionSpeed: 1.61
     - _ReverseFlow: -5
+    - _RimAlpha: 0
+    - _RimDropOff: 0
+    - _RimPower: 0
     - _Saturation: 1
     - _SaturationRef: 0.5
     - _Shininess: 0.331
@@ -282,11 +301,16 @@ Material:
     - _EmissionColor: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
     - _FoamColor: {r: 1.3560001, g: 1.6013625, b: 2, a: 1}
     - _FoamSoft: {r: 0.16, g: 0.3, b: 2, a: 0}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LowColor: {r: 1, g: 1, b: 1, a: 1}
     - _MirrorColor: {r: 1.5150162, g: 1.5150162, b: 1.5150162, a: 0.5}
     - _MirrorDepthColor: {r: 0, g: 0, b: 0, a: 1}
     - _MirrorReflectionColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
     - _SpecularColor: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
   m_BuildTextureStacks: []
