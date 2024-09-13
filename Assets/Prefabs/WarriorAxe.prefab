@@ -1255,7 +1255,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5370646573296566286}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 1
   m_Acceleration: 8
@@ -1283,7 +1283,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMission5: 0
   _range: 20
-  _mainCharacter: {fileID: 0}
   IsDetected: 0
   IsDead: 0
 --- !u!114 &1874551947635102147
@@ -1313,7 +1312,6 @@ MonoBehaviour:
   _damage: 60
   _explosionRadius: 2
   _explosionEffect: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
-  _mainCharacter: {fileID: 0}
 --- !u!136 &2754512684711551804
 CapsuleCollider:
   m_ObjectHideFlags: 0

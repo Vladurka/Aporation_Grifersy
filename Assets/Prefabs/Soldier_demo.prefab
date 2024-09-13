@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMission5: 0
   _range: 20
-  IsDetected: 0
+  IsDetected: 1
   IsDead: 0
   _isStarted: 0
 --- !u!114 &3567551387569202037
@@ -193,7 +193,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7522816775478623896}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8

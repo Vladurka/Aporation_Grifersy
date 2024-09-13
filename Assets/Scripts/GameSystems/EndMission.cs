@@ -39,6 +39,8 @@ public class EndMission : MonoBehaviour
         _uiCamera.SetActive(true); 
         _endPanel.SetActive(true);
         _eventBus.Invoke(new EnablePause(false));
+        _eventBus.Invoke(new SetDronePanel(false));
+        _eventBus.Invoke(new SetSpeedometer(false));
         _mainCharacter.SetActive(false);
         Time.timeScale = 0f;
     }

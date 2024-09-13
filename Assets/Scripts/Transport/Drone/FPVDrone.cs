@@ -5,6 +5,7 @@ using System.Collections;
 
 public class FPVDrone : AbstractDrone
 {
+    [SerializeField] private Transform _spawnPosition;
     [SerializeField] private GameObject _bombPrefab;
     private int _bombsAmount = 1;
     private void Start()
@@ -31,7 +32,7 @@ public class FPVDrone : AbstractDrone
         if (distance >= _maxDistance)
             Exit();
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
             Drope();
     }
 
@@ -103,10 +104,9 @@ public class FPVDrone : AbstractDrone
 
     private void Drope()
     {
-        if(_bombsAmount > 0)
+        if (_bombsAmount > 0)
         {
-            Vector3 vector3 = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
-            Instantiate(_bombPrefab, vector3, transform.rotation);
+            Instantiate(_bombPrefab, _spawnPosition.position, _spawnPosition.rotation);
             _bombsAmount--;
         }
     }

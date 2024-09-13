@@ -323,7 +323,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085496656015836393}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 1
   m_Acceleration: 8
@@ -351,7 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMission5: 0
   _range: 20
-  _mainCharacter: {fileID: 0}
   IsDetected: 0
   IsDead: 0
 --- !u!114 &6258896975868267189
@@ -402,7 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackRange: 3
-  _range: 1
   _damage: 40
 --- !u!205 &4727128433137281557
 LODGroup:
