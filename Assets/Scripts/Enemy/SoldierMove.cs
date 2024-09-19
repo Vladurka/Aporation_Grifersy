@@ -9,6 +9,8 @@ public class SoldierMove : AbstractEnemy
     public bool _isStarted;
     private void Start()
     {
+        IsDetected = false;
+
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
 
         if (_mainCharacter.Equals(null))
@@ -26,52 +28,66 @@ public class SoldierMove : AbstractEnemy
         if (IsDetected && !IsDead)
             EnemyDetected();
 
+        if (!IsDetected)
+        {
+            _animator.SetBool("Run", false);
+            _animator.SetBool("Ready", false);
+            _agent.isStopped = true;
+        }
+
         if (!_mainCharacter.Equals(null) && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
         {
-            if (!IsDetected)
+            if (!IsDetected && _mainCharacter.activeSelf)
                 IsDetected = true;
         }
     }
 
     protected override void EnemyDetected()
     {
-        if (Physics.SphereCast(transform.position, 1f, transform.forward, out _hit, 1000f))
+        if (!_mainCharacter.Equals(null) && _mainCharacter.activeSelf)
         {
-            Debug.DrawRay(transform.position, transform.forward * 1000f, Color.red);
-            if (_hit.collider.CompareTag("Player"))
+            if (Physics.SphereCast(transform.position, 1f, transform.forward, out _hit, 200f))
             {
-                _agent.isStopped = true;
-                transform.LookAt(_mainCharacter.transform.position);
-
-                if (!_isStarted)
+                if (_hit.collider.CompareTag("Player"))
                 {
-                    _soldierShoot.StartCoroutine(_soldierShoot.Shoot());
-                    _isStarted = true;
-                }
-                _animator.SetBool("Run", false);
-                _animator.SetBool("Ready", true);
+                    _agent.isStopped = true;
+                    transform.LookAt(_mainCharacter.transform.position);
 
-                return;
-            }
+                    if (!_isStarted)
+                    {
+                        _soldierShoot.StartCoroutine(_soldierShoot.Shoot());
+                        _isStarted = true;
+                    }
+                    _animator.SetBool("Run", false);
+                    _animator.SetBool("Ready", true);
 
-            else
-            {
-                _agent.isStopped = false;
-
-                if (_isStarted)
-                {
-                    _soldierShoot.StopAllCoroutines();
-                    _isStarted = false;
+                    return;
                 }
 
-                if(!_mainCharacter.Equals(null))
+                else
+                {
+                    _agent.isStopped = false;
+
+                    if (_isStarted)
+                    {
+                        _soldierShoot.StopAllCoroutines();
+                        _isStarted = false;
+                    }
+
                     _agent.SetDestination(_mainCharacter.transform.position);
 
-                _animator.SetBool("Run", true);
-                _animator.SetBool("Ready", false);
+                    _animator.SetBool("Run", true);
+                    _animator.SetBool("Ready", false);
 
-                return;
+                    return;
+                }
             }
+        }
+
+        else
+        {
+            if(IsDetected)
+                IsDetected = false;
         }
     }
 }

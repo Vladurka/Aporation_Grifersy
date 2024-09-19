@@ -20,7 +20,7 @@ public class WeaponDroneLouncher : AbstractDroneLouncher, IService
             {
                 Vector3 pos = transform.position;
 
-                if (DroneLounched < 3)
+                if (DroneLounched < 2)
                 {
                     KamikadzeDrone newDrone = Instantiate(_kamikadze, _lounchPos.position, _lounchPos.rotation);
 

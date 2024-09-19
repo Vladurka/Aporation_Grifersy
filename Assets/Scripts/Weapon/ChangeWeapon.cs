@@ -77,9 +77,7 @@ public class ChangeWeapon : MonoBehaviour, IService
     private void Deactivate()
     {
         foreach (GameObject item in _items)
-        {
             item.SetActive(false);
-        }
     }
 
     private void StartSettings()

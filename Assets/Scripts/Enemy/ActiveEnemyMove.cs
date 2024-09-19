@@ -78,10 +78,18 @@ namespace Game.Enemy
 
         protected override void EnemyDetected()
         {
-            _agent.speed = 2.5f;
-            _animator.SetBool("Run", true);
-            if (!_mainCharacter.Equals(null))
-                _agent.SetDestination(_mainCharacter.transform.position);  
+            if (!_mainCharacter.Equals(null) && _mainCharacter.activeSelf)
+            {
+                _agent.speed = 2.5f;
+                _animator.SetBool("Run", true);
+                _agent.SetDestination(_mainCharacter.transform.position);
+            }
+
+            else
+            {
+                if (IsDetected)
+                    IsDetected = false;
+            }
         }
 
         private void SetSiren()

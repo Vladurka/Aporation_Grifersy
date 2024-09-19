@@ -42,9 +42,6 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<SetDronePanel>(SetDronePanel, 1);
         _eventBus.Subscribe<UpdateDrone>(UpdateDroneText, 1);
         _eventBus.Subscribe<SetSpeedometer>(SetSpeedometer, 1);
-
-        foreach (Image image in _images)
-            image.enabled = false;
     }
 
     private void UpdateCurrentBulletsText(UpdateCurrentBullets currentBullets)
