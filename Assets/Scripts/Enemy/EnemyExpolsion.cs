@@ -18,13 +18,13 @@ namespace Game.Enemy
         {   
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
 
-            if (_mainCharacter != null)
+            if (!_mainCharacter.Equals(null))
                 StartCoroutine(FindPlayer());
         }
 
         private void Update()
         {
-            if (_mainCharacter != null)
+            if (!_mainCharacter.Equals(null))
             {
                 if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _explosionRadius && _mainCharacter.activeSelf)
                     Explode();
