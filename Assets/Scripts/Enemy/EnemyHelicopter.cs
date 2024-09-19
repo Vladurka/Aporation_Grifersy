@@ -61,6 +61,22 @@ public class EnemyHelicopter : MonoBehaviour, ITargetHealth
     {
         _rb.useGravity = true;
 
+        //Vector3 randomTorque = new Vector3(
+        //    Random.Range(-2.5f, 2.5f),
+        //    Random.Range(-2.5f, 2.5f),
+        //    Random.Range(-2.5f, -2.5f)
+        //);
+
+        //_rb.AddTorque(randomTorque, ForceMode.VelocityChange);
+
+        Vector3 randomForce = new Vector3(
+            Random.Range(-2.5f, 2.5f),
+            0,  
+            Random.Range(-2.5f, 2.5f)
+        );
+
+        _rb.AddForce(randomForce, ForceMode.VelocityChange);
+       
         foreach (Animator animator in _animators)
             Destroy(animator);
 

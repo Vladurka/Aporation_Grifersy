@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 19388428}
   - component: {fileID: 3323436}
   - component: {fileID: 2349130}
+  - component: {fileID: -7738140280670341474}
   m_Layer: 0
   m_Name: tree01
   m_TagString: Untagged
@@ -94,6 +95,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &-7738140280670341474
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.28740168
+  m_Height: 6.7378798
+  m_Direction: 1
+  m_Center: {x: 0.086818695, y: 3.3689399, z: -0.035084248}
 --- !u!21 &2108910
 Material:
   serializedVersion: 8
@@ -236,7 +260,7 @@ Material:
     - _LowColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TranslucencyColor: {r: 0.67545485, g: 0.9339623, b: 0, a: 1}
+    - _TranslucencyColor: {r: 0.7169729, g: 0.8207547, b: 0.44651115, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
@@ -428,7 +452,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 1635
-  materialHash: 316550c3e143fcc731869012741488b0215482368
+  materialHash: c583a51a5422d2ca49848501030f4f19215482368
   root:
     _uniqueID: 1
     seed: 699924

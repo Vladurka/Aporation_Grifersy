@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2351642}
   - component: {fileID: 13647794}
   - component: {fileID: 13681708}
+  - component: {fileID: 3965849512968183018}
   m_Layer: 0
   m_Name: tree04
   m_TagString: Untagged
@@ -142,6 +143,29 @@ CapsuleCollider:
   m_Height: 3.95
   m_Direction: 1
   m_Center: {x: -1.54, y: 1.83, z: 0.58}
+--- !u!136 &3965849512968183018
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.17149353
+  m_Height: 3.7140684
+  m_Direction: 1
+  m_Center: {x: 0.89638996, y: 1.8570342, z: 0.96705985}
 --- !u!21 &2113140
 Material:
   serializedVersion: 8
