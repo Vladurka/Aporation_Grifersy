@@ -24,7 +24,6 @@ public class TankShoot : AbstractTank, IVehicleShoot
             rotation.x = 0;
             rotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationSpeed);
-            Debug.DrawRay(_spawnPoint.position, _spawnPoint.forward * _range);
         }
     }
 

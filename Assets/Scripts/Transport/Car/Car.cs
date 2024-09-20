@@ -31,9 +31,12 @@ public class Car : AbstractTransport, IService
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Invoke(new SetSpeedometer(false));
+
+        _rb = GetComponent<Rigidbody>();
+
         _camera.enabled = false;
         this.enabled = false;
-        _rb = GetComponent<Rigidbody>();
+
         ConstSystem.CanExit = true;
         _driver.SetActive(false);
     }
@@ -96,6 +99,14 @@ public class Car : AbstractTransport, IService
         RotateWheel(_colliderFR, _transformFR);
         RotateWheel(_colliderBL, _transformBL);
         RotateWheel(_colliderBR, _transformBR);
+
+        AdjustFriction(_colliderFL);
+        AdjustFriction(_colliderFR);
+        AdjustFriction(_colliderBL);
+        AdjustFriction(_colliderBR);
+
+        ApplyAntiRollBar(_colliderFL, _colliderFR);
+        ApplyAntiRollBar(_colliderBL, _colliderBR);
     }
     private void RotateWheel(WheelCollider collider, Transform transform)
     {
@@ -106,6 +117,46 @@ public class Car : AbstractTransport, IService
 
         transform.rotation = rotation;
         transform.position = position;
+    }
+
+    private void AdjustFriction(WheelCollider wheel)
+    {
+        WheelFrictionCurve forwardFriction = wheel.forwardFriction;
+        WheelFrictionCurve sidewaysFriction = wheel.sidewaysFriction;
+
+        forwardFriction.extremumSlip = 0.4f;   
+        forwardFriction.extremumValue = 1.0f;  
+        forwardFriction.stiffness = 2.0f;
+
+        sidewaysFriction.extremumSlip = 0.2f;
+        sidewaysFriction.extremumValue = 1.0f;
+        sidewaysFriction.stiffness = 2.5f;
+
+        wheel.forwardFriction = forwardFriction;
+        wheel.sidewaysFriction = sidewaysFriction;
+    }
+
+    private void ApplyAntiRollBar(WheelCollider leftWheel, WheelCollider rightWheel)
+    {
+        WheelHit hit;
+        float travelL = 1.0f;
+        float travelR = 1f;
+
+        bool groundedL = leftWheel.GetGroundHit(out hit);
+        if (groundedL)
+            travelL = (-leftWheel.transform.InverseTransformPoint(hit.point).y - leftWheel.radius) / leftWheel.suspensionDistance;
+
+        bool groundedR = rightWheel.GetGroundHit(out hit);
+        if (groundedR)
+            travelR = (-rightWheel.transform.InverseTransformPoint(hit.point).y - rightWheel.radius) / rightWheel.suspensionDistance;
+
+        float antiRollForce = (travelL - travelR) * 100000f;
+
+        if (groundedL)
+            _rb.AddForceAtPosition(leftWheel.transform.up * -antiRollForce, leftWheel.transform.position);
+
+        if (groundedR)
+            _rb.AddForceAtPosition(rightWheel.transform.up * antiRollForce, rightWheel.transform.position);
     }
 
     public override void Exit()

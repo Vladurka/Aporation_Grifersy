@@ -11,17 +11,19 @@ namespace Game.Enemy
         public bool IsDead { get; set; } = false;
         public float Health { get; set; } = 10f;
 
+        private Collider _collider;
+
         private EventBus _eventBus;
 
         private Animator _animator;
 
         private void Start () 
         {
-            _animator = GetComponent<Animator>();
-
             _eventBus = ServiceLocator.Current.Get<EventBus>();
-
             _eventBus.Invoke(new AddObj(gameObject));
+
+            _animator = GetComponent<Animator>();
+            _collider = GetComponent<Collider>();
 
             _isAdded = true;
         }
@@ -33,6 +35,7 @@ namespace Game.Enemy
                 IsDead = true;
                 enemyMove.IsDead = true;
                 _animator.SetTrigger("Die");
+                Destroy(_collider);
                 Destroy(gameObject, 5f);
             }
         }

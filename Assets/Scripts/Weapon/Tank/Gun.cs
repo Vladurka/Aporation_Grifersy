@@ -4,19 +4,21 @@ public class Gun : MonoBehaviour, IVehicleShoot
 {
     [SerializeField] private float _rotationSpeed = 5f;
     [SerializeField] private string _targetName = "Player";
+    [SerializeField] private bool _findTarget = true;
 
-    private GameObject _mainCharacter;
+    [HideInInspector] public GameObject Target;
 
     private void Start()
     {
-        _mainCharacter = GameObject.FindGameObjectWithTag(_targetName);
+        if(_findTarget)
+            Target = GameObject.FindGameObjectWithTag(_targetName);
     }
 
     void Update()
     {
-        if (_mainCharacter != null)
+        if (Target != null)
         {
-            Vector3 direction = _mainCharacter.transform.position - transform.position;
+            Vector3 direction = Target.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, 0);
