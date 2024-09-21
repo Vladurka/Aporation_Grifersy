@@ -6,12 +6,10 @@ public class SoldierMove : AbstractEnemy
 {
     private RaycastHit _hit;
     private SoldierShoot _soldierShoot;  
-    public bool _isStarted;
+    private bool _isStarted;
     private void Start()
     {
-        IsDetected = false;
-
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
 
         if (_mainCharacter.Equals(null))
             StartCoroutine(base.FindPlayer());
@@ -48,7 +46,7 @@ public class SoldierMove : AbstractEnemy
         {
             if (Physics.SphereCast(transform.position, 1f, transform.forward, out _hit, 200f))
             {
-                if (_hit.collider.CompareTag("Player"))
+                if (_hit.collider.CompareTag(_tag))
                 {
                     _agent.isStopped = true;
                     transform.LookAt(_mainCharacter.transform.position);

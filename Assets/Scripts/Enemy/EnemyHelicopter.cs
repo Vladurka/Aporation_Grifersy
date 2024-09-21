@@ -1,13 +1,14 @@
 using Game.Enemy;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyHelicopter : MonoBehaviour, ITargetHealth
 {
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private Material _destroyedMaterial;
-
-    private GameObject _mainCharacter;
+    [SerializeField] private float _time = 35f;
+    [SerializeField] private GameObject _mainCharacter;
 
     private AudioSource _audioSource;
     private Animator _animator;
@@ -20,14 +21,13 @@ public class EnemyHelicopter : MonoBehaviour, ITargetHealth
 
     private void Start()
     {
-        _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         _rb = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _animators = GetComponentsInChildren<Animator>();
         _meshRenderers = GetComponentsInChildren<MeshRenderer>();
         _animator.SetTrigger("Fly");
-        Invoke("Drop", 35f);
+        Invoke("Drop", _time);
         _audioSource.Play();
     }
     
@@ -60,14 +60,6 @@ public class EnemyHelicopter : MonoBehaviour, ITargetHealth
     public void Destroy()
     {
         _rb.useGravity = true;
-
-        //Vector3 randomTorque = new Vector3(
-        //    Random.Range(-2.5f, 2.5f),
-        //    Random.Range(-2.5f, 2.5f),
-        //    Random.Range(-2.5f, -2.5f)
-        //);
-
-        //_rb.AddTorque(randomTorque, ForceMode.VelocityChange);
 
         Vector3 randomForce = new Vector3(
             Random.Range(-2.5f, 2.5f),

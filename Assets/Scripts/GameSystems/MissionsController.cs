@@ -7,6 +7,7 @@ public class MissionsController : MonoBehaviour
 
     [SerializeField] private Button[] _missionsButtons;
 
+    [SerializeField] private GameObject _lastMission;
     [SerializeField] private GameObject _car;
 
     [SerializeField] private GameObject _mission3Things;
@@ -14,16 +15,19 @@ public class MissionsController : MonoBehaviour
 
     public void Init()
     {
+        MissionCondition = PlayerPrefsSafe.GetInt(ConstSystem.MISSION_KEY);
+
+        UpdateMissionButtons(MissionCondition);
+
+        if (MissionCondition >= 9)
+            Invoke("StartLastMission", 10f);
+
         _car.SetActive(false);
         _mission3Things.SetActive(false);
         _mission4Things.SetActive(false);
 
         if(MissionCondition >= 3)
             _car.SetActive(true);
-
-        MissionCondition = PlayerPrefsSafe.GetInt(ConstSystem.MISSION_KEY);
-
-        UpdateMissionButtons(MissionCondition);
     }
 
     private void SetButtonState(Button button, bool interactable, Color color)
@@ -53,7 +57,7 @@ public class MissionsController : MonoBehaviour
 
         ResetButtonStates();
 
-        if (missionCondition == 0)
+        if (missionCondition <= 0)
             SetButtonState(_missionsButtons[0], true, Color.white);
 
         if (missionCondition > 0 && missionCondition < _missionsButtons.Length)
@@ -85,5 +89,10 @@ public class MissionsController : MonoBehaviour
             ConstSystem.CanSave = false;
             ConstSystem.CanFixHelicopter = true;
         }
+    }
+
+    private void StartLastMission()
+    {
+        _lastMission.SetActive(true);
     }
 }

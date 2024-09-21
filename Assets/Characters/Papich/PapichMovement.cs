@@ -3,7 +3,7 @@ using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PapichMovement : MonoBehaviour
+public class PapichMovement : MonoBehaviour, IService
 {
     [SerializeField] private GameObject[] _points;
     [SerializeField] private GameObject _mainCharacter;
@@ -14,10 +14,11 @@ public class PapichMovement : MonoBehaviour
     [SerializeField] private AudioClip _clip2;
 
     [SerializeField] private Transform _board;
+    [SerializeField] private Transform _hidePoint;
 
-    public enum State { Patrol, Talk1, Talk2, GoToPoint, TalkAtPoint }
+    public enum State { Patrol, Talk1, Talk2, GoToPoint, TalkAtPoint, Hide }
 
-    private State _currentState;
+    public State CurrentState;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private NavMeshAgent _agent;
@@ -39,7 +40,7 @@ public class PapichMovement : MonoBehaviour
         if(!PlayerPrefsSafe.HasKey("Papich"))
             _isStarted = false;
 
-        _currentState = State.Patrol;
+        CurrentState = State.Patrol;
         _index = Random.Range(0, _points.Length);
     }
 
@@ -47,7 +48,7 @@ public class PapichMovement : MonoBehaviour
     {
         if (!_isStarted)
         {
-            switch (_currentState)
+            switch (CurrentState)
             {
                 case State.Patrol:
                     Patrol();
@@ -64,8 +65,19 @@ public class PapichMovement : MonoBehaviour
             }
         }
 
-        else
-            Patrol();
+        if (_isStarted)
+        {
+            switch (CurrentState)
+            {
+                case State.Patrol:
+                    Patrol();
+                    break;
+
+                case State.Hide:
+                    Hide();
+                    break;
+            }
+        }
     }
 
     private void Walk()
@@ -74,7 +86,7 @@ public class PapichMovement : MonoBehaviour
         _agent.SetDestination(_board.position);
         _animator.SetBool("Walk", true);
         if (_agent.remainingDistance <= 0.2f)
-            _currentState = State.Talk2;
+            CurrentState = State.Talk2;
     }
 
     private void Patrol()
@@ -90,7 +102,7 @@ public class PapichMovement : MonoBehaviour
         }
 
         if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= 10f)
-            _currentState = State.Talk1;
+            CurrentState = State.Talk1;
     }
 
     private void Talk1()
@@ -105,7 +117,7 @@ public class PapichMovement : MonoBehaviour
         if (!_audioSource.isPlaying && _played1)
         {
             _audioSource.Stop();
-            _currentState = State.GoToPoint;
+            CurrentState = State.GoToPoint;
         }
 
         _agent.speed = 0;
@@ -126,11 +138,20 @@ public class PapichMovement : MonoBehaviour
             _audioSource.Stop();
             PlayerPrefsSafe.SetInt("Papich", 1);
             _isStarted = true;
-            _currentState = State.Patrol;
+            CurrentState = State.Patrol;
         }
 
         _agent.speed = 0;
         _animator.SetBool("Walk", false);
         transform.LookAt(_mainCharacter.transform.position);
+    }
+
+    private void Hide()
+    {
+        _agent.speed = 1;
+        _agent.SetDestination(_hidePoint.position);
+
+        if (_agent.remainingDistance <= 1f)
+            _agent.speed = 0f;
     }
 }

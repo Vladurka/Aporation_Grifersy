@@ -155,6 +155,7 @@ namespace Game
             ServiceLocator.Current.Register<Shop>(_shop);
             ServiceLocator.Current.Register<Loading>(_loading);
             ServiceLocator.Current.Register<BaseDroneLouncher>(_droneLouncher);
+            ServiceLocator.Current.Register<PapichMovement>(_papich);
             Debug.Log("Registreted");
         }
     }

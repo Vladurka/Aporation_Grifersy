@@ -6,6 +6,7 @@ namespace Game.Enemy
 {
     public abstract class AbstractEnemy : MonoBehaviour
     {
+        [SerializeField] protected string _tag = "Player";
         [SerializeField] protected bool _isMission5 = false;
         [SerializeField] protected float _range = 20f;
 
@@ -25,7 +26,7 @@ namespace Game.Enemy
         {
             if (!_mainCharacter)
             {
-                _mainCharacter = GameObject.FindGameObjectWithTag("Player");
+                _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
                 yield return new WaitForSeconds(3f);
                 StartCoroutine(FindPlayer());
             }
