@@ -34,10 +34,10 @@ public class PapichMovement : MonoBehaviour, IService
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
 
-        if (PlayerPrefsSafe.HasKey("Papich"))
+        if (PlayerPrefsSafe.HasKey(ConstSystem.PAPICH))
             _isStarted = true;
 
-        if(!PlayerPrefsSafe.HasKey("Papich"))
+        if(!PlayerPrefsSafe.HasKey(ConstSystem.PAPICH))
             _isStarted = false;
 
         CurrentState = State.Patrol;
@@ -136,7 +136,7 @@ public class PapichMovement : MonoBehaviour, IService
         if (!_audioSource.isPlaying && _played2)
         {
             _audioSource.Stop();
-            PlayerPrefsSafe.SetInt("Papich", 1);
+            PlayerPrefsSafe.SetInt(ConstSystem.PAPICH, 1);
             _isStarted = true;
             CurrentState = State.Patrol;
         }

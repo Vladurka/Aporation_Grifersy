@@ -27,7 +27,7 @@ public class Raycasts : MonoBehaviour, IService
         if (Input.GetKeyDown(KeyCode.Q))
             HandleFixing();
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.C))
             HandleTransportReset();
     }
 
@@ -60,6 +60,7 @@ public class Raycasts : MonoBehaviour, IService
             if (hit.collider.TryGetComponent(out IDoor door) && hit.collider.CompareTag("Door")) door.Open();
             if (hit.collider.TryGetComponent(out IInstrument instrument)) instrument.Get();
             if (hit.collider.TryGetComponent(out ITaskBoard board)) board.Open();
+            if (hit.collider.TryGetComponent(out IHostage hostage)) hostage.Save();
         }
     }
 

@@ -4,10 +4,9 @@ namespace Game.Data
 {
     public static class JSON_saveSystem
     {
-        private static string _fileName = "data.json";
         private static string GetPath()
         {
-            return Path.Combine(Application.persistentDataPath, _fileName);
+            return Path.Combine(Application.persistentDataPath, ConstSystem.DATA_PATH);
         }
 
         public static void Save<T>(T data)

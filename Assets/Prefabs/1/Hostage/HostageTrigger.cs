@@ -1,11 +1,10 @@
-using UnityEngine;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
+using UnityEngine;
 
-public class Raft : MonoBehaviour
+public class HostageTrigger : MonoBehaviour
 {
     private EventBus _eventBus;
-
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
@@ -13,10 +12,10 @@ public class Raft : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.TryGetComponent(out IHostageSaver saver))
         {
-            PlayerPrefsSafe.SetInt(ConstSystem.PRISON_ENDED, 1);
-            _eventBus.Invoke(new PlayCut(2));
+            if (saver.HostageSaved >= saver.HostageToSave)
+                _eventBus.Invoke(new EndSignal());
         }
     }
 }

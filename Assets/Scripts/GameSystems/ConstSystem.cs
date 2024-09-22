@@ -1,5 +1,7 @@
 public static class ConstSystem 
 {
+    public const string DATA_PATH = "data.json";
+
     public const string BUY_AK_SKIN_ID = "com.aporation.GetAkSkin";
     public const string BUY_KNIFE_SKIN_ID = "com.aporation.GetKnifeSkin";
     public const string BUY_CAR_SKIN_ID = "com.aporation.GetCarSkin";
@@ -38,6 +40,11 @@ public static class ConstSystem
     public const string SCOPE_KEY0 = "SCOPE0";
     public const string SCOPE_KEY1 = "SCOPE1";
     public const string SCOPE_KEY2 = "SCOPE2";
+
+    public const string PAPICH = "PAPICH";
+    public const string GAME_TIPS = "TipsGame";
+    public const string PRISON_TIPS = "TipsPrison";
+    public const string PRISON_ENDED = "Prison";
 
     public const string MISSION_KEY = "MISSION";
 
