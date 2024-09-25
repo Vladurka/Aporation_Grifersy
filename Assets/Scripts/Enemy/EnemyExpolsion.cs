@@ -18,13 +18,13 @@ namespace Game.Enemy
         {   
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
 
-            if (!_mainCharacter.Equals(null))
+            if (!_mainCharacter)
                 StartCoroutine(FindPlayer());
         }
 
         private void Update()
         {
-            if (!_mainCharacter.Equals(null))
+            if (_mainCharacter)
             {
                 if (Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _explosionRadius && _mainCharacter.activeSelf)
                     Explode();
@@ -51,15 +51,14 @@ namespace Game.Enemy
 
         private IEnumerator FindPlayer()
         {
-            if (_mainCharacter == null)
+            if (!_mainCharacter)
             {
                 _mainCharacter = GameObject.FindGameObjectWithTag("Player");
-                Debug.Log(_mainCharacter);
                 yield return new WaitForSeconds(3f);
                 StartCoroutine(FindPlayer());
             }
 
-            if (_mainCharacter != null)
+            if (_mainCharacter)
                 yield break;
         }
 

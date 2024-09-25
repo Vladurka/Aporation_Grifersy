@@ -15,13 +15,13 @@ namespace Game.Enemy
 
         private void Start()
         {
+            _agent = GetComponent<NavMeshAgent>();
             _mainCharacter = GameObject.FindGameObjectWithTag("Player");
 
-            if (_mainCharacter.Equals(null))
+            if (!_mainCharacter)
                 StartCoroutine(base.FindPlayer());
 
             _points = GameObject.FindGameObjectsWithTag("Point");
-            _agent = GetComponent<NavMeshAgent>();
             _animator = GetComponent<Animator>();
             _index = Random.Range(0, _points.Length);
             _eventBus = ServiceLocator.Current.Get<EventBus>(); 
@@ -50,7 +50,7 @@ namespace Game.Enemy
             if (IsDead)
                 _agent.speed = 0f;
 
-            if (!_mainCharacter.Equals(null) && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
+            if (_mainCharacter && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
             {
                 if (!IsDetected)
                     IsDetected = true;
@@ -59,7 +59,7 @@ namespace Game.Enemy
 
         protected override void Chill()
         {
-            _agent.speed = 1;
+            _agent.speed = 1f;
             _animator.SetBool("Run", false);
 
             if (!_isGone)
@@ -71,14 +71,13 @@ namespace Game.Enemy
             if (_agent.remainingDistance <= 2f)
             {
                 _index = Random.Range(0, _points.Length);
-                _isGone = true;
-                return;
+                _isGone = false;
             }
         }
 
         protected override void EnemyDetected()
         {
-            if (!_mainCharacter.Equals(null) && _mainCharacter.activeSelf)
+            if (_mainCharacter && _mainCharacter.activeSelf)
             {
                 _agent.speed = 2.5f;
                 _animator.SetBool("Run", true);

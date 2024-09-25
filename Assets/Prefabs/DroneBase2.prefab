@@ -180,7 +180,7 @@ MonoBehaviour:
   m_NVColor: {r: 0, g: 0, b: 0, a: 0}
   m_TargetBleachColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 0}
   m_baseLightingContribution: 0.025
-  m_LightSensitivityMultiplier: 1
+  m_LightSensitivityMultiplier: 7
   useVignetting: 1
 --- !u!1001 &1726452466742307445
 PrefabInstance:
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7a98d29185ae3164dbaca23abf73748c, type: 2}
     - target: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_Name
-      value: Drone_2
+      value: DroneBase2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 46c77c5600d2de04eb01467dd30325bc, type: 3}
       propertyPath: m_TagString
@@ -354,6 +354,7 @@ MonoBehaviour:
   _stopDuration: 1.5
   _targetForwardSpeed: 15
   _targetRotationSpeed: 25
+  _maxDistance: 400
   _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
   TextDistance: {fileID: 0}
   BatteryText: {fileID: 0}
