@@ -26,8 +26,8 @@ TagManager:
   - Point1
   - Drone
   - Buckhweat
-  - BTR
   - EnemyTank
+  - Papich
   layers:
   - Default
   - TransparentFX

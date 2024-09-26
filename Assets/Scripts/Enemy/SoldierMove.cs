@@ -10,11 +10,11 @@ public class SoldierMove : AbstractEnemy
     private void Start()
     {
         _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
+        _animator = GetComponent<Animator>();
 
-        if (_mainCharacter.Equals(null))
+        if (_mainCharacter == null)
             StartCoroutine(base.FindPlayer());
 
-        _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _soldierShoot = GetComponent<SoldierShoot>();
     }
@@ -33,7 +33,7 @@ public class SoldierMove : AbstractEnemy
             _agent.isStopped = true;
         }
 
-        if (!_mainCharacter.Equals(null) && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
+        if (_mainCharacter != null && Vector3.Distance(transform.position, _mainCharacter.transform.position) <= _range)
         {
             if (!IsDetected && _mainCharacter.activeSelf)
                 IsDetected = true;
@@ -42,7 +42,7 @@ public class SoldierMove : AbstractEnemy
 
     protected override void EnemyDetected()
     {
-        if (!_mainCharacter.Equals(null) && _mainCharacter.activeSelf)
+        if (_mainCharacter != null && _mainCharacter.activeSelf)
         {
             if (Physics.SphereCast(transform.position, 1f, transform.forward, out _hit, 200f))
             {

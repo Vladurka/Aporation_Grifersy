@@ -24,14 +24,14 @@ namespace Game.Enemy
         protected abstract void EnemyDetected();
         protected virtual IEnumerator FindPlayer()
         {
-            if (!_mainCharacter)
+            if (_mainCharacter == null)
             {
                 _mainCharacter = GameObject.FindGameObjectWithTag(_tag);
                 yield return new WaitForSeconds(3f);
                 StartCoroutine(FindPlayer());
             }
 
-            if (_mainCharacter)
+            if (_mainCharacter != null)
                 yield break;
         }
     }

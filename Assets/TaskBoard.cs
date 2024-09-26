@@ -8,12 +8,15 @@ public class TaskBoard : MonoBehaviour, ITaskBoard
     [SerializeField] private GameObject _boardPanel;
     public void Open()
     {
-        _mainCharacter.SetActive(false);
-        ConstSystem.IsBeasy = true;
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        _cameraUI.SetActive(true);
-        _boardPanel.SetActive(true);
+        if (PlayerPrefsSafe.HasKey(ConstSystem.PAPICH))
+        {
+            _mainCharacter.SetActive(false);
+            ConstSystem.IsBeasy = true;
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            _cameraUI.SetActive(true);
+            _boardPanel.SetActive(true);
+        }
     }
 
     public void Close()
