@@ -28,7 +28,6 @@ TagManager:
   - Buckhweat
   - BTR
   - EnemyTank
-  - EnemyBTR
   layers:
   - Default
   - TransparentFX

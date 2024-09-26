@@ -12,7 +12,7 @@ public class MissileATGM : MonoBehaviour
 
     private void Update()
     {
-        if (Camera.Equals(null))
+        if (!Camera.Equals(null))
         {
             Ray ray = Camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;

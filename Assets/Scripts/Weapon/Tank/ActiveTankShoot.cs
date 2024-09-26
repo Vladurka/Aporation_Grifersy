@@ -21,6 +21,7 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
         _gun = GetComponentInChildren<Gun>();
 
         FindNewTarget();
+        StartCoroutine(CheckTarget());
         StartCoroutine(Shoot());
     }
 
@@ -36,6 +37,25 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
         }
     }
 
+
+    private IEnumerator CheckTarget()
+    {
+        if (_target.Equals(null))
+            FindNewTarget();
+
+        if (Physics.Raycast(_spawnPoint.position, _spawnPoint.forward, out _hit, _range))
+        {
+            if (_hit.collider.TryGetComponent(out ITargetHealth target))  
+                _tankMove.CanMove = false;
+
+            else
+                _tankMove.CanMove = true;
+        }
+
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(CheckTarget());
+    }
+
     protected override IEnumerator Shoot()
     {
         if (_target.Equals(null))
@@ -47,15 +67,11 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
             {
                 Instantiate(_shootingEffect, _spawnPoint.position, Quaternion.identity);
                 _audioSource.Play();
-                _tankMove.CanMove = false;  
                 target.GetDamage(_damage);
 
                 if (target.Health <= 0)
                     FindNewTarget();  
             }
-
-            else
-                _tankMove.CanMove = true;
         }
 
         float intreval = Random.Range(4f, 7f);

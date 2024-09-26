@@ -1,9 +1,12 @@
 using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StrykerHealth : MonoBehaviour, ITargetHealth
 {
+    [SerializeField] private Slider _hpBar;
+    [SerializeField] private Text _textHp;
     public float Health { get; set; } = 100f;
     public bool IsArmored { get; set; } = true;
 
@@ -20,9 +23,12 @@ public class StrykerHealth : MonoBehaviour, ITargetHealth
 
         if (Health <= 0)
         {
-            Invoke("Die", 0.5f);
+            Invoke("Destroy", 0.5f);
             Health = 0;
         }
+
+        _hpBar.value = Health;
+        _textHp.text = Health.ToString();
     }
 
     public void Destroy()
