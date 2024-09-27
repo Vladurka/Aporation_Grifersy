@@ -70,6 +70,9 @@ public class MissionsController : MonoBehaviour
                 SetButtonState(_missionsButtons[i], false, Color.green);
         }
 
+        if (missionCondition >= 10)
+            ResetButtonStates();
+
         else
             Debug.LogError("MissionCondition out of bounds.");
     }

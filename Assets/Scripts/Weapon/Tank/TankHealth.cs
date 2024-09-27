@@ -11,7 +11,9 @@ public class TankHealth : MonoBehaviour, ITargetHealth
     [SerializeField] private ParticleSystem _fire;
     [SerializeField] private GameObject _tower;
     [SerializeField] private Material _material;
+
     [SerializeField] private bool _isArmored = false;
+    [SerializeField] private bool _isEnemy = true;
 
     private MeshRenderer[] _renderers;
 
@@ -23,7 +25,10 @@ public class TankHealth : MonoBehaviour, ITargetHealth
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Invoke(new AddObj(gameObject));
+
+        if(_isEnemy)
+            _eventBus.Invoke(new AddObj(gameObject));
+
         _tankShoot = GetComponentsInChildren<IVehicleShoot>();
         _renderers = GetComponentsInChildren<MeshRenderer>();
         IsArmored = _isArmored;
@@ -48,7 +53,8 @@ public class TankHealth : MonoBehaviour, ITargetHealth
     {
         if (!_isDead)
         {
-            _eventBus.Invoke(new RemoveObj(gameObject));
+            if (_isEnemy)
+                _eventBus.Invoke(new RemoveObj(gameObject));
 
             foreach (MeshRenderer renderer in _renderers)
             {
