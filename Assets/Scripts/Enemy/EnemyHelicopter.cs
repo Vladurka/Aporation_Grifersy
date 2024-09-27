@@ -1,14 +1,18 @@
 using Game.Enemy;
 using UnityEngine;
-using System.Collections;
 
 public class EnemyHelicopter : MonoBehaviour, ITargetHealth
 {
-    [SerializeField] private Transform[] _spawnPoints;
-    [SerializeField] private GameObject _enemy;
-    [SerializeField] private Material _destroyedMaterial;
     [SerializeField] private float _time = 35f;
+
+    [SerializeField] private bool _isPapich = false;
+
+    [SerializeField] private Transform[] _spawnPoints;
+
+    [SerializeField] private GameObject _enemy;
     [SerializeField] private GameObject _mainCharacter;
+
+    [SerializeField] private Material _destroyedMaterial;
 
     private AudioSource _audioSource;
     private Animator _animator;
@@ -39,7 +43,7 @@ public class EnemyHelicopter : MonoBehaviour, ITargetHealth
         {
             Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation);
 
-            if (_mainCharacter.activeSelf)
+            if (_mainCharacter.activeSelf || _isPapich)
             {
                 if (_enemy.transform.TryGetComponent(out AbstractEnemy enemy))
                     enemy.IsDetected = true;

@@ -16,6 +16,9 @@ public class SoldierMove : AbstractEnemy
             StartCoroutine(base.FindPlayer());
 
         _agent = GetComponent<NavMeshAgent>();
+        int priority = Random.Range(0, 50);
+        _agent.avoidancePriority = priority;
+
         _soldierShoot = GetComponent<SoldierShoot>();
     }
     private void FixedUpdate()

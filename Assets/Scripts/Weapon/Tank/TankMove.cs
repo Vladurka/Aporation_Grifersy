@@ -14,6 +14,8 @@ public class TankMove : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        int priority = Random.Range(0, 50);
+        _agent.avoidancePriority = priority;
 
         _agent.updatePosition = false;  
         _agent.updateRotation = false;  

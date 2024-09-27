@@ -24,6 +24,9 @@ public class SoldierShoot : MonoBehaviour
 
             if (hit.collider.TryGetComponent(out IPlayerHealth player))
                 player.GetDamage(_damage);
+
+            if (hit.collider.TryGetComponent(out IPapichHealth papich))
+                papich.GetDamage(_damage);
         }
         StartCoroutine(Shoot());
     }

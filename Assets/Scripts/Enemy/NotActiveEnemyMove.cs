@@ -12,7 +12,11 @@ public class NotActiveEnemyMove : AbstractEnemy
             StartCoroutine(base.FindPlayer());
 
         _points = GameObject.FindGameObjectsWithTag("Point");
+
         _agent = GetComponent<NavMeshAgent>();
+        int priority = Random.Range(0, 50);
+        _agent.avoidancePriority = priority;
+
         _animator = GetComponent<Animator>();
     }
 

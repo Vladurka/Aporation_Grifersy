@@ -52,6 +52,7 @@ namespace Game
         [SerializeField] private MissionsController _missionsController;
         [SerializeField] private Loading _loading;
         [SerializeField] private PapichMovement _papich;
+        [SerializeField] private PapichHealth _papichHealth;
         [SerializeField] private BaseDroneLouncher _droneLouncher;
 
         [SerializeField] private bool _load = true;
@@ -93,6 +94,7 @@ namespace Game
             _saveDataJson.Init();
 
             _papich.Init();
+            _papichHealth.Init();
 
             _gamePanel.Init();
             _playerHealth.Init();
