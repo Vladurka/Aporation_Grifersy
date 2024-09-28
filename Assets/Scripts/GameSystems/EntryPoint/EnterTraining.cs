@@ -1,5 +1,4 @@
 using UnityEngine;
-using Game.Data;
 using Game.Player;
 using Game.Weapon;
 using Game.SeniorEventBus;

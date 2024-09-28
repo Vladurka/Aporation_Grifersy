@@ -111,10 +111,10 @@ public class GraphicsController : MonoBehaviour
     public void ScreenModeChanged(Toggle change)
     {
         if (change.isOn)
-            FullScreen();
+            WindowMode();
 
         else
-            WindowMode();
+            FullScreen();
     }
 
     #endregion

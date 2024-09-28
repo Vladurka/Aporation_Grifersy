@@ -24,7 +24,8 @@ public class GameUI : MonoBehaviour
         ConstSystem.CanPause = true;
         ConstSystem.InCar = false;
         ConstSystem.InTransport = false;
-        ConstSystem.CanSave = true;    
+        ConstSystem.CanSave = true;
+        ConstSystem.InDrone = false;
         _isStarted = true;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<EnablePause>(PauseState, 1);

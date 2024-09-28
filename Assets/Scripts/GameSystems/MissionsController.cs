@@ -19,7 +19,7 @@ public class MissionsController : MonoBehaviour
 
         UpdateMissionButtons(MissionCondition);
 
-        if (MissionCondition >= 9)
+        if (MissionCondition == 9)
             Invoke("StartLastMission", 10f);
 
         _car.SetActive(false);

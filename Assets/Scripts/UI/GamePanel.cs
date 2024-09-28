@@ -42,6 +42,8 @@ public class GamePanel : MonoBehaviour
         _eventBus.Subscribe<SetDronePanel>(SetDronePanel, 1);
         _eventBus.Subscribe<UpdateDrone>(UpdateDroneText, 1);
         _eventBus.Subscribe<SetSpeedometer>(SetSpeedometer, 1);
+
+        _healthBar.interactable = false;
     }
 
     private void UpdateCurrentBulletsText(UpdateCurrentBullets currentBullets)
