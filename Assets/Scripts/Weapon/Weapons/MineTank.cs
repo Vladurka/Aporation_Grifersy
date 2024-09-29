@@ -12,7 +12,7 @@ public class MineTank : MonoBehaviour
     {
         _mainCharacter = GameObject.FindGameObjectWithTag("Player");
         _audioSource = _mainCharacter.GetComponent<AudioSource>();
-        SetMine.explode += Explode;
+        SetMine.Explode += Explode;
     }
 
     private void Explode()
@@ -30,7 +30,7 @@ public class MineTank : MonoBehaviour
 
     private void OnDestroy()
     {
-        SetMine.explode -= Explode;
+        SetMine.Explode -= Explode;
     }
 
 }

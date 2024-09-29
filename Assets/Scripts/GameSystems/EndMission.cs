@@ -38,7 +38,7 @@ public class EndMission : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         _uiCamera.SetActive(true); 
         _endPanel.SetActive(true);
-        _eventBus.Invoke(new EnablePause(false));
+        ConstSystem.CanPause = false;
         _eventBus.Invoke(new SetDronePanel(false));
         _eventBus.Invoke(new SetSpeedometer(false));
         _mainCharacter.SetActive(false);

@@ -16,15 +16,15 @@ namespace Game.Weapon
         [SerializeField] private ParticleSystem _bulletEffect;
         [SerializeField] private ParticleSystem _enemyEffect;
 
-
         [Header("Clips")]
         [SerializeField] private AudioClip _shootSound;
         [SerializeField] private AudioClip _noBulletsSound;
         [SerializeField] private AudioClip _reloadSound;
 
-
         [SerializeField] private int _maxBullets = 30;
         [SerializeField] private float _interval = 0.12f;
+
+        private bool _canReaload = true;
 
         private EventBus _eventBus;
 
@@ -70,16 +70,15 @@ namespace Game.Weapon
             }
 
             if (Input.GetMouseButtonUp(0))
-            {
                 StopAllCoroutines();
-            }
 
-            if (Input.GetKeyDown(KeyCode.R) && Bullets < _maxBullets && TotalBullets > 0)
+            if (Input.GetKeyDown(KeyCode.R) && _canReaload && TotalBullets > 0 && Bullets < _maxBullets)
             {
                 _eventBus.Invoke(new AkReloadAnim());
                 _audioSource.PlayOneShot(_reloadSound);
-                _canShoot = false;
                 Invoke("Reaload", 1.5f);
+                _canShoot = false;
+                _canReaload = false;
             }
         }
 
@@ -116,7 +115,7 @@ namespace Game.Weapon
                 StartCoroutine(Shoot(_cam));
             }
 
-            if(TotalBullets <= 0)
+            if(Bullets <= 0)
             {
                 _audioSource.PlayOneShot(_noBulletsSound);
                 yield break;
@@ -131,20 +130,24 @@ namespace Game.Weapon
 
         private void Reaload()
         {
-            if (TotalBullets >= _maxBullets)
+            int bulletsAdd = _maxBullets - Bullets;
+
+            if (TotalBullets >= bulletsAdd)
             {
-                TotalBullets -= _maxBullets;
-                Bullets = _maxBullets;
-                _canShoot = true;
+                Bullets += bulletsAdd;
+                TotalBullets -= bulletsAdd;
             }
 
-            else if (TotalBullets < _maxBullets)
+            if(TotalBullets < bulletsAdd)
             {
-                Bullets = TotalBullets;
+                int bulletsMiss = TotalBullets - bulletsAdd;
+                bulletsAdd += bulletsMiss;
+                Bullets += bulletsAdd;
                 TotalBullets = 0;
-                _canShoot = true;
             }
 
+            _canShoot = true;
+            _canReaload = true;
             _eventBus.Invoke(new UpdateTotalBullets(TotalBullets));
             _eventBus.Invoke(new UpdateCurrentBullets(Bullets));
         }

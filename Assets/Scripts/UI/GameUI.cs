@@ -15,7 +15,6 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject _levelsPanel;
 
     private bool _pauseGame;
-    private bool _canPause = true;
     private bool _isStarted = false;
 
     private EventBus _eventBus;
@@ -28,7 +27,6 @@ public class GameUI : MonoBehaviour
         ConstSystem.InDrone = false;
         _isStarted = true;
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<EnablePause>(PauseState, 1);
         _eventBus.Subscribe<SetDie>(SetDie, 1);
 
         if (_shopPanel != null)
@@ -48,20 +46,12 @@ public class GameUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_canPause)
-            {
-                if (_pauseGame && !_diePanel.activeSelf && !_completedPanel.activeSelf)
-                    Continue();
+            if (_pauseGame && !_diePanel.activeSelf && !_completedPanel.activeSelf)
+                Continue();
 
-                if (!_diePanel.activeSelf && !_completedPanel.activeSelf)
-                    Pause();
-            }
+            if (!_diePanel.activeSelf && !_completedPanel.activeSelf)
+                Pause();
         }
-    }
-
-    private void PauseState(EnablePause pause)
-    {
-        _canPause = pause.State;
     }
 
     public void Pause()
@@ -154,7 +144,6 @@ public class GameUI : MonoBehaviour
     {
         if (_isStarted)
         {
-            _eventBus.Unsubscribe<EnablePause>(PauseState);
             _eventBus.Unsubscribe<SetDie>(SetDie);
         }
     }

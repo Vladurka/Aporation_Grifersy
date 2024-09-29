@@ -6,7 +6,7 @@ public class SetMine : AbstractWeapon
 {
     [SerializeField] private GameObject _minePrefab;
 
-    public static Action explode;
+    public static Action Explode;
 
     public override void Init()
     {
@@ -20,14 +20,10 @@ public class SetMine : AbstractWeapon
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))
-        {
             StartCoroutine(Shoot(_mainCamera));
-        }
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            explode?.Invoke();
-        }
+        if (Input.GetKeyDown(KeyCode.C))
+            Explode?.Invoke();
     }
 
     protected override IEnumerator Shoot(Camera cam)
@@ -46,6 +42,6 @@ public class SetMine : AbstractWeapon
             }
         }
 
-        yield return null;
+        yield break;
     }
 }
