@@ -81,14 +81,22 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
 
     private void FindNewTarget()
     {
-        _target = GameObject.FindGameObjectWithTag(_1targetTag);
+        GameObject[] potentialTargets = GameObject.FindGameObjectsWithTag(_1targetTag);
 
-        if (_target == null)
-            _target = GameObject.FindGameObjectWithTag(_2targetTag);
+        if (potentialTargets.Length == 0)
+            potentialTargets = GameObject.FindGameObjectsWithTag(_2targetTag);
+
+
+        if (potentialTargets.Length > 0)
+        {
+            int randomIndex = Random.Range(0, potentialTargets.Length);
+            _target = potentialTargets[randomIndex];
+        }
 
         _tankMove.Target = _target;
         _gun.Target = _target;
     }
+
 
     public void Stop()
     {

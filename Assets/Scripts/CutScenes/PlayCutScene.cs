@@ -31,6 +31,7 @@ public class PlayCutScene : MonoBehaviour
 
     public void PlayVideo(int index)
     {
+        _uiCamera.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         ConstSystem.CanPause = false;
 
@@ -39,11 +40,12 @@ public class PlayCutScene : MonoBehaviour
         _video.loopPointReached += (vp) => Load(vp, index);
 
         _mainCharacter.SetActive(false);
-        _uiCamera.SetActive(true);
     }
 
     private void PlayLastVideo(PlayLast last)
     {
+        _uiCamera.SetActive(true);
+
         Cursor.lockState = CursorLockMode.Locked;
         ConstSystem.CanPause = false;
 
