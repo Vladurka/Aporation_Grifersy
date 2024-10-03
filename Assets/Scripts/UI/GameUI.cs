@@ -143,8 +143,6 @@ public class GameUI : MonoBehaviour
     private void OnDestroy()
     {
         if (_isStarted)
-        {
             _eventBus.Unsubscribe<SetDie>(SetDie);
-        }
     }
 }

@@ -106,5 +106,6 @@ public class MissionsController : MonoBehaviour
     private void StartLastMission()
     {
         _lastMission.SetActive(true);
+        ConstSystem.CanSave = false;
     }
 }
