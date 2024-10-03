@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 
 public class MissionsController : MonoBehaviour
 {
@@ -13,14 +15,21 @@ public class MissionsController : MonoBehaviour
     [SerializeField] private GameObject _mission3Things;
     [SerializeField] private GameObject _mission4Things;
 
+    private EventBus _eventBus;
+
     public void Init()
     {
+        _eventBus = ServiceLocator.Current.Get<EventBus>();
+
         MissionCondition = PlayerPrefsSafe.GetInt(ConstSystem.MISSION_KEY);
 
         UpdateMissionButtons(MissionCondition);
 
         if (MissionCondition == 9)
             Invoke("StartLastMission", 10f);
+
+        if (MissionCondition == 10)
+            _eventBus.Invoke(new PlayLast());
 
         _car.SetActive(false);
         _mission3Things.SetActive(false);
