@@ -83,7 +83,7 @@ public class ActiveTankShoot : AbstractTank, IVehicleShoot
     {
         _target = GameObject.FindGameObjectWithTag(_1targetTag);
 
-        if (_target.Equals(null))
+        if (_target == null)
             _target = GameObject.FindGameObjectWithTag(_2targetTag);
 
         _tankMove.Target = _target;
