@@ -49,6 +49,7 @@ namespace Game
         [SerializeField] private JSON_load _loadDataJson;
         [SerializeField] private JSON_save _saveDataJson;
         [SerializeField] private Shop _shop;
+        [SerializeField] private PlayCutScene _playCutScene;
         [SerializeField] private MissionsController _missionsController;
         [SerializeField] private Loading _loading;
         [SerializeField] private PapichMovement _papich;
@@ -118,6 +119,7 @@ namespace Game
             _grenadeThrower.Init();
             _changeSkinCar.Init();
             _changeRpgSkin.Init();
+            _playCutScene.Init();
             _missionsController.Init();
             _droneLouncher.Init();
 
