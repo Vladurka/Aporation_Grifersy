@@ -45,6 +45,7 @@ public static class ConstSystem
     public const string GAME_TIPS = "TipsGame";
     public const string PRISON_TIPS = "TipsPrison";
     public const string PRISON_ENDED = "Prison";
+    public const string STARTED_TO_PLAY = "IsPlayed";
 
     public const string MISSION_KEY = "MISSION";
 

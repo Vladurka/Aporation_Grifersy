@@ -24,9 +24,6 @@ public class CoinSystem : IService
     public void SpendMoney(int amount)
     {
         Money -= amount;
-        _eventBus.Invoke(new UpdateMoney(Money));
-
-        if (Money < 0)
-            Debug.LogError("There is no money");
+        _eventBus.Invoke(new UpdateMoney(Money));;
     }
 }

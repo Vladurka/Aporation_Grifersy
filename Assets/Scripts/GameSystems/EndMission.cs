@@ -11,6 +11,7 @@ public class EndMission : MonoBehaviour
     [SerializeField] private int _index = 0;
     [SerializeField] private float _time = 1f;
     [SerializeField] private int _signals = 0;
+    [SerializeField] private int _money = 1000;
 
     private bool _isStarted = false;
 
@@ -29,7 +30,10 @@ public class EndMission : MonoBehaviour
     {
         _signals++;
         if (_signals >= _signalsNeeded)
+        {
             Invoke("EndGame", _time);
+            _eventBus.Invoke(new MoneyAdd(_money));
+        }
     }
 
     private void EndGame()

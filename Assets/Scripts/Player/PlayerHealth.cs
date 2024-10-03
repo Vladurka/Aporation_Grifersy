@@ -22,6 +22,7 @@ namespace Game.Player
             _eventBus.Invoke(new UpdateHealth(Health));
 
             _audioSource = GetComponent<AudioSource>();
+            PlayerPrefs.SetInt(ConstSystem.STARTED_TO_PLAY, 1);
         }
 
         public void AddHealth(float amount)
