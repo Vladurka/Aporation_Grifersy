@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Key: SCOPE1
   Level: 1
-  Price: 0
+  Price: 300
   Condition: 0

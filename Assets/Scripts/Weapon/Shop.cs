@@ -1,6 +1,7 @@
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour, IService, IShop
 {
@@ -11,9 +12,16 @@ public class Shop : MonoBehaviour, IService, IShop
     [SerializeField] private int _syrgineAmount = 1;
 
     [Header("Base")]
-    public int BaseUpgradeAmount = 0;
     [SerializeField] private int _maxBaseUpgradeAmount = 4;
     [SerializeField] private int _basePrice = 500;
+    [SerializeField] private Text _priceText;
+    public int BaseUpgradeAmount = 0;
+
+    [Header("Skopes")]
+    [SerializeField] private Text _priceScope1;
+    [SerializeField] private Text _priceScope2;
+    [SerializeField] private ScopesParametrs _scopeInfo1;
+    [SerializeField] private ScopesParametrs _scopeInfo2;
 
     [SerializeField] private GameObject _shopPanel;
     [SerializeField] private GameObject _mainCharacter;
@@ -25,6 +33,17 @@ public class Shop : MonoBehaviour, IService, IShop
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _coinSystem = ServiceLocator.Current.Get<CoinSystem>();
+
+        if(_scopeInfo1.Condition == 1)
+            _priceScope1.enabled = false;
+
+        if (_scopeInfo2.Condition == 1)
+            _priceScope2.enabled = false;
+
+        if (BaseUpgradeAmount >= _maxBaseUpgradeAmount)
+            _priceText.enabled = false;
+
+        _priceText.text = _basePrice.ToString();
     }
 
     public void BuySkope(ScopesParametrs scope)
@@ -35,6 +54,15 @@ public class Shop : MonoBehaviour, IService, IShop
             _eventBus.Invoke(new GetScope(scope.Level));
             scope.Condition = 1;
             _eventBus.Invoke(new SetScopeCondition());
+
+            if (scope.Level == 1)
+                _priceScope1.enabled = false;
+
+            if (scope.Level == 2)
+                _priceScope2.enabled = false;
+
+            if(transform.TryGetComponent(out Button button))
+                button.interactable = false;
         }
 
         if (scope.Condition == 1)
@@ -51,7 +79,16 @@ public class Shop : MonoBehaviour, IService, IShop
             _eventBus.Invoke(new BuyBase());
             _coinSystem.SpendMoney(_basePrice);
             BaseUpgradeAmount++;
-            //_basePrice += 500;
+            _basePrice += 100;
+            _priceText.text = _basePrice.ToString() + "$";
+        }
+
+        if(BaseUpgradeAmount >= _maxBaseUpgradeAmount)
+        {
+            if(transform.TryGetComponent(out Button button))
+                button.interactable = false;    
+
+            _priceText.enabled = false;
         }
     }
 
@@ -78,6 +115,7 @@ public class Shop : MonoBehaviour, IService, IShop
         if (_coinSystem.Money >= price)
         {
             _eventBus.Invoke(new BuyGrenades(_grenadesAmount));
+            _coinSystem.SpendMoney(price);
         }
 
     }
@@ -85,13 +123,19 @@ public class Shop : MonoBehaviour, IService, IShop
     public void BuySyrgine(int price)
     {
         if (_coinSystem.Money >= price)
+        {
             _eventBus.Invoke(new BuySyrgine(_syrgineAmount));
+            _coinSystem.SpendMoney(price);
+        }
     }
 
     public void BuyDrone(int price)
     {
         if (_coinSystem.Money >= price)
+        {
             _eventBus.Invoke(new BuyDrone());
+            _coinSystem.SpendMoney(price);
+        }
     }
 
     public void SetPanel(bool state)

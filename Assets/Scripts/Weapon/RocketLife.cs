@@ -1,6 +1,4 @@
 using Game.Player;
-using Game.SeniorEventBus;
-using Game.SeniorEventBus.Signals;
 using System.Collections;
 using UnityEngine;
 

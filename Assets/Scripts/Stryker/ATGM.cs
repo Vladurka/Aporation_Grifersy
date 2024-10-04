@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class ATGM : MonoBehaviour
     [SerializeField] private Camera _cameraATGM;
     [SerializeField] private Camera _cameraMinigun;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private GameObject _reloadImage;
 
     private Camera _camera;
 
@@ -55,7 +57,10 @@ public class ATGM : MonoBehaviour
             _missiles--;
 
             if (_missiles <= 0)
+            {
                 StartCoroutine(Reload());
+                _reloadImage.SetActive(true);
+            }
         }
     }
 
@@ -63,5 +68,6 @@ public class ATGM : MonoBehaviour
     {
         yield return new WaitForSeconds(_reloadingTime);
         _missiles = 2;
+        _reloadImage.SetActive(false);
     }
 }

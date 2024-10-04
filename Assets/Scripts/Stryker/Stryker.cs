@@ -101,14 +101,14 @@ public class Stryker : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        _colliderFR.motorTorque = vertical * -_forwardSpeed;
-        _colliderFL.motorTorque = vertical * -_forwardSpeed;
-        _colliderFMR.motorTorque = vertical * -_forwardSpeed;
-        _colliderFML.motorTorque = vertical * -_forwardSpeed;
-        _colliderBR.motorTorque = vertical * -_forwardSpeed;
-        _colliderBL.motorTorque = vertical * -_forwardSpeed;
-        _colliderBMR.motorTorque = vertical * -_forwardSpeed;
-        _colliderBML.motorTorque = vertical * -_forwardSpeed;
+        _colliderFR.motorTorque = vertical * _forwardSpeed;
+        _colliderFL.motorTorque = vertical * _forwardSpeed;
+        _colliderFMR.motorTorque = vertical * _forwardSpeed;
+        _colliderFML.motorTorque = vertical * _forwardSpeed;
+        _colliderBR.motorTorque = vertical * _forwardSpeed;
+        _colliderBL.motorTorque = vertical * _forwardSpeed;
+        _colliderBMR.motorTorque = vertical * _forwardSpeed;
+        _colliderBML.motorTorque = vertical * _forwardSpeed;
 
         if (Input.GetKey(KeyCode.Space))
         {

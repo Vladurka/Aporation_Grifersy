@@ -1,6 +1,7 @@
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TankHealth : MonoBehaviour, ITargetHealth
 {
@@ -88,6 +89,7 @@ public class TankHealth : MonoBehaviour, ITargetHealth
 
             if(transform.TryGetComponent(out TankMove move))
                 move.CanMove = false;
+            gameObject.tag = "Untagged";
 
             _isDead = true;
         }
