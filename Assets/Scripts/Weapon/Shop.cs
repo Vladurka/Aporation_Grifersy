@@ -23,10 +23,6 @@ public class Shop : MonoBehaviour, IService, IShop
     [SerializeField] private ScopesParametrs _scopeInfo1;
     [SerializeField] private ScopesParametrs _scopeInfo2;
 
-    [SerializeField] private GameObject _shopPanel;
-    [SerializeField] private GameObject _mainCharacter;
-    [SerializeField] private GameObject _cameraUI;
-
     private EventBus _eventBus;
     private CoinSystem _coinSystem;
     public void Init()
@@ -138,29 +134,13 @@ public class Shop : MonoBehaviour, IService, IShop
         }
     }
 
-    public void SetPanel(bool state)
-    {
-        _shopPanel.SetActive(state);
-    }
-
     public void Open()
     {
-        ConstSystem.IsBeasy = true;
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        _mainCharacter.SetActive(false);
-        _cameraUI.SetActive(true);
-        _shopPanel.SetActive(true);
+        _eventBus.Invoke(new OpenShop());
     }
 
-    public void Close()
+        public void Close()
     {
-        ConstSystem.IsBeasy = false;
-        _shopPanel.SetActive(false);
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        _mainCharacter.SetActive(true);
-        _cameraUI.SetActive(false);
+        _eventBus.Invoke(new CloseShop());
     }
-
 }

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EndMission : MonoBehaviour
 {
-    [SerializeField] private GameObject _endPanel;
-    [SerializeField] private GameObject _mainCharacter;
-    [SerializeField] private GameObject _uiCamera;
     [SerializeField] private int _signalsNeeded = 2;
     [SerializeField] private int _index = 0;
     [SerializeField] private float _time = 1f;
@@ -20,7 +17,6 @@ public class EndMission : MonoBehaviour
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-
         _eventBus.Subscribe<EndSignal>(AddSignal, 1);
 
         _isStarted = true;
@@ -39,14 +35,7 @@ public class EndMission : MonoBehaviour
     private void EndGame()
     {
         PlayerPrefsSafe.SetInt(ConstSystem.MISSION_KEY, _index);
-        Cursor.lockState = CursorLockMode.None;
-        _uiCamera.SetActive(true); 
-        _endPanel.SetActive(true);
-        ConstSystem.CanPause = false;
-        _eventBus.Invoke(new SetDronePanel(false));
-        _eventBus.Invoke(new SetSpeedometer(false));
-        _mainCharacter.SetActive(false);
-        Time.timeScale = 0f;
+        _eventBus.Invoke(new SetWin());
     }
 
     private void OnDestroy()

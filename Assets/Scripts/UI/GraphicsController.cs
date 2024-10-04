@@ -45,30 +45,17 @@ public class GraphicsController : MonoBehaviour
 
         _resolutionDropdown.ClearOptions();
 
-        List<Resolution> uniqueResolutions = new List<Resolution>(); 
-        HashSet<string> addedResolutions = new HashSet<string>(); 
-        List<string> dropdownOptions = new List<string>(); 
-
         int currentResolutionIndex = 0;
 
         for (int i = 0; i < _resolutions.Length; i++)
         {
-            string resolutionString = _resolutions[i].width + " x " + _resolutions[i].height;
- 
-            if (!addedResolutions.Contains(resolutionString) &&
-                (_resolutions[i].width >= 1024 && _resolutions[i].height >= 768))
-            {
-                addedResolutions.Add(resolutionString);
-                uniqueResolutions.Add(_resolutions[i]);
-                dropdownOptions.Add(resolutionString);
+            string option = _resolutions[i].width + " x " + _resolutions[i].height;
+            _resolutionDropdown.options.Add(new Dropdown.OptionData(option));
 
-                if (_resolutions[i].width == Screen.currentResolution.width &&
+            if (_resolutions[i].width == Screen.currentResolution.width &&
                     _resolutions[i].height == Screen.currentResolution.height)
-                    currentResolutionIndex = uniqueResolutions.Count - 1;
-            }
+                currentResolutionIndex = i;
         }
-
-        _resolutionDropdown.AddOptions(dropdownOptions);
 
         if (PlayerPrefsSafe.HasKey(_resolutionKey))
             currentResolutionIndex = PlayerPrefsSafe.GetInt(_resolutionKey);
