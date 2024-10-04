@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GraphicsController : MonoBehaviour
@@ -42,25 +43,32 @@ public class GraphicsController : MonoBehaviour
 
         _resolutions = Screen.resolutions;
 
-        if (_resolutionDropdown != null)
-            _resolutionDropdown.ClearOptions();
+        _resolutionDropdown.ClearOptions();
+
+        List<Resolution> uniqueResolutions = new List<Resolution>(); 
+        HashSet<string> addedResolutions = new HashSet<string>(); 
+        List<string> dropdownOptions = new List<string>(); 
 
         int currentResolutionIndex = 0;
 
         for (int i = 0; i < _resolutions.Length; i++)
         {
-            if (_resolutionDropdown != null)
+            string resolutionString = _resolutions[i].width + " x " + _resolutions[i].height;
+ 
+            if (!addedResolutions.Contains(resolutionString) &&
+                (_resolutions[i].width >= 1024 && _resolutions[i].height >= 768))
             {
-                string option = _resolutions[i].width + " x " + _resolutions[i].height;
-                _resolutionDropdown.options.Add(new Dropdown.OptionData(option));
-            }
+                addedResolutions.Add(resolutionString);
+                uniqueResolutions.Add(_resolutions[i]);
+                dropdownOptions.Add(resolutionString);
 
-            if (_resolutions[i].width == Screen.currentResolution.width &&
+                if (_resolutions[i].width == Screen.currentResolution.width &&
                     _resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
+                    currentResolutionIndex = uniqueResolutions.Count - 1;
             }
         }
+
+        _resolutionDropdown.AddOptions(dropdownOptions);
 
         if (PlayerPrefsSafe.HasKey(_resolutionKey))
             currentResolutionIndex = PlayerPrefsSafe.GetInt(_resolutionKey);
@@ -69,7 +77,6 @@ public class GraphicsController : MonoBehaviour
 
         _resolutionDropdown.value = currentResolutionIndex;
         _resolutionDropdown.RefreshShownValue();
-
         #endregion
 
         #region FPS

@@ -58,8 +58,9 @@ public class GameUI : MonoBehaviour
     {
         if (ConstSystem.CanPause)
         {
-            Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0.0f;
+
             _pauseGame = true;
             _gamePanel.SetActive(false);
             _settingsPanel.SetActive(false);
@@ -79,8 +80,7 @@ public class GameUI : MonoBehaviour
     {
         if (ConstSystem.CanPause)
         {
-            Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1.0f;
             _settingsPanel.SetActive(false);
             _pausePanel.SetActive(false);
             _pauseGame = false;
@@ -106,6 +106,8 @@ public class GameUI : MonoBehaviour
 
             if (ConstSystem.InDrone)
                 _eventBus.Invoke(new SetDronePanel(true));
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
     }
@@ -126,11 +128,11 @@ public class GameUI : MonoBehaviour
 
     private void SetDie(SetDie set)
     {
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
 
         _uiCamera.SetActive(true);
         _diePanel.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
         ConstSystem.CanSave = false;
 
         if (_mainCharacter != null)

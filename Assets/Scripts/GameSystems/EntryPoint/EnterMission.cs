@@ -40,6 +40,8 @@ public class EnterMission : MonoBehaviour
     [SerializeField] private JSON_load_mission _loadDataJson;
     [SerializeField] private JSON_save_mission _saveDataJson;
 
+    [SerializeField] private PlayCutScene _playCutScene;
+
     [SerializeField] private bool _load = true;
 
     private EventBus _eventBus;
@@ -91,6 +93,9 @@ public class EnterMission : MonoBehaviour
 
         if(_droneLouncher != null)
             _droneLouncher.Init();
+
+        if (_playCutScene != null)
+            _playCutScene.Init();
 
         _akAnim.Init();
         _rpgAnim.Init();

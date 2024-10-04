@@ -4,6 +4,8 @@ using UnityEngine.AI;
 
 public class SoldierMove : AbstractEnemy
 {
+    [SerializeField] private bool _isDetected = false;
+
     private RaycastHit _hit;
     private SoldierShoot _soldierShoot;  
     private bool _isStarted;
@@ -20,6 +22,9 @@ public class SoldierMove : AbstractEnemy
         _agent.avoidancePriority = priority;
 
         _soldierShoot = GetComponent<SoldierShoot>();
+
+        if(!_isDetected)
+            IsDetected = false;
     }
     private void FixedUpdate()
     {

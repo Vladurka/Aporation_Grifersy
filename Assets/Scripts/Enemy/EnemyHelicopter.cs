@@ -6,6 +6,7 @@ public class EnemyHelicopter : MonoBehaviour, ITargetHealth
     [SerializeField] private float _time = 35f;
 
     [SerializeField] private bool _isPapich = false;
+    [SerializeField] private bool _isDetected = false;
 
     [SerializeField] private Transform[] _spawnPoints;
 
