@@ -27,14 +27,12 @@ public class GraphicsController : MonoBehaviour
         #region Quality
         if (PlayerPrefsSafe.HasKey(_qualityKey))
             QualitySettings.SetQualityLevel(PlayerPrefsSafe.GetInt(_qualityKey), true);
-
-        if (!PlayerPrefsSafe.HasKey(_qualityKey))
+        else
             QualitySettings.SetQualityLevel(5, true);
 
         if (PlayerPrefsSafe.HasKey(_qualityDropdownKey))
             _qualityDropdown.value = PlayerPrefsSafe.GetInt(_qualityDropdownKey);
-
-        if (!PlayerPrefsSafe.HasKey(_qualityDropdownKey))
+        else
             _qualityDropdown.value = 2;
 
         #endregion
@@ -69,19 +67,18 @@ public class GraphicsController : MonoBehaviour
         #region FPS
 
         _refreshRate = Screen.currentResolution.refreshRateRatio;
-        _targetFPS = _refreshRate.numerator;
+        _targetFPS = _refreshRate.numerator / _refreshRate.denominator + 1;
+        Debug.Log(_targetFPS);
 
 
         if (PlayerPrefsSafe.HasKey(_fpsKey))
             SetFPS(PlayerPrefsSafe.GetInt(_fpsKey));
-
-        if (!PlayerPrefsSafe.HasKey(_fpsKey))
+        else
             SetFPS(_targetFPS);
 
         if (PlayerPrefsSafe.HasKey(_fpsDropdownKey))
             _fpsDropdown.value = PlayerPrefsSafe.GetInt(_fpsDropdownKey);
-
-        if (!PlayerPrefsSafe.HasKey(_fpsDropdownKey))
+        else
             _fpsDropdown.value = 7;
 
         #endregion

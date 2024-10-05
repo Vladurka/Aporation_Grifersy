@@ -57,15 +57,6 @@ public class EnterTraining : MonoBehaviour
 
         Register();
         Init();
-
-        RefreshRate refreshRate = Screen.currentResolution.refreshRateRatio;
-        float targetFPS = refreshRate.numerator;
-
-        if (PlayerPrefsSafe.HasKey("FPS"))
-            Application.targetFrameRate = PlayerPrefsSafe.GetInt("FPS");
-
-        if (!PlayerPrefsSafe.HasKey("FPS"))
-            Application.targetFrameRate = (int)targetFPS;
     }
 
     private void Init()
