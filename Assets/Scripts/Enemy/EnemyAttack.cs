@@ -55,12 +55,14 @@ public class EnemyAttack : MonoBehaviour
     {
         if (!_health.IsDead)
         {
-            Collider[] hit = Physics.OverlapSphere(transform.position, _attackRange);
+            Collider[] hits = Physics.OverlapSphere(transform.position, _attackRange);
 
-            foreach (Collider hits in hit)
+            foreach (Collider hit in hits)
             {
-                if (hits.transform.TryGetComponent(out IPlayerHealth health))
-                    health.GetDamage(_damage);
+                if (hit.transform.TryGetComponent(out IPlayerHealth health))
+                    health.GetDamage(_damage / 2);
+
+                Debug.Log(_damage);
             }
         }
     }

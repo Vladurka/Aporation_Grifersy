@@ -49,7 +49,7 @@ namespace Game.Weapon
                     target.Destroy();
 
                 if (hit.transform.TryGetComponent(out IPlayerHealth player))
-                    player.GetDamage(20f);
+                    player.GetDamage(30f);
             }
           
             BulletDestroy();

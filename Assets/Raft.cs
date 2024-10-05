@@ -16,6 +16,7 @@ public class Raft : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerPrefsSafe.SetInt(ConstSystem.PRISON_ENDED, 1);
+            _eventBus.Invoke(new SaveDataSignal());
             _eventBus.Invoke(new PlayCut(2));
         }
     }

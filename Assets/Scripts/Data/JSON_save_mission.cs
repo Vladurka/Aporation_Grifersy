@@ -1,4 +1,6 @@
 ﻿using Game.Player;
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using Game.Weapon;
 using UnityEngine;
 namespace Game.Data
@@ -15,8 +17,13 @@ namespace Game.Data
         private GrenadeThrower _grenadeThrower;
         private ChangeWeapon _changeWeapon;
         private BaseDroneLouncher _droneLouncher;
+
+        private EventBus _eventBus;
         public void Init()
         {
+            _eventBus = ServiceLocator.Current.Get<EventBus>();
+            _eventBus.Subscribe<SaveDataSignal>(Save);
+
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
             _weaponAk = ServiceLocator.Current.Get<WeaponAk>();
             _rpg = ServiceLocator.Current.Get<RPG>();
@@ -29,6 +36,11 @@ namespace Game.Data
                 _droneLouncher = ServiceLocator.Current.Get<BaseDroneLouncher>();
 
             ConstSystem.CanSave = true;
+        }
+
+        private void Save(SaveDataSignal save)
+        {
+            SaveInfo();
         }
 
         public void SaveInfo()
@@ -52,6 +64,11 @@ namespace Game.Data
             existingData.MoneyData = _coinSystem.Money;
 
             JSON_saveSystem.Save(existingData);
+        }
+
+        private void OnDestroy()
+        {
+            _eventBus.Unsubscribe<SaveDataSignal>(Save);
         }
     }
 }

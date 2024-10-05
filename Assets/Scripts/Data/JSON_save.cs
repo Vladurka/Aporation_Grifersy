@@ -1,4 +1,6 @@
 ﻿using Game.Player;
+using Game.SeniorEventBus;
+using Game.SeniorEventBus.Signals;
 using Game.Weapon;
 using UnityEngine;
 namespace Game.Data
@@ -18,8 +20,13 @@ namespace Game.Data
         private GrenadeThrower _grenadeThrower;
         private ChangeWeapon _changeWeapon;
         private BaseDroneLouncher _droneLouncher;
+
+        private EventBus _eventBus;
         public void Init()
         {
+            _eventBus = ServiceLocator.Current.Get<EventBus>();
+            _eventBus.Subscribe<SaveDataSignal>(Save);
+
             _playerHealth = ServiceLocator.Current.Get<PlayerHealth>();
             _playerMove = ServiceLocator.Current.Get<Movement>();
             _helicopter = ServiceLocator.Current.Get<Helicopter>();
@@ -38,57 +45,69 @@ namespace Game.Data
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && ConstSystem.CanSave)
+            if (Input.GetKeyDown(KeyCode.Escape))
                 SaveInfo();
+        }
+
+        private void Save(SaveDataSignal save)
+        {
+            SaveInfo();
         }
 
         public void SaveInfo()
         {
-            JSON_playerData data = new JSON_playerData
+            if (ConstSystem.CanSave)
             {
-                HelicopterConditionData = _helicopterStatesController.HelicopterState,
-
-                HelicopterPositionData = new float[3]
+                JSON_playerData data = new JSON_playerData
                 {
+                    HelicopterConditionData = _helicopterStatesController.HelicopterState,
+
+                    HelicopterPositionData = new float[3]
+                    {
                     _helicopter.transform.position.x,
                     _helicopter.transform.position.y,
                     _helicopter.transform.position.z,
-                },
+                    },
 
-                CarPositionData = new float[3]
-                {
+                    CarPositionData = new float[3]
+                    {
                     _car.transform.position.x,
                     _car.transform.position.y,
                     _car.transform.position.z,
-                },
+                    },
 
-                HpData = _playerHealth.Health,
+                    HpData = _playerHealth.Health,
 
-                PlayerPositionData = new float[3]
-                {
+                    PlayerPositionData = new float[3]
+                    {
                     _playerMove.transform.position.x,
                     _playerMove.transform.position.y,
                     _playerMove.transform.position.z
-                },
+                    },
 
-                SyrgineAmount = _changeWeapon.SyrgineAmount,
+                    SyrgineAmount = _changeWeapon.SyrgineAmount,
 
-                AKBulletsData = _weaponAk.Bullets,
-                AKTotalBulletsData = _weaponAk.TotalBullets,
+                    AKBulletsData = _weaponAk.Bullets,
+                    AKTotalBulletsData = _weaponAk.TotalBullets,
 
-                RPGTotalBulletsData = _rpg.TotalBullets,
-                GrenadesData = _grenadeThrower.Grenades,
+                    RPGTotalBulletsData = _rpg.TotalBullets,
+                    GrenadesData = _grenadeThrower.Grenades,
 
-                ScopeLevelData = _scopeLevels.ScopeLevel,
+                    ScopeLevelData = _scopeLevels.ScopeLevel,
 
-                DronesAmountData = _droneLouncher.DronesAmount,
+                    DronesAmountData = _droneLouncher.DronesAmount,
 
-                MoneyData = _coinSystem.Money,
+                    MoneyData = _coinSystem.Money,
 
-                BaseLevelData = _baseStates.BaseLevel,
-            };
+                    BaseLevelData = _baseStates.BaseLevel,
+                };
+                JSON_saveSystem.Save(data);
+            }
+        }
 
-            JSON_saveSystem.Save(data);
+        private void OnDestroy()
+        {
+            _eventBus.Unsubscribe<SaveDataSignal>(Save);
         }
     }
 }

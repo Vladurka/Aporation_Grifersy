@@ -46,10 +46,11 @@ namespace Game.Data
             {
                 if (data.PlayerPositionData != null && data.PlayerPositionData.Length == 3)
                 {
-                    Vector3 _playerPosition;
+                    Vector3 _playerPosition = new Vector3();
                     _playerPosition.x = data.PlayerPositionData[0];
                     _playerPosition.y = data.PlayerPositionData[1];
                     _playerPosition.z = data.PlayerPositionData[2];
+
                     _playerMove.transform.position = _playerPosition;
                 }
 
@@ -57,7 +58,7 @@ namespace Game.Data
 
                 if (data.HelicopterPositionData != null && data.HelicopterConditionData != null && data.HelicopterPositionData.Length == 3)
                 {
-                    Vector3 _helicopterPosition;
+                    Vector3 _helicopterPosition = new Vector3();
                     _helicopterPosition.x = data.HelicopterPositionData[0];
                     _helicopterPosition.y = data.HelicopterPositionData[1];
                     _helicopterPosition.z = data.HelicopterPositionData[2];
@@ -67,7 +68,7 @@ namespace Game.Data
 
                 if (data.CarPositionData != null && data.CarPositionData.Length == 3)
                 {
-                    Vector3 _carPosition;
+                    Vector3 _carPosition = new Vector3();
                     _carPosition.x = data.CarPositionData[0];
                     _carPosition.y = data.CarPositionData[1];
                     _carPosition.z = data.CarPositionData[2];

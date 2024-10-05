@@ -23,6 +23,7 @@ public class GameUI : MonoBehaviour
     public void Init()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
 
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<SetDie>(SetDie);
