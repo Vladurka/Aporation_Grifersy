@@ -28,6 +28,7 @@ public class BaseDroneLouncher : AbstractDroneLouncher, IService
                 newDrone.TextDistance = _distanceText;
                 newDrone.BatteryText = _batteryText;
                 newDrone.CharacterPos = new Vector3(transform.position.x, transform.position.y - 0.77f, transform.position.z);
+                newDrone.MaxDistance = _maxDistance;
 
                 _nameText.text = _droneName1.ToString();
                 DronesAmount--;

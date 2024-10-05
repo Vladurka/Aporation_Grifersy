@@ -327,7 +327,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cbf6827fd4f356048a0d1d8e2b503df7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2339833
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
   _stopDuration: 1.5
   _targetForwardSpeed: 20
   _targetRotationSpeed: 40
-  _maxDistance: 400
   _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
   TextDistance: {fileID: 0}
   BatteryText: {fileID: 0}
   DroneSpawn: {x: 0, y: 0, z: 0}
   CharacterPos: {x: 0, y: 0, z: 0}
+  MaxDistance: 0

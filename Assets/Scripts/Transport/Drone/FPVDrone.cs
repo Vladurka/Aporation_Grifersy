@@ -29,7 +29,7 @@ public class FPVDrone : AbstractDrone
         int intDistance = (int)distance;
         TextDistance.text = $"{intDistance}m";
 
-        if (distance >= _maxDistance)
+        if (distance >= MaxDistance)
             Exit();
 
         if (Input.GetMouseButtonDown(0))

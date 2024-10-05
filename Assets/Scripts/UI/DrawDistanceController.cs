@@ -32,12 +32,12 @@ public class DrawDistanceController : MonoBehaviour
         _slider.minValue = 1000f;
         _slider.maxValue = 10000f;
 
-        if (PlayerPrefsSafe.HasKey(_key))
+        if (PlayerPrefs.HasKey(_key))
         {
             if (_slider != null)
                 _slider.value = PlayerPrefsSafe.GetFloat(_key);
         }
-        if (!PlayerPrefsSafe.HasKey(_key))
+        if (!PlayerPrefs.HasKey(_key))
             _slider.value = 3000f;
 
 
@@ -45,10 +45,10 @@ public class DrawDistanceController : MonoBehaviour
         {
             if (camera != null)
             {
-                if (PlayerPrefsSafe.HasKey(_key))
-                    camera.farClipPlane = PlayerPrefsSafe.GetFloat(_key);
+                if (PlayerPrefs.HasKey(_key))
+                    camera.farClipPlane = PlayerPrefs.GetFloat(_key);
 
-                if (!PlayerPrefsSafe.HasKey(_key))
+                if (!PlayerPrefs.HasKey(_key))
                     camera.farClipPlane = 3000f;
             }
         }
@@ -57,8 +57,8 @@ public class DrawDistanceController : MonoBehaviour
         {
             if (camera != null)
             {
-                if (PlayerPrefsSafe.HasKey(_key))
-                    camera.farClipPlane = PlayerPrefsSafe.GetFloat(_key);
+                if (PlayerPrefs.HasKey(_key))
+                    camera.farClipPlane = PlayerPrefs.GetFloat(_key);
 
                 if (!PlayerPrefsSafe.HasKey(_key))
                     camera.farClipPlane = 3000f;
@@ -84,6 +84,6 @@ public class DrawDistanceController : MonoBehaviour
     private void OnDestroy()
     {
         if(_slider != null)
-            PlayerPrefsSafe.SetFloat(_key, _slider.value);
+            PlayerPrefs.SetFloat(_key, _slider.value);
     }
 }

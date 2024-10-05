@@ -15,10 +15,10 @@ public class VolumeController : MonoBehaviour, IService
     {
         _capitalAudioSource = _capitalObject.GetComponentsInChildren<AudioSource>(true);
 
-        if (PlayerPrefsSafe.HasKey(_volumeKey))
-            _volumeSlider.value = PlayerPrefsSafe.GetFloat(_volumeKey);
+        if (PlayerPrefs.HasKey(_volumeKey))
+            _volumeSlider.value = PlayerPrefs.GetFloat(_volumeKey);
 
-        if (!PlayerPrefsSafe.HasKey(_volumeKey))
+        if (!PlayerPrefs.HasKey(_volumeKey))
             _volumeSlider.value = 0.3f;
 
         foreach (AudioSource source in _capitalAudioSource)
@@ -50,7 +50,7 @@ public class VolumeController : MonoBehaviour, IService
 
     private void OnDestroy()
     {
-        PlayerPrefsSafe.SetFloat(_volumeKey, _volumeSlider.value);
+        PlayerPrefs.SetFloat(_volumeKey, _volumeSlider.value);
     }
 
 }
