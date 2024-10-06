@@ -26,12 +26,12 @@ public class GameUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         _eventBus = ServiceLocator.Current.Get<EventBus>();
-        _eventBus.Subscribe<SetDie>(SetDie);
-        _eventBus.Subscribe<SetWin>(SetWin);
-        _eventBus.Subscribe<OpenShop>(OpenShop);
+        _eventBus.Subscribe<SetDie>(SetDie, 1);
+        _eventBus.Subscribe<SetWin>(SetWin, 1);
+        _eventBus.Subscribe<OpenShop>(OpenShop, 1);
         _eventBus.Subscribe<CloseShop>(CloseShop);
-        _eventBus.Subscribe<OpenBoard>(OpenBoard);
-        _eventBus.Subscribe<CloseBoard>(CloseBoard);
+        _eventBus.Subscribe<OpenBoard>(OpenBoard, 1);
+        _eventBus.Subscribe<CloseBoard>(CloseBoard, 1);
 
         ConstSystem.CanPause = true;
         ConstSystem.InCar = false;

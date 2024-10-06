@@ -21,7 +21,7 @@ public class PlayCutScene : MonoBehaviour
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
         _eventBus.Subscribe<PlayCut>(PlayCut, 1);
-        _eventBus.Subscribe<PlayLast>(PlayLastVideo);
+        _eventBus.Subscribe<PlayLast>(PlayLastVideo, 1);
 
         if(_loading == null)
             _loading = ServiceLocator.Current.Get<Loading>();

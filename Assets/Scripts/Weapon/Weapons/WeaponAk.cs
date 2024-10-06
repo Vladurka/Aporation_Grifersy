@@ -130,21 +130,24 @@ namespace Game.Weapon
 
         private void Reaload()
         {
-            int bulletsAdd = _maxBullets - Bullets;
+            int bulletsToAdd = _maxBullets - Bullets;
 
-            if (TotalBullets >= bulletsAdd)
+            if (TotalBullets >= bulletsToAdd)
             {
-                Bullets += bulletsAdd;
-                TotalBullets -= bulletsAdd;
+                Bullets += bulletsToAdd; 
+                TotalBullets -= bulletsToAdd; 
             }
-
-            if(TotalBullets < bulletsAdd)
+            else
             {
-                int bulletsMiss = TotalBullets - bulletsAdd;
-                bulletsAdd += bulletsMiss;
-                Bullets += bulletsAdd;
+                Bullets += TotalBullets; 
                 TotalBullets = 0;
             }
+
+            if (Bullets > _maxBullets)
+                Bullets = _maxBullets;
+
+            if (TotalBullets < 0)
+                TotalBullets = 0;
 
             _canShoot = true;
             _canReaload = true;

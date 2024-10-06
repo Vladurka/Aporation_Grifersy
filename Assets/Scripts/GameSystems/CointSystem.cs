@@ -3,7 +3,7 @@ using Game.SeniorEventBus.Signals;
 
 public class CoinSystem : IService
 {
-    public int Money = 10000;
+    public int Money;
 
     private EventBus _eventBus;
     public void Init()

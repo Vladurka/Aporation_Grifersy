@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private float _attackRange = 3f;
-    [SerializeField] private float _damage = 20f;
+    [SerializeField] private float _damage = 40f;
 
     private bool _started = false;
 
@@ -61,8 +61,6 @@ public class EnemyAttack : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent(out IPlayerHealth health))
                     health.GetDamage(_damage / 2);
-
-                Debug.Log(_damage);
             }
         }
     }

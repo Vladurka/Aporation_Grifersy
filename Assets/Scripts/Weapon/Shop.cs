@@ -13,7 +13,7 @@ public class Shop : MonoBehaviour, IService, IShop
 
     [Header("Base")]
     [SerializeField] private int _maxBaseUpgradeAmount = 4;
-    [SerializeField] private int _basePrice = 500;
+    [SerializeField] private int _basePrice = 600;
     [SerializeField] private Text _priceText;
     public int BaseUpgradeAmount = 0;
 
@@ -40,10 +40,10 @@ public class Shop : MonoBehaviour, IService, IShop
             _priceText.enabled = false;
 
         if (BaseUpgradeAmount == 1)
-            _basePrice = 600;
+            _basePrice = 800;
 
         if(BaseUpgradeAmount == 2)
-            _basePrice = 700;
+            _basePrice = 1000;
 
         _priceText.text = _basePrice.ToString() + "$";
     }
@@ -81,7 +81,7 @@ public class Shop : MonoBehaviour, IService, IShop
             _eventBus.Invoke(new BuyBase());
             _coinSystem.SpendMoney(_basePrice);
             BaseUpgradeAmount++;
-            _basePrice += 100;
+            _basePrice += 200;
             _priceText.text = _basePrice.ToString() + "$";
         }
 

@@ -40,6 +40,7 @@ namespace Game.Data
             _grenadeThrower = ServiceLocator.Current.Get<GrenadeThrower>();
             _changeWeapon = ServiceLocator.Current.Get<ChangeWeapon>();
             _droneLouncher = ServiceLocator.Current.Get<BaseDroneLouncher>();
+
             ConstSystem.CanSave = true;
         }
 

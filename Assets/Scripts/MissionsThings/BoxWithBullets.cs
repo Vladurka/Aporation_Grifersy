@@ -19,11 +19,13 @@ public class BoxWithBullets : MonoBehaviour, IBox
     {
        if (!_isOpen)
        {
+            _animator.SetTrigger("Open");
+
             _eventBus.Invoke(new BuyAkBullets(100));
             _eventBus.Invoke(new BuyRpgBullets(5));
             _eventBus.Invoke(new EndSignal());
+
             _isOpen = true;
-            _animator.SetTrigger("Open");
-       }
+        }
     }
 }

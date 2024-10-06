@@ -38,25 +38,37 @@ public class GraphicsController : MonoBehaviour
         #endregion
 
         #region Resolution
-
         _resolutions = Screen.resolutions;
-
         _resolutionDropdown.ClearOptions();
 
-        int currentResolutionIndex = 0;
+        int currentResolutionIndex;
+        List<string> options = new List<string>();
 
         for (int i = 0; i < _resolutions.Length; i++)
         {
             string option = _resolutions[i].width + " x " + _resolutions[i].height;
-            _resolutionDropdown.options.Add(new Dropdown.OptionData(option));
-
-            if (_resolutions[i].width == Screen.currentResolution.width &&
-                    _resolutions[i].height == Screen.currentResolution.height)
-                currentResolutionIndex = i;
+            options.Add(option);
         }
+
+        _resolutionDropdown.AddOptions(options);
 
         if (PlayerPrefsSafe.HasKey(_resolutionKey))
             currentResolutionIndex = PlayerPrefsSafe.GetInt(_resolutionKey);
+
+        else
+        {
+            int maxResolutionIndex = 0;
+            for (int i = 1; i < _resolutions.Length; i++)
+            {
+                if (_resolutions[i].width > _resolutions[maxResolutionIndex].width ||
+                    (_resolutions[i].width == _resolutions[maxResolutionIndex].width &&
+                     _resolutions[i].height > _resolutions[maxResolutionIndex].height))
+                {
+                    maxResolutionIndex = i;
+                }
+            }
+            currentResolutionIndex = maxResolutionIndex;
+        }
 
         ChangeResolution(currentResolutionIndex);
 
@@ -141,7 +153,12 @@ public class GraphicsController : MonoBehaviour
     public void ChangeResolution(int resolutionIndex)
     {
         Resolution resolution = _resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+        if(Screen.fullScreen)
+            Screen.SetResolution(resolution.width, resolution.height, true);
+
+        if (!Screen.fullScreen)
+            Screen.SetResolution(resolution.width, resolution.height, false);
 
         PlayerPrefsSafe.SetInt(_resolutionKey, resolutionIndex);
     }

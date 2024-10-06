@@ -42,48 +42,60 @@ namespace Game.Data
         {
             JSON_playerData data = JSON_saveSystem.Load<JSON_playerData>();
 
-            Vector3 _playerPosition = new Vector3();
-            _playerPosition.x = data.PlayerPositionData[0];
-            _playerPosition.y = data.PlayerPositionData[1];
-            _playerPosition.z = data.PlayerPositionData[2];
+            if (JSON_saveSystem.SaveExists())
+            {
+                if (data.PlayerPositionData != null && data.PlayerPositionData.Length == 3)
+                {
+                    Vector3 _playerPosition = new Vector3();
+                    _playerPosition.x = data.PlayerPositionData[0];
+                    _playerPosition.y = data.PlayerPositionData[1];
+                    _playerPosition.z = data.PlayerPositionData[2];
 
-            CharacterController controller = _playerMove.GetComponent<CharacterController>();
-            controller.detectCollisions = false;
-            controller.Move( _playerPosition - _playerMove.transform.position);
-            controller.detectCollisions = true;
+                    CharacterController controller = _playerMove.GetComponent<CharacterController>();
+                    controller.enabled = false;
+                    _playerMove.transform.position = _playerPosition;
+                    controller.enabled = true;
+                }
 
-            _playerHealth.Health = data.HpData;
+                _playerHealth.Health = data.HpData;
 
-            Vector3 _helicopterPosition = new Vector3();
-            _helicopterPosition.x = data.HelicopterPositionData[0];
-            _helicopterPosition.y = data.HelicopterPositionData[1];
-            _helicopterPosition.z = data.HelicopterPositionData[2];
-            _helicopter.transform.position = _helicopterPosition;
-            _helicopterStatesController.HelicopterState = data.HelicopterConditionData;
+                if (data.HelicopterPositionData != null && data.HelicopterConditionData != null && data.HelicopterPositionData.Length == 3)
+                {
+                    Vector3 _helicopterPosition = new Vector3();
+                    _helicopterPosition.x = data.HelicopterPositionData[0];
+                    _helicopterPosition.y = data.HelicopterPositionData[1];
+                    _helicopterPosition.z = data.HelicopterPositionData[2];
+                    _helicopter.transform.position = _helicopterPosition;
+                    _helicopterStatesController.HelicopterState = data.HelicopterConditionData;
+                }
 
-            Vector3 _carPosition = new Vector3();
-            _carPosition.x = data.CarPositionData[0];
-            _carPosition.y = data.CarPositionData[1];
-            _carPosition.z = data.CarPositionData[2];
-            _car.transform.position = _carPosition;
+                if (data.CarPositionData != null && data.CarPositionData.Length == 3)
+                {
+                    Vector3 _carPosition = new Vector3();
+                    _carPosition.x = data.CarPositionData[0];
+                    _carPosition.y = data.CarPositionData[1];
+                    _carPosition.z = data.CarPositionData[2];
+                    _car.transform.position = _carPosition;
+                }
 
-            _changeWeapon.SyrgineAmount = data.SyrgineAmount;
+                _changeWeapon.SyrgineAmount = data.SyrgineAmount;
 
-            _weaponAk.Bullets = data.AKBulletsData;
-            _weaponAk.TotalBullets = data.AKTotalBulletsData;
+                _weaponAk.Bullets = data.AKBulletsData;
+                _weaponAk.TotalBullets = data.AKTotalBulletsData;
 
-            _rpg.TotalBullets = data.RPGTotalBulletsData;
+                _rpg.TotalBullets = data.RPGTotalBulletsData;
 
-            _grenadeThrower.Grenades = data.GrenadesData;
+                _grenadeThrower.Grenades = data.GrenadesData;
 
-            _scopeLevels.ScopeLevel = data.ScopeLevelData;
+                _scopeLevels.ScopeLevel = data.ScopeLevelData;
 
-            _droneLouncher.DronesAmount = data.DronesAmountData;
+                _droneLouncher.DronesAmount = data.DronesAmountData;
 
-            _coinSystem.Money = data.MoneyData;
+                _coinSystem.Money = data.MoneyData;
 
-            _baseStates.BaseLevel = data.BaseLevelData;
-            _shop.BaseUpgradeAmount = data.BaseLevelData;
+                _baseStates.BaseLevel = data.BaseLevelData;
+                _shop.BaseUpgradeAmount = data.BaseLevelData;
+            }
         }
     }
 }

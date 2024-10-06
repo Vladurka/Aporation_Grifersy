@@ -6,9 +6,12 @@ public class EndMission : MonoBehaviour
 {
     [SerializeField] private int _signalsNeeded = 2;
     [SerializeField] private int _index = 0;
-    [SerializeField] private float _time = 1f;
     [SerializeField] private int _signals = 0;
     [SerializeField] private int _money = 1000;
+
+    [SerializeField] private float _time = 1f;
+
+    [SerializeField] private bool _saveBefore = false;
 
     private bool _isStarted = false;
 
@@ -29,6 +32,9 @@ public class EndMission : MonoBehaviour
         {
             Invoke("EndGame", _time);
             _eventBus.Invoke(new MoneyAdd(_money));
+
+            if (_saveBefore)
+                _eventBus.Invoke(new SaveDataSignal());
         }
     }
 

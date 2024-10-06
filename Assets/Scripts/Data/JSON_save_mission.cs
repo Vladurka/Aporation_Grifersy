@@ -57,11 +57,10 @@ namespace Game.Data
             existingData.RPGTotalBulletsData = _rpg.TotalBullets;
             existingData.GrenadesData = _grenadeThrower.Grenades;
             existingData.ScopeLevelData = _scopeLevels.ScopeLevel;
-
-            if(_saveDrones)
-                existingData.DronesAmountData = _droneLouncher.DronesAmount;
-
             existingData.MoneyData = _coinSystem.Money;
+
+            if (_saveDrones)
+                existingData.DronesAmountData = _droneLouncher.DronesAmount;
 
             JSON_saveSystem.Save(existingData);
         }

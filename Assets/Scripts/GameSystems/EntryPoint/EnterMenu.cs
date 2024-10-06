@@ -9,6 +9,8 @@ public class EnterMenu : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
+
         _akSkin.Init();
         _rpgSkin.Init();
         _knifeSkin.Init();
