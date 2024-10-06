@@ -147,6 +147,8 @@ public class GameUI : MonoBehaviour
     #region Shop
     private void OpenShop(OpenShop open)
     {
+        _eventBus.Invoke(new SaveDataSignal());
+
         Cursor.lockState = CursorLockMode.None;
         ConstSystem.IsBeasy = true;
         _mainCharacter.SetActive(false);
@@ -169,6 +171,8 @@ public class GameUI : MonoBehaviour
     #region TaskBoad
     private void OpenBoard(OpenBoard open)
     {
+        _eventBus.Invoke(new SaveDataSignal());
+
         Cursor.lockState = CursorLockMode.None;
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);

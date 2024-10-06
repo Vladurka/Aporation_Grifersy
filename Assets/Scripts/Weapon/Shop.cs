@@ -39,12 +39,18 @@ public class Shop : MonoBehaviour, IService, IShop
         if (BaseUpgradeAmount >= _maxBaseUpgradeAmount)
             _priceText.enabled = false;
 
-        _priceText.text = _basePrice.ToString();
+        if (BaseUpgradeAmount == 1)
+            _basePrice = 600;
+
+        if(BaseUpgradeAmount == 2)
+            _basePrice = 700;
+
+        _priceText.text = _basePrice.ToString() + "$";
     }
 
     public void BuySkope(ScopesParametrs scope)
     {
-        if (scope.Condition == 0 && _coinSystem.Money >= scope.Price)
+        if (scope.Condition <= 0 && _coinSystem.Money >= scope.Price)
         {
             _coinSystem.SpendMoney(scope.Price);
             _eventBus.Invoke(new GetScope(scope.Level));
@@ -61,7 +67,7 @@ public class Shop : MonoBehaviour, IService, IShop
                 button.interactable = false;
         }
 
-        if (scope.Condition == 1)
+        if (scope.Condition >= 1)
         {
             _eventBus.Invoke(new GetScope(scope.Level));
             _eventBus.Invoke(new SetScopeCondition());

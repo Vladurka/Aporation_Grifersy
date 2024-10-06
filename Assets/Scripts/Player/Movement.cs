@@ -34,11 +34,9 @@ public class Movement : MonoBehaviour, IService
         if (_controller.isGrounded)
         {
             SetMoveDirection();
-            if (Input.GetButton("Jump"))
-            {
-                Jump();
-            }
 
+            if (Input.GetButton("Jump"))
+                Jump();
         }
         _moveDirection.y -= _gravity * Time.deltaTime;
         _controller.Move(_moveDirection * Time.deltaTime);

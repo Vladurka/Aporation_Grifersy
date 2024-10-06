@@ -68,8 +68,6 @@ public class GraphicsController : MonoBehaviour
 
         _refreshRate = Screen.currentResolution.refreshRateRatio;
         _targetFPS = _refreshRate.numerator / _refreshRate.denominator + 1;
-        Debug.Log(_targetFPS);
-
 
         if (PlayerPrefsSafe.HasKey(_fpsKey))
             SetFPS(PlayerPrefsSafe.GetInt(_fpsKey));

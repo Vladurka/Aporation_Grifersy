@@ -62,13 +62,13 @@ public class EnterMission : MonoBehaviour
     {
         _mainCharacter.SetActive(true);
 
-        _saveDataJson.Init();
         _loadDataJson.Init();
 
-        if(_load)
+        if (_load)
             _loadDataJson.Load();
 
-        _changeWeapon.Init();
+        _saveDataJson.Init();
+
         _gamePanel.Init();
         _playerHealth.Init();
         _movement.Init();
@@ -76,28 +76,30 @@ public class EnterMission : MonoBehaviour
         _rpg.Init();
         _knife.Init();
         _enemyListController.Init();
+        _raycasts.Init();
         _cameraController.Init();
         _coinSystem.Init();
         _scopeLevels.Init();
         _grenadeThrower.Init();
-        _raycasts.Init();
-
-        if(_droneLouncher != null)
-            _droneLouncher.Init();
 
         if (_playCutScene != null)
             _playCutScene.Init();
+
+        _changeAkSkin.Init();
+        _changeKnifeSkin.Init();
+        _changeRpgSkin.Init();
+
+        if (_droneLouncher != null)
+            _droneLouncher.Init();
 
         _akAnim.Init();
         _rpgAnim.Init();
         _grenadeAnim.Init();
         _knifeAnim.Init();
 
-        _changeAkSkin.Init();
-        _changeKnifeSkin.Init();
-        _changeRpgSkin.Init();
-
         _gameUI.Init();
+
+        _changeWeapon.Init();
 
         Debug.Log("Initializated");
     }

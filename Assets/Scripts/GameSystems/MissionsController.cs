@@ -69,7 +69,7 @@ public class MissionsController : MonoBehaviour
         if (missionCondition <= 0)
             SetButtonState(_missionsButtons[0], true, Color.white);
 
-        if (missionCondition > 0 && missionCondition < _missionsButtons.Length)
+        else if (missionCondition > 0 && missionCondition < _missionsButtons.Length)
         {
             SetButtonState(_missionsButtons[missionCondition - 1], false, Color.red);
 
@@ -79,7 +79,7 @@ public class MissionsController : MonoBehaviour
                 SetButtonState(_missionsButtons[i], false, Color.green);
         }
 
-        if (missionCondition >= 10)
+        else if (missionCondition >= 10)
             ResetButtonStates();
 
         else

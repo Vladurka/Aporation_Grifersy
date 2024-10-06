@@ -46,8 +46,8 @@ namespace Game
         [Header("Else")]
         [SerializeField] private Raycasts _raycasts;
         [SerializeField] private BaseStates _baseStates;
-        [SerializeField] private JSON_load _loadDataJson;
         [SerializeField] private JSON_save _saveDataJson;
+        [SerializeField] private JSON_load _loadDataJson;
         [SerializeField] private Shop _shop;
         [SerializeField] private PlayCutScene _playCutScene;
         [SerializeField] private MissionsController _missionsController;
@@ -61,14 +61,12 @@ namespace Game
         private EnemyListController _enemyListController;
         private EventBus _eventBus;
         private CoinSystem _coinSystem;
-        private BuckwheatController _buckwheatController;
 
         private void Awake()
         {
             _eventBus = new EventBus();
             _enemyListController = new EnemyListController();
             _coinSystem = new CoinSystem();
-            _buckwheatController = new BuckwheatController();
 
            Register();
            Init();
@@ -102,14 +100,15 @@ namespace Game
             _baseStates.Init();
             _cameraController.Init();
             _coinSystem.Init();
-            _buckwheatController.Init();
             _scopeLevels.Init();
             _shop.Init();
+
             _changeAkSkin.Init();
             _changeKnifeSkin.Init();
             _grenadeThrower.Init();
             _changeSkinCar.Init();
             _changeRpgSkin.Init();
+
             _playCutScene.Init();
             _missionsController.Init();
             _droneLouncher.Init();
@@ -140,7 +139,6 @@ namespace Game
             ServiceLocator.Current.Register<WeaponAk>(_weaponAk);
             ServiceLocator.Current.Register<Raycasts>(_raycasts);
             ServiceLocator.Current.Register<CoinSystem>(_coinSystem);
-            ServiceLocator.Current.Register<BuckwheatController>(_buckwheatController);
             ServiceLocator.Current.Register<BaseStates>(_baseStates);
             ServiceLocator.Current.Register<HelicopterStatesController>(_helicopterStatesController);
             ServiceLocator.Current.Register<CameraController>(_cameraController);

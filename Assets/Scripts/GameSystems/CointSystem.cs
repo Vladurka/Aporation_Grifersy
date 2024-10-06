@@ -1,10 +1,9 @@
-using UnityEngine;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 
 public class CoinSystem : IService
 {
-    public int Money;
+    public int Money = 10000;
 
     private EventBus _eventBus;
     public void Init()

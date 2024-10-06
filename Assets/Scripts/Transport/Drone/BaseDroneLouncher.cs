@@ -10,6 +10,7 @@ public class BaseDroneLouncher : AbstractDroneLouncher, IService
         _eventBus.Subscribe<BuyDrone>(BuyDrone, 1);
 
         _mainCharacter = gameObject;
+
         _eventBus.Invoke(new UpdateDrone(DronesAmount));
     }
 
