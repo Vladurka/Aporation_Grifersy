@@ -31,7 +31,7 @@ public class Bomb : MonoBehaviour
             if (hit.transform.TryGetComponent(out IEnemyHealth enemy))
                 enemy.GetDamage(100f);
 
-            if (hit.transform.TryGetComponent(out ITargetHealth target) && !target.IsArmored)
+            if (hit.transform.TryGetComponent(out ITargetHealth target))
                 target.Destroy();
         }
 

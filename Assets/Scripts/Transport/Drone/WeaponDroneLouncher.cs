@@ -1,9 +1,13 @@
 using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class WeaponDroneLouncher : AbstractDroneLouncher, IService
 {
+    [SerializeField] private GameObject _lostConectionPanel;
+    [SerializeField] private VideoPlayer _video;
+
     private int DroneLounched = 0;
     private void Start()
     {
@@ -28,6 +32,8 @@ public class WeaponDroneLouncher : AbstractDroneLouncher, IService
                 newDrone.TextDistance = _distanceText;
                 newDrone.BatteryText = _batteryText;
                 newDrone.MaxDistance = _maxDistance;
+                newDrone.LostConnectionPanel = _lostConectionPanel;
+                newDrone.Video = _video;
                 newDrone.CharacterPos = new Vector3(transform.position.x, transform.position.y - 0.77f, transform.position.z);
 
                 _nameText.text = _droneName1.ToString();

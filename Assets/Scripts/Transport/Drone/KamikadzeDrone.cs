@@ -1,10 +1,13 @@
 using Game.SeniorEventBus.Signals;
 using Game.SeniorEventBus;
+using UnityEngine.Video;
 using System.Collections;
 using UnityEngine;
 
 public class KamikadzeDrone : AbstractDrone
 {
+    [HideInInspector] public GameObject LostConnectionPanel;
+    [HideInInspector] public VideoPlayer Video;
     private void Start()
     {
         _eventBus = ServiceLocator.Current.Get<EventBus>();
@@ -129,6 +132,7 @@ public class KamikadzeDrone : AbstractDrone
     {
         if (ConstSystem.CanExit)
         {
+            PlayVideo();
             _eventBus.Invoke(new SetDronePanel(false));
             _camera.enabled = false;
             MainCharacter.SetActive(true);
@@ -139,6 +143,19 @@ public class KamikadzeDrone : AbstractDrone
             Destroy(_gamer);
             Destroy(gameObject);
         }
+    }
+
+    private void PlayVideo()
+    {
+        LostConnectionPanel.SetActive(true);
+        Video.Play();
+        Video.loopPointReached += (vp) => StopPlay();
+    }
+
+    private void StopPlay()
+    {
+        Video.Stop();
+        LostConnectionPanel.SetActive(false);
     }
 
     public override void TransportReset()
