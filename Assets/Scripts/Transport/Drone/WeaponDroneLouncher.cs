@@ -29,6 +29,7 @@ public class WeaponDroneLouncher : AbstractDroneLouncher, IService
                     newDrone.DroneSpawn = pos;
                     newDrone.TextDistance = _distanceText;
                     newDrone.BatteryText = _batteryText;
+                    newDrone.MaxDistance = _maxDistance;
                     newDrone.CharacterPos = new Vector3(transform.position.x, transform.position.y - 0.77f, transform.position.z);
 
                     _nameText.text = _droneName1.ToString();
@@ -36,14 +37,16 @@ public class WeaponDroneLouncher : AbstractDroneLouncher, IService
 
                 else
                 {
-                   FPVDrone newDrone = Instantiate(_fpv, _lounchPos.position, _lounchPos.rotation);
+                    FPVDrone newDrone = Instantiate(_fpv, _lounchPos.position, _lounchPos.rotation);
 
                     newDrone.MainCharacter = _mainCharacter;
                     newDrone.GamePanel = _panel;
                     newDrone.DroneSpawn = pos;
                     newDrone.TextDistance = _distanceText;
                     newDrone.BatteryText = _batteryText;
+                    newDrone.MaxDistance = _maxDistance;
                     newDrone.CharacterPos = new Vector3(transform.position.x, transform.position.y - 0.77f, transform.position.z);
+
                     _nameText.text = _droneName2.ToString();
                 }
 

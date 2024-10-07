@@ -31,7 +31,7 @@ public class Hostage : MonoBehaviour, IHostage
             _animator.SetBool("Run", true);
             _agent.SetDestination(_target.position);
 
-            if (Vector3.Distance(transform.position, _target.position) <= 2f)
+            if (Vector3.Distance(transform.position, _target.position) <= 3f)
             {
                 _eventBus.Invoke(new SaveHostage());
                 Destroy(gameObject);

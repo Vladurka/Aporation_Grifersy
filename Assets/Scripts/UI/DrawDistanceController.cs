@@ -32,58 +32,31 @@ public class DrawDistanceController : MonoBehaviour
         _slider.minValue = 1000f;
         _slider.maxValue = 10000f;
 
-        if (PlayerPrefs.HasKey(_key))
-        {
-            if (_slider != null)
-                _slider.value = PlayerPrefsSafe.GetFloat(_key);
-        }
-        if (!PlayerPrefs.HasKey(_key))
+        if (PlayerPrefsSafe.HasKey(_key))
+            _slider.value = PlayerPrefsSafe.GetFloat(_key);
+
+        else
             _slider.value = 3000f;
-
-
-        foreach (Camera camera in _cameras)
-        {
-            if (camera != null)
-            {
-                if (PlayerPrefs.HasKey(_key))
-                    camera.farClipPlane = PlayerPrefs.GetFloat(_key);
-
-                if (!PlayerPrefs.HasKey(_key))
-                    camera.farClipPlane = 3000f;
-            }
-        }
-
-        foreach (Camera camera in _camerasItems)
-        {
-            if (camera != null)
-            {
-                if (PlayerPrefs.HasKey(_key))
-                    camera.farClipPlane = PlayerPrefs.GetFloat(_key);
-
-                if (!PlayerPrefsSafe.HasKey(_key))
-                    camera.farClipPlane = 3000f;
-            }
-        }
     }
 
     private void Update()
     {
         foreach (Camera camera in _cameras)
         {
-            if (camera != null && _slider != null)
+            if (camera != null)
                 camera.farClipPlane = _slider.value;
         }
 
         foreach (Camera camera in _camerasItems)
         {
-            if (camera != null && _slider != null)
+            if (camera != null)
                 camera.farClipPlane = _slider.value;
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        if(_slider != null)
-            PlayerPrefs.SetFloat(_key, _slider.value);
+        PlayerPrefsSafe.SetFloat(_key, _slider.value);
+        Debug.Log(_slider.value);
     }
 }

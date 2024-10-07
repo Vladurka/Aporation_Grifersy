@@ -34,7 +34,10 @@ public class EndMission : MonoBehaviour
             _eventBus.Invoke(new MoneyAdd(_money));
 
             if (_saveBefore)
+            {
+                ConstSystem.CanSave = true;
                 _eventBus.Invoke(new SaveDataSignal());
+            }
         }
     }
 

@@ -151,9 +151,11 @@ public class GameUI : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         ConstSystem.IsBeasy = true;
+        ConstSystem.CanPause = false;
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);
         _shopPanel.SetActive(true);
+
         Time.timeScale = 0f;
     }
 
@@ -161,6 +163,7 @@ public class GameUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         ConstSystem.IsBeasy = false;
+        ConstSystem.CanPause = true;
         _shopPanel.SetActive(false);
         _mainCharacter.SetActive(true);
         _uiCamera.SetActive(false);
@@ -178,6 +181,7 @@ public class GameUI : MonoBehaviour
         _uiCamera.SetActive(true);
         _levelsPanel.SetActive(true);
         ConstSystem.IsBeasy = true;
+        ConstSystem.CanPause = false;
         Time.timeScale = 0f;
     }
 
@@ -188,6 +192,7 @@ public class GameUI : MonoBehaviour
         _uiCamera.SetActive(false);
         _mainCharacter.SetActive(true);
         ConstSystem.IsBeasy = false;
+        ConstSystem.CanPause = true;
         Time.timeScale = 1f;
     }
     #endregion

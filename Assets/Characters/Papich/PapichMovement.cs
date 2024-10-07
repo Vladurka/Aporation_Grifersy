@@ -95,7 +95,7 @@ public class PapichMovement : MonoBehaviour, IService
         _animator.SetBool("Walk", true);
         _agent.SetDestination(_points[_index].transform.position);
 
-        if (_agent.remainingDistance <= 2f)
+        if (_agent.remainingDistance <= 3f)
         {
             _index = Random.Range(0, _points.Length);
             return;
