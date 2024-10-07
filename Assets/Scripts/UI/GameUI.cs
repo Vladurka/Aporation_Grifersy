@@ -150,7 +150,6 @@ public class GameUI : MonoBehaviour
         _eventBus.Invoke(new SaveDataSignal());
 
         Cursor.lockState = CursorLockMode.None;
-        ConstSystem.IsBeasy = true;
         ConstSystem.CanPause = false;
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);
@@ -162,7 +161,6 @@ public class GameUI : MonoBehaviour
     private void CloseShop(CloseShop close)
     {
         Time.timeScale = 1f;
-        ConstSystem.IsBeasy = false;
         ConstSystem.CanPause = true;
         _shopPanel.SetActive(false);
         _mainCharacter.SetActive(true);
@@ -180,7 +178,6 @@ public class GameUI : MonoBehaviour
         _mainCharacter.SetActive(false);
         _uiCamera.SetActive(true);
         _levelsPanel.SetActive(true);
-        ConstSystem.IsBeasy = true;
         ConstSystem.CanPause = false;
         Time.timeScale = 0f;
     }
@@ -191,7 +188,6 @@ public class GameUI : MonoBehaviour
         _levelsPanel.SetActive(false);
         _uiCamera.SetActive(false);
         _mainCharacter.SetActive(true);
-        ConstSystem.IsBeasy = false;
         ConstSystem.CanPause = true;
         Time.timeScale = 1f;
     }

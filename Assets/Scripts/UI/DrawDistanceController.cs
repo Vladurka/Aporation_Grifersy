@@ -57,6 +57,5 @@ public class DrawDistanceController : MonoBehaviour
     private void OnDisable()
     {
         PlayerPrefsSafe.SetFloat(_key, _slider.value);
-        Debug.Log(_slider.value);
     }
 }
