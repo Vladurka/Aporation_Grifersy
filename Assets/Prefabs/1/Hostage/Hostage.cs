@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Hostage : MonoBehaviour, IHostage
+public class Hostage : MonoBehaviour, IHostage, IInteractable
 {
     [SerializeField] private Transform _target;
 

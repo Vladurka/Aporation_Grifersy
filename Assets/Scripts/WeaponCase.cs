@@ -2,7 +2,7 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
-public class WeaponCase : MonoBehaviour, IBox
+public class WeaponCase : MonoBehaviour, IBox, IInteractable
 {
     [SerializeField] private GameObject _weaponController;
     private Animator _animator;

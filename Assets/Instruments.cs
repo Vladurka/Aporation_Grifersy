@@ -1,7 +1,7 @@
 using UnityEngine;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
-public class Instruments : MonoBehaviour, IInstrument
+public class Instruments : MonoBehaviour, IInstrument, IInteractable
 {
     private EventBus _eventBus;
     private void Start()

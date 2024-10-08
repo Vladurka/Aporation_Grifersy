@@ -2,7 +2,7 @@ using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 using UnityEngine;
 
-public class BoxWithBullets : MonoBehaviour, IBox
+public class BoxWithBullets : MonoBehaviour, IBox, IInteractable
 {
     private Animator _animator;
     private bool _isOpen = false;

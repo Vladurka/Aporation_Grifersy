@@ -49,15 +49,13 @@ public class Raycasts : MonoBehaviour, IService
                     else
                         EnableText(_fixText);
                 }
+
                 else if (hit.collider.CompareTag("Car"))
-                {
                     transport.Enter();
-                }
             }
 
             if (hit.collider.TryGetComponent(out IShop shop)) shop.Open();
             if (hit.collider.TryGetComponent(out IBox box)) box.Open();
-            if (hit.collider.TryGetComponent(out IDoor door) && hit.collider.CompareTag("Door")) door.Open();
             if (hit.collider.TryGetComponent(out IInstrument instrument)) instrument.Get();
             if (hit.collider.TryGetComponent(out ITaskBoard board)) board.Open();
             if (hit.collider.TryGetComponent(out IHostage hostage)) hostage.Save();

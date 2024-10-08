@@ -3,7 +3,7 @@ using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour, IService, IShop
+public class Shop : MonoBehaviour, IService, IShop, IInteractable
 {
     [Header("Bullets")]
     [SerializeField] private int _akBulletsAmount = 30;

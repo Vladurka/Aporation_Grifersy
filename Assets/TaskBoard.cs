@@ -2,7 +2,7 @@ using UnityEngine;
 using Game.SeniorEventBus;
 using Game.SeniorEventBus.Signals;
 
-public class TaskBoard : MonoBehaviour, ITaskBoard
+public class TaskBoard : MonoBehaviour, ITaskBoard, IInteractable
 {
     private EventBus _eventBus;
 

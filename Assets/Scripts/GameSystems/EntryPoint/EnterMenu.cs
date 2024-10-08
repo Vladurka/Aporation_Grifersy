@@ -10,6 +10,7 @@ public class EnterMenu : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
 
         _akSkin.Init();
         _rpgSkin.Init();
