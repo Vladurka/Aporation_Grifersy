@@ -132,6 +132,7 @@ public class FPVDrone : AbstractDrone
         _eventBus.Invoke(new SetCurrentBullets(false));
         _eventBus.Invoke(new SetTotalBullets(false));
         _eventBus.Invoke(new SetDronePanel(true));
+        _eventBus.Invoke(new EnterTransport());
         ConstSystem.InTransport = true;
         ConstSystem.InDrone = true;
         _audioSource.Play();
@@ -145,12 +146,11 @@ public class FPVDrone : AbstractDrone
         if (ConstSystem.CanExit)
         {
             _eventBus.Invoke(new SetDronePanel(false));
+            _eventBus.Invoke(new ExitTransport());
             _camera.enabled = false;
-            MainCharacter.SetActive(true);
             ConstSystem.InTransport = false;
             ConstSystem.InDrone = false;
-            _audioSource.Stop();
-            GamePanel.SetActive(true);
+            _audioSource.Stop(); 
             Destroy(_gamer);
             Destroy(gameObject);
         }

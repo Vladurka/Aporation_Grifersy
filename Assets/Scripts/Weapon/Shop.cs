@@ -3,7 +3,7 @@ using Game.SeniorEventBus.Signals;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour, IService, IShop, IInteractable
+public class Shop : MonoBehaviour, IService, IShop, IInteractable, IOpenClose
 {
     [Header("Bullets")]
     [SerializeField] private int _akBulletsAmount = 30;
@@ -145,7 +145,7 @@ public class Shop : MonoBehaviour, IService, IShop, IInteractable
         _eventBus.Invoke(new OpenShop());
     }
 
-        public void Close()
+    public void Close()
     {
         _eventBus.Invoke(new CloseShop());
     }

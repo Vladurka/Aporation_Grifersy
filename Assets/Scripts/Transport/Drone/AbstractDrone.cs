@@ -12,7 +12,11 @@ public abstract class AbstractDrone : AbstractTransport
     [SerializeField] protected float _targetRotationSpeed = 25f;
 
     [SerializeField] protected GameObject _gamerPrefab;
+
     protected GameObject _gamer;
+
+    [HideInInspector] public GameObject MainCharacter;
+    [HideInInspector] public GameObject GamePanel;
 
     [HideInInspector] public Text TextDistance;
     [HideInInspector] public Text BatteryText;

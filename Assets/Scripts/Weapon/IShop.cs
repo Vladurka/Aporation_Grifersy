@@ -6,6 +6,4 @@ public interface IShop
     public void BuyRpgBullets(int price);
     public void BuyGrenade(int price);
     public void BuySyrgine(int price);
-    public void Open();
-    public void Close();
 }

@@ -159,6 +159,20 @@ public class Car : AbstractTransport, IService
             _rb.AddForceAtPosition(rightWheel.transform.up * antiRollForce, rightWheel.transform.position);
     }
 
+    public override void Enter()
+    {
+        this.enabled = true;
+        _audioSourceStart.Play();
+        _camera.enabled = true;
+        _eventBus.Invoke(new SetSpeedometer(true));
+        _eventBus.Invoke(new SetCurrentBullets(false));
+        _eventBus.Invoke(new SetTotalBullets(false));
+        _eventBus.Invoke(new EnterTransport());
+        ConstSystem.InTransport = true;
+        ConstSystem.InCar = true;
+        _driver.SetActive(true);
+    }
+
     public override void Exit()
     {
         if (ConstSystem.CanExit)
@@ -173,30 +187,13 @@ public class Car : AbstractTransport, IService
             _audioSourceStart.Stop();
 
             _camera.enabled = false;
-            MainCharacter.transform.position = _spawnCharacter.position;
-            MainCharacter.SetActive(true);
             _eventBus.Invoke(new SetSpeedometer(false));
+            _eventBus.Invoke(new ExitTransport(_spawnCharacter));
             this.enabled = false;
             ConstSystem.InTransport = false;
             ConstSystem.InCar = false;
-            GamePanel.SetActive(true);
             _driver.SetActive(false);
         }
-    }
-
-    public override void Enter()
-    {
-        this.enabled = true;
-        _audioSourceStart.Play();
-        _camera.enabled = true;
-        _eventBus.Invoke(new SetSpeedometer(true));
-        MainCharacter.SetActive(false);
-        _eventBus.Invoke(new SetCurrentBullets(false));
-        _eventBus.Invoke(new SetTotalBullets(false));
-        ConstSystem.InTransport = true;
-        ConstSystem.InCar = true;
-        GamePanel.SetActive(false);
-        _driver.SetActive(true);
     }
 
     public override void TransportReset()

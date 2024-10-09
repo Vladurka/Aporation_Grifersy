@@ -32,6 +32,8 @@ public class GameUI : MonoBehaviour
         _eventBus.Subscribe<CloseShop>(CloseShop);
         _eventBus.Subscribe<OpenBoard>(OpenBoard, 1);
         _eventBus.Subscribe<CloseBoard>(CloseBoard, 1);
+        _eventBus.Subscribe<EnterTransport>(EnterTransport, 1);
+        _eventBus.Subscribe<ExitTransport>(ExitTransport, 1);
 
         ConstSystem.CanPause = true;
         ConstSystem.InCar = false;
@@ -192,6 +194,27 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 1f;
     }
     #endregion
+
+    #region Transport
+
+    private void EnterTransport(EnterTransport transport)
+    {
+        _mainCharacter.SetActive(false);
+        _gamePanel.SetActive(false);
+    }
+
+    private void ExitTransport(ExitTransport transport)
+    {
+        if (transport.Position != null)
+            _mainCharacter.transform.position = transport.Position.position;
+
+        _mainCharacter.SetActive(true);
+        _gamePanel.SetActive(true);
+    }
+
+    #endregion
+
+    #region Die Win
     private void SetDie(SetDie set)
     {
         Cursor.lockState = CursorLockMode.None;
@@ -224,6 +247,7 @@ public class GameUI : MonoBehaviour
 
         _isCompleted = true;
     }
+    #endregion
 
     private void OnDestroy()
     {
@@ -235,6 +259,8 @@ public class GameUI : MonoBehaviour
             _eventBus.Unsubscribe<CloseShop>(CloseShop);
             _eventBus.Unsubscribe<OpenBoard>(OpenBoard);
             _eventBus.Unsubscribe<CloseBoard>(CloseBoard);
+            _eventBus.Unsubscribe<EnterTransport>(EnterTransport);
+            _eventBus.Unsubscribe<ExitTransport>(ExitTransport);
         }
     }
 }

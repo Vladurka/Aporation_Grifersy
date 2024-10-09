@@ -330,14 +330,14 @@ MonoBehaviour:
   _forwardSpeed: 0
   _spawnCharacter: {fileID: 0}
   _camera: {fileID: 2650496509803295053}
-  MainCharacter: {fileID: 0}
-  GamePanel: {fileID: 0}
   _rotationSpeed: 100
   _liftForce: 100
   _stopDuration: 1.5
   _targetForwardSpeed: 15
   _targetRotationSpeed: 25
   _gamerPrefab: {fileID: 138149849404116723, guid: 2be9dcf59bedd1a47a4fc4eb3c291be6, type: 3}
+  MainCharacter: {fileID: 0}
+  GamePanel: {fileID: 0}
   TextDistance: {fileID: 0}
   BatteryText: {fileID: 0}
   DroneSpawn: {x: 1322.9811, y: 11.105637, z: 531.86194}

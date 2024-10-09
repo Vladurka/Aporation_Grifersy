@@ -13,6 +13,7 @@ public class AbstractDroneLouncher : MonoBehaviour
     [SerializeField] protected Text _nameText;
     [SerializeField] protected GameObject _panel;
     [SerializeField] protected float _maxDistance = 400f;
+
     protected GameObject _mainCharacter;
 
     [SerializeField] protected string _droneName1 = "Drone1";

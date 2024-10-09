@@ -65,13 +65,12 @@ public class PlaneController : MonoBehaviour, IService
         }
 
         if (CanFly)
-        {
             Movement();
-        }
 
         if (Input.GetKey(KeyCode.Space) && FlySpeed < _maxSpeed)
         {
             FlySpeed += Force;
+
             if (_engineSound.volume <= 0.05f)
                 _engineSound.volume += 0.00001f;
         }
@@ -79,6 +78,7 @@ public class PlaneController : MonoBehaviour, IService
         if (Input.GetKey(KeyCode.LeftShift) && FlySpeed > _minSpeed + 1f)
         {
             FlySpeed -= Force;
+
             if (_engineSound.volume >= 0.01f)
                 _engineSound.volume -= 0.00001f;
         }
