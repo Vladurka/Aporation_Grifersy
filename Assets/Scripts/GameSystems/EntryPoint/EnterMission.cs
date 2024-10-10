@@ -7,7 +7,6 @@ using Game.Data;
 public class EnterMission : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Movement _movement;
     [SerializeField] private CameraController _cameraController;
@@ -60,8 +59,6 @@ public class EnterMission : MonoBehaviour
 
     private void Init()
     {
-        _mainCharacter.SetActive(true);
-
         _loadDataJson.Init();
 
         if (_load)

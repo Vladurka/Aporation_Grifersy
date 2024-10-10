@@ -41,6 +41,8 @@ public class GameUI : MonoBehaviour
         ConstSystem.CanSave = true;
         ConstSystem.InDrone = false;
 
+        _mainCharacter.SetActive(true);
+
         if (_shopPanel != null)
             _shopPanel.SetActive(false);
 

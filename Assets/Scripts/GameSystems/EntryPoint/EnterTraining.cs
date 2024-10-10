@@ -6,7 +6,6 @@ using Game.SeniorEventBus;
 public class EnterTraining : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] private GameObject _mainCharacter;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Movement _movement;
     [SerializeField] private CameraController _cameraController;
@@ -61,9 +60,6 @@ public class EnterTraining : MonoBehaviour
 
     private void Init()
     {
-        _mainCharacter.SetActive(true);
-
-
         _gamePanel.Init();
         _playerHealth.Init();
         _movement.Init();
