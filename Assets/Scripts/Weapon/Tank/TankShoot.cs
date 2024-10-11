@@ -39,7 +39,7 @@ public class TankShoot : AbstractTank, IVehicleShoot
 
         if (Physics.Raycast(_spawnPoint.position, spreadDirection, out hit, _range))
         {
-            if (hit.collider.TryGetComponent(out PlayerHealth playerHealth))
+            if (hit.collider.TryGetComponent(out IPlayerHealth playerHealth))
             {
                 playerHealth.GetDamage(100f);
                 Instantiate(_shootingEffect, _spawnPoint.position, Quaternion.identity);
