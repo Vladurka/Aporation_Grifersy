@@ -20,8 +20,6 @@ namespace Game.Data
 
             existingData.MoneyData = _coinSystem.Money;
 
-            Debug.Log(existingData.MoneyData);
-
             JSON_saveSystem.Save(existingData);
         }
     }

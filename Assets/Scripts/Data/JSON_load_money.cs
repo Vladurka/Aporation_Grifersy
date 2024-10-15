@@ -17,7 +17,6 @@ namespace Game.Data
             {
                 JSON_playerData data = JSON_saveSystem.Load<JSON_playerData>();
                 _coinSystem.Money = data.MoneyData;
-                Debug.Log(_coinSystem.Money);
             }
         }
     }

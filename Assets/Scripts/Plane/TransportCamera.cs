@@ -17,22 +17,20 @@ public class TransportCamera : MonoBehaviour
     private float _x = 0.0f;
     private float _y = 0.0f;
 
-    void Start()
+    private void Start()
     {
         Vector3 angles = transform.eulerAngles;
         _x = angles.y;
         _y = angles.x;
 
         if (GetComponent<Rigidbody>())
-        {
             GetComponent<Rigidbody>().freezeRotation = true;
-        }
 
         Cursor.lockState = CursorLockMode.Locked;
         _camera = GetComponent<Camera>();
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (_camera.enabled)
         {
@@ -42,10 +40,17 @@ public class TransportCamera : MonoBehaviour
             _y = ClampAngle(_y, _yMinLimit, _yMaxLimit);
 
             Quaternion rotation = Quaternion.Euler(_y, _x, 0);
-            Vector3 position = rotation * new Vector3(0.0f, 0.0f, -_distance) + _target.position;
+            Vector3 desiredPosition = rotation * new Vector3(0.0f, 0.0f, -_distance) + _target.position;
+
+            RaycastHit hit;
+            if (Physics.Linecast(_target.position, desiredPosition, out hit))
+            {
+                float adjustedDistance = Vector3.Distance(_target.position, hit.point) - 0.5f; 
+                desiredPosition = rotation * new Vector3(0f, 0f, -adjustedDistance) + _target.position;
+            }
 
             transform.rotation = rotation;
-            transform.position = position;
+            transform.position = desiredPosition;
         }
     }
 
@@ -53,8 +58,10 @@ public class TransportCamera : MonoBehaviour
     {
         if (angle < -360F)
             angle += 360F;
+
         if (angle > 360F)
             angle -= 360F;
+
         return Mathf.Clamp(angle, min, max);
     }
 }

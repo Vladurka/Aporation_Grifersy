@@ -8,11 +8,11 @@ public class MissileATGM : MonoBehaviour
 
     private Vector3 _targetPoint;
 
-    public Camera Camera; 
+    public Camera Camera;
 
-    private void Update()
+    void Update()
     {
-        if (!Camera.Equals(null))
+        if (Camera != null)
         {
             Ray ray = Camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
@@ -21,12 +21,17 @@ public class MissileATGM : MonoBehaviour
                 _targetPoint = hit.point;
 
             else
-                _targetPoint = ray.GetPoint(1000);
+                _targetPoint = transform.position + transform.forward * 1000f;
 
             transform.position += transform.forward * _speed * Time.deltaTime;
-            Vector3 direction = (_targetPoint - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, _turnSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, _targetPoint) > 0.1f)
+            {
+                Vector3 direction = (_targetPoint - transform.position).normalized;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                float maxRotationAngle = 30f;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxRotationAngle * Time.deltaTime * _turnSpeed);
+            }
         }
     }
 }
