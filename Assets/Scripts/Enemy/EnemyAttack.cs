@@ -48,7 +48,7 @@ public class EnemyAttack : MonoBehaviour
 
         Invoke("SendDamage", 0.5f);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
     }
 
     private void SendDamage()
